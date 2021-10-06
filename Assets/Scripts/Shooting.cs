@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
     public Transform shootingPoint;
     public GameObject arrowPrefab;
 
-    public float arrowForce = 10f;
+    public float arrowForce = 5f;
 
     // Update is called once per frame
     void Update()
