@@ -25,7 +25,7 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 2f); // Destroy object after 5 seconds of hitting something
+        Destroy(effect, 0.30f); // Destroy object after 5 seconds of hitting something
         Destroy(gameObject);
     }
 }
