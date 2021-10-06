@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
 
     public Animator animator;
     public GameObject arrowPrefab;
+    //public Camera cam;
+
+    //Vector2D mousePos;
 
     public void Move()
     {
@@ -26,12 +29,13 @@ public class Movement : MonoBehaviour
         {
             movement.Normalize();
         }
-        transform.position = transform.position + movement * Time.deltaTime;
+        transform.position = transform.position + movement * Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
