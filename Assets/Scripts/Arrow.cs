@@ -15,7 +15,7 @@ public class Arrow : MonoBehaviour
     {
         
     }    
-    public float lifeTime = 0.5f;
+    public float lifeTime = 2f;
     void  Awake ()
     {
     Destroy(gameObject, lifeTime);
