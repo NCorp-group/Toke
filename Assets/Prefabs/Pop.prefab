@@ -41,7 +41,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833966720775032086}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 2135ce0b1bd0fc749949cc399fe350d9, type: 2}
   m_Animations: []
