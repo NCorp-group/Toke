@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
             movement.Normalize();
         }
         transform.position = transform.position + movement * Time.fixedDeltaTime;
+        //Vector3 newPos = transform.position + movement * Time.fixedDeltaTime;
+        //transform.position.Set(newPos.x, newPos.y, newPos.z);
     }
 
     // Update is called once per frame
