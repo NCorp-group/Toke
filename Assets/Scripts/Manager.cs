@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
+    public GameObject pauseMenu;
+    private bool _pauseActive;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _pauseActive = false;
+        pauseMenu.SetActive(_pauseActive);
     }
 
     // Update is called once per frame
@@ -16,7 +20,8 @@ public class Manager : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
-            SceneManager.LoadScene(0);
+            _pauseActive = !_pauseActive;
+            pauseMenu.SetActive(_pauseActive);
         }
     }
 }
