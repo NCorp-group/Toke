@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54dc6b07ba69f442cb2322da8d6232aa
+guid: 874acad1eb0b449e5b0d5d1ba1b8d102
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toke_run-right_0
+      name: toke_run-right-up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e87ef72054d240d5b2870fbfe46720e
-      internalID: 1897013515
+      spriteID: 54b81702fbf3846f8afeb9d414c9030b
+      internalID: -348118537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toke_run-right_1
+      name: toke_run-right-up_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c375cefd6e64fd2afc03cd35b7aa7b
-      internalID: -1870678601
+      spriteID: 3a42a5c797319466aa6fca23ab74a36d
+      internalID: -1790274010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toke_run-right_2
+      name: toke_run-right-up_2
       rect:
         serializedVersion: 2
         x: 128
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b16ba6d3d11d341199521ad1b5f9da43
-      internalID: 271611324
+      spriteID: ed5902af4a8a14723bfffc80bc512743
+      internalID: 1185640062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toke_run-right_3
+      name: toke_run-right-up_3
       rect:
         serializedVersion: 2
         x: 192
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02333fa1804ce46c3a002825119d0634
-      internalID: 2117155774
+      spriteID: 50ca3220f8b674fb985593347e1b5dce
+      internalID: -1241308140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toke_run-right_4
+      name: toke_run-right-up_4
       rect:
         serializedVersion: 2
         x: 256
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0a441685d18c4a99bac54ea2dc2f716
-      internalID: -783093079
+      spriteID: 3a9ab7a937fcd48cfa45c72a965ff23d
+      internalID: 196950502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toke_run-right_5
+      name: toke_run-right-up_5
       rect:
         serializedVersion: 2
         x: 320
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70905798f96dd4804bbf830150e8407c
-      internalID: -1466276667
+      spriteID: 6b04ff448ea2a48d29a260f64b9cd5f2
+      internalID: 455891816
       vertices: []
       indices: 
       edges: []
@@ -240,12 +240,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      toke_run-right_2: 271611324
-      toke_run-right_3: 2117155774
-      toke_run-right_4: -783093079
-      toke_run-right_0: 1897013515
-      toke_run-right_1: -1870678601
-      toke_run-right_5: -1466276667
+      toke_run-right-up_1: -1790274010
+      toke_run-right-up_4: 196950502
+      toke_run-right-up_3: -1241308140
+      toke_run-right-up_0: -348118537
+      toke_run-right-up_2: 1185640062
+      toke_run-right-up_5: 455891816
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
