@@ -7,8 +7,8 @@ public class WeaponMovement : MonoBehaviour
 {
     public Camera cam;
     private Vector2 mousePosition;
-    public const float a = 0.1f;
-    public const float b = 0.2f;
+    public const float a = 0.2f;
+    public const float b = 0.4f;
 
     public float mouseX;
     public float mouseY;
@@ -34,6 +34,45 @@ public class WeaponMovement : MonoBehaviour
         /*float*/ mouseX = mousePosition.x;
         /*float*/ mouseY = mousePosition.y;
         
+        // Take a and b into account and scale the normalised mouse position vector coordinates with a and b - or use a logarithmic function to simulate quadrants of an ellipsis.
+
+        var normalizedMousePosition = mousePosition.normalized;
+        var normMouseX = normalizedMousePosition.x;
+        var normMouseY = normalizedMousePosition.y;
+        
+        var angle = Mathf.Acos(normMouseX) * Mathf.Rad2Deg;
+        if (mouseX >= 0)
+        {
+            if (mouseY >= 0)
+            {
+                angle = Mathf.Acos(normMouseX);                
+            }
+            else
+            {
+                angle = Mathf.Asin(normMouseY);
+            }
+        }
+        else
+        {
+            if (mouseY >= 0)
+            {
+                angle = Mathf.Acos(normMouseX);                
+            }
+            else
+            {
+                angle = Mathf.Asin(normMouseY);
+            }
+        }
+        //Quaternion.Euler()
+
+        weaponX = normMouseX * b;
+        weaponY = normMouseY * a;
+        
+        var newWeaponPos = new Vector2(weaponX, weaponY);
+        var normalizedWeaponPos = newWeaponPos.normalized;
+        
+        
+
         /*/*float#1# slope = -math.sqrt((- Mathf.Pow(a,2) + Mathf.Pow(mouseX,2)) * b
                       + Mathf.Pow(mouseY, 2) * Mathf.Pow(a,2) - mouseX * mouseY)
                       / (Mathf.Pow(a,2) * Mathf.Pow(mouseX,2));
@@ -50,6 +89,10 @@ public class WeaponMovement : MonoBehaviour
 
         Vector2 newWeaponPos = new Vector2(weaponX, weaponY);
         rb.position = newWeaponPos;*/
+        //rb.position.Set(weaponX, weaponY);
+        
+        
+        rb.position = 0.1f * normalizedWeaponPos;
         //rb.position.Set(weaponX, weaponY);
     }
 
