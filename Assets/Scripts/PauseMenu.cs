@@ -53,4 +53,10 @@ public class PauseMenu : MonoBehaviour
         // TODO: Save run progress here.
         SceneManager.LoadScene(0);
     }
+
+    public void ExitGame()
+    {
+        // TODO: Save run progress here.
+        Application.Quit();
+    }
 }
