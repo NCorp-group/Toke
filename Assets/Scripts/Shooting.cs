@@ -11,6 +11,9 @@ public class Shooting : MonoBehaviour
     private int shotDelay;
     [SerializeField] private int counter;
     // Start is called before the first frame update
+
+    public static event Action OnFire;
+    
     void Start()
     {
         old_fireRate = fireRate;
@@ -56,6 +59,7 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
 
         rb.velocity = shootingPoint.right * arrowForce;
+        OnFire?.Invoke();
 
         //rb.AddForce(shootingPoint.right * arrowForce, ForceMode2D.Impulse);
     }
