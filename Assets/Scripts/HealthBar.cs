@@ -23,6 +23,14 @@ public class HealthBar : MonoBehaviour
     {
         if (value != oldValue)
         {
+            if (value > 1)
+            {
+                value = 1;
+            }
+            else if (value < 0)
+            {
+                value = 0;
+            }
             UpdateSprite();
             oldValue = value;
         }
@@ -37,7 +45,10 @@ public class HealthBar : MonoBehaviour
         else
         {
             var index = (int) (value * 48) - 1;
-            Debug.Log(index);
+            if (index < 1)
+            {
+                index = 1;
+            }
             healthBarSprite.sprite = sprites[index];
         }
     }
