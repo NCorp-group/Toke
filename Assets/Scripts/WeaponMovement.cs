@@ -6,8 +6,8 @@ public class WeaponMovement : MonoBehaviour
 {
     public Camera cam;
     private Vector2 mousePosition;
-
     public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +18,19 @@ public class WeaponMovement : MonoBehaviour
     void Update()
     {
         //Input.mousePosition
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
     {
+        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // srb.SetRotation()
         Vector2 lookDirection = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        // rb.rotation = angle;
+        //Debug.Log($"angle is {angle}");
+        // srb.angularVelocity = angle;
+        rb.MoveRotation(angle);
+        //rb.SetRotation(angle);
     }
 }

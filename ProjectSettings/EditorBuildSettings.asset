@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 329483729bea8cc47bfa7fd9a8468df5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MovemnetAndAnimation.unity
     guid: 4e55960ac9610044e8e3c396d53257de
+  - enabled: 1
+    path: Assets/Scenes/TemplateScene.unity
+    guid: a956838129e3942c8a6af8ecf8d9615a
   m_configObjects: {}
