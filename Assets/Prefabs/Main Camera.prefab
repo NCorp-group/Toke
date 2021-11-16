@@ -100,3 +100,4 @@ MonoBehaviour:
   followSpeed: 2
   target: {fileID: 0}
   z: -100
+  offsetY: -1
