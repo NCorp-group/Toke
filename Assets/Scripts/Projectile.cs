@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 using System;
 using System.Collections;
+=======
+using System.Collections;
+using System.Collections.Generic;
+>>>>>>> 2fe8c049131d32f2b0c9e0298e1df505871a2a10
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+<<<<<<< HEAD
     public float acceleration = 0f;
     public int damage;
     [Header("if t = 0, then the projectile lives until it collides with something")]
@@ -141,6 +147,32 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }    
+    public float lifeTime = 2f;
+    public float velocity = 2f;
+
+    void  Awake ()
+    {
+        Destroy(gameObject, lifeTime);
+    }
+
+    public GameObject hitEffect;
+
+    void OnCollisionEnter2D(Collision2D collision){
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 0.30f); // Destroy object after 5 seconds of hitting something
+>>>>>>> 2fe8c049131d32f2b0c9e0298e1df505871a2a10
         Destroy(gameObject);
     }
 }

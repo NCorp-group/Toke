@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/next_scene.unity
     guid: 117d220401691c799b06d79e24a36b81
   - enabled: 1
     path: Assets/Scenes/collision_test.unity
     guid: 876b08362994c066caeccd1fd92c2e17
+=======
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 329483729bea8cc47bfa7fd9a8468df5
+  - enabled: 1
+    path: Assets/Scenes/MovemnetAndAnimation.unity
+    guid: 4e55960ac9610044e8e3c396d53257de
+>>>>>>> 2fe8c049131d32f2b0c9e0298e1df505871a2a10
   m_configObjects: {}

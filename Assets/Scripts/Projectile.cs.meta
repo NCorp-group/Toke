@@ -1,3 +1,12 @@
-﻿fileFormatVersion: 2
-guid: 3f6ad86f36a8475b8202a790a45c297d
-timeCreated: 1635798850
+fileFormatVersion: 2
+guid: 240027be804101140ae21884dfdf30b0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hitEffect: {fileID: 1833966720775032086, guid: fbcd2a0da229fa2468976a6b333b4a5c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
