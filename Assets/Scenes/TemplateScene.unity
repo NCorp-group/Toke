@@ -650,23 +650,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.038953133
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.09648241
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.31162506
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.28944725
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2544904051293311420, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_Name
@@ -1150,7 +1150,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 30449957}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
