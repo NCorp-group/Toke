@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class RangedWeapon : MonoBehaviour
 {
     private int old_fireRate;
     [SerializeField] private int fireRate = 5;
@@ -12,6 +12,16 @@ public class Shooting : MonoBehaviour
     [SerializeField] private int counter;
     // Start is called before the first frame update
 
+    public static event Action<Color> OnProjectileChanged;
+    public static event Action<Color> OnProjectileSetColor;
+    
+    
+    public Transform shootingPoint;
+    public GameObject arrowPrefab;
+
+    public Projectile projectile;
+    
+    public float arrowForce = 5f;
     public static event Action OnFire;
     
     void Start()
@@ -19,13 +29,20 @@ public class Shooting : MonoBehaviour
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
-        //Debug.Log("Hello");
+
+        OnProjectileSetColor?.Invoke(projectile.color);
+
+        CollectItem.OnItemCollected += collectable =>
+        {
+            if (collectable.variant == Collectable.Variant.PROJECTILE)
+            {
+                projectile = collectable.item.GetComponent<Projectile>();
+                OnProjectileSetColor?.Invoke(projectile.color);
+            }
+        };
     }
 
-    public Transform shootingPoint;
-    public GameObject arrowPrefab;
-
-    public float arrowForce = 5f;
+    
 
     // Update is called once per frame
     void Update()
@@ -55,10 +72,13 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject arrow = Instantiate(arrowPrefab, shootingPoint.position, shootingPoint.rotation);
-        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
+        //GameObject arrow = Instantiate(arrowPrefab, shootingPoint.position, shootingPoint.rotation);
+        //Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
+        //rb.velocity = shootingPoint.right * arrowForce;
 
-        rb.velocity = shootingPoint.right * arrowForce;
+        var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
+        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * arrowForce;
+        
         OnFire?.Invoke();
 
         //rb.AddForce(shootingPoint.right * arrowForce, ForceMode2D.Impulse);

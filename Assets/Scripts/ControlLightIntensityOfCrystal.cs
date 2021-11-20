@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering.Universal;
@@ -13,7 +14,10 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
     [SerializeField] private float timeToLightUpCompletely = 0.2f;
     [SerializeField] private float timeToReachIdle = 1f;
     
-    private Light2D _light;
+    //private Light2D _light;
+
+    private Light2D[] _lights;
+    
     private float _target;
     private bool _CR_running = false;
 
@@ -24,25 +28,44 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
     
     void Start()
     {
-        _light = GetComponent<Light2D>();
-        Assert.IsNotNull(_light);
+        // _light = GetComponent<Light2D>();
+
+        _lights = GetComponentsInChildren<Light2D>();
+        
+        // Assert.IsNotNull(_light);
         Assert.IsTrue(lightUpIntensity > idleIntensity);
         _target = idleIntensity;
         handler = identity;
+        
     }
+
+    private void ChangeColorOfCrystal(Color color)
+    {
+        foreach (var light in _lights)
+        {
+            light.color = color;
+        }
+    }
+    
     
     private void OnEnable()
     {
         // subscribe
-        Shooting.OnFire += IncreaseLightIntensity;
+        RangedWeapon.OnFire += IncreaseLightIntensity;
+        RangedWeapon.OnProjectileChanged += ChangeColorOfCrystal;
+        RangedWeapon.OnProjectileSetColor += ChangeColorOfCrystal;
     }
 
     private void OnDisable()
     {
         // unsubscribe
-        Shooting.OnFire -= IncreaseLightIntensity;
+        RangedWeapon.OnFire -= IncreaseLightIntensity;
+        RangedWeapon.OnProjectileChanged -= ChangeColorOfCrystal;
+        RangedWeapon.OnProjectileSetColor -= ChangeColorOfCrystal;
     }
 
+    
+    
    
 
     private void IncreaseLightIntensity()
@@ -66,8 +89,16 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             ? (lightUpIntensity - idleIntensity) / timeToLightUpCompletely
             : (idleIntensity - lightUpIntensity) / timeToReachIdle;
 
+        var fstCrystal = _lights[0];
+        var _light = fstCrystal;
+        
         var delta = _light.intensity + _light.intensity * Time.deltaTime * slope;
         _light.intensity = Mathf.Clamp(delta, idleIntensity, lightUpIntensity);
+
+        foreach (var light in _lights)   
+        {
+            light.intensity = Mathf.Clamp(delta, idleIntensity, lightUpIntensity);
+        }
         
         /*
         Debug.Log($"light up? {lightUp}");
@@ -85,7 +116,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             lightUp = false;
         }
         
-        Debug.Log($"light intensity = {_light.intensity}");
+        // Debug.Log($"light intensity = {_light.intensity}");
         
     }
 
