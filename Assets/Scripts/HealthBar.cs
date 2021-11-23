@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,13 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    private const float TOLERANCE = Single.Epsilon;
     [SerializeField] private Image healthBarSprite;
+    [Range(0, 1)]
     [SerializeField] private float value;
     private float oldValue;
     [SerializeField] private Sprite[] sprites;
+    [SerializeField] private GameObject character;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,11 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (value != oldValue)
+        HealthController toke = character.GetComponent<HealthController>();
+        value = (float) toke.currentHealth / (float) toke.maxHealth;
+        
+        //var
+        if (Math.Abs(value - oldValue) > TOLERANCE)
         {
             if (value > 1)
             {
@@ -49,7 +57,11 @@ public class HealthBar : MonoBehaviour
             {
                 index = 1;
             }
-            Debug.Log(index);
+
+            if (value < 1 && index == 48)
+            {
+                index -= 1;
+            }
             healthBarSprite.sprite = sprites[index];
         }
     }
