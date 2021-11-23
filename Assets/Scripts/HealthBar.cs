@@ -13,6 +13,7 @@ public class HealthBar : MonoBehaviour
     private float oldValue;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private GameObject character;
+    public int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,16 +53,18 @@ public class HealthBar : MonoBehaviour
         }
         else
         {
-            var index = (int) (value * 48) - 1;
+            var index = (int) (value * sprites.Length) - 1;
+            this.index = index;
             if (index < 1)
             {
                 index = 1;
             }
 
-            if (value < 1 && index == 48)
+            if (value < 1 && index == sprites.Length)
             {
                 index -= 1;
             }
+            //index = 1;
             healthBarSprite.sprite = sprites[index];
         }
     }
