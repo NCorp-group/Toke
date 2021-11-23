@@ -21,11 +21,13 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Vertical",   movement.y);
         animator.SetFloat("Magnitude",  movement.magnitude);
 
+
         if (movement.magnitude > 1.0f)
         {
             movement.Normalize();
         }
         transform.position = transform.position + movement * Time.fixedDeltaTime;
+        FindObjectOfType<AudioManager>().Play("TestSound");
     }
 
     // Update is called once per frame
