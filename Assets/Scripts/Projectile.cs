@@ -1,35 +1,77 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float acceleration = 0f;
+    public int damage;
+    
+    [Header("if t = 0, then the projectile lives until it collides with something")]
+    public float lifetime;
+  
+    [Header("the color used to light up the player sceptre, when this projectile is equipped")]
+    public Color color = Color.green;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }    
-    public float lifeTime = 2f;
 
-    void  Awake ()
-    {
-        Destroy(gameObject, lifeTime);
-    }
+    [Header("If set to true, the animator is responsible for destroying the projectile, using an animation event.")]
+    [SerializeField] private bool animatorProvidesOnHitEffect = false;
+    public GameObject spawnObjectOnCollision;
+
 
     public GameObject hitEffect;
+    
+    
+    public float lifeTime = 2f;
 
-    void OnCollisionEnter2D(Collision2D collision){
+    
+    private Rigidbody2D rb;
+    private Animator animator;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        Assert.IsTrue(lifetime >= 0);
+
+        if (lifetime > 0)
+        {
+            Destroy(gameObject, lifetime);
+        }
+
+        rb = GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(rb);
+        animator = GetComponent<Animator>();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = rb.velocity + (rb.velocity * acceleration * Time.deltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.CompareTag("Collidable"))
         {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 0.30f); // Destroy object after 5 seconds of hitting something
-            Destroy(gameObject);
+            if (hitEffect != null)
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 0.30f);
+            }
+            
+             // Destroy object after 5 seconds of hitting something
+            
+             animator?.SetTrigger("collision");
+             // in case the
+             if (animator != null && !animatorProvidesOnHitEffect)
+             {
+                 Destroy(gameObject);
+             }
         }
+    }
+    
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }
