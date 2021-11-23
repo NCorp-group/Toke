@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Props
   - Player
-  - 
+  - SceptreCrystal
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: SceptreCrystal
+    uniqueID: 2983911483
+    locked: 0
+  - name: LightningBird
+    uniqueID: 3895597179
     locked: 0

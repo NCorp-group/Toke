@@ -31,6 +31,13 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         // _light = GetComponent<Light2D>();
 
         _lights = GetComponentsInChildren<Light2D>();
+        Debug.Log($"_lights.length = {_lights.Length}");
+        // Assert.IsTrue(_lights.Length == 2);
+
+        foreach (var light in _lights)
+        {
+            Debug.Log($"{light.gameObject.name}");
+        }
         
         // Assert.IsNotNull(_light);
         Assert.IsTrue(lightUpIntensity > idleIntensity);
@@ -41,6 +48,11 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
 
     private void ChangeColorOfCrystal(Color color)
     {
+        // avoid some race condition with a fired event
+        if (_lights == null) return;
+        
+        
+        Debug.Log($"_lights.length = {_lights.Length}");
         foreach (var light in _lights)
         {
             light.color = color;
@@ -115,9 +127,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         {
             lightUp = false;
         }
-        
-        // Debug.Log($"light intensity = {_light.intensity}");
-        
+
     }
 
     private IEnumerator _IncreaseLightIntensity()
