@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7058320939769530467, guid: b14d4688821e348e2bcfd1fb0603ffa3, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7058320939769530476, guid: b14d4688821e348e2bcfd1fb0603ffa3, type: 3}
       propertyPath: arrowForce
