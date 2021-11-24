@@ -57,6 +57,8 @@ public class Shooting : MonoBehaviour
 
         rb.velocity = shootingPoint.right * arrowForce;
 
+        FindObjectOfType<AudioManager>().Play("ArrowShot");
+
         //rb.AddForce(shootingPoint.right * arrowForce, ForceMode2D.Impulse);
     }
 }
