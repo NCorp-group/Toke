@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     private const float TOLERANCE = Single.Epsilon;
     [SerializeField] private Image healthBarSprite;
     [Range(0, 1)]
-    [SerializeField] private float value;
+    [SerializeField] private float value = 1f;
     private float oldValue;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private GameObject character;
@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        value = 1f;
+        //value = 1f;
         oldValue = value;
         UpdateSprite();
         //hpSprite = GetComponent<Image>();
