@@ -140,7 +140,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 4.2110848e-10, y: 0.0035325144}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   damage: 25
-  lifetime: 0
+  lifetime: 10
   color: {r: 0.16470589, g: 0.5568628, b: 0.85490197, a: 1}
   animatorProvidesOnHitEffect: 1
   spawnObjectOnCollision: {fileID: 0}
