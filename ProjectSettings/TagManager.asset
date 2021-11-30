@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collidable
   - Collectable
+  - UICamera
   layers:
   - Default
   - TransparentFX
