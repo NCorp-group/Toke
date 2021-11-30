@@ -140,6 +140,7 @@ MonoBehaviour:
   counter: 0
   shootingPoint: {fileID: 7058320940644460924}
   arrowPrefab: {fileID: 6516192240101066548, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
+  projectile: {fileID: 0}
   arrowForce: 5
 --- !u!61 &7058320939769530477
 BoxCollider2D:
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 7058320941059691198}
   - component: {fileID: 7058320941059691196}
   - component: {fileID: 7058320941059691199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Toke
   m_TagString: Player
   m_Icon: {fileID: 0}
