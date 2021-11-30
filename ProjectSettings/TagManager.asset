@@ -7,6 +7,8 @@ TagManager:
   - Collidable
   - Collectable
   - UICamera
+  - Enemy
+  - EnemySpawningPoint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Props
   - Player
   - SceptreCrystal
-  - 
+  - World Props
   - 
   - 
   - 
@@ -49,4 +51,19 @@ TagManager:
     locked: 0
   - name: LightningBird
     uniqueID: 3895597179
+    locked: 0
+  - name: ElementalProjectile
+    uniqueID: 2074284173
+    locked: 0
+  - name: Ground
+    uniqueID: 1890659771
+    locked: 0
+  - name: Runes
+    uniqueID: 1551388441
+    locked: 0
+  - name: Structure
+    uniqueID: 4090939233
+    locked: 0
+  - name: PLayer
+    uniqueID: 3395588223
     locked: 0

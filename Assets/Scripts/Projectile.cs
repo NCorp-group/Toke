@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -20,6 +17,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool animatorProvidesOnHitEffect = false;
     public GameObject spawnObjectOnCollision;
 
+
+    
+
+    public enum Variant
+    {
+        PLAYER,
+        ENEMY
+    }
+
+    public Variant projectileType = Variant.PLAYER;
+    
 
     public GameObject hitEffect;
     
@@ -67,6 +75,18 @@ public class Projectile : MonoBehaviour
              {
                  Destroy(gameObject);
              }
+
+             
+        }
+        
+        if (collision.collider.gameObject.CompareTag("Enemy"))
+        {
+            var enemy = collision.collider.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                DestroyProjectile();
+            }
         }
     }
     

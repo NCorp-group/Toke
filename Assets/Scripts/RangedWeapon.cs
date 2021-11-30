@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class RangedWeapon : MonoBehaviour
@@ -19,6 +18,7 @@ public class RangedWeapon : MonoBehaviour
     public Transform shootingPoint;
     public GameObject arrowPrefab;
 
+    
     public Projectile projectile;
     
     public float arrowForce = 5f;
@@ -26,6 +26,10 @@ public class RangedWeapon : MonoBehaviour
     
     void Start()
     {
+        projectile =
+            (Projectile) AssetDatabase.LoadAssetAtPath("Assets/Projectiles/Air/wind arc/wind arc.prefab",
+                typeof(Projectile));
+        
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
@@ -42,7 +46,26 @@ public class RangedWeapon : MonoBehaviour
         };
     }
 
-    
+    private void LoadProjectileFromAssets(string path)
+    {
+        projectile = (Projectile) AssetDatabase.LoadAssetAtPath(path,
+            typeof(Projectile));
+    }
+
+    private void OnEnable()
+    {
+
+        GlobalState.OnSceneStart += () =>
+        {
+            if (GlobalState.projectile != null) projectile = GlobalState.projectile;
+        };
+
+        GlobalState.OnSceneEnd += () =>
+        {
+            GlobalState.projectile = projectile;
+        };
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -81,7 +104,7 @@ public class RangedWeapon : MonoBehaviour
         
         OnFire?.Invoke();
 
-        FindObjectOfType<AudioManager>().Play("ArrowShot");
+        // FindObjectOfType<AudioManager>().Play("ArrowShot");
 
         //rb.AddForce(shootingPoint.right * arrowForce, ForceMode2D.Impulse);
     }
