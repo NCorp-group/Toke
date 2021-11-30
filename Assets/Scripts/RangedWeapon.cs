@@ -81,6 +81,8 @@ public class RangedWeapon : MonoBehaviour
         
         OnFire?.Invoke();
 
+        FindObjectOfType<AudioManager>().Play("ArrowShot");
+
         //rb.AddForce(shootingPoint.right * arrowForce, ForceMode2D.Impulse);
     }
 }

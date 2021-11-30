@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float magnitude = 0;
+
     // Start is called before the first frame update
     
     void Start()
@@ -48,6 +50,7 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude",  movement.magnitude);
+        magnitude = movement.magnitude;
 
         if (movement.magnitude > 1.0f)
         {
