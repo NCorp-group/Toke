@@ -12,13 +12,9 @@ public class Projectile : MonoBehaviour
     [Header("the color used to light up the player sceptre, when this projectile is equipped")]
     public Color color = Color.green;
 
-
     [Header("If set to true, the animator is responsible for destroying the projectile, using an animation event.")]
     [SerializeField] private bool animatorProvidesOnHitEffect = false;
     public GameObject spawnObjectOnCollision;
-
-
-    
 
     public enum Variant
     {
@@ -75,8 +71,6 @@ public class Projectile : MonoBehaviour
              {
                  Destroy(gameObject);
              }
-
-             
         }
         
         if (collision.collider.gameObject.CompareTag("Enemy"))
