@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
     public float magnitude = 0;
     public static event Action OnPlayerMovement;
 
+    public static event Action<string, float> OnMovement;
+    
     // Start is called before the first frame update
 
     void Start()
@@ -55,13 +57,14 @@ public class Movement : MonoBehaviour
         {
             movement.Normalize();
         }
-        transform.position = transform.position + (Vector3) movement * Time.fixedDeltaTime * movementScalar;
 
         if (movement.magnitude > 0)
         {
             OnPlayerMovement?.Invoke();
         }
 
+        
+        transform.position = transform.position + (Vector3) movement * Time.fixedDeltaTime * movementScalar;
     }
 
     // Update is called once per frame

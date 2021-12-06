@@ -16,6 +16,8 @@ public class RoomDoor : MonoBehaviour
    
     void Start()
     {
+        
+        
         _door_area = GetComponent<Collider2D>();
         Assert.IsNotNull(_door_area);
         // Assert.IsTrue(_door_area.isTrigger);
