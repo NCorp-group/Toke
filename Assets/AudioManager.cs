@@ -8,7 +8,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance == null)
@@ -34,6 +33,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Start subscribes to all events
+    void Start()
+    {
+        //Enemy.OnEnemyDie += DeathSound;
+        Movement.OnPlayerMovement += PlayerMovement;
+    }
+
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -57,4 +64,33 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
+
+
+    private string EnemyTypeToString(Enemy.EnemyType type)
+    {
+        return type switch
+        {
+            Enemy.EnemyType.SLIME => "slime",
+            Enemy.EnemyType.WORM => "worm"
+        };
+    }
+
+
+    void DeathSound(Enemy.EnemyType type)
+    {
+        Play($"{EnemyTypeToString(type)}-death");
+    }
+
+
+    void PlayerMovement()
+    {
+        //Adding variance to the step sound of the player
+        //by randomizing volume and pitch for every step
+        Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
+        s.source.volume = UnityEngine.Random.Range(0.8f, 1);
+        s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
+        if (!s.source.isPlaying)
+            s.source.Play();
+    }
+
 }

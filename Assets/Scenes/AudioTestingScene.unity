@@ -213,6 +213,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: ArrowShot
   character: {fileID: 1335752837}
+--- !u!114 &1335752843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335752837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c1d95ee957370408b1ef4c91ef2421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: ArrowShot
 --- !u!1001 &1433181813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
       propertyPath: sounds.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -253,6 +266,14 @@ PrefabInstance:
       value: ArrowShot
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7787d701f55ba234b9b620f73ffbc80d, type: 3}
+    - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: toke-step
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
       propertyPath: sounds.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -261,11 +282,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
       propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398728840148823397, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
+      propertyPath: sounds.Array.data[2].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5398728840148823398, guid: 790e910ae90afda418a5bc7dd63fe847, type: 3}
@@ -407,6 +436,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1451654956}
+    - target: {fileID: 7058320939769530471, guid: b14d4688821e348e2bcfd1fb0603ffa3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7101389953634991590, guid: b14d4688821e348e2bcfd1fb0603ffa3, type: 3}
       propertyPath: m_Name
       value: Toke

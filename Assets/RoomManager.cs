@@ -64,8 +64,6 @@ public class RoomManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
-        
         Enemy.OnEnemySpawn += EnemySpawnCB;
         Enemy.OnEnemyDie += EnemyDieCB;
     }
@@ -76,13 +74,13 @@ public class RoomManager : MonoBehaviour
         Enemy.OnEnemyDie -= EnemyDieCB;
     }
 
-    private void EnemySpawnCB()
+    private void EnemySpawnCB(Enemy.EnemyType type)
     {
         Debug.Log("enemy spawned");
         _enemies_alive += 1;
     }
 
-    private void EnemyDieCB()
+    private void EnemyDieCB(Enemy.EnemyType type)
     {
         Debug.Log("enemy died");
         _enemies_alive -= 1;
