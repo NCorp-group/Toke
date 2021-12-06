@@ -11,7 +11,7 @@ public class MovementSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class MovementSound : MonoBehaviour
     {
         var magnitude = character.GetComponent<Movement>().magnitude;
         if (magnitude > 0)
-        {
+        {       
             FindObjectOfType<AudioManager>().Play(sound);
         }
 
