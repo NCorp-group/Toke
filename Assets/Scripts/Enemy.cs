@@ -7,9 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public static event Action<EnemyType> OnEnemySpawn;
     public static event Action<EnemyType> OnEnemyDie;
-    public static event Action<string, int> OnEnemyTakeDamage;
+    public static event Action<EnemyType> OnEnemyTakeDamage;
 
-    
     public enum EnemyType 
     {
         SLIME, 
@@ -29,8 +28,8 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
-        int damage = 10;
-        OnEnemyTakeDamage?.Invoke(name, damage);
+        //int damage = 10;
+        OnEnemyTakeDamage?.Invoke(type);
         
         
         
@@ -53,10 +52,12 @@ public class Enemy : MonoBehaviour
     
     public void TakeDamage(int dmg)
     {
+        OnEnemyTakeDamage?.Invoke(type);
         var trigger = "get hit";
         hp -= dmg;
         if (hp <= 0)
         {
+            OnEnemyDie?.Invoke(type);
             collider.SetActive(false);
             trigger = "death";
         }
@@ -67,8 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        OnEnemyDie?.Invoke(type);
-        collider.SetActive(false);
+        //collider.SetActive(false);
         if (dropCollectableOnDeath)
         {
             var rand = Random.Range(0.0f, 1.0f);

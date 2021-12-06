@@ -37,7 +37,18 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Enemy.OnEnemyDie += DeathSound;
-        Movement.OnPlayerMovement += PlayerMovement;
+        Movement.OnPlayerMovement += PlayerMovementSound;
+        RangedWeapon.OnFire += PlayerFireSound;
+<<<<<<< Updated upstream
+        Enemy.OnEnemyDie += DeathSound;
+        Enemy.OnEnemySpawn += SpawnSound;
+        Enemy.OnEnemyTakeDamage += TakeDamageSound;
+=======
+
+        Enemy.OnEnemyDie += EnemyDeathSound;
+        Enemy.OnEnemySpawn += EnemySpawnSound;
+        Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
+>>>>>>> Stashed changes
     }
 
 
@@ -51,6 +62,18 @@ public class AudioManager : MonoBehaviour
         }
         if (!s.source.isPlaying)
             s.source.Play();
+    }
+
+    public void PlayWithOverlap(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found!");
+            return;
+        }
+        
+        s.source.Play();
     }
 
 
@@ -75,14 +98,32 @@ public class AudioManager : MonoBehaviour
         };
     }
 
-
-    void DeathSound(Enemy.EnemyType type)
+<<<<<<< Updated upstream
+    void TakeDamageSound(Enemy.EnemyType type)
+=======
+    void EnemyTakeDamageSound(Enemy.EnemyType type)
+>>>>>>> Stashed changes
     {
-        Play($"{EnemyTypeToString(type)}-death");
+        PlayWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
     }
 
 
-    void PlayerMovement()
+    void EnemyDeathSound(Enemy.EnemyType type)
+    {
+        PlayWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
+    }
+
+<<<<<<< Updated upstream
+    void SpawnSound(Enemy.EnemyType type)
+=======
+    void EnemySpawnSound(Enemy.EnemyType type)
+>>>>>>> Stashed changes
+    {
+        //TODO
+    }
+
+
+    void PlayerMovementSound()
     {
         //Adding variance to the step sound of the player
         //by randomizing volume and pitch for every step
@@ -91,6 +132,11 @@ public class AudioManager : MonoBehaviour
         s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
         if (!s.source.isPlaying)
             s.source.Play();
+    }
+
+    void PlayerFireSound()
+    {
+        PlayWithOverlap("toke-fire");
     }
 
 }
