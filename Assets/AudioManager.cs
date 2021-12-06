@@ -39,16 +39,10 @@ public class AudioManager : MonoBehaviour
         //Enemy.OnEnemyDie += DeathSound;
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
-<<<<<<< Updated upstream
-        Enemy.OnEnemyDie += DeathSound;
-        Enemy.OnEnemySpawn += SpawnSound;
-        Enemy.OnEnemyTakeDamage += TakeDamageSound;
-=======
-
         Enemy.OnEnemyDie += EnemyDeathSound;
         Enemy.OnEnemySpawn += EnemySpawnSound;
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
->>>>>>> Stashed changes
+
     }
 
 
@@ -98,11 +92,7 @@ public class AudioManager : MonoBehaviour
         };
     }
 
-<<<<<<< Updated upstream
-    void TakeDamageSound(Enemy.EnemyType type)
-=======
     void EnemyTakeDamageSound(Enemy.EnemyType type)
->>>>>>> Stashed changes
     {
         PlayWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
     }
@@ -113,11 +103,8 @@ public class AudioManager : MonoBehaviour
         PlayWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
     }
 
-<<<<<<< Updated upstream
-    void SpawnSound(Enemy.EnemyType type)
-=======
+
     void EnemySpawnSound(Enemy.EnemyType type)
->>>>>>> Stashed changes
     {
         //TODO
     }
