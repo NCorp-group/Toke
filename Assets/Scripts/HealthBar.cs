@@ -10,39 +10,34 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image healthBarSprite;
     [Range(0, 1)]
     [SerializeField] private float value = 1f;
-    private float oldValue;
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private GameObject character;
+
     public int index;
     // Start is called before the first frame update
     void Start()
     {
-        //value = 1f;
-        oldValue = value;
         UpdateSprite();
-        //hpSprite = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HealthController toke = character.GetComponent<HealthController>();
-        value = (float) toke.currentHealth / (float) toke.maxHealth;
-        
-        //var
-        if (Math.Abs(value - oldValue) > TOLERANCE)
-        {
-            if (value > 1)
-            {
-                value = 1;
-            }
-            else if (value < 0)
-            {
-                value = 0;
-            }
-            UpdateSprite();
-            oldValue = value;
-        }
+    }
+
+    void OnEnable()
+    {
+        PlayerHealthController.OnPlayerHealthChange += UpdateValue;
+    }
+
+    void OnDisable()
+    {
+        PlayerHealthController.OnPlayerHealthChange -= UpdateValue;
+    }
+
+    private void UpdateValue(int currentHealth, int maxHealth)
+    {
+        value = currentHealth / maxHealth;
+        UpdateSprite();
     }
 
     private void UpdateSprite()
