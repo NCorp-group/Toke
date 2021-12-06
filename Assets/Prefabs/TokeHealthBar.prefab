@@ -55,7 +55,7 @@ MonoBehaviour:
   value: 0
   sprites:
   - {fileID: 21300000, guid: 79723a0b1ac3251469d7d9105e4e829b, type: 3}
-  - {fileID: 21300000, guid: d665647c5285e354382fcaf3a88d65fe, type: 3}
+  - {fileID: 21300000, guid: e2d060eecb5f94e408ca8e2a11d3dedb, type: 3}
   - {fileID: 21300000, guid: 38b33380684f2134c8093290962b57d1, type: 3}
   - {fileID: 21300000, guid: 3259fa25615c935488f6b0b796ed789a, type: 3}
   - {fileID: 21300000, guid: c6670f19cdcf3d84ca3ab618e9024cff, type: 3}
@@ -157,7 +157,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c291de6a9279bac4680f02317c29b564, type: 3}
   - {fileID: 21300000, guid: e5217a8b341617a4e807f62c9119f1f4, type: 3}
   - {fileID: 21300000, guid: 1bd59a95b2cec7d43b91899434527d61, type: 3}
-  character: {fileID: 0}
   index: 0
 --- !u!1 &5177780836717837352
 GameObject:

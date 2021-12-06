@@ -926,7 +926,6 @@ MonoBehaviour:
   fireRate: 5
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
-  arrowPrefab: {fileID: 6516192240101066548, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
   projectile: {fileID: 5648644113741115918, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
   arrowForce: 5
 --- !u!50 &3856093045851589518
@@ -1826,7 +1825,6 @@ MonoBehaviour:
   fireRate: 5
   counter: 0
   shootingPoint: {fileID: 6086519575416526304}
-  arrowPrefab: {fileID: 6516192240101066548, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
   projectile: {fileID: 0}
   arrowForce: 16
 --- !u!61 &6086519575620596977
@@ -2009,7 +2007,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -1}

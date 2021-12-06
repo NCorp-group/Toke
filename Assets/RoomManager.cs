@@ -75,13 +75,13 @@ public class RoomManager : MonoBehaviour
 
     private void EnemySpawnCB(Enemy.EnemyType type)
     {
-        Debug.Log("enemy spawned");
+        //Debug.Log("enemy spawned");
         _enemies_alive += 1;
     }
 
     private void EnemyDieCB(Enemy.EnemyType type)
     {
-        Debug.Log("enemy died");
+        //Debug.Log("enemy died");
         _enemies_alive -= 1;
     }
     
@@ -89,7 +89,7 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
+        //Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
         if (_n_waves == 0 && _enemies_alive == 0)
         {
             _room_completed = true;

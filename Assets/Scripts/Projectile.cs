@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
 {
     public float acceleration = 0f;
     public int damage;
+
+    private bool ignore = false;
     
     [Header("if t = 0, then the projectile lives until it collides with something")]
     public float lifetime;
@@ -55,6 +57,14 @@ public class Projectile : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+
+        if (ignore)
+        {
+            return;
+        }
+
+        ignore = true;
+
         if (collision.collider.CompareTag("Collidable"))
         {
             if (hitEffect != null)
@@ -80,6 +90,22 @@ public class Projectile : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
                 DestroyProjectile();
+            }
+        }
+        else if (collision.collider.gameObject.CompareTag("Player"))
+        {
+            var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+                if (animatorProvidesOnHitEffect)
+                {
+                    animator?.SetTrigger("collision");
+                }
+                else
+                {
+                    DestroyProjectile();
+                }
             }
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5222763155793282362}
   - component: {fileID: 7422245520340908315}
   - component: {fileID: 8385294350307976132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ice shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 5
   m_Sprite: {fileID: -2937912103407283272, guid: d458f01cb701c6cf0a443f273300d3f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,8 +143,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.2110848e-10, y: 0.0035325144}
-  m_Size: {x: 0.30000007, y: 0.14222492}
+  m_Offset: {x: 0.11720611, y: -0.0000000139720555}
+  m_Size: {x: 1.4233724, y: 0.6940026}
   m_Direction: 1
 --- !u!114 &7422245520340908315
 MonoBehaviour:
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 0
-  damage: 25
+  damage: 5
   lifetime: 10
   color: {r: 0.16470589, g: 0.5568628, b: 0.85490197, a: 1}
   animatorProvidesOnHitEffect: 1
