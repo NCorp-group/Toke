@@ -46,23 +46,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: SceptreCrystal
-    uniqueID: 2983911483
-    locked: 0
-  - name: LightningBird
-    uniqueID: 3895597179
-    locked: 0
-  - name: ElementalProjectile
-    uniqueID: 2074284173
-    locked: 0
   - name: Ground
     uniqueID: 1890659771
+    locked: 0
+  - name: Structure
+    uniqueID: 4090939233
     locked: 0
   - name: Runes
     uniqueID: 1551388441
     locked: 0
-  - name: Structure
-    uniqueID: 4090939233
+  - name: SceptreCrystal
+    uniqueID: 2983911483
+    locked: 0
+  - name: ElementalProjectile
+    uniqueID: 2074284173
+    locked: 0
+  - name: LightningBird
+    uniqueID: 3895597179
     locked: 0
   - name: PLayer
     uniqueID: 3395588223

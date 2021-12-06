@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 114843453}
   m_Layer: 0
   m_Name: Collider (2)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 467350081}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Collidable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2130,7 +2130,7 @@ GameObject:
   - component: {fileID: 535338128}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21269,18 +21269,6 @@ CompositeCollider2D:
       - X: -10000000
         Y: -60000000
     - - X: 140000000
-        Y: -70000100
-      - X: 140000041
-        Y: -70000100
-      - X: 140000100
-        Y: -70000041
-      - X: 140000100
-        Y: -59999959
-      - X: 140000041
-        Y: -59999900
-      - X: 140000000
-        Y: -59999900
-      - X: 140000000
         Y: -50625000
       - X: 139375008
         Y: -50000000
@@ -21289,34 +21277,10 @@ CompositeCollider2D:
       - X: 120000000
         Y: -50625000
       - X: 120000000
-        Y: -59999900
-      - X: 119999959
-        Y: -59999900
-      - X: 119999900
-        Y: -59999959
-      - X: 119999900
-        Y: -70000041
-      - X: 119999959
-        Y: -70000100
-      - X: 120000000
-        Y: -70000100
-      - X: 120000000
         Y: -90000000
       - X: 140000000
         Y: -90000000
     - - X: -100000000
-        Y: -70000100
-      - X: -99999959
-        Y: -70000100
-      - X: -99999900
-        Y: -70000041
-      - X: -99999900
-        Y: -59999959
-      - X: -99999959
-        Y: -59999900
-      - X: -100000000
-        Y: -59999900
-      - X: -100000000
         Y: -50625000
       - X: -100625000
         Y: -50000000
@@ -21324,18 +21288,6 @@ CompositeCollider2D:
         Y: -50000000
       - X: -120000000
         Y: -50625000
-      - X: -120000000
-        Y: -59999900
-      - X: -120000041
-        Y: -59999900
-      - X: -120000100
-        Y: -59999959
-      - X: -120000100
-        Y: -70000041
-      - X: -120000041
-        Y: -70000100
-      - X: -120000000
-        Y: -70000100
       - X: -120000000
         Y: -90000000
       - X: -100000000
@@ -21582,7 +21534,7 @@ GameObject:
   - component: {fileID: 991611172}
   m_Layer: 0
   m_Name: Collider (4)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21595,7 +21547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991611170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 4.5, z: 0}
+  m_LocalPosition: {x: -7.5, y: 5, z: 0}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21667,7 +21619,7 @@ GameObject:
   - component: {fileID: 1261743647}
   m_Layer: 0
   m_Name: Collider (6)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22340,7 +22292,7 @@ GameObject:
   - component: {fileID: 1752322160}
   m_Layer: 0
   m_Name: Collider (3)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22609,7 +22561,7 @@ GameObject:
   - component: {fileID: 1821898124}
   m_Layer: 0
   m_Name: Collider (7)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34585,7 +34537,7 @@ GameObject:
   - component: {fileID: 1918240833}
   m_Layer: 0
   m_Name: Collider (1)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34665,7 +34617,7 @@ GameObject:
   - component: {fileID: 2039590244}
   m_Layer: 0
   m_Name: Collider (5)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34678,7 +34630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039590242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.55, y: 4.5, z: 0}
+  m_LocalPosition: {x: -23.5, y: 5, z: 0}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
