@@ -51,3 +51,45 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: toke-fire
+    clip: {fileID: 8300000, guid: 29dbe7cafa962e14d9f34f495e53a2b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-hit1
+    clip: {fileID: 8300000, guid: 8b10890222661044cafee022f0047a93, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-hit2
+    clip: {fileID: 8300000, guid: 0a617891fb85a204faa9330336772a2a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-death1
+    clip: {fileID: 8300000, guid: 02dccca74c5798c428c770f7bd89c4f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-death2
+    clip: {fileID: 8300000, guid: 35374c1bbdafba849b3a731c32dbff42, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-death3
+    clip: {fileID: 8300000, guid: 877e5ce75fe0ef24d920a81890c9ddcd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-death4
+    clip: {fileID: 8300000, guid: 891bc12b7f9de9144b821d8dc7d71d2b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
