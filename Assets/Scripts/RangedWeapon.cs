@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 public class RangedWeapon : MonoBehaviour
@@ -13,12 +11,7 @@ public class RangedWeapon : MonoBehaviour
 
     public static event Action<Color> OnProjectileChanged;
     public static event Action<Color> OnProjectileSetColor;
-    
-    
     public Transform shootingPoint;
-    public GameObject arrowPrefab;
-
-    
     public Projectile projectile;
     
     public float arrowForce = 5f;
@@ -26,10 +19,8 @@ public class RangedWeapon : MonoBehaviour
     
     void Start()
     {
-        projectile =
-            (Projectile) AssetDatabase.LoadAssetAtPath("Assets/Projectiles/Air/wind arc/wind arc.prefab",
-                typeof(Projectile));
-        
+        // TODO: don't hard code
+        projectile = Resources.Load<Projectile>("projectiles/lightning bird");
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
@@ -45,16 +36,8 @@ public class RangedWeapon : MonoBehaviour
             }
         };
     }
-
-    private void LoadProjectileFromAssets(string path)
-    {
-        projectile = (Projectile) AssetDatabase.LoadAssetAtPath(path,
-            typeof(Projectile));
-    }
-
     private void OnEnable()
     {
-
         GlobalState.OnSceneStart += () =>
         {
             if (GlobalState.projectile != null) projectile = GlobalState.projectile;
