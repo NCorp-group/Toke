@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public static event Action<EnemyType> OnEnemySpawn;
     public static event Action<EnemyType> OnEnemyDie;
+    public static event Action<string, int> OnEnemyTakeDamage;
+
     
     public enum EnemyType 
     {
@@ -27,6 +29,12 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
+        int damage = 10;
+        OnEnemyTakeDamage?.Invoke(name, damage);
+        
+        
+        
+        
         anim = GetComponent<Animator>();
         
         OnEnemySpawn?.Invoke(type);
