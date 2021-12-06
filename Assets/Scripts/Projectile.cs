@@ -69,13 +69,13 @@ public class Projectile : MonoBehaviour
              // in case the
              if (animator != null && !animatorProvidesOnHitEffect)
              {
-                 Destroy(gameObject);
+                DestroyProjectile();
              }
         }
         
         if (collision.collider.gameObject.CompareTag("Enemy"))
         {
-            var enemy = collision.collider.gameObject.GetComponent<Enemy>();
+            var enemy = collision.collider.gameObject.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
