@@ -2,11 +2,19 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
 public class Enemy : MonoBehaviour
 {
-    public static event Action OnEnemySpawn;
-    public static event Action OnEnemyDie;
+    public static event Action<EnemyType> OnEnemySpawn;
+    public static event Action<EnemyType> OnEnemyDie;
     
+    public enum EnemyType 
+    {
+        SLIME, 
+        WORM
+    }
+
+    public EnemyType type = EnemyType.SLIME;
     public int hp = 100;
     
     private Animator anim;
@@ -21,7 +29,7 @@ public class Enemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         
-        OnEnemySpawn?.Invoke();
+        OnEnemySpawn?.Invoke(type);
     }
 
     private void Update()
@@ -35,7 +43,6 @@ public class Enemy : MonoBehaviour
     }
     
     
-
     public void TakeDamage(int dmg)
     {
         var trigger = "get hit";
@@ -52,7 +59,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        OnEnemyDie?.Invoke();
+        OnEnemyDie?.Invoke(type);
+        collider.SetActive(false);
         if (dropCollectableOnDeath)
         {
             var rand = Random.Range(0.0f, 1.0f);
