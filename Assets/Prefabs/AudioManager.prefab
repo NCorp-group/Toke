@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Theme
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0.1
+  - name: toke-step
+    clip: {fileID: 8300000, guid: 7787d701f55ba234b9b620f73ffbc80d, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}

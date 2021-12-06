@@ -36,9 +36,8 @@ public class AudioManager : MonoBehaviour
     //Start subscribes to all events
     void Start()
     {
-        Enemy.OnEnemyDie += DeathSound();
-        Movement.OnMovement += MovementSound();
-
+        //Enemy.OnEnemyDie += DeathSound;
+        Movement.OnMovement += TokeStep;
     }
 
 
@@ -73,9 +72,14 @@ public class AudioManager : MonoBehaviour
         Play($"{name}-death");
     }
 
-    void MovementSound(string name)
+    void TokeStep()
     {
-        Play($"{name}-movement");
+        Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
+        s.source.volume = UnityEngine.Random.Range(0.8f, 1);
+        s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
+        if (!s.source.isPlaying)
+            s.source.Play();
+        //Play("toke-step");
     }
 
 }
