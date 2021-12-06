@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99593bbc5e87f46fba476f9433123b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   rb: {fileID: 7058320939769530466}
 --- !u!114 &7058320939769530476
 MonoBehaviour:
@@ -209,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313998162632124102}
   - component: {fileID: 7058320941059691187}
+  - component: {fileID: 5576566708451251911}
   - component: {fileID: 7058320941059691198}
   - component: {fileID: 7058320941059691196}
   - component: {fileID: 7058320941059691199}
@@ -287,6 +287,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5576566708451251911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101389953634991590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32164980312264a44b89df6e60138606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!114 &7058320941059691198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2881198e2ec01cb48bbcab9f354d2d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnitude: 0
   animator: {fileID: 7058320941059691196}
   movementScalar: 2
 --- !u!95 &7058320941059691196
