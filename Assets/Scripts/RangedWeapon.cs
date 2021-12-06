@@ -27,8 +27,10 @@ public class RangedWeapon : MonoBehaviour
     void Start()
     {
         projectile =
-            (Projectile) AssetDatabase.LoadAssetAtPath("Assets/Projectiles/Air/wind arc/wind arc.prefab",
-                typeof(Projectile));
+            (Projectile) AssetDatabase.LoadAssetAtPath(
+                "Assets/Projectiles/Air/wind arc/wind arc.prefab",
+                typeof(Projectile)
+            );
         
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
@@ -48,8 +50,10 @@ public class RangedWeapon : MonoBehaviour
 
     private void LoadProjectileFromAssets(string path)
     {
-        projectile = (Projectile) AssetDatabase.LoadAssetAtPath(path,
-            typeof(Projectile));
+        projectile = (Projectile) AssetDatabase.LoadAssetAtPath(
+            path,
+            typeof(Projectile)
+        );
     }
 
     private void OnEnable()
