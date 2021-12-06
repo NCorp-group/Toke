@@ -4,7 +4,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float magnitude = 0;
-    public static event Action OnMovement;
+    public static event Action OnPlayerMovement;
 
     // Start is called before the first frame update
 
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
 
         if (movement.magnitude > 0)
         {
-            OnMovement?.Invoke();
+            OnPlayerMovement?.Invoke();
         }
 
     }

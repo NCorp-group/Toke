@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Enemy.OnEnemyDie += DeathSound;
-        Movement.OnMovement += TokeStep;
+        Movement.OnPlayerMovement += PlayerMovement;
     }
 
 
@@ -66,20 +66,31 @@ public class AudioManager : MonoBehaviour
     }
 
 
-
-    void DeathSound(string name)
+    private string EnemyTypeToString(Enemy.EnemyType type)
     {
-        Play($"{name}-death");
+        return type switch
+        {
+            Enemy.EnemyType.SLIME => "slime",
+            Enemy.EnemyType.WORM => "worm"
+        };
     }
 
-    void TokeStep()
+
+    void DeathSound(Enemy.EnemyType type)
     {
+        Play($"{EnemyTypeToString(type)}-death");
+    }
+
+
+    void PlayerMovement()
+    {
+        //Adding variance to the step sound of the player
+        //by randomizing volume and pitch for every step
         Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
         s.source.volume = UnityEngine.Random.Range(0.8f, 1);
         s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
         if (!s.source.isPlaying)
             s.source.Play();
-        //Play("toke-step");
     }
 
 }
