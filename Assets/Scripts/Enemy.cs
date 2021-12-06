@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private bool dropCollectableOnDeath = false;
+    [SerializeField] private GameObject collider;
     [Range(0.0f, 1.0f)] public float likelihood = 1.0f;
     public Collectable collectable;
 
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         OnEnemyDie?.Invoke();
+        collider.SetActive(false);
         if (dropCollectableOnDeath)
         {
             var rand = Random.Range(0.0f, 1.0f);
