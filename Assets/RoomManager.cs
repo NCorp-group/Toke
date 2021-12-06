@@ -52,7 +52,6 @@ public class RoomManager : MonoBehaviour
         Assert.IsNotNull(spawningPoints);
 
         StartCoroutine(Spawn());
-        // StartCoroutine(Wait(10));
     }
 
     // dummy stub
@@ -100,11 +99,10 @@ public class RoomManager : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-
-
         foreach (var wave in waves)
         {
             Assert.IsTrue(wave.startDelay >= 0);
+            yield return new WaitUntil(() => _enemies_alive == 0);
             yield return new WaitForSeconds(wave.startDelay);
             SpawnWave(wave);
             _n_waves--;
