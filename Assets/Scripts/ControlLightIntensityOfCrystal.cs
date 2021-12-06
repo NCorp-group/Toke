@@ -30,7 +30,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
 
         _lights = GetComponentsInChildren<Light2D>();
         Debug.Log($"_lights.length = {_lights.Length}");
-        // Assert.IsTrue(_lights.Length == 2);
+        Assert.IsTrue(_lights.Length == 2);
 
         foreach (var light in _lights)
         {
@@ -99,6 +99,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             ? (lightUpIntensity - idleIntensity) / timeToLightUpCompletely
             : (idleIntensity - lightUpIntensity) / timeToReachIdle;
 
+        /*
         var fstCrystal = _lights[0];
         var _light = fstCrystal;
         
@@ -110,7 +111,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             light.intensity = Mathf.Clamp(delta, idleIntensity, lightUpIntensity);
         }
         
-        /*
+        
         Debug.Log($"light up? {lightUp}");
         var t += Time.deltaTime;
         _light.intensity = Mathf.Lerp(
@@ -120,11 +121,12 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         );
         _light.intensity = Mathf.MoveTowards(_light.intensity, t,
             (lightUp ? timeToLightUpCompletely : timeToReachIdle) * Time.deltaTime * 150);
-        */
+        
         if (Mathf.Approximately(_light.intensity, lightUpIntensity) || _light.intensity > lightUpIntensity)
         {
             lightUp = false;
         }
+        */
 
     }
 
