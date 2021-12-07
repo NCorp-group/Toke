@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collidable
+  - Collectable
+  - UICamera
+  - Enemy
+  - EnemySpawningPoint
   layers:
   - Default
   - TransparentFX
@@ -11,14 +16,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Props
+  - Player
+  - SceptreCrystal
+  - World Props
+  - Enemy Projectiles
+  - Player Colliders
+  - Walls
+  - Player Projectiles
   - 
   - 
   - 
@@ -40,4 +45,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1890659771
+    locked: 0
+  - name: Structure
+    uniqueID: 4090939233
+    locked: 0
+  - name: Runes
+    uniqueID: 1551388441
+    locked: 0
+  - name: SceptreCrystal
+    uniqueID: 2983911483
+    locked: 0
+  - name: ElementalProjectile
+    uniqueID: 2074284173
+    locked: 0
+  - name: LightningBird
+    uniqueID: 3895597179
+    locked: 0
+  - name: PLayer
+    uniqueID: 3395588223
     locked: 0

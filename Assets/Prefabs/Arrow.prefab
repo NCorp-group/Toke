@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2d55e8df895404b99bf4d9760df4dc1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,5 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240027be804101140ae21884dfdf30b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  acceleration: 0
+  damage: 10
+  lifetime: 0
+  color: {r: 0, g: 1, b: 0, a: 1}
+  animatorProvidesOnHitEffect: 0
+  spawnObjectOnCollision: {fileID: 0}
+  projectileType: 0
   hitEffect: {fileID: 1833966720775032086, guid: fbcd2a0da229fa2468976a6b333b4a5c, type: 3}
+  lifeTime: 2

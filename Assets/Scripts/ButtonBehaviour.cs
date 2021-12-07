@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
