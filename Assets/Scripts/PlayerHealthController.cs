@@ -6,6 +6,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public static event Action<int, int> OnPlayerHealthChange;
     public static event Action OnPlayerDie;
+    public static event Action OnPlayerTakeDamage;
 
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -30,6 +31,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        OnPlayerTakeDamage?.Invoke();
         currentHealth -= damage;
         Debug.LogWarning(currentHealth);
 

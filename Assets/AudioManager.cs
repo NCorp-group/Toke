@@ -42,6 +42,8 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyDie += EnemyDeathSound;
         Enemy.OnEnemySpawn += EnemySpawnSound;
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
+        PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
+        PlayerHealthController.OnPlayerDie += PlayerDeathSound;
 
     }
 
@@ -106,7 +108,7 @@ public class AudioManager : MonoBehaviour
 
     void EnemySpawnSound(Enemy.EnemyType type)
     {
-        //TODO
+        PlayWithOverlap("enemy-spawn");
     }
 
 
@@ -126,4 +128,13 @@ public class AudioManager : MonoBehaviour
         PlayWithOverlap("toke-fire");
     }
 
+    void PlayerTakeDamageSound()
+    {
+        //PlayWithOverlap($"toke-hit{UnityEngine.Random.Range(1, 4)}");
+    }
+
+    void PlayerDeathSound()
+    {
+        //Play("toke-death");
+    }
 }
