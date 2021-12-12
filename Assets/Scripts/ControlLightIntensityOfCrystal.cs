@@ -92,6 +92,8 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         */
     }
 
+    private float t = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -99,7 +101,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             ? (lightUpIntensity - idleIntensity) / timeToLightUpCompletely
             : (idleIntensity - lightUpIntensity) / timeToReachIdle;
 
-        /*
+        
         var fstCrystal = _lights[0];
         var _light = fstCrystal;
         
@@ -112,8 +114,9 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         }
         
         
+        /*
         Debug.Log($"light up? {lightUp}");
-        var t += Time.deltaTime;
+        t += Time.deltaTime;
         _light.intensity = Mathf.Lerp(
             _light.intensity,
             lightUp ? lightUpIntensity : idleIntensity,
@@ -122,11 +125,13 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         _light.intensity = Mathf.MoveTowards(_light.intensity, t,
             (lightUp ? timeToLightUpCompletely : timeToReachIdle) * Time.deltaTime * 150);
         
+        */
         if (Mathf.Approximately(_light.intensity, lightUpIntensity) || _light.intensity > lightUpIntensity)
         {
             lightUp = false;
         }
-        */
+        
+        
 
     }
 

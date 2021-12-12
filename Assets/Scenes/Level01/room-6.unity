@@ -1718,6 +1718,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1122700143}
+    - target: {fileID: 6873086545362449683, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
+      propertyPath: firerate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6873086545362449685, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: m_SortingOrder
       value: 10
