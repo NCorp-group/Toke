@@ -7,9 +7,9 @@ public class Projectile : MonoBehaviour
     public int damage;
 
     private bool ignore = false;
-    
+
     [Header("if t = 0, then the projectile lives until it collides with something")]
-    public float lifetime;
+    public float lifetime = 1;
   
     [Header("the color used to light up the player sceptre, when this projectile is equipped")]
     public Color color = Color.green;
@@ -25,19 +25,12 @@ public class Projectile : MonoBehaviour
     }
 
     public Variant projectileType = Variant.PLAYER;
-    
 
     public GameObject hitEffect;
-    
-    
-    public float lifeTime = 2f;
-
-    
     private Rigidbody2D rb;
     private Animator animator;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
         Assert.IsTrue(lifetime >= 0);
 
@@ -45,7 +38,11 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject, lifetime);
         }
+    }
 
+    // Start is called before the first frame update
+    void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
         Assert.IsNotNull(rb);
         animator = GetComponent<Animator>();

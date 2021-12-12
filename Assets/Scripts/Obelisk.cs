@@ -48,15 +48,15 @@ public class Obelisk : MonoBehaviour
             t = 0;
             // TODO: use layer mask
             var direction = (target.position - firepoint.position).normalized;
-            Debug.Log($"casting ray in direction {direction}");
+            //Debug.Log($"casting ray in direction {direction}");
             var mask = LayerMask.GetMask("Props", "Walls", "Player");
             var hit = Physics2D.Raycast(firepoint.position, direction, distance, mask);
-            Debug.Log("I hit something");
+            //Debug.Log("I hit something");
             if (hit.collider == null || hit.rigidbody.gameObject.CompareTag("Player"))
             {
-                Debug.Log("firing");
+                //Debug.Log("firing");
                 Fire(hit);
-                Debug.DrawLine(firepoint.position, hit.point, Color.red, 2f);
+                //Debug.DrawLine(firepoint.position, hit.point, Color.red, 2f);
             }
         }
     }
@@ -64,7 +64,7 @@ public class Obelisk : MonoBehaviour
     // called by animation event
     private void Fire(RaycastHit2D hit)
     {
-        Debug.Log("I am in the fire");
+        //Debug.Log("I am in the fire");
         var direction = (target.position - firepoint.position ).normalized;
         var angle = Utilities.GetAngleFromVectorFloat(direction);
         var p = Instantiate(projectile, firepoint.position, Quaternion.Euler(0, 0, angle));

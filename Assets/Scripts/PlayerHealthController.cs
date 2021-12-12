@@ -33,7 +33,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         OnPlayerTakeDamage?.Invoke();
         currentHealth -= damage;
-        Debug.LogWarning(currentHealth);
+        //Debug.LogWarning(currentHealth);
 
         if (currentHealth < 0)
         {

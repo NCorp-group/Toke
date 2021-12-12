@@ -26,7 +26,7 @@ public class CollectItem : MonoBehaviour
     // expose collect function
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("entering collectable zone");
+        //Debug.Log("entering collectable zone");
         var collectable = other.GetComponent<Collectable>();
         if (other.gameObject.CompareTag("Collectable") && collectable != null)
         {
@@ -37,7 +37,7 @@ public class CollectItem : MonoBehaviour
     // deexpose collect function
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("leaving collectable zone");
+        //Debug.Log("leaving collectable zone");
         collect = () => { };
         
         // collect = null;

@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
             collider.SetActive(false);
             trigger = "death";
         }
-        Debug.Log($"off i took damage my health is {hp}");
+        //Debug.Log($"off i took damage my health is {hp}");
         
         anim.SetTrigger(trigger);
     }

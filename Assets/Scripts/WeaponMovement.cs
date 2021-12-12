@@ -22,7 +22,7 @@ public class WeaponMovement : MonoBehaviour
         //Input.mousePosition
     }
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    /*[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoadRuntimeMethod()
     {
         Debug.Log("Before first Scene loaded");
@@ -32,7 +32,7 @@ public class WeaponMovement : MonoBehaviour
     static void OnAfterSceneLoadRuntimeMethod()
     {
         Debug.Log("After first Scene loaded");
-    }
+    }*/
 
     
     

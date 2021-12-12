@@ -29,13 +29,13 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         // _light = GetComponent<Light2D>();
 
         _lights = GetComponentsInChildren<Light2D>();
-        Debug.Log($"_lights.length = {_lights.Length}");
+        //Debug.Log($"_lights.length = {_lights.Length}");
         Assert.IsTrue(_lights.Length == 2);
 
-        foreach (var light in _lights)
+        /*foreach (var light in _lights)
         {
             Debug.Log($"{light.gameObject.name}");
-        }
+        }*/
         
         // Assert.IsNotNull(_light);
         Assert.IsTrue(lightUpIntensity > idleIntensity);
@@ -50,7 +50,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         if (_lights == null) return;
         
         
-        Debug.Log($"_lights.length = {_lights.Length}");
+        //Debug.Log($"_lights.length = {_lights.Length}");
         foreach (var light in _lights)
         {
             light.color = color;

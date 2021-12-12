@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: orthographic size
-      value: 14.09375
+      value: 10.28125
       objectReference: {fileID: 0}
     - target: {fileID: 2479563097016341578, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_Cameras.Array.size
@@ -294,7 +294,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.09375
+  orthographic size: 10.28125
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1019,6 +1019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: projectileLifeMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1717,10 +1721,10 @@ PrefabInstance:
     - target: {fileID: 6873086545362449683, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1122700143}
+      objectReference: {fileID: 1472671947}
     - target: {fileID: 6873086545362449683, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: firerate
-      value: 0.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6873086545362449685, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: m_SortingOrder
@@ -1732,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873086545362449686, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7009704
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 6873086545362449686, guid: d47f5fd21010457cf9b6b82912d19032, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20338,11 +20342,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7940298932057291485, guid: 73083496384c0bc488a997eb7da68396, type: 3}
   m_PrefabInstance: {fileID: 1755176267}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1122700143 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-  m_PrefabInstance: {fileID: 397120583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1261743645
 GameObject:
   m_ObjectHideFlags: 0
@@ -20427,6 +20426,11 @@ BoxCollider2D:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5177780835994247179, guid: 725faa79e9385194696948767a1e4143, type: 3}
   m_PrefabInstance: {fileID: 1676960883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1472671947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6389394329514620049, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+  m_PrefabInstance: {fileID: 397120583}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1573611682 stripped
 RectTransform:

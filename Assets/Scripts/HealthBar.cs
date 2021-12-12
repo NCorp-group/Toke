@@ -34,10 +34,10 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateValue(int currentHealth, int maxHealth)
     {
-        Debug.Log(currentHealth);
-        Debug.Log(maxHealth);
+        //Debug.Log(currentHealth);
+        //Debug.Log(maxHealth);
         value = (float) currentHealth / (float) maxHealth;
-        Debug.Log(value);
+        //Debug.Log(value);
         UpdateSprite();
     }
 
