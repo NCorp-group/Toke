@@ -15,8 +15,12 @@ public class RoomManager : MonoBehaviour
     private int _n_waves;
     private bool _room_completed;
     private int _enemies_alive;
+    /// <summary>
+    /// used to avoid a race condition
+    /// </summary>
+    private bool _an_enemy_has_spawned = false;
 
-    private List<Transform> spawningPoints;
+    private List<(Transform, bool)> spawningPoints;
     
     [System.Serializable]
     public class EnemyWave
@@ -30,6 +34,7 @@ public class RoomManager : MonoBehaviour
         
         [Header("A delay in seconds added before the wave spawns.")]
         public float startDelay = 0f;
+        [Header("TODO:")]
         public EnemyWaveVariant typeOfWave = EnemyWaveVariant.NATURAL;
         public float period = 1f;
         public Func<bool> condition; // hmm
@@ -47,8 +52,12 @@ public class RoomManager : MonoBehaviour
     void Start()
     {
         waves.ForEach((wave) => { _n_waves += wave.repetitions; });
-       
-        spawningPoints = GetComponentsInChildren<Transform>().Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint")).ToList();
+        spawningPoints = GetComponentsInChildren<Transform>()
+            .Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint"))
+            .Select(tf => (tf, false))
+            .ToList();
+        
+        // spawningPoints = GetComponentsInChildren<Transform>().Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint")).ToList();
         Assert.IsNotNull(spawningPoints);
 
         StartCoroutine(Spawn());
@@ -75,6 +84,7 @@ public class RoomManager : MonoBehaviour
 
     private void EnemySpawnCB(Enemy.EnemyType type)
     {
+        _an_enemy_has_spawned = true;
         //Debug.Log("enemy spawned");
         _enemies_alive += 1;
     }
@@ -83,6 +93,10 @@ public class RoomManager : MonoBehaviour
     {
         //Debug.Log("enemy died");
         _enemies_alive -= 1;
+        if (_enemies_alive == 0) _n_waves--;
+        Debug.Log($"enemies alive {_enemies_alive}");
+        Debug.Log($"waves remaining: {_n_waves}");
+
     }
     
 
@@ -102,24 +116,34 @@ public class RoomManager : MonoBehaviour
         foreach (var wave in waves)
         {
             Assert.IsTrue(wave.startDelay >= 0);
-            yield return new WaitUntil(() => _enemies_alive == 0);
+            Debug.Log($"enemies alive: {_enemies_alive}");
             yield return new WaitForSeconds(wave.startDelay);
             SpawnWave(wave);
-            _n_waves--;
+            
+            yield return new WaitUntil(() => _enemies_alive == 0 && _an_enemy_has_spawned);
         }
     }
 
     private void SpawnWave(EnemyWave wave)
     {
+        // don't know how to clone reference objects ...
+        var spawningPointsClone = spawningPoints.Select(x => x).ToList();
+        
+        
         foreach (var enemy in wave.enemies)
         {
-            var sp = PickRandomEnemySpawningPoint();
+            var idx = Random.Range(0, spawningPointsClone.Count);
+            var sp = spawningPointsClone[idx].Item1;
+            spawningPointsClone.RemoveAt(idx);
+            // var sp = PickRandomEnemySpawningPoint();
             Instantiate<GameObject>(enemy.gameObject, sp.position, Quaternion.identity);
         }
+
+        spawningPoints = spawningPoints.Select(p => (p.Item1, false)).ToList();
     }
     
 
-    private Transform PickRandomEnemySpawningPoint() => spawningPoints[Random.Range(0, spawningPoints.Count)];
+    // private Transform PickRandomEnemySpawningPoint() => spawningPoints[Random.Range(0, spawningPoints.Count)];
         
 }
 
