@@ -22,6 +22,7 @@ public class RuneAltar : MonoBehaviour
     private (float, float) identity(float a, float b) => (a, b);
     private (float, float) swap(float a, float b) => (b, a);
 
+    
     private float t;
     
     // Start is called before the first frame update
@@ -34,7 +35,7 @@ public class RuneAltar : MonoBehaviour
         Assert.IsTrue(minIntensity >= 0 && maxIntensity > minIntensity);
         Assert.IsTrue(ttr > 0 && ttf > 0);
         _intensity_target = minIntensity;
-        handler = swap;
+        handler = ((a, b) => (0, 0));
         t = Time.time;
     }
 
