@@ -2239,6 +2239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09d1ab7304a417b8f1de7ed8b64758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxhealth: 100
+  fireRate: 5
+  projectileLifeMultiplier: 1
+  movementSpeed: 5
+  damageMultiplier: 1
+  luckMultiplier: 1
 --- !u!212 &6086519574699306543
 SpriteRenderer:
   m_ObjectHideFlags: 0

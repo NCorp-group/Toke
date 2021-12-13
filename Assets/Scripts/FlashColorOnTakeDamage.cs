@@ -51,6 +51,7 @@ public class FlashColorOnTakeDamage : MonoBehaviour
         //mat.SetColor("_FlashColor", color);
         _flash_light = GetComponentsInChildren<Light2D>().FirstOrDefault(c => c.CompareTag("OnHitFlashLight"));
         Assert.IsNotNull(_flash_light);
+        _flash_light.color = color;
         _min_flash_intensity = _flash_light.intensity;
     }
 
