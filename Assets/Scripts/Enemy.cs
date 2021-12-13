@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public static event Action<EnemyType> OnEnemyDie;
     public static event Action<EnemyType> OnEnemyTakeDamage;
 
+    public event Action OnIndividualEnemyTakeDamage;
+    
     public enum EnemyType 
     {
         SLIME, 
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         OnEnemyTakeDamage?.Invoke(type);
+        OnIndividualEnemyTakeDamage?.Invoke();
         var trigger = "get hit";
         hp -= dmg;
         if (hp <= 0)

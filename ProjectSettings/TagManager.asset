@@ -9,6 +9,7 @@ TagManager:
   - UICamera
   - Enemy
   - EnemySpawningPoint
+  - OnHitFlashLight
   layers:
   - Default
   - TransparentFX
@@ -66,4 +67,7 @@ TagManager:
     locked: 0
   - name: PLayer
     uniqueID: 3395588223
+    locked: 0
+  - name: Enemy
+    uniqueID: 3756020129
     locked: 0
