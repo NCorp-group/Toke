@@ -8,6 +8,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    private float sfx = 1;
+    private float music = 1;
+    private float master = 1;
+
     void Awake()
     {
         if (instance == null)
@@ -44,9 +48,16 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
         PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
         PlayerHealthController.OnPlayerDie += PlayerDeathSound;
-
     }
 
+
+    public void PlayMusic()
+    {
+        //Sound s = Array.Find(sounds, sound => sound.name == "music");
+        // Changing the volume of the sound depending on user settings
+        //s.source.volume = s.volume * music * master;
+        //s.source.Play();
+    }
 
     public void Play(string name)
     {
@@ -57,7 +68,12 @@ public class AudioManager : MonoBehaviour
             return;
         }
         if (!s.source.isPlaying)
+        {
+            // Changing the volume of the sound depending on user settings
+            s.source.volume = s.volume * sfx * master;
             s.source.Play();
+        }
+            
     }
 
     public void PlayWithOverlap(string name)
@@ -68,7 +84,8 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
-        
+        // Changing the volume of the sound depending on user settings
+        s.source.volume = s.volume * sfx * master;
         s.source.Play();
     }
 
@@ -117,7 +134,7 @@ public class AudioManager : MonoBehaviour
         //Adding variance to the step sound of the player
         //by randomizing volume and pitch for every step
         Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
-        s.source.volume = UnityEngine.Random.Range(0.8f, 1);
+        s.source.volume = s.volume * UnityEngine.Random.Range(0.8f, 1) * sfx * master;
         s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
         if (!s.source.isPlaying)
             s.source.Play();
@@ -130,11 +147,11 @@ public class AudioManager : MonoBehaviour
 
     void PlayerTakeDamageSound()
     {
-        //PlayWithOverlap($"toke-hit{UnityEngine.Random.Range(1, 4)}");
+        PlayWithOverlap($"toke-hit{UnityEngine.Random.Range(1, 4)}");
     }
 
     void PlayerDeathSound()
     {
-        //Play("toke-death");
+        Play($"toke-death{UnityEngine.Random.Range(1, 3)}");
     }
 }
