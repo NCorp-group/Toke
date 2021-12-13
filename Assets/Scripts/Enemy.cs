@@ -1,4 +1,5 @@
 using System;
+using Pathfinding;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -31,10 +32,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //int damage = 10;
-        OnEnemyTakeDamage?.Invoke(type);
-        
-        
-        
+        //OnEnemyTakeDamage?.Invoke(type);
+        var aid = GetComponent<AIDestinationSetter>();
+        if (aid != null)
+        {
+            aid.target = GameObject.FindWithTag("Player").transform;
+        }
         
         anim = GetComponent<Animator>();
         
