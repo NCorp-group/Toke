@@ -13,7 +13,8 @@ public class RangedWeapon : MonoBehaviour
     public static event Action<Color> OnProjectileSetColor;
     public Transform shootingPoint;
     public Projectile projectile;
-    
+    private float damageMultiplier = 1;
+
     public float arrowForce = 5f;
     public static event Action OnFire;
 
@@ -44,8 +45,15 @@ public class RangedWeapon : MonoBehaviour
         };
     }
 
+    private void OnDamageMultiplierChangedCB(float newDamageMultiplier)
+    {
+        Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
+        damageMultiplier = newDamageMultiplier;
+    }
+
     private void OnEnable()
     {
+        Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
         Stats.OnLifeTimeModifierChanged += OnLifeTimeModifierChangedCB;
 
         GlobalState.OnSceneStart += () =>
@@ -62,6 +70,7 @@ public class RangedWeapon : MonoBehaviour
     private void OnDisable()
     {
         Stats.OnLifeTimeModifierChanged -= OnLifeTimeModifierChangedCB;
+        Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
     }
 
     // Update is called once per frame
@@ -99,6 +108,8 @@ public class RangedWeapon : MonoBehaviour
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * arrowForce;
         spawnedProjectile.GetComponent<Projectile>().lifetime *= projectileLifeMultiplier;
+        int totalDamage = (int)(spawnedProjectile.GetComponent<Projectile>().damage * damageMultiplier);
+        spawnedProjectile.GetComponent<Projectile>().damage = totalDamage;
 
         OnFire?.Invoke();
 
