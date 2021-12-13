@@ -166,7 +166,6 @@ MonoBehaviour:
   spawnObjectOnCollision: {fileID: 0}
   projectileType: 0
   hitEffect: {fileID: 0}
-  lifeTime: 2
 --- !u!114 &8385294350307976132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +186,7 @@ MonoBehaviour:
   m_Intensity: 9.09
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 7f9064ca8d10a37b
+  m_ApplyToSortingLayers: 7f9064ca8d10a37ba151e0df
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

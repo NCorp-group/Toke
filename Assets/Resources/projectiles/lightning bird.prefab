@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Intensity: 1.5
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 7b1832e87f9064ca
+  m_ApplyToSortingLayers: 7b1832e87f9064caa151e0df
   m_LightCookieSprite: {fileID: 5589968266077528540, guid: 53b2d2daf10f71694be61af2323aff02, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -938,4 +938,3 @@ MonoBehaviour:
   spawnObjectOnCollision: {fileID: 0}
   projectileType: 0
   hitEffect: {fileID: 0}
-  lifeTime: 2
