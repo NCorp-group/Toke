@@ -35,7 +35,7 @@ public class Stats : MonoBehaviour
 
     void setOnDamageMultiplierChanged(float multiplier)
     {
-        Debug.Log($"About to change damage multiplier to {multiplier}");
+        //Debug.Log($"About to change damage multiplier to {multiplier}");
         damageMultiplier = multiplier;
         OnDamageMultiplierChanged?.Invoke(damageMultiplier);
     }

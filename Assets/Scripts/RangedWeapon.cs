@@ -47,7 +47,7 @@ public class RangedWeapon : MonoBehaviour
 
     private void OnDamageMultiplierChangedCB(float newDamageMultiplier)
     {
-        Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
+        //Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
         damageMultiplier = newDamageMultiplier;
     }
 

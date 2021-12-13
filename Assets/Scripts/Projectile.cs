@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Rendering.Universal;
 
 public class Projectile : MonoBehaviour
 {
@@ -54,7 +55,8 @@ public class Projectile : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-
+        rb.velocity = new Vector2(0, 0);
+        GetComponent<Light2D>().volumeIntensityEnabled = false;
         if (ignore)
         {
             return;
