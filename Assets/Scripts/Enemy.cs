@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //int damage = 10;
-        OnEnemyTakeDamage?.Invoke(type);
+        //OnEnemyTakeDamage?.Invoke(type);
         
         
         

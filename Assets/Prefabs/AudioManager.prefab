@@ -99,3 +99,45 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: toke-hit1
+    clip: {fileID: 8300000, guid: 89db39d4032024f42bde3f2ff6516657, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-hit2
+    clip: {fileID: 8300000, guid: 0aa16eaa66da6014eb3d888492e55ddc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-hit3
+    clip: {fileID: 8300000, guid: 3cb3af5790d5c414e9e2b0e19e8752b8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-hit4
+    clip: {fileID: 8300000, guid: e5cc02a2a9fff5b49a75411c442f459b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-death1
+    clip: {fileID: 8300000, guid: adcd328db98f62e4da48e8384f98d194, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-death2
+    clip: {fileID: 8300000, guid: 07d13c42122d6eb4b83586769958b9a1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-death3
+    clip: {fileID: 8300000, guid: f8c389a3a46445148861ab7b44cd8aee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
