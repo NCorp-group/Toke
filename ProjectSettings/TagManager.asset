@@ -52,6 +52,9 @@ TagManager:
   - name: Structure
     uniqueID: 4090939233
     locked: 0
+  - name: Decorations
+    uniqueID: 2733370795
+    locked: 0
   - name: Runes
     uniqueID: 1551388441
     locked: 0

@@ -967,7 +967,7 @@ Tilemap:
   - first: {x: -5, y: -57, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 18
+      m_TileIndex: 20
       m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -977,7 +977,7 @@ Tilemap:
   - first: {x: -4, y: -57, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 18
+      m_TileIndex: 20
       m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -987,7 +987,7 @@ Tilemap:
   - first: {x: -5, y: -56, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 17
+      m_TileIndex: 19
       m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -997,7 +997,7 @@ Tilemap:
   - first: {x: -4, y: -56, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 17
+      m_TileIndex: 19
       m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -1040,14 +1040,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: e5dac74f5dbd2704ea99d91014120b6a, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 1136c269f0f38ce47a6d006e5619635f, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: b4bb8390123b6094bb8d0ee0d334b66e, type: 2}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: de37648b3d08e8643bf70f34867dd58c, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -1084,9 +1084,9 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 2
-    m_Data: {fileID: -1303531009, guid: 125736adefba71a44bcf20a41b5bb04b, type: 3}
+    m_Data: {fileID: -347490946, guid: 125736adefba71a44bcf20a41b5bb04b, type: 3}
   - m_RefCount: 2
-    m_Data: {fileID: 1177656932, guid: 125736adefba71a44bcf20a41b5bb04b, type: 3}
+    m_Data: {fileID: -1656715194, guid: 125736adefba71a44bcf20a41b5bb04b, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
