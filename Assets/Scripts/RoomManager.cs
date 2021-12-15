@@ -113,6 +113,7 @@ public class RoomManager : MonoBehaviour
             {
                 room2 = (DoorPreviewController.RoomType) Random.Range(0, 3);
             }
+            Debug.Log("Room Complete");
             OnRoomComplete?.Invoke(room1, room2);
         }
     }

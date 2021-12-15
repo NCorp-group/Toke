@@ -1072,6 +1072,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: fireRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: maxhealth
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: movementSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: damageMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: projectileLifeMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_RootOrder
       value: 12
