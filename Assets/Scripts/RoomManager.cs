@@ -108,7 +108,7 @@ public class RoomManager : MonoBehaviour
         {
             return;
         }
-        if (_n_waves == 0 && _enemies_alive == 0)
+        if (_n_waves == 0)
         {
             _room_completed = true;
             var room1 = (DoorPreviewController.RoomType) Random.Range(1, 3);
@@ -131,9 +131,11 @@ public class RoomManager : MonoBehaviour
             Assert.IsTrue(wave.startDelay >= 0);
             Debug.Log($"enemies alive: {_enemies_alive}");
             yield return new WaitForSeconds(wave.startDelay);
+            var _curr_n_waves = _n_waves;
             SpawnWave(wave);
+            Debug.Log($"_curr_n_waves = {_curr_n_waves}");
             
-            yield return new WaitUntil(() => _enemies_alive == 0 && _an_enemy_has_spawned);
+            yield return new WaitUntil(() => _enemies_alive == 0 && (_curr_n_waves - 1) == _n_waves && _an_enemy_has_spawned);
         }
     }
 

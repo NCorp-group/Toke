@@ -10,6 +10,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float aggressionRadius = 10f;
     [Header("If not specified, then \"Player\" is selected per default")]
     [SerializeField] private Transform target;
+
+    [Header("The point from which the distance is measured to the target. If none, then the objects transform is used")]
+    [SerializeField] private Transform from;
     
     public enum EnemyType
     {
@@ -77,6 +80,9 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
         Assert.IsNotNull(_behaviour);
+
+        from = transform;
+        // from = from ?? transform;
     }
 
     private void SetAiState(bool state) => GetComponent<AIPath>().canMove = state;
@@ -98,8 +104,8 @@ public class EnemyAI : MonoBehaviour
         }*/
         transform.localScale = new Vector3(
             ai_enabled
-                ? ((aiPath.steeringTarget - transform.position).x >= 0.01 ? 1 : -1)
-                : ((target.position - transform.position).x >= 0.01 ? 1 : -1),
+                ? ((aiPath.steeringTarget - from.position).x >= 0.01 ? 1 : -1)
+                : ((target.position - from.position).x >= 0.01 ? 1 : -1),
             1,
             1
         );
@@ -115,7 +121,7 @@ public class EnemyAI : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }*/
         
-        var distance_to_target = UnityEngine.Vector2.Distance(transform.position, target.position);
+        var distance_to_target = UnityEngine.Vector2.Distance(from.position, target.position);
         var target_within_aggression_range = distance_to_target <= aggressionRadius;
         // Debug.Log($"distance to target = {distance_to_target}");
         if (target_within_aggression_range && _behaviour.Invoke())

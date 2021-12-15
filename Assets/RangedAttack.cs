@@ -82,6 +82,11 @@ public class RangedAttack : MonoBehaviour
             {
                 return false;
             }
+            
+            // TODO: get collider and check if the size of the collider can
+            // traverse the distance to the target, without colliding with the environment.
+            // projectile.GetComponent<CapsuleCollider2D>().direction = CapsuleDirection2D.Horizontal;
+            // projectile.GetComponent<CapsuleCollider2D>().offset.y;
         }
         
         _Fire.Invoke();
@@ -100,6 +105,9 @@ public class RangedAttack : MonoBehaviour
         Assert.IsNotNull(firepoint);
         var projectile_direction = (_target_pos.position -firepoint.position).normalized;
         var angle = Util.GetAngleFromVectorFloat(new Vector3(projectile_direction.x, projectile_direction.y, 0));
+
+
+        
         
         var instance = Instantiate(projectile, firepoint.position, Quaternion.Euler(0, 0, angle));
         instance.Setup(

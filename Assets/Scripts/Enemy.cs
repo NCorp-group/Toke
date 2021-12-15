@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     [Range(0.0f, 1.0f)] public float likelihood = 1.0f;
     public Collectable collectable;
 
+    private bool dead = false;
     
     private void Start()
     {
@@ -63,9 +64,13 @@ public class Enemy : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
-            OnEnemyDie?.Invoke(type);
-            collider.SetActive(false);
-            trigger = "death";
+            if (!dead)
+            {
+                OnEnemyDie?.Invoke(type);
+                collider.SetActive(false);
+                trigger = "death";
+                dead = true;
+            }
         }
         //Debug.Log($"off i took damage my health is {hp}");
         

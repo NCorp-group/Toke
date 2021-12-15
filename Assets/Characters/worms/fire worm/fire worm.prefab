@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggressionRadius: 15
   target: {fileID: 0}
+  from: {fileID: 1288139917384931821}
   enemyType: 1
   aiPath: {fileID: 5331556781284401444}
 --- !u!114 &8157821123262069807
