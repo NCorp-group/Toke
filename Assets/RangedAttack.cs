@@ -93,8 +93,8 @@ public class RangedAttack : MonoBehaviour
     public void FireProjectile()
     {
         var firepoint = GetFirePoint.Invoke();
-        Debug.Log($"FIREPOINT = {firepoint.position}");
-        Debug.Log($"TARGET = {_target_pos.position}");
+        //Debug.Log($"FIREPOINT = {firepoint.position}");
+        //Debug.Log($"TARGET = {_target_pos.position}");
         
         Assert.IsNotNull(_target_pos);
         Assert.IsNotNull(firepoint);

@@ -89,13 +89,13 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"DESIRED VELOCITY = {aiPath.desiredVelocity}");
+        //Debug.Log($"DESIRED VELOCITY = {aiPath.desiredVelocity}");
         var ai_enabled = aiPath.canMove == true;
-        if (ai_enabled)
+        /*if (ai_enabled)
         {
             Debug.Log($"steering target.y = {aiPath.steeringTarget.y}");
             Debug.DrawLine(transform.position, aiPath.steeringTarget, Color.cyan);
-        }
+        }*/
         transform.localScale = new Vector3(
             ai_enabled
                 ? ((aiPath.steeringTarget - transform.position).x >= 0.01 ? 1 : -1)

@@ -15,14 +15,26 @@ public class RangedWeapon : MonoBehaviour
     public Projectile projectile;
     private float damageMultiplier = 1;
 
-    public float arrowForce = 5f;
+    //public float projectileSpeed = 5f;
     public static event Action OnFire;
 
     private float projectileLifeMultiplier = 1;
+    private float projectileSpeedMultiplier = 1;
 
     private void OnLifeTimeModifierChangedCB(float newLifeTime) // CB is CallBack
     {
         projectileLifeMultiplier = newLifeTime;
+    }
+
+    private void OnDamageMultiplierChangedCB(float newDamageMultiplier)
+    {
+        //Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
+        damageMultiplier = newDamageMultiplier;
+    }
+
+    private void OnProjectileSpeedMultiplierChangedCB(float newSpeedMultiplier)
+    {
+        projectileSpeedMultiplier = newSpeedMultiplier;
     }
 
     void Start()
@@ -45,16 +57,11 @@ public class RangedWeapon : MonoBehaviour
         };
     }
 
-    private void OnDamageMultiplierChangedCB(float newDamageMultiplier)
-    {
-        //Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
-        damageMultiplier = newDamageMultiplier;
-    }
-
     private void OnEnable()
     {
         Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
         Stats.OnLifeTimeModifierChanged += OnLifeTimeModifierChangedCB;
+        Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
 
         GlobalState.OnSceneStart += () =>
         {
@@ -71,6 +78,7 @@ public class RangedWeapon : MonoBehaviour
     {
         Stats.OnLifeTimeModifierChanged -= OnLifeTimeModifierChangedCB;
         Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
+        Stats.OnProjectileSpeedMultiplierChanged -= OnProjectileSpeedMultiplierChangedCB;
     }
 
     // Update is called once per frame
@@ -108,9 +116,10 @@ public class RangedWeapon : MonoBehaviour
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
         spawnedProjectile.GetComponent<Projectile>().Setup(
             Projectile.Variant.PLAYER,
-            damageMultiplier: damageMultiplier);
+            damageMultiplier: damageMultiplier,
+            lifetimeMultiplier: projectileLifeMultiplier) ;
         
-        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * arrowForce;
+        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * spawnedProjectile.GetComponent<Projectile>().speed * projectileSpeedMultiplier;
         /*
         spawnedProjectile.GetComponent<Projectile>().lifetime *= projectileLifeMultiplier;
         int totalDamage = (int)(spawnedProjectile.GetComponent<Projectile>().damage * damageMultiplier);

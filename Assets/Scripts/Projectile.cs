@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float acceleration = 0f;
     public int damage;
+    public float speed = 3f;
 
     private bool ignore = false;
 
@@ -49,7 +50,9 @@ public class Projectile : MonoBehaviour
         animator = GetComponent<Animator>();
         Assert.IsNotNull(animator);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void FixedUpdate()
     {
         rb.velocity += (rb.velocity * acceleration * Time.deltaTime);
