@@ -26,7 +26,10 @@ public class DoorPreviewController : MonoBehaviour
     void Start()
     {
         RoomManager.OnRoomComplete += ActivatePreview;
-        GetComponent<SpriteRenderer>().enabled = false;
+        if (roomType == RoomType.UNASSIGNED)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;   
+        }
     }
 
     void ActivatePreview(RoomType room1, RoomType room2)
