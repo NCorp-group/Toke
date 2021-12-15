@@ -124,7 +124,15 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                DestroyProjectile();
+                if (animatorProvidesOnHitEffect)
+                {
+                    animator.SetTrigger("collision");
+                }
+                else
+                {
+                    DestroyProjectile();
+                }
+                
             }
         }
         else if (collision.collider.gameObject.CompareTag("Player"))
