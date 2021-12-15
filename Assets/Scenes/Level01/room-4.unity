@@ -628,9 +628,10 @@ GameObject:
   - component: {fileID: 12006729}
   - component: {fileID: 12006733}
   - component: {fileID: 12006732}
+  - component: {fileID: 12006734}
   - component: {fileID: 12006731}
   - component: {fileID: 12006730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EndGates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,6 +885,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &12006734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12006728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc62fb40497ebe4ab93c20a12f0730b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &44835674 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5824292546748656275, guid: 3471300377bbda74283bd8bfa5fc0118, type: 3}
