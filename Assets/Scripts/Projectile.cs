@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
 
     public Variant projectileType = Variant.PLAYER;
 
-    public GameObject hitEffect;
+    public GameObject hitEffect = null;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -94,6 +94,10 @@ public class Projectile : MonoBehaviour
         {
             light.volumeIntensityEnabled = false;
         }
+        else if (GetComponentInChildren<Light2D>() is Light2D l)
+        {
+            l.volumeIntensityEnabled = false;
+        }
         
         if (ignore)
         {
@@ -127,7 +131,15 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                DestroyProjectile();
+                if (animatorProvidesOnHitEffect)
+                {
+                    animator.SetTrigger("collision");
+                }
+                else
+                {
+                    DestroyProjectile();
+                }
+                
             }
         }
         else if (collision.collider.gameObject.CompareTag("Player"))
