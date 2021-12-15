@@ -11,33 +11,42 @@ public class Stats : MonoBehaviour
     public float projectileLifeMultiplier = 1;
     public float damageMultiplier = 1;
     public float luckMultiplier = 1;
+    public float projectileSpeedMultiplier = 1;
 
     public static event Action<float> OnLifeTimeModifierChanged;
     public static event Action<float> OnDamageMultiplierChanged;
+    public static event Action<float> OnProjectileSpeedMultiplierChanged;
 
     private void OnValidate()
     {
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setOnDamageMultiplierChanged(damageMultiplier);
-
+        setOnProjectilespeedMultiplierChanged(projectileSpeedMultiplier);
 
         GetComponentInParent<PlayerHealthController>().maxHealth = maxhealth;
         GetComponentInChildren<RangedWeapon>().fireRate = fireRate;
         GetComponentInParent<Movement>().movementScalar = movementSpeed;
     }
 
-    void setProjectileLifeMultiplier(float time)
+    void setProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
-        //Debug.Log("About to do event");
-        projectileLifeMultiplier = time;
-        OnLifeTimeModifierChanged?.Invoke(time);
+        Debug.Log($"About to change newLifeTimeMultiplier to {newLifeTimeMultiplier}");
+        projectileLifeMultiplier = newLifeTimeMultiplier;
+        OnLifeTimeModifierChanged?.Invoke(projectileLifeMultiplier);
     }
 
-    void setOnDamageMultiplierChanged(float multiplier)
+    void setOnDamageMultiplierChanged(float newDmgMultiplier)
     {
-        //Debug.Log($"About to change damage multiplier to {multiplier}");
-        damageMultiplier = multiplier;
+        Debug.Log($"About to change damage multiplier to {newDmgMultiplier}");
+        damageMultiplier = newDmgMultiplier;
         OnDamageMultiplierChanged?.Invoke(damageMultiplier);
+    }
+
+    void setOnProjectilespeedMultiplierChanged(float newSpdMultiplier)
+    {
+        Debug.Log($"About to change speed multiplier to {newSpdMultiplier}");
+        projectileSpeedMultiplier = newSpdMultiplier;
+        OnProjectileSpeedMultiplierChanged?.Invoke(projectileSpeedMultiplier);
     }
 
     // Start is called before the first frame update
