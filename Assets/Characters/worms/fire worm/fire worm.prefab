@@ -313,9 +313,7 @@ MonoBehaviour:
   lifetime: 10
   useFirePoint: 1
   useAnimationEventToTriggerProjectileFire: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  projectileVariant: 1
 --- !u!1 &3677654759137219061
 GameObject:
   m_ObjectHideFlags: 0

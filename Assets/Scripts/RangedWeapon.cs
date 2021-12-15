@@ -28,7 +28,7 @@ public class RangedWeapon : MonoBehaviour
     void Start()
     {
         // TODO: don't hard code
-        projectile = Resources.Load<Projectile>("projectiles/wind arc");
+        projectile = Resources.Load<Projectile>("projectiles/ice shard");
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
@@ -106,11 +106,16 @@ public class RangedWeapon : MonoBehaviour
         //rb.velocity = shootingPoint.right * arrowForce;
 
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
+        spawnedProjectile.GetComponent<Projectile>().Setup(
+            Projectile.Variant.PLAYER,
+            damageMultiplier: damageMultiplier);
+        
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * arrowForce;
+        /*
         spawnedProjectile.GetComponent<Projectile>().lifetime *= projectileLifeMultiplier;
         int totalDamage = (int)(spawnedProjectile.GetComponent<Projectile>().damage * damageMultiplier);
         spawnedProjectile.GetComponent<Projectile>().damage = totalDamage;
-
+        */
         OnFire?.Invoke();
 
         // FindObjectOfType<AudioManager>().Play("ArrowShot");

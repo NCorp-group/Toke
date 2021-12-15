@@ -18,7 +18,7 @@ public class RangedAttack : MonoBehaviour
     [Header("If true then responsibility of calling \"Fire()\" is delegated to an animation event on the object, with trigger named \"attack\"")]
     [SerializeField] private bool useAnimationEventToTriggerProjectileFire = false;
 
-    public LayerMask layerMask;
+    [SerializeField] private Projectile.Variant projectileVariant = Projectile.Variant.ENEMY;
     
     
     private Transform _firepoint;
@@ -69,8 +69,6 @@ public class RangedAttack : MonoBehaviour
             var position = transform.position;
             var direction = (_target_pos.position - position).normalized;
             Debug.DrawLine(position, direction * 10, Color.red);
-            //Gizmos.color = Color.magenta;
-            //Gizmos.DrawLine(position, direction * 20);
             var mask = LayerMask.GetMask("Props", "Walls", "Player");
             // mask = ~mask;
             
@@ -98,15 +96,15 @@ public class RangedAttack : MonoBehaviour
         Debug.Log($"FIREPOINT = {firepoint.position}");
         Debug.Log($"TARGET = {_target_pos.position}");
         
-        // §Debug.Log($"_target_pos.position = {_target_pos.position}\tfirepoint.position = {firepoint.position}");
         Assert.IsNotNull(_target_pos);
         Assert.IsNotNull(firepoint);
         var projectile_direction = (_target_pos.position -firepoint.position).normalized;
         var angle = Util.GetAngleFromVectorFloat(new Vector3(projectile_direction.x, projectile_direction.y, 0));
         
         var instance = Instantiate(projectile, firepoint.position, Quaternion.Euler(0, 0, angle));
-        // instance.Setup(lifetime, 20);
-        
+        instance.Setup(
+            projectileVariant);
+
         instance.GetComponent<Rigidbody2D>().AddForce(projectile_direction * speed, ForceMode2D.Impulse);
     }
 

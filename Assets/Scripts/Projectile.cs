@@ -47,19 +47,49 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Assert.IsNotNull(rb);
         animator = GetComponent<Animator>();
+        Assert.IsNotNull(animator);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = rb.velocity + (rb.velocity * acceleration * Time.deltaTime);
+        rb.velocity += (rb.velocity * acceleration * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Constructor method
+    /// </summary>
+    /// <param name="variant"></param>
+    /// <param name="damage"></param>
+    /// <param name="acceleration"></param>
+    /// <param name="lifetime"></param>
+    /// <param name="damageMultiplier"></param>
+    /// <param name="lifetimeMultiplier"></param>
+    public void Setup(
+        Variant variant,
+        int? damage = null,
+        float? acceleration = null,
+        int? lifetime = null,
+        float? damageMultiplier = null,
+        float? lifetimeMultiplier = null
+    )
+    {
+        gameObject.layer = variant switch
+        {
+            Variant.ENEMY => LayerMask.NameToLayer("Enemy Projectiles"),
+            Variant.PLAYER => LayerMask.NameToLayer("Player Projectiles")
+        };
+        this.damage = damage ?? this.damage;
+        this.acceleration = acceleration ?? this.acceleration;
+        this.lifetime = lifetime ?? this.lifetime;
+        this.damage = damageMultiplier != null ? (int) (this.damage * damageMultiplier) : this.damage;
+        this.lifetime = lifetimeMultiplier != null ? (int) (this.lifetime * lifetimeMultiplier) : this.lifetime;
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
         rb.velocity = new Vector2(0, 0);
-        var l = GetComponent<Light2D>();
-        if (l != null)
+        if (GetComponent<Light2D>() is Light2D light)
         {
-            l.volumeIntensityEnabled = false;
+            light.volumeIntensityEnabled = false;
         }
         
         if (ignore)
@@ -79,6 +109,7 @@ public class Projectile : MonoBehaviour
             
              // Destroy object after 5 seconds of hitting something
             
+             Debug.Log("animate: COLLISION");
              animator?.SetTrigger("collision");
              // in case the
              if (animator != null && !animatorProvidesOnHitEffect)
@@ -98,6 +129,8 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.collider.gameObject.CompareTag("Player"))
         {
+            Debug.Log("DO WE GET HERE??");
+            animator.SetTrigger("collision");
             Debug.Log("Hit Player with projectile");
             var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
             if (playerHealth != null)
@@ -105,7 +138,13 @@ public class Projectile : MonoBehaviour
                 playerHealth.TakeDamage(damage);
                 if (animatorProvidesOnHitEffect)
                 {
-                    animator?.SetTrigger("collision");
+                    Debug.Log("animate: COLLISION");
+                    if (animator is Animator a)
+                    {
+                        Debug.Log("ANIMATOR IS HERE");
+                        a.SetTrigger("collision");
+                    }
+                    //animator?.SetTrigger("collision");
                 }
                 else
                 {
