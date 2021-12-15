@@ -40,7 +40,7 @@ public class RangedWeapon : MonoBehaviour
     void Start()
     {
         // TODO: don't hard code
-        projectile = Resources.Load<Projectile>("projectiles/ice shard");
+        projectile = Resources.Load<Projectile>("projectiles/wind arc");
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
@@ -116,7 +116,8 @@ public class RangedWeapon : MonoBehaviour
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
         spawnedProjectile.GetComponent<Projectile>().Setup(
             Projectile.Variant.PLAYER,
-            damageMultiplier: damageMultiplier);
+            damageMultiplier: damageMultiplier,
+            lifetimeMultiplier: projectileLifeMultiplier) ;
         
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * spawnedProjectile.GetComponent<Projectile>().speed * projectileSpeedMultiplier;
         /*
