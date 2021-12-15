@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class RoomManager : MonoBehaviour
 {
-    public static event Action OnRoomComplete;
+    public static event Action<DoorPreviewController.RoomType, DoorPreviewController.RoomType> OnRoomComplete;
     public static event Action OnRoomExit;
     public static event Action OnRoomEnter;
 
@@ -107,7 +107,13 @@ public class RoomManager : MonoBehaviour
         if (_n_waves == 0 && _enemies_alive == 0)
         {
             _room_completed = true;
-            OnRoomComplete?.Invoke();
+            var room1 = (DoorPreviewController.RoomType) Random.Range(0, 3);
+            var room2 = (DoorPreviewController.RoomType) Random.Range(0, 3);
+            while (room2 == room1)
+            {
+                room2 = (DoorPreviewController.RoomType) Random.Range(0, 3);
+            }
+            OnRoomComplete?.Invoke(room1, room2);
         }
     }
 
