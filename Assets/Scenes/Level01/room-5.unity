@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: orthographic size
-      value: 14.09375
+      value: 9.71875
       objectReference: {fileID: 0}
     - target: {fileID: 2479563097016341578, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_Cameras.Array.size
@@ -294,7 +294,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.09375
+  orthographic size: 9.71875
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1116,7 +1116,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 753051699
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7834,6 +7834,93 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1403482491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403482493}
+  - component: {fileID: 1403482492}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1403482492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403482491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIewf/v3ZdgIAACwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAU/CuMziVjOxhwb61DSA9JmNBOLr4I6xlrkCWPJAdIhv/eJ9nGLj0h9n3trp78Rbg0NeRW6bXm7FkxIN8nxJ3Jt8kQfIIT3Su55Z/Q57xzZkuXRH3OG7VcIR66MqMqsJrnP+ReuOQAwUbyQulqxfaQKmMNwgUVBjCklXXVEqGvCTnhzzRxJWc8RQt3+sRTEkwueMxBWtCj1OAuCMJZnMTJMp51VfO7JIoWcXS/7IqnsS9uZC5oVQNzSoYe835a3M6QqLHLcHpyJQQ3HUFiz7U3IKW1aVAeJjBOUbBnFdzFCJTA96V19Mflr0VhwHZ+aHp+4Bqda/uSn6q1s6Lm0DL7oKJxk+bzeO5ptV2f/0uYhj5caFU99YPDwA2xJc8Pb/ScU2NHho/hh4F76B06UnGgOwHvJcgXtdaqkQyDVjeutDEQPQx/r9rSEvLDgLdUb8CmHizvHe9v12m4ePmnVPBq562ctcBWKG+5XwrQeDm/kLBfGdO1QNSx+GPgN92Pd6sLPHJtLIY6ldLR26lGu1Sy8p45NY1NlZbg4Y50DZIKe95gG3t7hzex0dibyCN1r6gb3sX6x3FT4uEhPwhuQht1vF6WKdXxGUz52ljBJQykXeAFfUqVlO2KjT3py7aNLmg+Kts3nP27WoTFdDFLlgksKaPzmE3zIArZgoXLxSK5D+cR8bvHJeqkYtMS7ezBW5NDc4l71n9cJmtNa7/uTNPjmn9WamQ5l4Xa5hpAvrYdrsRB4xB8mGzFOBq0BWu59PdNvjIiVH4All0bZV7p6mQ1zYYuGan5h7IOyUjqvyYZcfB1lzcaPjgc3fC+2YVc/gJQSwMEFAAACAgAAAgh7D3QdDBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKKaaK5iaWFZapFYkqimWmKbrKBkWGKeYqhhbm5pbGhmZFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7B/+/dl2AgAALAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7D3QdDBtAAAAeAAAAAkAJAAAAAAAAAAAAAAAwwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB7AwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1403482493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403482491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.86, y: 7.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1445182270 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5177780835994247179, guid: 725faa79e9385194696948767a1e4143, type: 3}
