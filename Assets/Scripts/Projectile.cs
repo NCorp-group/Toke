@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
 
     public Variant projectileType = Variant.PLAYER;
 
-    public GameObject hitEffect;
+    public GameObject hitEffect = null;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -90,6 +90,10 @@ public class Projectile : MonoBehaviour
         if (GetComponent<Light2D>() is Light2D light)
         {
             light.volumeIntensityEnabled = false;
+        }
+        else if (GetComponentInChildren<Light2D>() is Light2D l)
+        {
+            l.volumeIntensityEnabled = false;
         }
         
         if (ignore)
