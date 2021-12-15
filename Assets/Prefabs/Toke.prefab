@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e32453e2861148a994c40fe636ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 5
+  fireRate: 10
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
   projectile: {fileID: 5648644113741115918, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
@@ -2137,13 +2137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09d1ab7304a417b8f1de7ed8b64758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 100
-  movementSpeed: 5
-  fireRate: 5
-  projectileLifeMultiplier: 1
-  damageMultiplier: 1
+  maxhealth: 400
+  movementSpeed: 8
+  fireRate: 10
+  projectileLifeMultiplier: 4
+  damageMultiplier: 4
   luckMultiplier: 1
-  projectileSpeedMultiplier: 1
+  projectileSpeedMultiplier: 2
 --- !u!212 &6086519574699306543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2208,7 +2208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32164980312264a44b89df6e60138606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 400
   currentHealth: 0
 --- !u!114 &6086519574699306530
 MonoBehaviour:
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnitude: 0
   animator: {fileID: 6086519574699306528}
-  movementScalar: 5
+  movementScalar: 8
 --- !u!95 &6086519574699306528
 Animator:
   serializedVersion: 4

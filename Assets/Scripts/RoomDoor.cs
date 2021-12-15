@@ -68,7 +68,7 @@ public class RoomDoor : MonoBehaviour
         action = () => { };
     }
     
-    private void MakeDoorUsable() => _usable = true;
+    private void MakeDoorUsable(DoorPreviewController.RoomType room1, DoorPreviewController.RoomType room2) => _usable = true;
     
     void Update()
     {
