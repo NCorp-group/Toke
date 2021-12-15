@@ -56,7 +56,12 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         rb.velocity = new Vector2(0, 0);
-        GetComponent<Light2D>().volumeIntensityEnabled = false;
+        var l = GetComponent<Light2D>();
+        if (l != null)
+        {
+            l.volumeIntensityEnabled = false;
+        }
+        
         if (ignore)
         {
             return;
@@ -93,6 +98,7 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.collider.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Hit Player with projectile");
             var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
             if (playerHealth != null)
             {
