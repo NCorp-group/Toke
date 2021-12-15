@@ -104,16 +104,22 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         //Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
+        if (_room_completed)
+        {
+            return;
+        }
         if (_n_waves == 0 && _enemies_alive == 0)
         {
             _room_completed = true;
-            var room1 = (DoorPreviewController.RoomType) Random.Range(0, 3);
-            var room2 = (DoorPreviewController.RoomType) Random.Range(0, 3);
+            var room1 = (DoorPreviewController.RoomType) Random.Range(1, 3);
+            var room2 = (DoorPreviewController.RoomType) Random.Range(1, 3);
             while (room2 == room1)
             {
-                room2 = (DoorPreviewController.RoomType) Random.Range(0, 3);
+                room2 = (DoorPreviewController.RoomType) Random.Range(1, 3);
             }
             Debug.Log("Room Complete");
+            Debug.Log("room1 = " + room1);
+            Debug.Log("room2 = " + room2);
             OnRoomComplete?.Invoke(room1, room2);
         }
     }

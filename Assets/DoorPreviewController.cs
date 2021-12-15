@@ -26,6 +26,7 @@ public class DoorPreviewController : MonoBehaviour
     void Start()
     {
         RoomManager.OnRoomComplete += ActivatePreview;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void ActivatePreview(RoomType room1, RoomType room2)
@@ -45,9 +46,10 @@ public class DoorPreviewController : MonoBehaviour
                     break;
             }
         }
+        Debug.Log("roomType: " + roomType);
         
+        GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType];
-        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
