@@ -31,6 +31,7 @@ public class DoorPreviewController : MonoBehaviour
 
     void ActivatePreview(RoomType room1, RoomType room2)
     {
+        Debug.Log("roomType: " + roomType + " " + (int) roomType);
         if (roomType == RoomType.UNASSIGNED)
         {
             switch (roomId)
@@ -46,10 +47,10 @@ public class DoorPreviewController : MonoBehaviour
                     break;
             }
         }
-        Debug.Log("roomType: " + roomType);
+        Debug.Log("roomType: " + roomType + " " + (int) roomType);
         
         GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType];
+        GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType - 1];
     }
 
     // Update is called once per frame
