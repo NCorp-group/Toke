@@ -134,7 +134,7 @@ public class FlashColorOnTakeDamage : MonoBehaviour
         while (!Mathf.Approximately(_flash_light.intensity, flashIntensity) || _flash_light.intensity > flashIntensity)
         {
             var delta = _flash_light.intensity + 1.0f * Time.deltaTime * rise_slope;
-            //Debug.Log($"delta: {delta}");
+            // Debug.Log($"delta: {delta}");
             _flash_light.intensity = Mathf.Clamp(delta, 0.0f, flashIntensity);
             yield return null;
         }
@@ -142,7 +142,7 @@ public class FlashColorOnTakeDamage : MonoBehaviour
         while (!Mathf.Approximately(_flash_light.intensity, 0.0f) || _flash_light.intensity < 0.0f)
         {
             var delta = _flash_light.intensity + 1.0f * Time.deltaTime * fall_slope;
-            //Debug.Log($"delta: {delta}");
+            // Debug.Log($"delta: {delta}");
             _flash_light.intensity = Mathf.Clamp(delta, 0.0f, flashIntensity);
             yield return null;
         }

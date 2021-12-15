@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - EnemySpawningPoint
   - OnHitFlashLight
+  - FirePoint
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Player Colliders
   - Walls
   - Player Projectiles
-  - 
+  - Enemy
   - 
   - 
   - 

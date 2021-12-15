@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2961891624045423034}
   - component: {fileID: -4261440761767267134}
   - component: {fileID: -4091051288106627155}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: wind arc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

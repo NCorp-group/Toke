@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 6649337648023388609}
   - component: {fileID: 740093904561978743}
   - component: {fileID: -1313078988823674887}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: lightning bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
