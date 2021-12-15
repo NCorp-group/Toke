@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6199478761221791393}
   - component: {fileID: 5119192932099971725}
   - component: {fileID: 8838351303726171665}
+  - component: {fileID: 4892318926380407536}
   m_Layer: 10
   m_Name: fire ball
   m_TagString: Untagged
@@ -32,8 +33,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 384730488605859298}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
   m_SortingLayer: 5
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 3743957659742367504, guid: c03375d61683ec261917ea212fa53a33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,10 +126,10 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5119192932099971725
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.036759663, y: -0.005391501}
+  m_Offset: {x: 0.19793314, y: -0.0053915083}
   serializedVersion: 2
-  m_Radius: 0.048451114
+  m_Radius: 0.32014346
 --- !u!114 &8838351303726171665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,52 +160,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   damage: 20
-  lifetime: 0
+  lifetime: 5
   color: {r: 0.91764706, g: 0.18431373, b: 0.019607844, a: 1}
-  animatorProvidesOnHitEffect: 0
+  animatorProvidesOnHitEffect: 1
   spawnObjectOnCollision: {fileID: 0}
   projectileType: 0
   hitEffect: {fileID: 0}
-  lifeTime: 2
---- !u!1 &6527416915114603873
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 384730488605859298}
-  - component: {fileID: 2430071654188421920}
-  m_Layer: 0
-  m_Name: Light 2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &384730488605859298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527416915114603873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2774261517026502092}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2430071654188421920
+--- !u!114 &4892318926380407536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527416915114603873}
+  m_GameObject: {fileID: 490318433632713175}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -218,8 +185,8 @@ MonoBehaviour:
   m_Color: {r: 0.91764706, g: 0.18431373, b: 0.019607844, a: 1}
   m_Intensity: 5
   m_LightVolumeIntensity: 0.1
-  m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 8d10a37b7f9064ca
+  m_LightVolumeIntensityEnabled: 1
+  m_ApplyToSortingLayers: 8d10a37b7f9064caa151e0df
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

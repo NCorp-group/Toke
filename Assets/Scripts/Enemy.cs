@@ -1,4 +1,5 @@
 using System;
+using Pathfinding;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
     public static event Action<EnemyType> OnEnemyDie;
     public static event Action<EnemyType> OnEnemyTakeDamage;
 
+    public event Action OnIndividualEnemyTakeDamage;
+    
     public enum EnemyType 
     {
         SLIME, 
@@ -29,10 +32,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //int damage = 10;
-        OnEnemyTakeDamage?.Invoke(type);
-        
-        
-        
+        //OnEnemyTakeDamage?.Invoke(type);
+        var aid = GetComponent<AIDestinationSetter>();
+        if (aid != null)
+        {
+            aid.target = GameObject.FindWithTag("Player").transform;
+        }
         
         anim = GetComponent<Animator>();
         
@@ -53,6 +58,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         OnEnemyTakeDamage?.Invoke(type);
+        OnIndividualEnemyTakeDamage?.Invoke();
         var trigger = "get hit";
         hp -= dmg;
         if (hp <= 0)
@@ -61,7 +67,7 @@ public class Enemy : MonoBehaviour
             collider.SetActive(false);
             trigger = "death";
         }
-        Debug.Log($"off i took damage my health is {hp}");
+        //Debug.Log($"off i took damage my health is {hp}");
         
         anim.SetTrigger(trigger);
     }

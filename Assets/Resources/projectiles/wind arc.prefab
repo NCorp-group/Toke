@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2961891624045423034}
   - component: {fileID: -4261440761767267134}
   - component: {fileID: -4091051288106627155}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: wind arc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Intensity: 3
   m_LightVolumeIntensity: 0.1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 8d10a37b7f9064ca
+  m_ApplyToSortingLayers: 8d10a37b7f9064caa151e0df
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -253,10 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 1
   damage: 15
-  lifetime: 10
+  lifetime: 1
   color: {r: 0.4, g: 0.5921569, b: 0.27058825, a: 1}
   animatorProvidesOnHitEffect: 0
   spawnObjectOnCollision: {fileID: 0}
   projectileType: 0
   hitEffect: {fileID: 0}
-  lifeTime: 0

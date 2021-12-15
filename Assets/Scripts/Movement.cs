@@ -21,7 +21,8 @@ public class Movement : MonoBehaviour
     private int y;
 
     public void Move()
-    {/*
+    {
+        /*
         x = Input.GetAxis("Horizontal") switch
         {
             > 0 => 1,
@@ -35,8 +36,6 @@ public class Movement : MonoBehaviour
             < 0 => -1,
             _ => 0,
         };
-
-
         */
         var w = Input.GetKey(KeyCode.W);
         var a = Input.GetKey(KeyCode.A);

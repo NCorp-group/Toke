@@ -4,7 +4,7 @@ using UnityEngine;
 public class RangedWeapon : MonoBehaviour
 {
     private int old_fireRate;
-    [SerializeField] private int fireRate = 5;
+    [SerializeField] public int fireRate = 5;
     private int shotDelay;
     [SerializeField] private int counter;
     // Start is called before the first frame update
@@ -13,10 +13,18 @@ public class RangedWeapon : MonoBehaviour
     public static event Action<Color> OnProjectileSetColor;
     public Transform shootingPoint;
     public Projectile projectile;
-    
+    private float damageMultiplier = 1;
+
     public float arrowForce = 5f;
     public static event Action OnFire;
-    
+
+    private float projectileLifeMultiplier = 1;
+
+    private void OnLifeTimeModifierChangedCB(float newLifeTime) // CB is CallBack
+    {
+        projectileLifeMultiplier = newLifeTime;
+    }
+
     void Start()
     {
         // TODO: don't hard code
@@ -36,8 +44,18 @@ public class RangedWeapon : MonoBehaviour
             }
         };
     }
+
+    private void OnDamageMultiplierChangedCB(float newDamageMultiplier)
+    {
+        //Debug.Log($"RangedWeapon: changed damageMultiplier to newDamageMultiplier {newDamageMultiplier}");
+        damageMultiplier = newDamageMultiplier;
+    }
+
     private void OnEnable()
     {
+        Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
+        Stats.OnLifeTimeModifierChanged += OnLifeTimeModifierChangedCB;
+
         GlobalState.OnSceneStart += () =>
         {
             if (GlobalState.projectile != null) projectile = GlobalState.projectile;
@@ -49,6 +67,11 @@ public class RangedWeapon : MonoBehaviour
         };
     }
 
+    private void OnDisable()
+    {
+        Stats.OnLifeTimeModifierChanged -= OnLifeTimeModifierChangedCB;
+        Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
+    }
 
     // Update is called once per frame
     void Update()
@@ -84,7 +107,10 @@ public class RangedWeapon : MonoBehaviour
 
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * arrowForce;
-        
+        spawnedProjectile.GetComponent<Projectile>().lifetime *= projectileLifeMultiplier;
+        int totalDamage = (int)(spawnedProjectile.GetComponent<Projectile>().damage * damageMultiplier);
+        spawnedProjectile.GetComponent<Projectile>().damage = totalDamage;
+
         OnFire?.Invoke();
 
         // FindObjectOfType<AudioManager>().Play("ArrowShot");

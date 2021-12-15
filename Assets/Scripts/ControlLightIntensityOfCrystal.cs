@@ -29,13 +29,13 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         // _light = GetComponent<Light2D>();
 
         _lights = GetComponentsInChildren<Light2D>();
-        Debug.Log($"_lights.length = {_lights.Length}");
-        // Assert.IsTrue(_lights.Length == 2);
+        //Debug.Log($"_lights.length = {_lights.Length}");
+        Assert.IsTrue(_lights.Length == 2);
 
-        foreach (var light in _lights)
+        /*foreach (var light in _lights)
         {
             Debug.Log($"{light.gameObject.name}");
-        }
+        }*/
         
         // Assert.IsNotNull(_light);
         Assert.IsTrue(lightUpIntensity > idleIntensity);
@@ -50,7 +50,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         if (_lights == null) return;
         
         
-        Debug.Log($"_lights.length = {_lights.Length}");
+        //Debug.Log($"_lights.length = {_lights.Length}");
         foreach (var light in _lights)
         {
             light.color = color;
@@ -92,6 +92,8 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         */
     }
 
+    private float t = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -99,6 +101,7 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             ? (lightUpIntensity - idleIntensity) / timeToLightUpCompletely
             : (idleIntensity - lightUpIntensity) / timeToReachIdle;
 
+        
         var fstCrystal = _lights[0];
         var _light = fstCrystal;
         
@@ -110,9 +113,10 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
             light.intensity = Mathf.Clamp(delta, idleIntensity, lightUpIntensity);
         }
         
+        
         /*
         Debug.Log($"light up? {lightUp}");
-        var t += Time.deltaTime;
+        t += Time.deltaTime;
         _light.intensity = Mathf.Lerp(
             _light.intensity,
             lightUp ? lightUpIntensity : idleIntensity,
@@ -120,11 +124,14 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         );
         _light.intensity = Mathf.MoveTowards(_light.intensity, t,
             (lightUp ? timeToLightUpCompletely : timeToReachIdle) * Time.deltaTime * 150);
+        
         */
         if (Mathf.Approximately(_light.intensity, lightUpIntensity) || _light.intensity > lightUpIntensity)
         {
             lightUp = false;
         }
+        
+        
 
     }
 
