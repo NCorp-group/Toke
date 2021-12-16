@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class RoomManager : MonoBehaviour
 {
     public static event Action<DoorPreviewController.RoomType, DoorPreviewController.RoomType> OnRoomComplete;
+    public static event Action OnWaveComplete;
     public static event Action OnRoomExit;
     public static event Action OnRoomEnter;
 
@@ -93,7 +94,14 @@ public class RoomManager : MonoBehaviour
     {
         //Debug.Log("enemy died");
         _enemies_alive -= 1;
-        if (_enemies_alive == 0) _n_waves--;
+        if (_enemies_alive == 0)
+        {
+            _n_waves--;
+            if(_n_waves > 0)
+            {
+                OnWaveComplete?.Invoke();
+            }
+        }
         Debug.Log($"enemies alive {_enemies_alive}");
         Debug.Log($"waves remaining: {_n_waves}");
 
@@ -120,6 +128,7 @@ public class RoomManager : MonoBehaviour
             Debug.Log("Room Complete");
             Debug.Log("room1 = " + room1);
             Debug.Log("room2 = " + room2);
+            //Use this for implementing sound indicating all waves in a room is done
             OnRoomComplete?.Invoke(room1, room2);
         }
     }

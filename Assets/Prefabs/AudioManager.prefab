@@ -213,3 +213,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: viking-horn1
+    clip: {fileID: 8300000, guid: 13a5d7136cd7fff4a856b0f8dfe68bfb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: gong1
+    clip: {fileID: 8300000, guid: d038c73c4fc03284bb4146558caf7a99, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
