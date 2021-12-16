@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     private float music = 1;
     private float master = 1;
     private int playerFireCounter = 0;
+    private int enemyFireCounter = 0;
 
     void Awake()
     {
@@ -48,7 +49,7 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyDie += EnemyDeathSound;
         Enemy.OnEnemySpawn += EnemySpawnSound;
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
-        //Enemy.OnEnemyRangedAttack += EnemyFireSound;
+        RangedAttack.OnEnemyRangedAttack += EnemyFireSound;
         PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
         PlayerHealthController.OnPlayerDie += PlayerDeathSound;
 
@@ -151,7 +152,10 @@ public class AudioManager : MonoBehaviour
 
     void EnemyFireSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-fire{UnityEngine.Random.Range(1, 2)}");
+        enemyFireCounter++;
+        PlayWithOverlap($"{EnemyTypeToString(type)}-fire{enemyFireCounter}");
+        if (enemyFireCounter == 8)
+            enemyFireCounter = 0;
     }
     
 
@@ -173,7 +177,6 @@ public class AudioManager : MonoBehaviour
     {
         playerFireCounter++;
         PlayWithOverlap($"toke-fire{playerFireCounter}");
-
         if (playerFireCounter == 10)
             playerFireCounter = 0;
     }

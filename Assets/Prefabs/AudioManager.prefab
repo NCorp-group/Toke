@@ -201,18 +201,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: worm-fire1
-    clip: {fileID: 8300000, guid: bb58533f7000b174e851422c68a1b5af, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: worm-fire2
-    clip: {fileID: 8300000, guid: 5c5343b7616fa674da88eb068a30fa9f, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: viking-horn1
     clip: {fileID: 8300000, guid: 13a5d7136cd7fff4a856b0f8dfe68bfb, type: 3}
     volume: 1
@@ -222,6 +210,54 @@ MonoBehaviour:
   - name: gong1
     clip: {fileID: 8300000, guid: d038c73c4fc03284bb4146558caf7a99, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire1
+    clip: {fileID: 8300000, guid: bb58533f7000b174e851422c68a1b5af, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire2
+    clip: {fileID: 8300000, guid: 5c5343b7616fa674da88eb068a30fa9f, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire3
+    clip: {fileID: 8300000, guid: 2903f70b8b70b7047bf5675af21f63ec, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire4
+    clip: {fileID: 8300000, guid: cdce7f8b32ea7c347aaa6c5b732e683c, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire5
+    clip: {fileID: 8300000, guid: 8212b0794dbad5141aa6f5620bc6cd70, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire6
+    clip: {fileID: 8300000, guid: 5f43b990366f8ab4988b4b54b1e93ecf, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire7
+    clip: {fileID: 8300000, guid: ad4f70ef9dec8654599a332811e47c9a, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire8
+    clip: {fileID: 8300000, guid: a657a236e7a98294fb42f0ef3b3409ef, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
