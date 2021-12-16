@@ -2,6 +2,8 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
+// This AudioManager is partly inspired by this youtube video
+// https://www.youtube.com/watch?v=6OT43pvUyfY
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
@@ -11,6 +13,7 @@ public class AudioManager : MonoBehaviour
     private float sfx = 1;
     private float music = 1;
     private float master = 1;
+    private int shotCounter = 0;
 
     void Awake()
     {
@@ -142,7 +145,11 @@ public class AudioManager : MonoBehaviour
 
     void PlayerFireSound()
     {
-        PlayWithOverlap("toke-fire");
+        shotCounter++;
+        PlayWithOverlap($"toke-fire{shotCounter}");
+
+        if (shotCounter == 10)
+            shotCounter = 0;
     }
 
     void PlayerTakeDamageSound()
@@ -153,5 +160,6 @@ public class AudioManager : MonoBehaviour
     void PlayerDeathSound()
     {
         Play($"toke-death{UnityEngine.Random.Range(1, 3)}");
+        Play("death-music");
     }
 }

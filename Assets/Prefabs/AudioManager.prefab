@@ -45,18 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: toke-step
-    clip: {fileID: 8300000, guid: 7787d701f55ba234b9b620f73ffbc80d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: toke-fire
-    clip: {fileID: 8300000, guid: 29dbe7cafa962e14d9f34f495e53a2b3, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: worm-hit1
     clip: {fileID: 8300000, guid: 8b10890222661044cafee022f0047a93, type: 3}
     volume: 1
@@ -99,6 +87,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: toke-step
+    clip: {fileID: 8300000, guid: 7787d701f55ba234b9b620f73ffbc80d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: toke-hit1
     clip: {fileID: 8300000, guid: 89db39d4032024f42bde3f2ff6516657, type: 3}
     volume: 1
@@ -137,6 +131,84 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: toke-death3
     clip: {fileID: 8300000, guid: f8c389a3a46445148861ab7b44cd8aee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: death-music
+    clip: {fileID: 8300000, guid: 38249cf4731f48c4eae2afecb9af3d1f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire1
+    clip: {fileID: 8300000, guid: a3d87f93ac343c54b93d0d7e7cd69ae1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire2
+    clip: {fileID: 8300000, guid: 4fe4a1a992b3c7e41af1927472ee5b3f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire3
+    clip: {fileID: 8300000, guid: 8aed3e7df79facb41b60b6c7c2f22ccd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire4
+    clip: {fileID: 8300000, guid: ef5ebe27cba0da844bf723a9ad883b0b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire5
+    clip: {fileID: 8300000, guid: 16f395afe9ead1c48a0e22ddea6a130c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire6
+    clip: {fileID: 8300000, guid: acd4c3aae2ec6a74999c7d1b81eb31f0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire7
+    clip: {fileID: 8300000, guid: 298bf794b5ce97e49a92b82d109a0809, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire8
+    clip: {fileID: 8300000, guid: ce8f0f86399791e47aab556319120bad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire9
+    clip: {fileID: 8300000, guid: 69404183e2437e24d8e1dd5926085964, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-fire10
+    clip: {fileID: 8300000, guid: b1a88befd3afe894889f77f5facd7e62, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire1
+    clip: {fileID: 8300000, guid: bb58533f7000b174e851422c68a1b5af, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: worm-fire2
+    clip: {fileID: 8300000, guid: 5c5343b7616fa674da88eb068a30fa9f, type: 3}
     volume: 1
     pitch: 1
     loop: 0
