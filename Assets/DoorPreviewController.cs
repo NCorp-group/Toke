@@ -37,6 +37,8 @@ public class DoorPreviewController : MonoBehaviour
 
     void ActivatePreview(RoomType room1, RoomType room2)
     {
+        Debug.Log("room1: " + room1);
+        Debug.Log("room2: " + room2);
         Debug.Log("roomType: " + roomType + " " + (int) roomType);
         if (roomType == RoomType.UNASSIGNED)
         {
