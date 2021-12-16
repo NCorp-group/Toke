@@ -70,8 +70,19 @@ public class RoomManager : MonoBehaviour
 
     private void ChangeRoom(DoorPreviewController.RoomType nextRoomType)
     {
-        var nextRoom = Random.Range(2, 6);
-        SceneManager.LoadScene(nextRoom);
+        switch (nextRoomType)
+        {
+            case DoorPreviewController.RoomType.SHOP:
+                SceneManager.LoadScene(8);
+                break;
+            case DoorPreviewController.RoomType.BOSS:
+                SceneManager.LoadScene(9);
+                break;
+            default:
+                var nextRoom = Random.Range(2, 6);
+                SceneManager.LoadScene(nextRoom);
+                break;
+        }
     }
 
     // dummy stub
