@@ -15,6 +15,21 @@ public class Movement : MonoBehaviour
         
     }
 
+    public void OnMovementSpeedMultiplierChangedCB(float speedMultiplier)
+    {
+        movementScalar = speedMultiplier;
+    }
+
+    private void OnEnable()
+    {
+        Stats.OnMovementSpeedMultiplierChanged += OnMovementSpeedMultiplierChangedCB;
+    }
+
+    private void OnDisable()
+    {
+        Stats.OnMovementSpeedMultiplierChanged -= OnMovementSpeedMultiplierChangedCB;
+    }
+
     public Animator animator;
     public float movementScalar = 16;
     private int x;

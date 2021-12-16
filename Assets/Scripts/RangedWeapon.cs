@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class RangedWeapon : MonoBehaviour
 {
-    private int old_fireRate;
-    [SerializeField] public int fireRate = 5;
-    private int shotDelay;
-    [SerializeField] private int counter;
+    private float old_fireRate;
+    [SerializeField] public float fireRate = 5;
+    private float shotDelay;
+    [SerializeField] private float counter;
     // Start is called before the first frame update
 
     public static event Action<Color> OnProjectileChanged;
@@ -20,6 +20,11 @@ public class RangedWeapon : MonoBehaviour
 
     private float projectileLifeMultiplier = 1;
     private float projectileSpeedMultiplier = 1;
+
+    private void OnFireRateMultiplierChangedCB(float newFireRate)
+    {
+        fireRate = newFireRate;
+    }
 
     private void OnLifeTimeModifierChangedCB(float newLifeTime) // CB is CallBack
     {
@@ -62,6 +67,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
         Stats.OnLifeTimeModifierChanged += OnLifeTimeModifierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
+        Stats.OnFireRateChanged += OnFireRateMultiplierChangedCB;
 
         GlobalState.OnSceneStart += () =>
         {
@@ -79,6 +85,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnLifeTimeModifierChanged -= OnLifeTimeModifierChangedCB;
         Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged -= OnProjectileSpeedMultiplierChangedCB;
+        Stats.OnFireRateChanged -= OnFireRateMultiplierChangedCB;
     }
 
     // Update is called once per frame

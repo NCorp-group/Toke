@@ -126,13 +126,13 @@ public class EnemyAI : MonoBehaviour
         // Debug.Log($"distance to target = {distance_to_target}");
         if (target_within_aggression_range && _behaviour.Invoke())
         {
-            Debug.Log("target within distance, enabling attack behaviour");
+            //Debug.Log("target within distance, enabling attack behaviour");
             //_behaviour.Invoke();
             DisableAI();
         }
         else
         {
-            Debug.Log("target not within distance, enabling AI");
+            //Debug.Log("target not within distance, enabling AI");
             EnableAI();
         }
     }

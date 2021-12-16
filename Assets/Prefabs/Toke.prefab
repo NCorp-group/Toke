@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e32453e2861148a994c40fe636ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireRate: 25
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
   projectile: {fileID: 5648644113741115918, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 400
   movementSpeed: 8
-  fireRate: 10
+  fireRate: 25
   projectileLifeMultiplier: 4
   damageMultiplier: 4
   luckMultiplier: 1
