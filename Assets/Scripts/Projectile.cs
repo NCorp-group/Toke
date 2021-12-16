@@ -116,7 +116,7 @@ public class Projectile : MonoBehaviour
             
              // Destroy object after 5 seconds of hitting something
             
-             Debug.Log("animate: COLLISION");
+             //Debug.Log("animate: COLLISION");
              animator?.SetTrigger("collision");
              // in case the
              if (animator != null && !animatorProvidesOnHitEffect)
@@ -144,19 +144,19 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("DO WE GET HERE??");
+            //Debug.Log("DO WE GET HERE??");
             animator.SetTrigger("collision");
-            Debug.Log("Hit Player with projectile");
+            //Debug.Log("Hit Player with projectile");
             var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);
                 if (animatorProvidesOnHitEffect)
                 {
-                    Debug.Log("animate: COLLISION");
+                    //Debug.Log("animate: COLLISION");
                     if (animator is Animator a)
                     {
-                        Debug.Log("ANIMATOR IS HERE");
+                        //Debug.Log("ANIMATOR IS HERE");
                         a.SetTrigger("collision");
                     }
                     //animator?.SetTrigger("collision");
