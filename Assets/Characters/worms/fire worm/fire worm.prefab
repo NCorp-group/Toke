@@ -296,7 +296,6 @@ MonoBehaviour:
   target: {fileID: 0}
   from: {fileID: 1288139917384931821}
   enemyType: 1
-  aiPath: {fileID: 5331556781284401444}
 --- !u!114 &8157821123262069807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +314,7 @@ MonoBehaviour:
   useFirePoint: 1
   useAnimationEventToTriggerProjectileFire: 1
   projectileVariant: 1
+  projectilePadding: 0.15
 --- !u!1 &3677654759137219061
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598763284236964470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.09, y: 0.31, z: 0}
+  m_LocalPosition: {x: 1.42, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
