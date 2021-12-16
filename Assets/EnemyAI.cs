@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
     
     private bool MeleeBehaviour()
     {
-        return true;
+        return _meleeAttack.CheckAttack();
     }
 
     private Func<bool> _behaviour;
@@ -132,5 +132,10 @@ public class EnemyAI : MonoBehaviour
             //Debug.Log("target not within distance, enabling AI");
             EnableAI();
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, aggressionRadius);
     }
 }
