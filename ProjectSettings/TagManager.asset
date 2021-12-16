@@ -11,6 +11,7 @@ TagManager:
   - EnemySpawningPoint
   - OnHitFlashLight
   - FirePoint
+  - Door
   layers:
   - Default
   - TransparentFX

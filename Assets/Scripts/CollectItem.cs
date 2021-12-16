@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using dpc = DoorPreviewController;
 
 public class CollectItem : MonoBehaviour
 {
-    private Action collect;
+    private Action interact;
     public static event Func<int> OnItemCanBeCollected;
     public static event Action<Collectable> OnItemCollected;
-    public static event Action<GameObject> OnProjectileAcquired; 
+    public static event Action<GameObject> OnProjectileAcquired;
+    public static event Action<dpc.RoomType> OnDoorInteraction;
 
 
     // Start is called before the first frame update
@@ -20,25 +22,44 @@ public class CollectItem : MonoBehaviour
     {
         // Debug.Log(_item == null ? "I don't have an item" : "I have picked an item");
         
-        collect?.Invoke();
+        interact?.Invoke();
     }
 
     // expose collect function
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("entering collectable zone");
-        var collectable = other.GetComponent<Collectable>();
-        if (other.gameObject.CompareTag("Collectable") && collectable != null)
+        if (other.gameObject.CompareTag("Collectable"))
         {
-            collect = Collect(collectable);
+            var collectable = other.GetComponent<Collectable>();
+            if (collectable != null) // Why would this even be null if we can compare tags? - because tags can change dynamically?
+            {
+                interact = Collect(collectable);   
+            }
         }
+        else if (other.gameObject.CompareTag("Door"))
+        {
+            var nextRoomType = other.GetComponent<dpc>().roomType;
+            interact = EnterDoor(nextRoomType);
+        }
+    }
+
+    private Action EnterDoor(dpc.RoomType nextRoomType)
+    {
+        return () =>
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                OnDoorInteraction?.Invoke(nextRoomType);
+            }
+        };
     }
 
     // deexpose collect function
     private void OnTriggerExit2D(Collider2D other)
     {
         //Debug.Log("leaving collectable zone");
-        collect = () => { };
+        interact = () => { };
         
         // collect = null;
     }

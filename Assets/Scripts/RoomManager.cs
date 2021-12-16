@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 using dpc = DoorPreviewController;
 
@@ -63,6 +64,14 @@ public class RoomManager : MonoBehaviour
         Assert.IsNotNull(spawningPoints);
 
         StartCoroutine(Spawn());
+
+        CollectItem.OnDoorInteraction += ChangeRoom;
+    }
+
+    private void ChangeRoom(DoorPreviewController.RoomType nextRoomType)
+    {
+        var nextRoom = Random.Range(2, 6);
+        SceneManager.LoadScene(nextRoom);
     }
 
     // dummy stub

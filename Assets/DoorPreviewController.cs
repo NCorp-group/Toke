@@ -61,6 +61,14 @@ public class DoorPreviewController : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType - 1];
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
