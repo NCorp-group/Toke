@@ -5,43 +5,43 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 329483729bea8cc47bfa7fd9a8468df5
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-entry.unity
+    guid: b5e8d73930d0ed5499c99ec264416dbb
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-1.unity
+    guid: a5b7b0a534897a54c803582a14ef357f
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-2.unity
+    guid: fb20ce6b633e1394e956a0d5b4ff7a53
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-3.unity
+    guid: 4a11801c0c07adb4abf7ed449f2eca21
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-4.unity
+    guid: bca71a5ebc2fd6c7f91962ffede3b99d
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-5.unity
+    guid: 2b74f5f229686fd40985a0849a9d6808
+  - enabled: 1
+    path: Assets/Scenes/Level01/before-shop.unity
+    guid: 0732e2ef9ed6d114a973edd21c65ba34
+  - enabled: 1
+    path: Assets/Scenes/Level01/shop.unity
+    guid: c424e7eae984d124b8320d8370044e76
+  - enabled: 1
+    path: Assets/Scenes/Level01/room-boss.unity
+    guid: 52fff925fd753724b95a42ed6c5b88d9
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/MovemnetAndAnimation.unity
     guid: 4e55960ac9610044e8e3c396d53257de
   - enabled: 0
     path: Assets/Scenes/AudioTestingScene.unity
     guid: a956838129e3942c8a6af8ecf8d9615a
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-4.unity
-    guid: bca71a5ebc2fd6c7f91962ffede3b99d
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-entry.unity
-    guid: b5e8d73930d0ed5499c99ec264416dbb
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-2.unity
-    guid: fb20ce6b633e1394e956a0d5b4ff7a53
-  - enabled: 1
-    path: Assets/Scenes/Level01/before-shop.unity
-    guid: 0732e2ef9ed6d114a973edd21c65ba34
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-1.unity
-    guid: a5b7b0a534897a54c803582a14ef357f
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-3.unity
-    guid: 4a11801c0c07adb4abf7ed449f2eca21
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-5.unity
-    guid: 2b74f5f229686fd40985a0849a9d6808
-  - enabled: 1
-    path: Assets/Scenes/Level01/room-boss.unity
-    guid: 52fff925fd753724b95a42ed6c5b88d9
-  - enabled: 1
-    path: Assets/Scenes/Level01/shop.unity
-    guid: c424e7eae984d124b8320d8370044e76
   m_configObjects: {}

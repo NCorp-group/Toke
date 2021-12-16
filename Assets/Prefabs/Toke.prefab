@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3856093045559725379}
   - component: {fileID: 3856093045559725437}
   - component: {fileID: 3856093045559725436}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CollectableArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09d1ab7304a417b8f1de7ed8b64758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 400
+  maxHealth: 100
   movementSpeed: 8
   fireRate: 25
   projectileLifeMultiplier: 4

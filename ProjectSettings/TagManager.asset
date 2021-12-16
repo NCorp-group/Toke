@@ -29,8 +29,8 @@ TagManager:
   - Player Projectiles
   - Enemy
   - Projectile Collider
-  - 
-  - 
+  - Collectable Area
+  - Interactable
   - 
   - 
   - 

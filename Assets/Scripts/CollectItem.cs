@@ -39,6 +39,7 @@ public class CollectItem : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Door"))
         {
+            Debug.Log("IM AT A DOOR POG");
             var nextRoomType = other.GetComponent<dpc>().roomType;
             interact = EnterDoor(nextRoomType);
         }
