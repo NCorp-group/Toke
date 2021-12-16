@@ -1,18 +1,126 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Assertions;
 
+// TODO: super cool
+//[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class MeleeAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int damage = 10;
+    
+    [Header("If true, then a child object with a Collider2D will be used.\nThe name should be \"Melee Attack Area\".\nOtherwise use the transform of this object")]
+    [SerializeField] private bool useChildColliderForAttackArea = false;
+    [Header("Only used if \"Use Child Collider For Attack Area\" is set to true")]
+    [SerializeField] private float attackRadius;
+    public LayerMask attackLayers;
+
+    [Header("A delay in (real world) seconds between consecutive attacks.")]
+    [Range(0f, 10f)]
+    [SerializeField] private float attackDelay = 0f;
+    
+    [Header("If true then responsibility of calling \"Attack()\"\nis delegated to an animation event on the object,\nwith trigger named \"attack\"")]
+    [SerializeField] private bool useAnimationEventToTriggerAttack = false;
+
+
+    private Action _apply_delay;
+    private bool can_attack = true;
+
+    private Animator _animator;
+    private Action _Attack;
+    
+    public static readonly string GAMEOBJECT_NAME_FOR_ATTACK_AREA = "Melee Attack Area";
+
+    private Func<Collider2D[]> _get_attack_colliders;
+
+    private Collider2D _attack_area_collider = null;
+    // FIX: set default size to like 4
+    private Collider2D[] _results = new Collider2D[4];
+    
+    
+    // TODO: cache reference
+    [CanBeNull] private PlayerHealthController _phc = null;
+    private static readonly int AttackTrigger = Animator.StringToHash("attack");
+
+    private IEnumerator WaitDelayForConsecutiveAttack(float delay)
+    {
+        can_attack = false;
+        yield return new WaitForSecondsRealtime(delay);
+        can_attack = true;
+    }
+    
     void Start()
     {
+        Assert.IsTrue(damage >= 0, "damage >= 0");
+        Assert.IsTrue(attackRadius >= 0, "attackRadius >= 0");
+
+        _apply_delay = attackDelay switch
+        {
+            0 => () => { },
+            _ => () => { StartCoroutine(WaitDelayForConsecutiveAttack(attackDelay)); }
+        };
+
+        _Attack = useAnimationEventToTriggerAttack switch
+        {
+            false => () => Attack(),
+            true => () => _animator.SetTrigger(AttackTrigger)
+        };
         
+        if (useChildColliderForAttackArea)
+        {
+            _attack_area_collider = GetComponentsInChildren<Collider2D>()
+                .FirstOrDefault(coll => coll.gameObject.name == GAMEOBJECT_NAME_FOR_ATTACK_AREA);
+            Assert.IsNotNull(_attack_area_collider, "_attack_area != null");
+        }
+        
+        _get_attack_colliders = useChildColliderForAttackArea 
+            ? () => Physics2D.OverlapCircleAll(transform.position, attackRadius, attackLayers)
+            : () =>
+            {
+                var contact_filter = new ContactFilter2D();
+                contact_filter.layerMask = attackLayers;
+                contact_filter.useLayerMask = true;
+                var n_collisions = Physics2D.OverlapCollider(_attack_area_collider, contact_filter, _results);
+                var player_hit = n_collisions != 0;
+                if (player_hit)
+                {
+                    
+                }
+
+                return _results;
+            };
+    }
+    
+    
+    public void Attack()
+    {
+        _phc.TakeDamage(damage);
+        _apply_delay.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmosSelected()
     {
+        if (useChildColliderForAttackArea) return;
+
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
+    
+    public bool CheckAttack()
+    {
+        if (!can_attack) return false;
         
+        var colliders = _get_attack_colliders.Invoke();
+        if (colliders.Length == 0) return false;
+
+        var player_collider = colliders
+            .First(coll => coll.gameObject.CompareTag("Player"));
+        _phc ??= player_collider.gameObject.GetComponent<PlayerHealthController>();
+        
+        _Attack.Invoke();
+        return true;
     }
 }

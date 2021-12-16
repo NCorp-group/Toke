@@ -1,6 +1,7 @@
 using System;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
 
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private bool dropCollectableOnDeath = false;
-    [SerializeField] private GameObject collider;
+    private Collider2D _collider;
     [Range(0.0f, 1.0f)] public float likelihood = 1.0f;
     public Collectable collectable;
 
@@ -34,6 +35,8 @@ public class Enemy : MonoBehaviour
     {
         //int damage = 10;
         //OnEnemyTakeDamage?.Invoke(type);
+        _collider = GetComponent<Collider2D>();
+        Assert.IsNotNull(_collider, "_collider != null");
         var aid = GetComponent<AIDestinationSetter>();
         if (aid != null)
         {
@@ -67,7 +70,7 @@ public class Enemy : MonoBehaviour
             if (!dead)
             {
                 OnEnemyDie?.Invoke(type);
-                collider.SetActive(false);
+                _collider.gameObject.SetActive(false);
                 trigger = "death";
                 dead = true;
             }
