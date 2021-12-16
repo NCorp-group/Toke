@@ -5,10 +5,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
+using dpc = DoorPreviewController;
 
 public class RoomManager : MonoBehaviour
 {
-    public static event Action<DoorPreviewController.RoomType, DoorPreviewController.RoomType> OnRoomComplete;
+    public static event Action<dpc.RoomType, dpc.RoomType> OnRoomComplete;
     public static event Action OnRoomExit;
     public static event Action OnRoomEnter;
 
@@ -98,7 +99,6 @@ public class RoomManager : MonoBehaviour
         Debug.Log($"waves remaining: {_n_waves}");
 
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -111,11 +111,11 @@ public class RoomManager : MonoBehaviour
         if (_n_waves == 0)
         {
             _room_completed = true;
-            var room1 = (DoorPreviewController.RoomType) Random.Range(1, 3);
-            var room2 = (DoorPreviewController.RoomType) Random.Range(1, 3);
+            var room1 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
+            var room2 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
             while (room2 == room1)
             {
-                room2 = (DoorPreviewController.RoomType) Random.Range(1, 3);
+                room2 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
             }
             Debug.Log("Room Complete");
             Debug.Log("room1 = " + room1);

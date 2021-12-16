@@ -17,7 +17,7 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnDamageMultiplierChanged;
     public static event Action<float> OnProjectileSpeedMultiplierChanged;
 
-    private void OnValidate()
+    /*private void OnValidate()
     {
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setOnDamageMultiplierChanged(damageMultiplier);
@@ -26,7 +26,7 @@ public class Stats : MonoBehaviour
         GetComponentInParent<PlayerHealthController>().maxHealth = maxhealth;
         GetComponentInChildren<RangedWeapon>().fireRate = fireRate;
         GetComponentInParent<Movement>().movementScalar = movementSpeed;
-    }
+    }*/
 
     void setProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {

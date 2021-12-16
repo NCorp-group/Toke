@@ -1,12 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 public class FlashColorOnTakeDamage : MonoBehaviour
 {
