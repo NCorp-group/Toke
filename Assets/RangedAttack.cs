@@ -202,7 +202,7 @@ public class RangedAttack : MonoBehaviour
         instance.Setup(
             projectileVariant);
         
-        OnEnemyRangedAttack.Invoke(_enemyType);
+        OnEnemyRangedAttack?.Invoke(_enemyType);
         
         instance.GetComponent<Rigidbody2D>().AddForce(projectile_direction * speed, ForceMode2D.Impulse);
     }
