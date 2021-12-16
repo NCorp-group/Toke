@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class DoorPreviewController : MonoBehaviour
 {
+    public const int DROP_START = 1;
+    public const int DROP_END = 4;
     public enum RoomType
     {
         UNASSIGNED,
         ITEM_DROP,
         PENNINGAR_DROP,
+        HEALTH_DROP,
         SHOP,
         BOSS
     }
