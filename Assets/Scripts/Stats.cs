@@ -30,7 +30,6 @@ public class Stats : MonoBehaviour
         setMaxHealthChanged(maxHealth);
         setOnMovementSpeedMultiplierChanged(movementSpeed);
         setFireRateScalarChanged(fireRate);
-
         //GetComponentInParent<PlayerHealthController>().maxHealth = maxHealth;
     }
     //#endif

@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AudioTestingScene.unity
     guid: a956838129e3942c8a6af8ecf8d9615a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level01/room-4.unity
     guid: bca71a5ebc2fd6c7f91962ffede3b99d
   - enabled: 1
