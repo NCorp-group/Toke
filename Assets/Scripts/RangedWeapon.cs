@@ -45,7 +45,7 @@ public class RangedWeapon : MonoBehaviour
     void Start()
     {
         // TODO: don't hard code
-        projectile = Resources.Load<Projectile>("projectiles/water ball");
+        projectile = Resources.Load<Projectile>("projectiles/fire ball");
         old_fireRate = fireRate;
         shotDelay = 50 / fireRate;
         counter = shotDelay;
