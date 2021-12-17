@@ -76,6 +76,7 @@ public class CollectItem : MonoBehaviour
                     OnProjectileAcquired?.Invoke(item);
                     OnItemCollected?.Invoke(collectable);
                 }
+                Destroy(collectable.gameObject);
             }
         };
     }
