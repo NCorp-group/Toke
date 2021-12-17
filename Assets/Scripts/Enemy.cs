@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        Debug.Log("DIE");
         //collider.SetActive(false);
         if (dropCollectableOnDeath)
         {

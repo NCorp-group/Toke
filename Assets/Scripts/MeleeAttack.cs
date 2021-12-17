@@ -49,7 +49,6 @@ public class MeleeAttack : MonoBehaviour
 
     private IEnumerator WaitDelayForConsecutiveAttack(float delay)
     {
-        can_attack = false;
         yield return new WaitForSecondsRealtime(delay);
         can_attack = true;
     }
@@ -137,6 +136,8 @@ public class MeleeAttack : MonoBehaviour
             Debug.Log("No colliders hit in melee attack");
             return false;
         }
+
+        can_attack = false;
         /*
         var colliders = _get_attack_colliders.Invoke();
         if (colliders.Length == 0)

@@ -395,7 +395,7 @@ MonoBehaviour:
   attackLayers:
     serializedVersion: 2
     m_Bits: 128
-  attackDelay: 1
+  attackDelay: 2
   useAnimationEventToTriggerAttack: 1
 --- !u!114 &8588274718784087755
 MonoBehaviour:

@@ -1,17 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class WeaponMovement : MonoBehaviour
 {
     private Camera cam;
     private Vector2 mousePosition;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         PlayerPrefs.GetString("weapon", "default");
-        
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     public static int health;

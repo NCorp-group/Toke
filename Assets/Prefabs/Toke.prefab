@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99593bbc5e87f46fba476f9433123b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3856093045851589518}
+  rb: {fileID: 0}
 --- !u!114 &3856093045851589519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2139,10 +2139,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   movementSpeed: 8
-  fireRate: 25
-  projectileLifeMultiplier: 4
-  damageMultiplier: 4
   luckMultiplier: 1
+  fireRate: 3
+  damageMultiplier: 4
+  projectileLifeMultiplier: 4
   projectileSpeedMultiplier: 2
 --- !u!212 &6086519574699306543
 SpriteRenderer:
