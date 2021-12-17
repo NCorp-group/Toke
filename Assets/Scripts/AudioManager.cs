@@ -182,9 +182,6 @@ public class AudioManager : MonoBehaviour
     }
         
 
-
-
-
     void PlayerMovementSound()
     {
         //Adding variance to the step sound of the player
