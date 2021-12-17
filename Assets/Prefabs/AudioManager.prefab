@@ -261,3 +261,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: test-sound
+    clip: {fileID: 8300000, guid: 5b7e3be0e0e328f499c7a280dcc53b5a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

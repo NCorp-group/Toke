@@ -56,6 +56,7 @@ public class AudioManager : MonoBehaviour
         //Rooms/Waves
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
+
     }
 
 
@@ -100,8 +101,33 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
-    
+    public void PauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Pause();
+        }
+    }
 
+    public void UnPauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.UnPause();
+        }
+    }
+
+
+    public void GoToMainMenu()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+
+        //Play main menu music
+    }
+    
     public void PlayMusic()
     {
         //Sound s = Array.Find(sounds, sound => sound.name == "music");
@@ -109,7 +135,6 @@ public class AudioManager : MonoBehaviour
         //s.source.volume = s.volume * music * master;
         //s.source.Play();
     }
-
 
 
     public void RoomCompleteSound(DoorPreviewController.RoomType x, DoorPreviewController.RoomType y)
@@ -121,8 +146,6 @@ public class AudioManager : MonoBehaviour
     {
         Play("viking-horn1");
     }
-
-
 
     private string EnemyTypeToString(Enemy.EnemyType type)
     {
@@ -157,7 +180,7 @@ public class AudioManager : MonoBehaviour
         if (enemyFireCounter == 8)
             enemyFireCounter = 0;
     }
-    
+        
 
 
 
