@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class DoorPreviewController : MonoBehaviour
 {
+    public const int DROP_START = 1;
+    public const int DROP_END = 4;
     public enum RoomType
     {
         UNASSIGNED,
         ITEM_DROP,
         PENNINGAR_DROP,
+        HEALTH_DROP,
         SHOP,
         BOSS
     }
@@ -34,6 +37,8 @@ public class DoorPreviewController : MonoBehaviour
 
     void ActivatePreview(RoomType room1, RoomType room2)
     {
+        Debug.Log("room1: " + room1);
+        Debug.Log("room2: " + room2);
         Debug.Log("roomType: " + roomType + " " + (int) roomType);
         if (roomType == RoomType.UNASSIGNED)
         {
