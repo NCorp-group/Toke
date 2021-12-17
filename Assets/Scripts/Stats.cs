@@ -7,10 +7,10 @@ public class Stats : MonoBehaviour
 {
     public int maxHealth = 100;
     public float movementSpeed = 5;
-    public float fireRate = 5;
-    public float projectileLifeMultiplier = 1;
-    public float damageMultiplier = 1;
     public float luckMultiplier = 1;
+    public float fireRate = 5;
+    public float damageMultiplier = 1;
+    public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
 
     public static event Action<float> OnLifeTimeModifierChanged;
