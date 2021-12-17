@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4109202166188401948}
   - component: {fileID: 4109202166188401946}
   - component: {fileID: 4109202166188401949}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4109202166200316720}
   - component: {fileID: 4109202166200316723}
   - component: {fileID: 4109202166200316722}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109202166774605541}
   - component: {fileID: 4109202166774605538}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 4109202166832208304}
   - component: {fileID: 4109202166832208318}
   - component: {fileID: 612580721}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: Determination Rune
   m_TagString: Collectable
   m_Icon: {fileID: 0}

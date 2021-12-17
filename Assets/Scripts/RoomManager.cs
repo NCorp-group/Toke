@@ -24,17 +24,17 @@ public class RoomManager : MonoBehaviour
     private bool _an_enemy_has_spawned = false;
 
     private List<(Transform, bool)> spawningPoints;
-    
+
     [System.Serializable]
     public class EnemyWave
     {
         public enum EnemyWaveVariant
         {
             PERIODIC,
-            CONDITIONAL,    
+            CONDITIONAL,
             NATURAL,
         }
-        
+
         [Header("A delay in seconds added before the wave spawns.")]
         public float startDelay = 0f;
         [Header("TODO:")]
@@ -44,12 +44,12 @@ public class RoomManager : MonoBehaviour
         [Header("Number of times this wave should be repeatedly spawned.")]
         [Range(1, 10)]
         public int repetitions = 1;
-        public List<Enemy> enemies; 
+        public List<Enemy> enemies;
     }
 
     public List<EnemyWave> waves = new List<EnemyWave>();
 
-    
+
     //when to spawn next wave ??? periodic or on event ???
     // Start is called before the first frame update
     void Start()
@@ -59,13 +59,13 @@ public class RoomManager : MonoBehaviour
             .Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint"))
             .Select(tf => (tf, false))
             .ToList();
-        
+
         // spawningPoints = GetComponentsInChildren<Transform>().Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint")).ToList();
         Assert.IsNotNull(spawningPoints);
 
         StartCoroutine(Spawn());
 
-        CollectItem.OnDoorInteraction += ChangeRoom;
+        InteractableArea.OnDoorInteraction += ChangeRoom;
     }
 
     private void ChangeRoom(DoorPreviewController.RoomType nextRoomType)
@@ -118,7 +118,7 @@ public class RoomManager : MonoBehaviour
         if (_enemies_alive == 0)
         {
             _n_waves--;
-            if(_n_waves > 0)
+            if (_n_waves > 0)
             {
                 OnWaveComplete?.Invoke();
             }
@@ -127,7 +127,7 @@ public class RoomManager : MonoBehaviour
         Debug.Log($"waves remaining: {_n_waves}");
 
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -140,11 +140,11 @@ public class RoomManager : MonoBehaviour
         if (_n_waves == 0)
         {
             _room_completed = true;
-            var room1 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
-            var room2 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
+            var room1 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
+            var room2 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
             while (room2 == room1)
             {
-                room2 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
+                room2 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
             }
             //Debug.Log("Room Complete");
             //Debug.Log("room1 = " + room1);
@@ -164,7 +164,7 @@ public class RoomManager : MonoBehaviour
             var _curr_n_waves = _n_waves;
             SpawnWave(wave);
             //Debug.Log($"_curr_n_waves = {_curr_n_waves}");
-            
+
             yield return new WaitUntil(() => _enemies_alive == 0 && (_curr_n_waves - 1) == _n_waves && _an_enemy_has_spawned);
         }
     }
@@ -173,8 +173,8 @@ public class RoomManager : MonoBehaviour
     {
         // don't know how to clone reference objects ...
         var spawningPointsClone = spawningPoints.Select(x => x).ToList();
-        
-        
+
+
         foreach (var enemy in wave.enemies)
         {
             var idx = Random.Range(0, spawningPointsClone.Count);
@@ -186,11 +186,8 @@ public class RoomManager : MonoBehaviour
 
         spawningPoints = spawningPoints.Select(p => (p.Item1, false)).ToList();
     }
-    
+
 
     // private Transform PickRandomEnemySpawningPoint() => spawningPoints[Random.Range(0, spawningPoints.Count)];
-        
+
 }
-
-
-

@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour
         PROJECTILE,
         MODIFIER
     };
-    
+
     public Variant variant;
     public GameObject item;
 
@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour
     {
         Assert.IsNotNull(item);
     }
-    
+
     public GameObject Collect()
     {
         _collected = true;

@@ -19,9 +19,9 @@ public class DoorPreviewController : MonoBehaviour
 
     [SerializeField]
     private int roomId;
-    
+
     public RoomType roomType = RoomType.UNASSIGNED;
-    
+
     [SerializeField]
     private Sprite[] sprites;
 
@@ -31,7 +31,7 @@ public class DoorPreviewController : MonoBehaviour
         RoomManager.OnRoomComplete += ActivatePreview;
         if (roomType == RoomType.UNASSIGNED)
         {
-            GetComponent<SpriteRenderer>().enabled = false;   
+            GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
@@ -56,14 +56,14 @@ public class DoorPreviewController : MonoBehaviour
             }
         }
         //Debug.Log("roomType: " + roomType + " " + (int) roomType);
-        
+
         GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType - 1];
+        GetComponent<SpriteRenderer>().sprite = sprites[(int)roomType - 1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

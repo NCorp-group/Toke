@@ -67,7 +67,7 @@ public class Stats : MonoBehaviour
     {
         //Debug.Log($"About to add {addMaxHealth} to max HP");
         if (addMaxHealth != 0)
-        { 
+        {
             maxHealth += addMaxHealth;
             OnMaxHealthChanged?.Invoke(maxHealth);
         }

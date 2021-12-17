@@ -27,6 +27,6 @@ public class ItemStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
