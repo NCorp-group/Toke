@@ -15,36 +15,19 @@ public class FlashColorOnTakeDamage : MonoBehaviour
 
     public float ttr = 0.2f;
     public float ttf = 1.0f;
-    
-  
-//    public Material mat;
- //   private Material orig_mat;
-
-    
-    private void Awake()
-    {
-//        orig_mat = GetComponent<SpriteRenderer>().material;
-    }
 
     private Color _original_color;
-
-    private SpriteRenderer sr;
-    
-    
+    //private SpriteRenderer sr;
     private bool lightUp = false;
-
     private float _min_flash_intensity;
     
     void Start()
     {
         Assert.IsTrue(ttf > 0 && ttr > 0);
         Assert.IsTrue(flashDuration > 0);
-        sr = GetComponent<SpriteRenderer>();
-        Assert.IsNotNull(sr);
-        _original_color = sr.material.color;
-        // the modified shader
-        //Assert.IsNotNull(mat);
-        //mat.SetColor("_FlashColor", color);
+        //sr = GetComponent<SpriteRenderer>();
+        //Assert.IsNotNull(sr);
+        //_original_color = sr.material.color;
         _flash_light = GetComponentsInChildren<Light2D>().FirstOrDefault(c => c.CompareTag("OnHitFlashLight"));
         Assert.IsNotNull(_flash_light);
         _flash_light.color = color;
@@ -81,35 +64,9 @@ public class FlashColorOnTakeDamage : MonoBehaviour
         }
     }
 
-    private void OnOnIndividualEnemyTakeDamage()
-    {
-        //lightUp = true;
-        //Debug.Log("INDIVIDUAL ENEMY HIT");
-        Flash();
-        // StartCoroutine(FlashColor());
-    }
-
-    private void Update()
-    {
-        // var slope = lightUp
-        //     ? (flashIntensity - _min_flash_intensity) / 0.2f
-        //     : (_min_flash_intensity - flashIntensity) / flashDuration; 
-        //
-        // var delta = _flash_light.intensity + _flash_light.intensity * Time.deltaTime * slope;
-        // Debug.Log($"delta is {delta}");
-        // _flash_light.intensity = Mathf.Clamp(delta, _min_flash_intensity, flashIntensity);
-        //
-        // if (Mathf.Approximately(_flash_light.intensity, flashIntensity) || _flash_light.intensity > flashIntensity)
-        // {
-        //     lightUp = false;
-        // }
-    }
-
-    private void FlashCB()
-    {
-        //lightUp = true;
-        Flash();
-    }
+    private void OnOnIndividualEnemyTakeDamage() => Flash();
+    private void FlashCB() => Flash();
+    
     
     private IEnumerator flashCoroutine;
     
@@ -142,41 +99,10 @@ public class FlashColorOnTakeDamage : MonoBehaviour
             _flash_light.intensity = Mathf.Clamp(delta, 0.0f, flashIntensity);
             yield return null;
         }
-
-        
-   
-        
-        // while (lerpTime < flashDuration)
-        // {
-        //     lerpTime += Time.deltaTime;
-        //     float perc = lerpTime / flashDuration;
-        //
-        //     SetFlashAmount(flashIntensity - perc);
-        //     yield return null;
-        // }
-        // SetFlashAmount(0);
     }
-    
-    // private IEnumerator DoFlash()
-    // {
-    //     float lerpTime = 0;
-    //     GetComponent<SpriteRenderer>().material = mat;
-    //
-    //     while (lerpTime < flashDuration)
-    //     {
-    //         lerpTime += Time.deltaTime;
-    //         float perc = lerpTime / flashDuration;
-    //
-    //         SetFlashAmount(1f - perc);
-    //         yield return null;
-    //     }
-    //     GetComponent<SpriteRenderer>().material = orig_mat;
-    //     SetFlashAmount(0);
-    // }
-	   //
+
     private void SetFlashAmount(float flashAmount)
     {
         _flash_light.intensity = flashAmount;
-        // mat.SetFloat("_FlashAmount", flashAmount);
     }
 }

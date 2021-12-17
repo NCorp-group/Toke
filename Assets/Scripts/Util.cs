@@ -13,4 +13,6 @@ public class Util
 
         return n;
     }
+    
+    public static bool IsFieldMissing(GameObject obj) => ReferenceEquals(obj, null) ? false : (obj ? false : true);
 }

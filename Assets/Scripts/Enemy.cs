@@ -1,16 +1,17 @@
 using System;
+using System.Linq;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
 
+[RequireComponent(typeof(FlashColorOnTakeDamage))]
 public class Enemy : MonoBehaviour
 {
     public static event Action<EnemyType> OnEnemySpawn;
     public static event Action<EnemyType> OnEnemyDie;
     public static event Action<EnemyType> OnEnemyTakeDamage;
-
     public event Action OnIndividualEnemyTakeDamage;
     
     public enum EnemyType 
@@ -23,6 +24,8 @@ public class Enemy : MonoBehaviour
     public int hp = 100;
     
     private Animator anim;
+    public static readonly string GAMEOBJECT_NAME_FOR_HIT_BODY = "Hit Body";
+
 
     [SerializeField] private bool dropCollectableOnDeath = false;
     private Collider2D _collider;
@@ -33,16 +36,11 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
-        //int damage = 10;
-        //OnEnemyTakeDamage?.Invoke(type);
-        _collider = GetComponent<Collider2D>();
+
+        // _collider = GetComponent<Collider2D>();
+        _collider = GetComponentsInChildren<Collider2D>()
+            .FirstOrDefault(coll => coll.gameObject.name == GAMEOBJECT_NAME_FOR_HIT_BODY);
         Assert.IsNotNull(_collider, "_collider != null");
-        var aid = GetComponent<AIDestinationSetter>();
-        if (aid != null)
-        {
-            aid.target = GameObject.FindWithTag("Player").transform;
-        }
-        
         anim = GetComponent<Animator>();
         
         OnEnemySpawn?.Invoke(type);
@@ -50,12 +48,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (hp <= 0)
         {
             var trigger = "death";
             
             anim.SetTrigger(trigger);
-        }
+        }*/
     }
     
     
@@ -75,7 +74,6 @@ public class Enemy : MonoBehaviour
                 dead = true;
             }
         }
-        //Debug.Log($"off i took damage my health is {hp}");
         
         anim.SetTrigger(trigger);
     }

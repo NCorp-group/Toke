@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Quaternion = UnityEngine.Quaternion;
 
+[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(AIPath))]
+[RequireComponent(typeof(AIDestinationSetter))]
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float aggressionRadius = 10f;
@@ -15,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform from;
 
     private AIPath _ai_path;
+    private AIDestinationSetter _aiDestinationSetter;
     
     public enum EnemyType
     {
@@ -59,17 +63,26 @@ public class EnemyAI : MonoBehaviour
     
     void Start()
     {
+        _aiDestinationSetter = GetComponent<AIDestinationSetter>();
+        
+        
         Assert.IsTrue(aggressionRadius > 1f);
+        
+        
+        
         if (target == null)
         {
             var player = GameObject.FindWithTag("Player");
             if (player != null)
             {
+                Debug.Log("finding child object called Target Point");
                 target = player.GetComponentsInChildren<Transform>().FirstOrDefault(c => c.gameObject.name == "Target Point");
                 Assert.IsNotNull(target);
             }
-            
         }
+        Debug.Log($"The name of the target is {target.gameObject.name}");
+        _aiDestinationSetter.target = target.transform;
+
 
         switch (enemyType)
         {
