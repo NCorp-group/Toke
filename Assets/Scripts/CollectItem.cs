@@ -31,6 +31,7 @@ public class CollectItem : MonoBehaviour
         //Debug.Log("entering collectable zone");
         if (other.gameObject.CompareTag("Collectable"))
         {
+            Debug.Log("Collectable detected in area");
             var collectable = other.GetComponent<Collectable>();
             if (collectable != null) // Why would this even be null if we can compare tags? - because tags can change dynamically?
             {
@@ -58,7 +59,7 @@ public class CollectItem : MonoBehaviour
     // deexpose collect function
     private void OnTriggerExit2D(Collider2D other)
     {
-        //Debug.Log("leaving collectable zone");
+        Debug.Log("Leaving collectable zone");
         interact = () => { };
         
         // collect = null;

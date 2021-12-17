@@ -96,7 +96,7 @@ public class RangedWeapon : MonoBehaviour
             old_fireRate = fireRate;
             shotDelay = 50 / fireRate;
             counter = shotDelay;
-            Debug.Log(counter);
+            //Debug.Log(counter);
         }
     }
 

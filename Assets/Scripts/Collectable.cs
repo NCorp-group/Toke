@@ -26,6 +26,6 @@ public class Collectable : MonoBehaviour
 
     public void Update()
     {
-        if (_collected) Destroy(gameObject);
+        //if (_collected) Destroy(gameObject);
     }
 }

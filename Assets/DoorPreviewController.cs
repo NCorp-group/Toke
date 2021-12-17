@@ -37,9 +37,9 @@ public class DoorPreviewController : MonoBehaviour
 
     void ActivatePreview(RoomType room1, RoomType room2)
     {
-        Debug.Log("room1: " + room1);
-        Debug.Log("room2: " + room2);
-        Debug.Log("roomType: " + roomType + " " + (int) roomType);
+        //Debug.Log("room1: " + room1);
+        //Debug.Log("room2: " + room2);
+        //Debug.Log("roomType: " + roomType + " " + (int) roomType);
         if (roomType == RoomType.UNASSIGNED)
         {
             switch (roomId)
@@ -55,7 +55,7 @@ public class DoorPreviewController : MonoBehaviour
                     break;
             }
         }
-        Debug.Log("roomType: " + roomType + " " + (int) roomType);
+        //Debug.Log("roomType: " + roomType + " " + (int) roomType);
         
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<SpriteRenderer>().sprite = sprites[(int) roomType - 1];

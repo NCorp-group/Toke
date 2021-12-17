@@ -146,9 +146,9 @@ public class RoomManager : MonoBehaviour
             {
                 room2 = (dpc.RoomType) Random.Range(dpc.DROP_START, dpc.DROP_END);
             }
-            Debug.Log("Room Complete");
-            Debug.Log("room1 = " + room1);
-            Debug.Log("room2 = " + room2);
+            //Debug.Log("Room Complete");
+            //Debug.Log("room1 = " + room1);
+            //Debug.Log("room2 = " + room2);
             //Use this for implementing sound indicating all waves in a room is done
             OnRoomComplete?.Invoke(room1, room2);
         }
@@ -159,11 +159,11 @@ public class RoomManager : MonoBehaviour
         foreach (var wave in waves)
         {
             Assert.IsTrue(wave.startDelay >= 0);
-            Debug.Log($"enemies alive: {_enemies_alive}");
+            //Debug.Log($"enemies alive: {_enemies_alive}");
             yield return new WaitForSeconds(wave.startDelay);
             var _curr_n_waves = _n_waves;
             SpawnWave(wave);
-            Debug.Log($"_curr_n_waves = {_curr_n_waves}");
+            //Debug.Log($"_curr_n_waves = {_curr_n_waves}");
             
             yield return new WaitUntil(() => _enemies_alive == 0 && (_curr_n_waves - 1) == _n_waves && _an_enemy_has_spawned);
         }

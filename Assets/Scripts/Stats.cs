@@ -15,6 +15,7 @@ public class Stats : MonoBehaviour
 
     public static event Action<float> OnLifeTimeModifierChanged;
     public static event Action<float> OnDamageMultiplierChanged;
+    public static event Action<float> OnLuckMultiplierChanged;
     public static event Action<float> OnProjectileSpeedMultiplierChanged;
     public static event Action<float> OnMaxHealthChanged;               // TODO: Needs a listener on the other end. Then check if it works when Jens' UI is ready and can show the max HP
     public static event Action<float> OnMovementSpeedMultiplierChanged;
@@ -28,48 +29,75 @@ public class Stats : MonoBehaviour
         setOnDamageMultiplierChanged(damageMultiplier);
         setOnProjectilespeedMultiplierChanged(projectileSpeedMultiplier);
         setMaxHealthChanged(maxHealth);
-        setOnMovementSpeedMultiplierChanged(movementSpeed);
+        setMovementSpeedMultiplierChanged(movementSpeed);
         setFireRateScalarChanged(fireRate);
         //GetComponentInParent<PlayerHealthController>().maxHealth = maxHealth;
     }
     //#endif
     /////////////////////////////For consumables////////////////////////////////
     // 
-    void addProjectileLifeMultiplier(float newLifeTimeMultiplier)
+    public void addProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
-        Debug.Log($"About to add {newLifeTimeMultiplier} to newLifeTimeMultiplier");
-        projectileLifeMultiplier += newLifeTimeMultiplier;
-        OnLifeTimeModifierChanged?.Invoke(projectileLifeMultiplier);
+        //Debug.Log($"About to add {newLifeTimeMultiplier} to newLifeTimeMultiplier");
+        if (newLifeTimeMultiplier != 0)
+        {
+            projectileLifeMultiplier += newLifeTimeMultiplier;
+            OnLifeTimeModifierChanged?.Invoke(projectileLifeMultiplier);
+        }
     }
-    void addOnDamageMultiplierChanged(float newDmgMultiplier)
+    public void addOnDamageMultiplierChanged(float newDmgMultiplier)
     {
-        Debug.Log($"About to add damage multiplier by {newDmgMultiplier}");
-        damageMultiplier += newDmgMultiplier;
-        OnDamageMultiplierChanged?.Invoke(damageMultiplier);
+        //Debug.Log($"About to add damage multiplier by {newDmgMultiplier}");
+        if (newDmgMultiplier != 0)
+        {
+            damageMultiplier += newDmgMultiplier;
+            OnDamageMultiplierChanged?.Invoke(damageMultiplier);
+        }
     }
-    void addOnProjectilespeedMultiplierChanged(float newSpdMultiplier)
+    public void addOnProjectilespeedMultiplierChanged(float newSpdMultiplier)
     {
-        Debug.Log($"About to add {newSpdMultiplier} to the speed multiplier ");
-        projectileSpeedMultiplier += newSpdMultiplier;
-        OnProjectileSpeedMultiplierChanged?.Invoke(projectileSpeedMultiplier);
+        //Debug.Log($"About to add {newSpdMultiplier} to the speed multiplier ");
+        if (newSpdMultiplier != 0)
+        {
+            projectileSpeedMultiplier += newSpdMultiplier;
+            OnProjectileSpeedMultiplierChanged?.Invoke(projectileSpeedMultiplier);
+        }
     }
-    void addMaxHealthChanged(int addMaxHealth)
+    public void addMaxHealthChanged(int addMaxHealth)
     {
-        Debug.Log($"About to add {addMaxHealth} to max HP");
-        maxHealth += addMaxHealth;
-        OnMaxHealthChanged?.Invoke(addMaxHealth);
+        //Debug.Log($"About to add {addMaxHealth} to max HP");
+        if (addMaxHealth != 0)
+        { 
+            maxHealth += addMaxHealth;
+            OnMaxHealthChanged?.Invoke(maxHealth);
+        }
     }
-    void addOnMovementSpeedScalarChanged(float addMovementSpeed)
+    public void addMovementSpeedScalarChanged(float addMovementSpeed)
     {
-        Debug.Log($"About to speed up movement by {addMovementSpeed}");
-        movementSpeed += addMovementSpeed;
-        OnMovementSpeedMultiplierChanged?.Invoke(movementSpeed);
+        //Debug.Log($"About to speed up movement by {addMovementSpeed}");
+        if (addMovementSpeed != 0)
+        {
+            movementSpeed += addMovementSpeed;
+            OnMovementSpeedMultiplierChanged?.Invoke(movementSpeed);
+        }
     }
-    void addFireRateScalarChanged(float addFireRate)
+    public void addFireRateScalarChanged(float addFireRate)
     {
-        Debug.Log($"Abou to speed up fire rate by {addFireRate}");
-        fireRate += fireRate;
-        OnFireRateChanged?.Invoke(fireRate);
+        //Debug.Log($"Abou to speed up fire rate by {addFireRate}");
+        if (addFireRate != 0)
+        {
+            fireRate += addFireRate;
+            OnFireRateChanged?.Invoke(fireRate);
+        }
+    }
+    public void addLuckMultiplierChanged(float addLuck)
+    {
+        //Debug.Log($"Abou to speed up fire rate by {addLuck}");
+        if (addLuck != 0)
+        {
+            luckMultiplier += addLuck;
+            OnLuckMultiplierChanged?.Invoke(luckMultiplier);
+        }
     }
     ///////////////////////////////For debug UI/////////////////////////////////
     void setProjectileLifeMultiplier(float newLifeTimeMultiplier)
@@ -96,7 +124,7 @@ public class Stats : MonoBehaviour
         maxHealth = totalMaxHealth;
         OnMaxHealthChanged?.Invoke(maxHealth);
     }
-    void setOnMovementSpeedMultiplierChanged(float newMovementSpeed)
+    void setMovementSpeedMultiplierChanged(float newMovementSpeed)
     {
         //Debug.Log($"About to speed up movement by {newMovementSpeed}");
         movementSpeed = newMovementSpeed;
@@ -108,6 +136,12 @@ public class Stats : MonoBehaviour
         fireRate = newFireRate;
         OnFireRateChanged?.Invoke(fireRate);
     }
+    void setLuckMultiplierChanged(float setLuck)
+    {
+        Debug.Log($"Abou to speed up fire rate by {setLuck}");
+        luckMultiplier = setLuck;
+        OnLuckMultiplierChanged?.Invoke(luckMultiplier);
+    }
     ////////////////////////////////////////////////////////////////////////////
     // Start is called before the first frame update
     void Start()
@@ -116,7 +150,7 @@ public class Stats : MonoBehaviour
         setOnDamageMultiplierChanged(damageMultiplier);
         setOnProjectilespeedMultiplierChanged(projectileSpeedMultiplier);
         setMaxHealthChanged(maxHealth);
-        setOnMovementSpeedMultiplierChanged(movementSpeed);
+        setMovementSpeedMultiplierChanged(movementSpeed);
         setFireRateScalarChanged(fireRate);
     }
 
