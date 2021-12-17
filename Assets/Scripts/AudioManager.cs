@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     private float music = 1;
     private float master = 1;
     private int playerFireCounter = 0;
+    private int enemyFireCounter = 0;
 
     void Awake()
     {
@@ -48,13 +49,14 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyDie += EnemyDeathSound;
         Enemy.OnEnemySpawn += EnemySpawnSound;
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
-        //Enemy.OnEnemyRangedAttack += EnemyFireSound;
+        RangedAttack.OnEnemyRangedAttack += EnemyFireSound;
         PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
         PlayerHealthController.OnPlayerDie += PlayerDeathSound;
 
         //Rooms/Waves
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
+
     }
 
 
@@ -99,8 +101,33 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
-    
+    public void PauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Pause();
+        }
+    }
 
+    public void UnPauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.UnPause();
+        }
+    }
+
+
+    public void GoToMainMenu()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+
+        //Play main menu music
+    }
+    
     public void PlayMusic()
     {
         //Sound s = Array.Find(sounds, sound => sound.name == "music");
@@ -108,7 +135,6 @@ public class AudioManager : MonoBehaviour
         //s.source.volume = s.volume * music * master;
         //s.source.Play();
     }
-
 
 
     public void RoomCompleteSound(DoorPreviewController.RoomType x, DoorPreviewController.RoomType y)
@@ -120,8 +146,6 @@ public class AudioManager : MonoBehaviour
     {
         Play("viking-horn1");
     }
-
-
 
     private string EnemyTypeToString(Enemy.EnemyType type)
     {
@@ -151,12 +175,12 @@ public class AudioManager : MonoBehaviour
 
     void EnemyFireSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-fire{UnityEngine.Random.Range(1, 2)}");
+        enemyFireCounter++;
+        PlayWithOverlap($"{EnemyTypeToString(type)}-fire{enemyFireCounter}");
+        if (enemyFireCounter == 8)
+            enemyFireCounter = 0;
     }
-    
-
-
-
+        
 
     void PlayerMovementSound()
     {
@@ -173,7 +197,6 @@ public class AudioManager : MonoBehaviour
     {
         playerFireCounter++;
         PlayWithOverlap($"toke-fire{playerFireCounter}");
-
         if (playerFireCounter == 10)
             playerFireCounter = 0;
     }
