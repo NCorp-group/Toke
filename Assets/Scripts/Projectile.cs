@@ -41,8 +41,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject, lifetime);
         }
     }
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -13,7 +13,7 @@ public class MeleeAttack : MonoBehaviour
 {
     public int damage = 10;
     
-    [Header("If true, then a child object with a Collider2D will be used.\nThe name should be \"Melee Attack Area\".\nOtherwise use the transform of this object")]
+    [Header("If true, then a child object with a Collider2D will be used.\nThe name MUST be \"Melee Attack Area\".\nOtherwise use the transform of this object")]
     [SerializeField] private bool useChildColliderForAttackArea = false;
     [Header("Only used if \"Use Child Collider For Attack Area\" is set to true")]
     [SerializeField] private float attackRadius;
@@ -35,7 +35,8 @@ public class MeleeAttack : MonoBehaviour
     
     public static readonly string GAMEOBJECT_NAME_FOR_ATTACK_AREA = "Melee Attack Area";
 
-    private Func<Collider2D[]> _get_attack_colliders;
+    // private Func<Collider2D[]> _get_attack_colliders;
+    private Func<bool> _get_attack_colliders;
 
     private Collider2D _attack_area_collider = null;
     // FIX: set default size to like 4
@@ -58,10 +59,16 @@ public class MeleeAttack : MonoBehaviour
         Assert.IsTrue(damage >= 0, "damage >= 0");
         Assert.IsTrue(attackRadius >= 0, "attackRadius >= 0");
 
+        _phc = GameObject.FindWithTag("Player").GetComponent<PlayerHealthController>();
+        
         _apply_delay = attackDelay switch
         {
             0 => () => { },
-            _ => () => { StartCoroutine(WaitDelayForConsecutiveAttack(attackDelay)); }
+            _ => () =>
+            {
+                Debug.Log($"applying {attackDelay} delay");
+                StartCoroutine(WaitDelayForConsecutiveAttack(attackDelay));
+            }
         };
 
         _Attack = useAnimationEventToTriggerAttack switch
@@ -76,23 +83,31 @@ public class MeleeAttack : MonoBehaviour
                 .FirstOrDefault(coll => coll.gameObject.name == GAMEOBJECT_NAME_FOR_ATTACK_AREA);
             Assert.IsNotNull(_attack_area_collider, "_attack_area != null");
         }
+
+        _animator = GetComponent<Animator>();
         
         _get_attack_colliders = useChildColliderForAttackArea 
-            ? () => Physics2D.OverlapCircleAll(transform.position, attackRadius, attackLayers)
-            : () =>
+            
+            ? () =>
             {
                 var contact_filter = new ContactFilter2D();
                 contact_filter.layerMask = attackLayers;
                 contact_filter.useLayerMask = true;
                 var n_collisions = Physics2D.OverlapCollider(_attack_area_collider, contact_filter, _results);
                 var player_hit = n_collisions != 0;
+                return player_hit;
+                /*
                 if (player_hit)
                 {
                     
+                    var res = _results.Select(x => x).ToArray();
+                    _results.
                 }
 
                 return _results;
-            };
+                */
+            }
+            : () => Physics2D.OverlapCircleAll(transform.position, attackRadius, attackLayers).Length != 0;
     }
     
     
@@ -111,15 +126,32 @@ public class MeleeAttack : MonoBehaviour
     
     public bool CheckAttack()
     {
-        if (!can_attack) return false;
-        
+        if (!can_attack)
+        {
+            Debug.Log("can't attack yet due to delay");
+            return false;
+        }
+        var hit_player =_get_attack_colliders.Invoke();
+        if (!hit_player)
+        {
+            Debug.Log("No colliders hit in melee attack");
+            return false;
+        }
+        /*
         var colliders = _get_attack_colliders.Invoke();
-        if (colliders.Length == 0) return false;
+        if (colliders.Length == 0)
+        {
+            Debug.Log("No colliders hit in melee attack");
+            return false;
+        }
+        */
 
+        /*
         var player_collider = colliders
-            .First(coll => coll.gameObject.CompareTag("Player"));
+            .FirstOrDefault(coll => coll.gameObject.CompareTag("Player"));
         _phc ??= player_collider.gameObject.GetComponent<PlayerHealthController>();
-        
+        */
+        Debug.Log("calling _Attack");
         _Attack.Invoke();
         return true;
     }
