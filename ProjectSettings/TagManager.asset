@@ -12,6 +12,7 @@ TagManager:
   - OnHitFlashLight
   - FirePoint
   - Door
+  - ShopItem
   layers:
   - Default
   - TransparentFX
@@ -60,6 +61,9 @@ TagManager:
     locked: 0
   - name: Runes
     uniqueID: 1551388441
+    locked: 0
+  - name: Items
+    uniqueID: 1185947967
     locked: 0
   - name: SceptreCrystal
     uniqueID: 2983911483

@@ -25,10 +25,19 @@ public class DoorPreviewController : MonoBehaviour
     [SerializeField]
     private Sprite[] sprites;
 
+    private void OnEnable()
+    {
+        RoomManager.OnRoomComplete += ActivatePreview;
+    }
+
+    private void OnDisable()
+    {
+        RoomManager.OnRoomComplete -= ActivatePreview;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        RoomManager.OnRoomComplete += ActivatePreview;
         if (roomType == RoomType.UNASSIGNED)
         {
             GetComponent<SpriteRenderer>().enabled = false;   
