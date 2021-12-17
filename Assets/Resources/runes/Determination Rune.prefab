@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4109202166188401948}
   - component: {fileID: 4109202166188401946}
   - component: {fileID: 4109202166188401949}
-  m_Layer: 6
+  m_Layer: 17
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4109202166200316720}
   - component: {fileID: 4109202166200316723}
   - component: {fileID: 4109202166200316722}
-  m_Layer: 6
+  m_Layer: 17
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109202166774605541}
   - component: {fileID: 4109202166774605538}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.54509807, b: 0, a: 1}
   m_Intensity: 3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -348,7 +348,8 @@ GameObject:
   - component: {fileID: 4109202166832208305}
   - component: {fileID: 4109202166832208304}
   - component: {fileID: 4109202166832208318}
-  m_Layer: 0
+  - component: {fileID: 612580721}
+  m_Layer: 17
   m_Name: Determination Rune
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -362,7 +363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4109202166832208307}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11, y: -28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -414,7 +415,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -632334535, guid: 8b9ff7ab86fbc426ab2928e484c28f8b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5423229, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -443,3 +444,19 @@ MonoBehaviour:
   damageMultiplier: 0
   projectileLifeMultiplier: 0
   projectileSpeedMultiplier: 0
+--- !u!58 &612580721
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109202166832208307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.125, y: 0.15625}
+  serializedVersion: 2
+  m_Radius: 0.2
