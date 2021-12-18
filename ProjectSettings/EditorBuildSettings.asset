@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level01/room-entry.unity
     guid: b5e8d73930d0ed5499c99ec264416dbb
   - enabled: 1
-    path: Assets/Scenes/Level01/room-1.unity
-    guid: a5b7b0a534897a54c803582a14ef357f
-  - enabled: 1
     path: Assets/Scenes/Level01/room-2.unity
     guid: fb20ce6b633e1394e956a0d5b4ff7a53
   - enabled: 1
@@ -44,4 +41,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AudioTestingScene.unity
     guid: a956838129e3942c8a6af8ecf8d9615a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

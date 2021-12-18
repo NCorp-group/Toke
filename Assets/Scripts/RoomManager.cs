@@ -90,11 +90,33 @@ public class RoomManager : MonoBehaviour
                 SceneManager.LoadScene(9);
                 break;
             default:
-                var nextRoom = Random.Range(2, 6);
+                var roomsNotVisited = GetRemainingRooms();
+                var nextRoom = Random.Range(SCENE_ROOM_START, SCENE_ROOM_END);
                 SceneManager.LoadScene(nextRoom);
                 break;
         }
     }
+
+    private List<int> GetRemainingRooms()
+    {
+        var beenToScene2 = PlayerPrefs.GetInt(SCENE_2_USED, 0);
+        var beenToScene3 = PlayerPrefs.GetInt(SCENE_3_USED, 0);
+        var beenToScene4 = PlayerPrefs.GetInt(SCENE_4_USED, 0);
+        var beenToScene5 = PlayerPrefs.GetInt(SCENE_5_USED, 0);
+        
+        var list = 
+    }
+
+    private const string SCENE_5_USED = "been_to_scene_5";
+    private const string SCENE_4_USED = "been_to_scene_4";
+    private const string SCENE_3_USED = "been_to_scene_3";
+    private const string SCENE_2_USED = "been_to_scene_2";
+
+    private const int SCENE_ROOM_END = 5;
+
+    private const int SCENE_ROOM_START = 2;
+
+    private const string LAST_SCENE = "last_scene";
 
     // dummy stub
     private IEnumerator Wait(int seconds)
