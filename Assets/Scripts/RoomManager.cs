@@ -80,6 +80,7 @@ public class RoomManager : MonoBehaviour
 
     private IEnumerator _ChangeRoom(RoomType nextRoomType)
     {
+        Debug.Log("new room = " + nextRoomType);
         yield return new WaitUntil(() => writtenToPlayerPrefs);
         switch (nextRoomType)
         {
