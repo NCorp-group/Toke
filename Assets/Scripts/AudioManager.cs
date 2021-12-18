@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
 
-        CollectItem.OnDoorInteraction += PlayMusic;
+        //CollectItem.OnDoorInteraction += PlayMusic;
     }
 
     private void OnDisable()
@@ -83,7 +83,7 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete -= RoomCompleteSound;
         RoomManager.OnWaveComplete -= WaveCompleteSound;
 
-        CollectItem.OnDoorInteraction -= PlayMusic;
+        //CollectItem.OnDoorInteraction -= PlayMusic;
     }
 
     public void PlaySFX(string name)
