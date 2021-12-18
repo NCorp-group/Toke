@@ -16,6 +16,9 @@ public class AudioManager : MonoBehaviour
     private int playerFireCounter = 0;
     private int enemyFireCounter = 0;
 
+    //TEST
+    private Sound currentMusic;
+
     void Awake()
     {
         if (instance == null)
@@ -44,6 +47,11 @@ public class AudioManager : MonoBehaviour
     //Start subscribes to all events
     void Start()
     {
+        GoToMainMenu();
+    }
+
+    private void OnEnable()
+    {
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
         Enemy.OnEnemyDie += EnemyDeathSound;
@@ -57,10 +65,28 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
 
+        CollectItem.OnDoorInteraction += PlayMusic;
     }
 
+    private void OnDisable()
+    {
+        Movement.OnPlayerMovement -= PlayerMovementSound;
+        RangedWeapon.OnFire -= PlayerFireSound;
+        Enemy.OnEnemyDie -= EnemyDeathSound;
+        Enemy.OnEnemySpawn -= EnemySpawnSound;
+        Enemy.OnEnemyTakeDamage -= EnemyTakeDamageSound;
+        RangedAttack.OnEnemyRangedAttack -= EnemyFireSound;
+        PlayerHealthController.OnPlayerTakeDamage -= PlayerTakeDamageSound;
+        PlayerHealthController.OnPlayerDie -= PlayerDeathSound;
 
-    public void Play(string name)
+        //Rooms/Waves
+        RoomManager.OnRoomComplete -= RoomCompleteSound;
+        RoomManager.OnWaveComplete -= WaveCompleteSound;
+
+        CollectItem.OnDoorInteraction -= PlayMusic;
+    }
+
+    public void PlaySFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -77,7 +103,7 @@ public class AudioManager : MonoBehaviour
             
     }
 
-    public void PlayWithOverlap(string name)
+    public void PlaySFXWithOverlap(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -101,6 +127,14 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    public void StopAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+    }
+
     public void PauseAll()
     {
         foreach (Sound s in sounds)
@@ -118,34 +152,82 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void GoToMainMenu()
+    //FadeOut is inspired by https://forum.unity.com/threads/fade-out-audio-source.335031/
+    public void FadeOut(Sound s)
     {
-        foreach (Sound s in sounds)
+        float startVolume = s.source.volume;
+
+        float fadeTime = 0.50f;
+        
+        while (s.source.volume > 0)
         {
-            s.source.Stop();
+            s.source.volume -= startVolume * Time.deltaTime / fadeTime;
         }
 
-        //Play main menu music
+        s.source.Stop();
+        s.source.volume = startVolume;
     }
-    
-    public void PlayMusic()
+
+    public void GoToMainMenu()
     {
-        //Sound s = Array.Find(sounds, sound => sound.name == "music");
-        // Changing the volume of the sound depending on user settings
-        //s.source.volume = s.volume * music * master;
-        //s.source.Play();
+        StopAll();
+
+        //Play main menu music
+        //Set current music to main menu music
     }
+
+    public void PlayMusic(DoorPreviewController.RoomType roomType)
+    {
+        if (roomType == DoorPreviewController.RoomType.BOSS)
+        {
+            //FadeOut(currentMusic);
+            //Play boss music (should loop)
+            //Set current music to boss music
+        }
+        else if (roomType == DoorPreviewController.RoomType.SHOP)
+        {
+            //FadeOut(currentMusic);
+            //Play shop music (should loop)
+            //Set current music to shop music
+        }
+        else
+        {
+            if (!true)
+            {
+                //If current music is normal music, do nothing
+            }
+            else
+            {
+                //FadeOut(currentMusic);
+                //Play normal music (should loop)
+                //Set current music to normal music
+            }
+        }
+
+        //Room types
+        //UNASSIGNED,
+        //ITEM_DROP,
+        //PENNINGAR_DROP,
+        //HEALTH_DROP,
+
+        //SHOP,
+        //BOSS
+    }
+
 
 
     public void RoomCompleteSound(DoorPreviewController.RoomType x, DoorPreviewController.RoomType y)
     {
-        Play("gong1");
+        PlaySFX("gong1");
     }
 
     public void WaveCompleteSound()
     {
-        Play("viking-horn1");
+        PlaySFX("viking-horn1");
     }
+
+
+
 
     private string EnemyTypeToString(Enemy.EnemyType type)
     {
@@ -158,29 +240,28 @@ public class AudioManager : MonoBehaviour
 
     void EnemyTakeDamageSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
     }
-
 
     void EnemyDeathSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
     }
-
 
     void EnemySpawnSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap("enemy-spawn");
+        PlaySFXWithOverlap("enemy-spawn");
     }
 
     void EnemyFireSound(Enemy.EnemyType type)
     {
         enemyFireCounter++;
-        PlayWithOverlap($"{EnemyTypeToString(type)}-fire{enemyFireCounter}");
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-fire{enemyFireCounter}");
         if (enemyFireCounter == 8)
             enemyFireCounter = 0;
     }
         
+
 
     void PlayerMovementSound()
     {
@@ -196,19 +277,19 @@ public class AudioManager : MonoBehaviour
     void PlayerFireSound()
     {
         playerFireCounter++;
-        PlayWithOverlap($"toke-fire{playerFireCounter}");
+        PlaySFXWithOverlap($"toke-fire{playerFireCounter}");    
         if (playerFireCounter == 10)
             playerFireCounter = 0;
     }
 
     void PlayerTakeDamageSound()
     {
-        PlayWithOverlap($"toke-hit{UnityEngine.Random.Range(1, 4)}");
+        PlaySFXWithOverlap($"toke-hit{UnityEngine.Random.Range(1, 4)}");
     }
 
     void PlayerDeathSound()
     {
-        Play($"toke-death{UnityEngine.Random.Range(1, 3)}");
-        Play("death-music");
+        PlaySFX($"toke-death{UnityEngine.Random.Range(1, 3)}");
+        PlaySFX("death-music");
     }
 }
