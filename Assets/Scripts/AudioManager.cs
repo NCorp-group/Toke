@@ -47,6 +47,11 @@ public class AudioManager : MonoBehaviour
     //Start subscribes to all events
     void Start()
     {
+        GoToMainMenu();
+    }
+
+    private void OnEnable()
+    {
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
         Enemy.OnEnemyDie += EnemyDeathSound;
@@ -63,6 +68,23 @@ public class AudioManager : MonoBehaviour
         CollectItem.OnDoorInteraction += PlayMusic;
     }
 
+    private void OnDisable()
+    {
+        Movement.OnPlayerMovement -= PlayerMovementSound;
+        RangedWeapon.OnFire -= PlayerFireSound;
+        Enemy.OnEnemyDie -= EnemyDeathSound;
+        Enemy.OnEnemySpawn -= EnemySpawnSound;
+        Enemy.OnEnemyTakeDamage -= EnemyTakeDamageSound;
+        RangedAttack.OnEnemyRangedAttack -= EnemyFireSound;
+        PlayerHealthController.OnPlayerTakeDamage -= PlayerTakeDamageSound;
+        PlayerHealthController.OnPlayerDie -= PlayerDeathSound;
+
+        //Rooms/Waves
+        RoomManager.OnRoomComplete -= RoomCompleteSound;
+        RoomManager.OnWaveComplete -= WaveCompleteSound;
+
+        CollectItem.OnDoorInteraction -= PlayMusic;
+    }
 
     public void PlaySFX(string name)
     {
