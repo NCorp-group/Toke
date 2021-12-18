@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2433757892187900913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.407, y: -0.005, z: 0}
+  m_LocalPosition: {x: 1.21, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: -8543127337828862600}
   - component: {fileID: 8157821123262069807}
   m_Layer: 14
-  m_Name: arcane archer
+  m_Name: evil wizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 2433757892867087539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.177, y: 0.398, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2433757892187900912}
@@ -116,12 +116,12 @@ SpriteRenderer:
   m_SortingLayerID: -538947167
   m_SortingLayer: 9
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1466151508, guid: c36edf123061ddc71af599027ad8e6f4, type: 3}
+  m_Sprite: {fileID: -1934742315, guid: eb1a017561f17ab359bc5e37b5044a55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.51, y: 0.41}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,7 +137,7 @@ Animator:
   m_GameObject: {fileID: 2433757892867087539}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c103f2acc85b9ccb8985ddce69da443, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87b49782b2b3decfca2f42e861546bce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e98e4571b0a6d080aec4734fd0b746e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5527967281237040913, guid: b68317ac9aa90f0bca4e1eb5ad2f5c62, type: 3}
+  projectile: {fileID: 1033193663853565595, guid: 29f5f2e9c8f87213db43dcb6b2b0d9e2, type: 3}
   speed: 10
   lifetime: 10
   useFirePoint: 1
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598763284236964470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.53, y: 0.33, z: 0}
+  m_LocalPosition: {x: 1.15, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,7 +456,6 @@ GameObject:
   - component: {fileID: 3314756752861969302}
   - component: {fileID: 1638533999961036508}
   - component: {fileID: 2273552448406956263}
-  - component: {fileID: 8590084304025519092}
   m_Layer: 14
   m_Name: Hit Body
   m_TagString: Enemy
@@ -472,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6419528632710400262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.42, z: 0}
+  m_LocalPosition: {x: -0.29, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -513,48 +512,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.30547136, y: -0.14356303}
-  m_Size: {x: 0.9788774, y: 1.6278853}
+  m_Offset: {x: 0.4643906, y: -0.24393305}
+  m_Size: {x: 1.2967165, y: 3.0665252}
   m_Direction: 0
---- !u!60 &8590084304025519092
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6419528632710400262}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.33720458, y: -1.0074432}
-      - {x: 0.7762114, y: -0.89905995}
-      - {x: 0.8785839, y: -0.84086883}
-      - {x: 0.8863468, y: -0.67847043}
-      - {x: 0.6837739, y: -0.60601276}
-      - {x: 0.4433421, y: -0.65829074}
-      - {x: 0.30867028, y: -0.4660493}
-      - {x: 0.23831189, y: -0.29669702}
-      - {x: 0.5502647, y: -0.25632358}
-      - {x: 0.80748487, y: 0.067347884}
-      - {x: 0.6466695, y: 0.38615394}
-      - {x: 0.33167028, y: 0.55206764}
-      - {x: -0.051931024, y: 0.40257215}
-      - {x: -0.30931884, y: 0.13184583}
-      - {x: -0.4468702, y: -0.23979199}
-      - {x: -0.35302842, y: -0.6361729}
-      - {x: -0.107693076, y: -0.98159033}
