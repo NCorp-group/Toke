@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -79,7 +80,6 @@ public class RoomManager : MonoBehaviour
 
     private IEnumerator _ChangeRoom(RoomType nextRoomType)
     {
-        
         yield return new WaitUntil(() => writtenToPlayerPrefs);
         switch (nextRoomType)
         {
@@ -90,33 +90,86 @@ public class RoomManager : MonoBehaviour
                 SceneManager.LoadScene(9);
                 break;
             default:
-                var roomsNotVisited = GetRemainingRooms();
-                var nextRoom = Random.Range(SCENE_ROOM_START, SCENE_ROOM_END);
-                SceneManager.LoadScene(nextRoom);
+                SceneManager.LoadScene(GetNextSceneIndex(), LoadSceneMode.Single);
                 break;
         }
     }
 
-    private List<int> GetRemainingRooms()
+    private int GetNextSceneIndex()
     {
-        var beenToScene2 = PlayerPrefs.GetInt(SCENE_2_USED, 0);
-        var beenToScene3 = PlayerPrefs.GetInt(SCENE_3_USED, 0);
-        var beenToScene4 = PlayerPrefs.GetInt(SCENE_4_USED, 0);
-        var beenToScene5 = PlayerPrefs.GetInt(SCENE_5_USED, 0);
+        // TODO: Don't hardcode this maybe, but also it is good enough on this small of a scale
+        // TODO: Ok constants are a little better, but holy shit making this dynamic requires some fuckery
+        var beenToRoom1 = PlayerPrefs.GetInt(ROOM_1, 0);
+        var beenToRoom2 = PlayerPrefs.GetInt(ROOM_2, 0);
+        var beenToRoom3 = PlayerPrefs.GetInt(ROOM_3, 0);
+        var beenToRoom4 = PlayerPrefs.GetInt(ROOM_4, 0);
+        var beenToRoom5 = PlayerPrefs.GetInt(ROOM_5, 0);
+
+        var list = new List<(int, string)>();
+        (int?, string?) beforeShopScene = (null, null);
         
-        var list = 
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        Debug.Log("sceneCount = " + sceneCount);
+        for (int i = 0; i < sceneCount; i++)
+        {
+            var scene = SceneUtility.GetScenePathByBuildIndex(i);
+            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene);
+            var match = Regex.Match(sceneName, ".*[0-9].*");
+            if (match.Success)
+            {
+                if (PlayerPrefs.GetInt(sceneName, 0) == 0)
+                {
+                    list.Add((i, sceneName));
+                    Debug.Log("sceneName: " + sceneName);
+                }
+            }
+
+            if (sceneName == BEFORE_SHOP)
+            {
+                beforeShopScene = (i, sceneName);
+            }
+        }
+
+        var nextSceneIndex = beforeShopScene.Item1 ?? 0;
+        Debug.Log("Scenes found = " + list.Count);
+        if (list.Count > 0)
+        {
+            var randomIndex = Random.Range(0, list.Count);
+            Debug.Log("randomIndex = " + randomIndex);
+            var randomScene = list[randomIndex];
+            PlayerPrefs.SetInt(randomScene.Item2, 1);
+            nextSceneIndex = randomScene.Item1;
+        }
+        else
+        {
+            PlayerPrefs.SetInt(ROOM_1, 0);
+            PlayerPrefs.SetInt(ROOM_2, 0);
+            PlayerPrefs.SetInt(ROOM_3, 0);
+            PlayerPrefs.SetInt(ROOM_4, 0);
+            PlayerPrefs.SetInt(ROOM_5, 0);
+        }
+        return nextSceneIndex;
     }
 
-    private const string SCENE_5_USED = "been_to_scene_5";
-    private const string SCENE_4_USED = "been_to_scene_4";
-    private const string SCENE_3_USED = "been_to_scene_3";
-    private const string SCENE_2_USED = "been_to_scene_2";
+    private const string BEFORE_SHOP = "before-shop";
 
-    private const int SCENE_ROOM_END = 5;
+    private const string ROOM_1 = "room-1";
+    private const string ROOM_2 = "room-2";
+    private const string ROOM_3 = "room-3";
+    private const string ROOM_4 = "room-4";
+    private const string ROOM_5 = "room-5";
+
+    /*private const string BEEN_TO_ROOM_5 = "been_to_room_5";
+    private const string BEEN_TO_ROOM_4 = "been_to_room_4";
+    private const string BEEN_TO_ROOM_3 = "been_to_room_3";
+    private const string BEEN_TO_ROOM_2 = "been_to_room_2";
+    private const string BEEN_TO_ROOM_1 = "been_to_room_1";*/
+
+    /*private const int SCENE_ROOM_END = 5;
 
     private const int SCENE_ROOM_START = 2;
 
-    private const string LAST_SCENE = "last_scene";
+    private const string LAST_SCENE = "last_scene";*/
 
     // dummy stub
     private IEnumerator Wait(int seconds)

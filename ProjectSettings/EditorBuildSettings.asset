@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level01/room-entry.unity
     guid: b5e8d73930d0ed5499c99ec264416dbb
   - enabled: 1
+    path: Assets/Scenes/Level01/room-1.unity
+    guid: 1654bd710b4d0f642b58665e4d13642f
+  - enabled: 1
     path: Assets/Scenes/Level01/room-2.unity
     guid: fb20ce6b633e1394e956a0d5b4ff7a53
   - enabled: 1
