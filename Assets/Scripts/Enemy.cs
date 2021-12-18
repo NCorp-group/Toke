@@ -17,7 +17,11 @@ public class Enemy : MonoBehaviour
     public enum EnemyType 
     {
         SLIME, 
-        WORM
+        WORM,
+        BLUESLIME,
+        DARKBORNIMP,
+        ARCANEARCHER,
+        EVILWIZARD
     }
 
     public EnemyType type = EnemyType.SLIME;

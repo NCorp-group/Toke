@@ -16,8 +16,7 @@ public class AudioManager : MonoBehaviour
     private int playerFireCounter = 0;
     private int enemyFireCounter = 0;
 
-    //TEST
-    private Sound currentMusic;
+    private string currentMusic;
 
     void Awake()
     {
@@ -47,6 +46,7 @@ public class AudioManager : MonoBehaviour
     //Start subscribes to all events
     void Start()
     {
+        //Should be removed when subscribing to something that triggers GoToMainMenu
         GoToMainMenu();
     }
 
@@ -65,7 +65,15 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
 
-        //CollectItem.OnDoorInteraction += PlayMusic;
+        InteractableArea.OnDoorInteraction += ChangeMusic;
+
+        //TODO FOR MUSIC TO WORK
+        //Going to main menu triggers GoToMainMenu
+        //Starting game plays default music (maybe just ChangeMusic with room type)
+        
+        //TODO: Killing boss stops music and plays some other music indicating game is over
+        //TODO: Music pauses when esc is pressed
+        //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
     }
 
     private void OnDisable()
@@ -83,7 +91,7 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete -= RoomCompleteSound;
         RoomManager.OnWaveComplete -= WaveCompleteSound;
 
-        //CollectItem.OnDoorInteraction -= PlayMusic;
+        InteractableArea.OnDoorInteraction += ChangeMusic;
     }
 
     public void PlaySFX(string name)
@@ -116,7 +124,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void Stop(string name)
+    public void PlayMusic(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -124,7 +132,12 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
-        s.source.Stop();
+        if (!s.source.isPlaying)
+        {
+            // Changing the volume of the sound depending on user settings
+            s.source.volume = s.volume * music * master;
+            s.source.Play();
+        }
     }
 
     public void StopAll()
@@ -151,10 +164,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
     //FadeOut is inspired by https://forum.unity.com/threads/fade-out-audio-source.335031/
-    public void FadeOut(Sound s)
+    public void FadeOut(string name)
     {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
         float startVolume = s.source.volume;
 
         float fadeTime = 0.50f;
@@ -168,53 +181,40 @@ public class AudioManager : MonoBehaviour
         s.source.volume = startVolume;
     }
 
+
+
+
     public void GoToMainMenu()
     {
         StopAll();
-
-        //Play main menu music
-        //Set current music to main menu music
+        PlayMusic("menu-music");
+        currentMusic = "menu-music";
     }
 
-    public void PlayMusic(DoorPreviewController.RoomType roomType)
+    public void ChangeMusic(DoorPreviewController.RoomType roomType)
     {
-        if (roomType == DoorPreviewController.RoomType.BOSS)
+        if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
-            //FadeOut(currentMusic);
-            //Play boss music (should loop)
-            //Set current music to boss music
+            FadeOut(currentMusic);
+            PlayMusic("boss-music");
+            currentMusic = "boss-music";
         }
-        else if (roomType == DoorPreviewController.RoomType.SHOP)
+        else if (roomType == DoorPreviewController.RoomType.SHOP && currentMusic != "menu-music")
         {
-            //FadeOut(currentMusic);
-            //Play shop music (should loop)
-            //Set current music to shop music
+            FadeOut(currentMusic);
+            PlayMusic("menu-music");
+            currentMusic = "menu-music";
         }
         else
         {
-            if (!true)
+            if (currentMusic != "default-music")
             {
-                //If current music is normal music, do nothing
-            }
-            else
-            {
-                //FadeOut(currentMusic);
-                //Play normal music (should loop)
-                //Set current music to normal music
+                FadeOut(currentMusic);
+                PlayMusic("default-music");
+                currentMusic = "default-music";
             }
         }
-
-        //Room types
-        //UNASSIGNED,
-        //ITEM_DROP,
-        //PENNINGAR_DROP,
-        //HEALTH_DROP,
-
-        //SHOP,
-        //BOSS
     }
-
-
 
     public void RoomCompleteSound(DoorPreviewController.RoomType x, DoorPreviewController.RoomType y)
     {
@@ -231,10 +231,17 @@ public class AudioManager : MonoBehaviour
 
     private string EnemyTypeToString(Enemy.EnemyType type)
     {
+        //-hit
+        //-death
+        //-fire
         return type switch
         {
-            Enemy.EnemyType.SLIME => "slime",
-            Enemy.EnemyType.WORM => "worm"
+            Enemy.EnemyType.SLIME => "slime", //Done
+            Enemy.EnemyType.WORM => "worm",
+            Enemy.EnemyType.BLUESLIME => "blueslime",
+            Enemy.EnemyType.DARKBORNIMP => "darkbornimp",
+            Enemy.EnemyType.ARCANEARCHER => "arcanearcher",
+            Enemy.EnemyType.EVILWIZARD => "evilwizard",
         };
     }
 
@@ -289,6 +296,7 @@ public class AudioManager : MonoBehaviour
 
     void PlayerDeathSound()
     {
+        StopAll();
         PlaySFX($"toke-death{UnityEngine.Random.Range(1, 3)}");
         PlaySFX("death-music");
     }
