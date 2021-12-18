@@ -5,12 +5,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using static DoorPreviewController;
 using Random = UnityEngine.Random;
-using dpc = DoorPreviewController;
 
 public class RoomManager : MonoBehaviour
 {
-    public static event Action<dpc.RoomType, dpc.RoomType> OnRoomComplete;
+    public static event Action<RoomType, RoomType> OnRoomComplete;
+    public static event Action<RoomType> DropItem; 
     public static event Action OnWaveComplete;
     public static event Action OnRoomExit;
     public static event Action OnRoomEnter;
@@ -24,6 +25,7 @@ public class RoomManager : MonoBehaviour
     private bool _an_enemy_has_spawned = false;
 
     private List<(Transform, bool)> spawningPoints;
+    private RoomType dropType;
 
     [System.Serializable]
     public class EnemyWave
@@ -66,16 +68,17 @@ public class RoomManager : MonoBehaviour
         StartCoroutine(Spawn());
 
         InteractableArea.OnDoorInteraction += ChangeRoom;
+        dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
     }
 
-    private void ChangeRoom(DoorPreviewController.RoomType nextRoomType)
+    private void ChangeRoom(RoomType nextRoomType)
     {
         switch (nextRoomType)
         {
-            case DoorPreviewController.RoomType.SHOP:
+            case RoomType.SHOP:
                 SceneManager.LoadScene(8);
                 break;
-            case DoorPreviewController.RoomType.BOSS:
+            case RoomType.BOSS:
                 SceneManager.LoadScene(9);
                 break;
             default:
@@ -140,17 +143,18 @@ public class RoomManager : MonoBehaviour
         if (_n_waves == 0)
         {
             _room_completed = true;
-            var room1 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
-            var room2 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
+            var room1 = (RoomType)Random.Range(DROP_START, DROP_END);
+            var room2 = (RoomType)Random.Range(DROP_START, DROP_END);
             while (room2 == room1)
             {
-                room2 = (dpc.RoomType)Random.Range(dpc.DROP_START, dpc.DROP_END);
+                room2 = (RoomType)Random.Range(DROP_START, DROP_END);
             }
             //Debug.Log("Room Complete");
             //Debug.Log("room1 = " + room1);
             //Debug.Log("room2 = " + room2);
             //Use this for implementing sound indicating all waves in a room is done
             OnRoomComplete?.Invoke(room1, room2);
+            DropReward?.Invoke(dropType);
         }
     }
 
