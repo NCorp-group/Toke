@@ -180,13 +180,13 @@ public class AudioManager : MonoBehaviour
     {
         if (roomType == DoorPreviewController.RoomType.BOSS)
         {
-            FadeOut(currentMusic);
+            //FadeOut(currentMusic);
             //Play boss music (should loop)
             //Set current music to boss music
         }
         else if (roomType == DoorPreviewController.RoomType.SHOP)
         {
-            FadeOut(currentMusic);
+            //FadeOut(currentMusic);
             //Play shop music (should loop)
             //Set current music to shop music
         }
@@ -198,7 +198,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                FadeOut(currentMusic);
+                //FadeOut(currentMusic);
                 //Play normal music (should loop)
                 //Set current music to normal music
             }
@@ -240,17 +240,17 @@ public class AudioManager : MonoBehaviour
 
     void EnemyTakeDamageSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
     }
 
     void EnemyDeathSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
     }
 
     void EnemySpawnSound(Enemy.EnemyType type)
     {
-        PlayWithOverlap("enemy-spawn");
+        PlaySFXWithOverlap("enemy-spawn");
     }
 
     void EnemyFireSound(Enemy.EnemyType type)
@@ -277,7 +277,7 @@ public class AudioManager : MonoBehaviour
     void PlayerFireSound()
     {
         playerFireCounter++;
-        PlaySFXWithOverlap($"toke-fire{playerFireCounter}");
+        PlaySFXWithOverlap($"toke-fire{playerFireCounter}");    
         if (playerFireCounter == 10)
             playerFireCounter = 0;
     }
