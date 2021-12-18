@@ -33,7 +33,9 @@ public class Enemy : MonoBehaviour
     public Collectable collectable;
 
     private bool dead = false;
-    
+    private static readonly int GetHit = Animator.StringToHash("get hit");
+    private static readonly int Death = Animator.StringToHash("death");
+
     private void Start()
     {
 
@@ -46,23 +48,12 @@ public class Enemy : MonoBehaviour
         OnEnemySpawn?.Invoke(type);
     }
 
-    private void Update()
-    {
-        /*
-        if (hp <= 0)
-        {
-            var trigger = "death";
-            
-            anim.SetTrigger(trigger);
-        }*/
-    }
-    
     
     public void TakeDamage(float dmg)
     {
         OnEnemyTakeDamage?.Invoke(type);
         OnIndividualEnemyTakeDamage?.Invoke();
-        var trigger = "get hit";
+        var trigger = GetHit;
         hp -= dmg;
         if (hp <= 0)
         {
@@ -70,11 +61,10 @@ public class Enemy : MonoBehaviour
             {
                 OnEnemyDie?.Invoke(type);
                 _collider.gameObject.SetActive(false);
-                trigger = "death";
+                trigger = Death;
                 dead = true;
             }
         }
-        
         anim.SetTrigger(trigger);
     }
 

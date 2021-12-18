@@ -104,7 +104,7 @@ public class RangedAttack : MonoBehaviour
 #if UNITY_EDITOR
             Debug.DrawLine(firepoint, target_pos.position, Color.blue, duration: 1f);
 #endif
-            var mask = LayerMask.GetMask("Props", "Walls", "Player");
+            var mask = LayerMask.GetMask("Props", "Walls", "Player", "Projectile Collider");
             // mask = ~mask;
             
             

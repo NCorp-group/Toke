@@ -134,6 +134,7 @@ public class Projectile : MonoBehaviour
             var enemy = collision.collider.gameObject.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
+                Debug.Log($"enemy taking damage: {damage}");
                 enemy.TakeDamage(damage);
                 if (animatorProvidesOnHitEffect)
                 {

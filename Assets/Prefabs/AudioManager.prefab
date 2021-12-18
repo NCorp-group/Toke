@@ -267,3 +267,21 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: default-music
+    clip: {fileID: 8300000, guid: 1a3acbb29f0f9e440be2ebc2bd759b6b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boss-mucis
+    clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: menu-music
+    clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
