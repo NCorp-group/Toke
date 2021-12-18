@@ -4,7 +4,9 @@ using UnityEngine;
 public class RangedWeapon : MonoBehaviour
 {
     private float old_fireRate;
-    [SerializeField] public float fireRate = 5;
+    private float old_fireRateMultiplier;
+    private float effectiveFireRate;
+    [SerializeField] public float fireRate = 8;
     private float shotDelay;
     [SerializeField] private float counter;
     // Start is called before the first frame update
@@ -13,17 +15,23 @@ public class RangedWeapon : MonoBehaviour
     public static event Action<Color> OnProjectileSetColor;
     public Transform shootingPoint;
     public Projectile projectile;
-    private float damageMultiplier = 1;
 
-    //public float projectileSpeed = 5f;
     public static event Action OnFire;
 
+    // Projectile's added stats
     private float projectileLifeMultiplier = 1;
     private float projectileSpeedMultiplier = 1;
+    private float damageMultiplier = 1;
+    private float fireRateMultiplier = 1;
 
-    private void OnFireRateMultiplierChangedCB(float newFireRate)
+    private void OnFireRateChangedCB(float newFireRate)
     {
         fireRate = newFireRate;
+    }
+
+    private void OnFireRateMultiplierChangedCB(float newFireRateMultiplier)
+    {
+        fireRateMultiplier = newFireRateMultiplier;
     }
 
     private void OnLifeTimeModifierChangedCB(float newLifeTime) // CB is CallBack
@@ -45,10 +53,18 @@ public class RangedWeapon : MonoBehaviour
     void Start()
     {
         // TODO: don't hard code
+#if UNITY_EDITOR
+#else
         projectile = Resources.Load<Projectile>("projectiles/fire ball");
+#endif
+        // Same as fixedUpdate
         old_fireRate = fireRate;
-        shotDelay = 50 / fireRate;
+        old_fireRateMultiplier = fireRateMultiplier;
+        effectiveFireRate = fireRate * fireRateMultiplier;
+        shotDelay = 50 / effectiveFireRate;
         counter = shotDelay;
+        //Debug.Log(counter);
+
 
         OnProjectileSetColor?.Invoke(projectile.color);
 
@@ -91,10 +107,12 @@ public class RangedWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (old_fireRate != fireRate)
+        if (old_fireRate != fireRate || old_fireRateMultiplier != fireRateMultiplier)
         {
             old_fireRate = fireRate;
-            shotDelay = 50 / fireRate;
+            old_fireRateMultiplier = fireRateMultiplier;
+            effectiveFireRate = fireRate * fireRateMultiplier;
+            shotDelay = 50 / effectiveFireRate;
             counter = shotDelay;
             //Debug.Log(counter);
         }
@@ -123,8 +141,8 @@ public class RangedWeapon : MonoBehaviour
         var spawnedProjectile = Instantiate(projectile.gameObject, shootingPoint.position, shootingPoint.rotation);
         spawnedProjectile.GetComponent<Projectile>().Setup(
             Projectile.Variant.PLAYER,
-            damageMultiplier: damageMultiplier,
-            lifetimeMultiplier: projectileLifeMultiplier) ;
+            damageMult: damageMultiplier,
+            lifetimeMult: projectileLifeMultiplier) ;
         
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * spawnedProjectile.GetComponent<Projectile>().speed * projectileSpeedMultiplier;
         /*

@@ -8,7 +8,7 @@ public class Stats : MonoBehaviour
     public int maxHealth = 100;
     public float movementSpeed = 5;
     public float luckMultiplier = 1;
-    public float fireRate = 5;
+    public float freeRateMultiplier = 1;
     public float damageMultiplier = 1;
     public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
@@ -30,7 +30,7 @@ public class Stats : MonoBehaviour
         setOnProjectilespeedMultiplierChanged(projectileSpeedMultiplier);
         setMaxHealthChanged(maxHealth);
         setMovementSpeedMultiplierChanged(movementSpeed);
-        setFireRateScalarChanged(fireRate);
+        setFireRateScalarChanged(freeRateMultiplier);
         //GetComponentInParent<PlayerHealthController>().maxHealth = maxHealth;
     }
     //#endif
@@ -86,8 +86,8 @@ public class Stats : MonoBehaviour
         //Debug.Log($"Abou to speed up fire rate by {addFireRate}");
         if (addFireRate != 0)
         {
-            fireRate += addFireRate;
-            OnFireRateChanged?.Invoke(fireRate);
+            freeRateMultiplier += addFireRate;
+            OnFireRateChanged?.Invoke(freeRateMultiplier);
         }
     }
     public void addLuckMultiplierChanged(float addLuck)
@@ -133,8 +133,8 @@ public class Stats : MonoBehaviour
     void setFireRateScalarChanged(float newFireRate)
     {
         //Debug.Log($"Abou to speed up fire rate by {newFireRate}");
-        fireRate = newFireRate;
-        OnFireRateChanged?.Invoke(fireRate);
+        freeRateMultiplier = newFireRate;
+        OnFireRateChanged?.Invoke(freeRateMultiplier);
     }
     void setLuckMultiplierChanged(float setLuck)
     {
@@ -151,7 +151,7 @@ public class Stats : MonoBehaviour
         setOnProjectilespeedMultiplierChanged(projectileSpeedMultiplier);
         setMaxHealthChanged(maxHealth);
         setMovementSpeedMultiplierChanged(movementSpeed);
-        setFireRateScalarChanged(fireRate);
+        setFireRateScalarChanged(freeRateMultiplier);
     }
 
     // Update is called once per frame

@@ -4,14 +4,15 @@ using UnityEngine.Rendering.Universal;
 
 public class Projectile : MonoBehaviour
 {
+    // Projectile's base stats
     public float acceleration = 0f;
-    public int damage;
-    public float speed = 3f;
-
-    private bool ignore = false;
-
+    public float damage = 0;
+    public float speed = 1;
     [Header("if t = 0, then the projectile lives until it collides with something")]
     public float lifetime = 1;
+
+
+    private bool collided = false;
   
     [Header("the color used to light up the player sceptre, when this projectile is equipped")]
     public Color color = Color.green;
@@ -68,11 +69,11 @@ public class Projectile : MonoBehaviour
     /// <param name="lifetimeMultiplier"></param>
     public void Setup(
         Variant variant,
-        int? damage = null,
-        float? acceleration = null,
-        int? lifetime = null,
-        float? damageMultiplier = null,
-        float? lifetimeMultiplier = null
+        //float? damage = null,
+        float? accelerationMult = null,
+        //float? lifetime = null,
+        float? damageMult = null,
+        float? lifetimeMult = null
     )
     {
         gameObject.layer = variant switch
@@ -80,11 +81,15 @@ public class Projectile : MonoBehaviour
             Variant.ENEMY => LayerMask.NameToLayer("Enemy Projectiles"),
             Variant.PLAYER => LayerMask.NameToLayer("Player Projectiles")
         };
-        this.damage = damage ?? this.damage;
-        this.acceleration = acceleration ?? this.acceleration;
-        this.lifetime = lifetime ?? this.lifetime;
-        this.damage = damageMultiplier != null ? (int) (this.damage * damageMultiplier) : this.damage;
-        this.lifetime = lifetimeMultiplier != null ? (int) (this.lifetime * lifetimeMultiplier) : this.lifetime;
+
+        damage *= damageMult ?? 1;
+        lifetime *= lifetimeMult ?? 1;
+        acceleration *= accelerationMult ?? 1;
+        //this.damage = damage != null ?? this.damage;
+        //this.acceleration = acceleration ?? this.acceleration;
+        //this.lifetime = lifetime ?? this.lifetime;
+        //this.damage = damageMultiplier != null ? (int) (this.damage * damageMultiplier) : this.damage;
+        //this.lifetime = lifetimeMultiplier != null ? (this.lifetime * lifetimeMultiplier?? 1) : this.lifetime;
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -98,12 +103,12 @@ public class Projectile : MonoBehaviour
             l.volumeIntensityEnabled = false;
         }
         
-        if (ignore)
+        if (collided)
         {
             return;
         }
 
-        ignore = true;
+        collided = true;
 
         if (collision.collider.CompareTag("Collidable"))
         {

@@ -32,11 +32,11 @@ public class HealthBar : MonoBehaviour
         PlayerHealthController.OnPlayerHealthChange -= UpdateValue;
     }
 
-    private void UpdateValue(int currentHealth, int maxHealth)
+    private void UpdateValue(float currentHealth, int maxHealth)
     {
         //Debug.Log(currentHealth);
         //Debug.Log(maxHealth);
-        value = (float) currentHealth / (float) maxHealth;
+        value = currentHealth / (float) maxHealth;
         //Debug.Log(value);
         UpdateSprite();
     }

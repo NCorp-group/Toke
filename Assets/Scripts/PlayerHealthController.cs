@@ -4,12 +4,12 @@ using System;
 public class PlayerHealthController : MonoBehaviour
 {
 
-    public static event Action<int, int> OnPlayerHealthChange;
+    public static event Action<float, int> OnPlayerHealthChange;
     public static event Action OnPlayerDie;
     public static event Action OnPlayerTakeDamage;
 
     public int maxHealth = 100;
-    public int currentHealth = 100;
+    public float currentHealth = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class PlayerHealthController : MonoBehaviour
         OnPlayerHealthChange?.Invoke(currentHealth, maxHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         //Debug.LogWarning(currentHealth);

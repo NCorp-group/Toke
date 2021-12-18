@@ -936,7 +936,7 @@ MonoBehaviour:
   interactableRadius: 0.65
   interactableMask:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 655360
 --- !u!1 &3856093045668749039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,10 +1154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e32453e2861148a994c40fe636ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 25
+  fireRate: 8
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
-  projectile: {fileID: 5648644113741115918, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
+  projectile: {fileID: -4091051288106627155, guid: f10d9477b16450e7e99238f226de32d4, type: 3}
 --- !u!50 &3856093045851589518
 Rigidbody2D:
   serializedVersion: 4
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   maxHealth: 100
   movementSpeed: 8
   luckMultiplier: 1
-  fireRate: 2
+  freeRateMultiplier: 1
   damageMultiplier: 1
   projectileLifeMultiplier: 1
   projectileSpeedMultiplier: 1

@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     public EnemyType type = EnemyType.SLIME;
-    public int hp = 100;
+    public float hp = 100;
     
     private Animator anim;
     public static readonly string GAMEOBJECT_NAME_FOR_HIT_BODY = "Hit Body";
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     }
     
     
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         OnEnemyTakeDamage?.Invoke(type);
         OnIndividualEnemyTakeDamage?.Invoke();
