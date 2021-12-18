@@ -112,8 +112,16 @@ public class MeleeAttack : MonoBehaviour
     
     public void Attack()
     {
-        _phc.TakeDamage(damage);
         _apply_delay.Invoke();
+        var hit_player =_get_attack_colliders.Invoke();
+        if (!hit_player)
+        {
+            Debug.Log("No colliders hit in melee attack");
+            return;
+        }
+        
+        _phc.TakeDamage(damage);
+        
     }
 
     private void OnDrawGizmosSelected()

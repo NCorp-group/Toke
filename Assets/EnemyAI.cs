@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Quaternion = UnityEngine.Quaternion;
 
+
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Enemy))]
 [RequireComponent(typeof(AIPath))]
 [RequireComponent(typeof(AIDestinationSetter))]
@@ -60,10 +62,29 @@ public class EnemyAI : MonoBehaviour
 
     private RangedAttack _rangedAttack;
     private MeleeAttack _meleeAttack;
-    
+
+    private Animator _animator;
+    private Rigidbody2D _rb2d;
+    private Action _inform_animator_about_speed;
+    private static readonly int Speed = Animator.StringToHash("speed");
+
     void Start()
     {
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
+
+        _animator = GetComponent<Animator>();
+        _rb2d = GetComponentInChildren<Rigidbody2D>();
+        
+        _inform_animator_about_speed = _rb2d switch
+        {
+            null => () => { },
+            _ => () =>
+            {
+                var speed = _ai_path.velocity.magnitude;
+                Debug.Log($"speed of rb2d is = {speed}");
+                _animator.SetFloat(Speed, speed);
+            }
+        };
         
         
         Assert.IsTrue(aggressionRadius > 1f);
@@ -107,9 +128,27 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void SetAiState(bool state) => _ai_path.canMove = state;
-    private void EnableAI() => SetAiState(true);
-    private void DisableAI() => SetAiState(false);
-    
+
+    private void EnableAI()
+    {
+        if (_can_move) SetAiState(true);
+    } 
+    private void DisableAI() =>  SetAiState(false);
+
+    private bool _can_move = true;
+    public void StopMovement()
+    {
+        Debug.Log("call StopMovement()");
+        _can_move = false;
+        DisableAI();
+    }
+
+    public void StartMovement()
+    {
+        Debug.Log("call StartMovement()");
+        _can_move = true;
+        EnableAI();
+    }
     
     
     // Update is called once per frame
@@ -130,6 +169,10 @@ public class EnemyAI : MonoBehaviour
             1
         );
         
+        _inform_animator_about_speed.Invoke();
+        
+        Debug.Log($"can move = {_can_move}");
+
         var distance_to_target = UnityEngine.Vector2.Distance(from.position, target.position);
         var target_within_aggression_range = distance_to_target <= aggressionRadius;
         // Debug.Log($"distance to target = {distance_to_target}");
