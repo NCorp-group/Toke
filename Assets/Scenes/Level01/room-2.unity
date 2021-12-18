@@ -599,7 +599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: orthographic size
-      value: 16.40625
+      value: 11.4375
       objectReference: {fileID: 0}
     - target: {fileID: 2479563097016341578, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_Cameras.Array.size
@@ -761,7 +761,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16.40625
+  orthographic size: 11.4375
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2528,6 +2528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 9002101408142310533, guid: bbbc0d84cd6a000e3bcd53864bce1671, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9002101408142310584, guid: bbbc0d84cd6a000e3bcd53864bce1671, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -2616,6 +2620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: arcane archer
       objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087539, guid: a89c08203f65b9ed796c505432bac484, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2433757892867087550, guid: a89c08203f65b9ed796c505432bac484, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -2660,10 +2668,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8157821123262069807, guid: a89c08203f65b9ed796c505432bac484, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 5527967281237040913, guid: b68317ac9aa90f0bca4e1eb5ad2f5c62, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89c08203f65b9ed796c505432bac484, type: 3}
 --- !u!1001 &778281054
@@ -33137,6 +33141,63 @@ Transform:
   m_Father: {fileID: 1628820638}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1028481592
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2433757892867087539, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_Name
+      value: evil wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433757892867087550, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22381264fdaffc42e82ff32015805c5f, type: 3}
 --- !u!1 &1030576747
 GameObject:
   m_ObjectHideFlags: 0
@@ -42445,6 +42506,10 @@ PrefabInstance:
     - target: {fileID: 9002101408142310533, guid: c023f87ad65f00b61b22cf8219f26f5a, type: 3}
       propertyPath: m_Name
       value: darkborne imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002101408142310533, guid: c023f87ad65f00b61b22cf8219f26f5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9002101408142310584, guid: c023f87ad65f00b61b22cf8219f26f5a, type: 3}
       propertyPath: m_RootOrder
