@@ -5,6 +5,14 @@ using System;
 
 public class Stats : MonoBehaviour
 {
+    private const string MAX_HEALTH = "max_health";
+    private const string MOVEMENT_SPEED = "movement_speed";
+    private const string LUCK_MULTIPLIER = "luck_multiplier";
+    private const string FIRE_RATE = "fire_rate";
+    private const string DAMAGE_MULTIPLIER = "damage_multipler";
+    private const string PROJECTILE_LIFE_MULTIPLIER = "projectile_life_multiplier";
+    private const string PROJECTILE_SPEED_MULTIPLIER = "projectile_speed_multiplier";
+    
     public int maxHealth = 100;
     public float movementSpeed = 5;
     public float luckMultiplier = 1;
@@ -31,8 +39,11 @@ public class Stats : MonoBehaviour
         setMaxHealthChanged(maxHealth);
         setMovementSpeedMultiplierChanged(movementSpeed);
         setFireRateScalarChanged(fireRate);
+
+        StatsToPlayerPrefs();
         //GetComponentInParent<PlayerHealthController>().maxHealth = maxHealth;
     }
+
     //#endif
     /////////////////////////////For consumables////////////////////////////////
     // 
@@ -143,8 +154,14 @@ public class Stats : MonoBehaviour
         OnLuckMultiplierChanged?.Invoke(luckMultiplier);
     }
     ////////////////////////////////////////////////////////////////////////////
+
+    private void OnEnable()
+    {
+        StatsFromPlayerPrefs();
+    }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setOnDamageMultiplierChanged(damageMultiplier);
@@ -152,6 +169,31 @@ public class Stats : MonoBehaviour
         setMaxHealthChanged(maxHealth);
         setMovementSpeedMultiplierChanged(movementSpeed);
         setFireRateScalarChanged(fireRate);
+    }
+
+    private void OnDisable()
+    {
+        StatsToPlayerPrefs();
+    }
+
+    private void StatsFromPlayerPrefs()
+    {
+        projectileLifeMultiplier = PlayerPrefs.GetFloat(PROJECTILE_LIFE_MULTIPLIER);
+        damageMultiplier = PlayerPrefs.GetFloat(DAMAGE_MULTIPLIER);
+        projectileSpeedMultiplier = PlayerPrefs.GetFloat(PROJECTILE_SPEED_MULTIPLIER);
+        maxHealth = PlayerPrefs.GetInt(MAX_HEALTH);
+        movementSpeed = PlayerPrefs.GetFloat(MOVEMENT_SPEED);
+        fireRate = PlayerPrefs.GetFloat(FIRE_RATE);
+    }
+
+    private void StatsToPlayerPrefs()
+    {
+        PlayerPrefs.SetFloat(PROJECTILE_LIFE_MULTIPLIER, projectileLifeMultiplier);
+        PlayerPrefs.SetFloat(DAMAGE_MULTIPLIER, damageMultiplier);
+        PlayerPrefs.SetFloat(PROJECTILE_SPEED_MULTIPLIER, projectileSpeedMultiplier);
+        PlayerPrefs.SetInt(MAX_HEALTH, maxHealth);
+        PlayerPrefs.SetFloat(MOVEMENT_SPEED, movementSpeed);
+        PlayerPrefs.SetFloat(FIRE_RATE, fireRate);
     }
 
     // Update is called once per frame

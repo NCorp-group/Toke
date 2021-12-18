@@ -1946,10 +1946,10 @@ MonoBehaviour:
   maxHealth: 100
   movementSpeed: 8
   luckMultiplier: 1
-  fireRate: 2
+  fireRate: 10
   damageMultiplier: 1
   projectileLifeMultiplier: 1
-  projectileSpeedMultiplier: 1
+  projectileSpeedMultiplier: 3
 --- !u!212 &6086519574699306543
 SpriteRenderer:
   m_ObjectHideFlags: 0

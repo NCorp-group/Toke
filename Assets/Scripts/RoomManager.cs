@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 public class RoomManager : MonoBehaviour
 {
     public static event Action<RoomType, RoomType> OnRoomComplete;
-    public static event Action<RoomType> DropItem; 
+    public static event Action<RoomType> DropReward; 
     public static event Action OnWaveComplete;
     public static event Action OnRoomExit;
     public static event Action OnRoomEnter;
@@ -51,11 +51,11 @@ public class RoomManager : MonoBehaviour
 
     public List<EnemyWave> waves = new List<EnemyWave>();
 
-
     //when to spawn next wave ??? periodic or on event ???
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        Debug.Log("START");
         waves.ForEach((wave) => { _n_waves += wave.repetitions; });
         spawningPoints = GetComponentsInChildren<Transform>()
             .Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint"))
@@ -67,12 +67,20 @@ public class RoomManager : MonoBehaviour
 
         StartCoroutine(Spawn());
 
-        InteractableArea.OnDoorInteraction += ChangeRoom;
+        
         dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
+        Debug.Log("This room's reward is: " + dropType);
     }
 
     private void ChangeRoom(RoomType nextRoomType)
     {
+        StartCoroutine(_ChangeRoom(nextRoomType));
+    }
+
+    private IEnumerator _ChangeRoom(RoomType nextRoomType)
+    {
+        
+        yield return new WaitUntil(() => writtenToPlayerPrefs);
         switch (nextRoomType)
         {
             case RoomType.SHOP:
@@ -99,12 +107,14 @@ public class RoomManager : MonoBehaviour
     {
         Enemy.OnEnemySpawn += EnemySpawnCB;
         Enemy.OnEnemyDie += EnemyDieCB;
+        InteractableArea.OnDoorInteraction += ChangeRoom;
     }
 
     private void OnDisable()
     {
         Enemy.OnEnemySpawn -= EnemySpawnCB;
         Enemy.OnEnemyDie -= EnemyDieCB;
+        InteractableArea.OnDoorInteraction -= ChangeRoom;
     }
 
     private void EnemySpawnCB(Enemy.EnemyType type)
@@ -135,7 +145,8 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
+        Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
+        Debug.Log($"_room_completed = {_room_completed}");
         if (_room_completed)
         {
             return;
