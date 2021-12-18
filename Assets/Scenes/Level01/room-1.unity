@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6292747484177628327, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8769197207252092824, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6811,10 +6815,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 888072898, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: interactableMask.m_Bits
-      value: 655360
-      objectReference: {fileID: 0}
     - target: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -14320,7 +14320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &886470469
 GameObject:
@@ -14596,7 +14596,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9050639031354322544, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9050639031354322544, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14637,6 +14637,14 @@ PrefabInstance:
     - target: {fileID: 9050639031354322544, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050639031354322545, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050639031354322545, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[7]
+      value: 2074284173
       objectReference: {fileID: 0}
     - target: {fileID: 9050639031354322546, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
       propertyPath: m_Name
@@ -50104,7 +50112,7 @@ RectTransform:
   - {fileID: 1573611682}
   - {fileID: 543148471}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50235,27 +50243,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[0].startDelay
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].startDelay
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[0].repetitions
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].repetitions
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].enemies.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[2]
@@ -50291,7 +50303,7 @@ PrefabInstance:
       objectReference: {fileID: 5499251914053963051, guid: c27c97d0d3b4b895d9f3abd130efccbf, type: 3}
     - target: {fileID: 3870513914984843860, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843860, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: m_LocalPosition.x
