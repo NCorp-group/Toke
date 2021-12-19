@@ -21002,11 +21002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2954007691833866793, guid: 5e951711ecce44058b80c3353fd06a9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.940157
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 2954007691833866793, guid: 5e951711ecce44058b80c3353fd06a9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.85064
+      value: -26.34
       objectReference: {fileID: 0}
     - target: {fileID: 2954007691833866793, guid: 5e951711ecce44058b80c3353fd06a9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21162,11 +21162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5314887464096909172, guid: e8e76c5b9e0dd4ceeb0465bfa01ddd86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.944672
+      value: 14.1
       objectReference: {fileID: 0}
     - target: {fileID: 5314887464096909172, guid: e8e76c5b9e0dd4ceeb0465bfa01ddd86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.519543
+      value: -30.06
       objectReference: {fileID: 0}
     - target: {fileID: 5314887464096909172, guid: e8e76c5b9e0dd4ceeb0465bfa01ddd86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22403,6 +22403,8 @@ MonoBehaviour:
   damageMultiplier: 0
   projectileLifeMultiplier: 0
   projectileSpeedMultiplier: 0
+  dropped: 1
+  price: 0
 --- !u!1 &1913458864
 GameObject:
   m_ObjectHideFlags: 0
