@@ -19,7 +19,7 @@ public class InteractableArea : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E is pressed");
             var interactable = Physics2D.OverlapCircle(transform.position, interactableRadius, interactableMask);
@@ -45,7 +45,7 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if (DPC is not null)
                 {
-                    //Debug.Log("DPC FOUND POG");
+                    Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
                 else if(projectileItem is not null)

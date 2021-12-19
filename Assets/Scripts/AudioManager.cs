@@ -48,10 +48,9 @@ public class AudioManager : MonoBehaviour
     {
         //Should be removed when subscribing to something that triggers GoToMainMenu
         GoToMainMenu();
-    }
 
-    private void OnEnable()
-    {
+
+
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
         Enemy.OnEnemyDie += EnemyDeathSound;
@@ -70,28 +69,20 @@ public class AudioManager : MonoBehaviour
         //TODO FOR MUSIC TO WORK
         //Going to main menu triggers GoToMainMenu
         //Starting game plays default music (maybe just ChangeMusic with room type)
-        
+
         //TODO: Killing boss stops music and plays some other music indicating game is over
         //TODO: Music pauses when esc is pressed
         //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
     private void OnDisable()
     {
-        Movement.OnPlayerMovement -= PlayerMovementSound;
-        RangedWeapon.OnFire -= PlayerFireSound;
-        Enemy.OnEnemyDie -= EnemyDeathSound;
-        Enemy.OnEnemySpawn -= EnemySpawnSound;
-        Enemy.OnEnemyTakeDamage -= EnemyTakeDamageSound;
-        RangedAttack.OnEnemyRangedAttack -= EnemyFireSound;
-        PlayerHealthController.OnPlayerTakeDamage -= PlayerTakeDamageSound;
-        PlayerHealthController.OnPlayerDie -= PlayerDeathSound;
-
-        //Rooms/Waves
-        RoomManager.OnRoomComplete -= RoomCompleteSound;
-        RoomManager.OnWaveComplete -= WaveCompleteSound;
-
-        InteractableArea.OnDoorInteraction += ChangeMusic;
+        
     }
 
     public void PlaySFX(string name)
@@ -167,6 +158,7 @@ public class AudioManager : MonoBehaviour
     //FadeOut is inspired by https://forum.unity.com/threads/fade-out-audio-source.335031/
     public void FadeOut(string name)
     {
+        Debug.Log($"FadeOut called with: {currentMusic}");
         Sound s = Array.Find(sounds, sound => sound.name == name);
         float startVolume = s.source.volume;
 
