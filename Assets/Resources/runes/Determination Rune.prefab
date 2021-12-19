@@ -440,10 +440,12 @@ MonoBehaviour:
   maxHealth: 0
   movementSpeed: 0
   luckMultiplier: 0
-  fireRate: 20
+  fireRateMultiplier: 2
   damageMultiplier: 0
   projectileLifeMultiplier: 0
   projectileSpeedMultiplier: 0
+  dropped: 1
+  price: 0
 --- !u!58 &612580721
 CircleCollider2D:
   m_ObjectHideFlags: 0
