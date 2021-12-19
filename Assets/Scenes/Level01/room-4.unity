@@ -21283,6 +21283,10 @@ PrefabInstance:
       value: RoomManager
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 182229265}
@@ -22881,6 +22885,72 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 831463117743923838, guid: 25201546835bbca47beb3d7a5a4b026b, type: 3}
   m_PrefabInstance: {fileID: 1269422127}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2052320347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052320350}
+  - component: {fileID: 2052320349}
+  - component: {fileID: 2052320348}
+  m_Layer: 20
+  m_Name: GravitySink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2052320348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052320347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0b4d8947012bd8ebba198151783506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layersAffected:
+    serializedVersion: 2
+    m_Bits: 0
+  mass: -5e+10
+  radius: 10
+--- !u!58 &2052320349
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052320347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 8.9
+--- !u!4 &2052320350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052320347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.84, y: 1.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061793420
 GameObject:
   m_ObjectHideFlags: 0
@@ -22968,6 +23038,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: projectileLifeMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: projectileSpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -23016,6 +23094,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3856093045851589519, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7422245520340908315, guid: de175844ee6f05a12bfabf7890acda4c, type: 3}
     - target: {fileID: 6273141238842081658, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_Name
       value: Toke

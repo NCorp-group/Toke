@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5222763155793282362}
   - component: {fileID: 7422245520340908315}
   - component: {fileID: 8385294350307976132}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ice shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   damage: 5
+  speed: 1
   lifetime: 10
   color: {r: 0.16470589, g: 0.5568628, b: 0.85490197, a: 1}
   animatorProvidesOnHitEffect: 1
