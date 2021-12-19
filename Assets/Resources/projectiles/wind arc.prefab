@@ -253,9 +253,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 1
-  damage: 15
-  speed: 2.5
-  lifetime: 2
+  damage: 2.5
+  speed: 20
+  lifetime: 0.35
   color: {r: 0.4, g: 0.5921569, b: 0.27058825, a: 1}
   animatorProvidesOnHitEffect: 0
   spawnObjectOnCollision: {fileID: 0}

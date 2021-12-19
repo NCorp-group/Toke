@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: charged
   price: 0
+  fireRate: 0.75
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

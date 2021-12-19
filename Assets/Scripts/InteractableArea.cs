@@ -52,7 +52,7 @@ public class InteractableArea : MonoBehaviour
                 {
                     Debug.Log("Found projectileItem");
                     projectileItem.CollectProjectile();
-                    //Destroy(interactable.gameObject);
+                    Destroy(interactable.gameObject);
                 }
             }
 
