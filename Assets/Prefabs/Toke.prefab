@@ -1157,7 +1157,7 @@ MonoBehaviour:
   fireRate: 25
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
-  projectile: {fileID: 5648644113741115918, guid: de3b3c90fdf144819b47d3852f248f89, type: 3}
+  projectile: {fileID: 2548713349214428784, guid: c7dda45fc12f68ac0bce6ddbac95110b, type: 3}
 --- !u!50 &3856093045851589518
 Rigidbody2D:
   serializedVersion: 4
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   maxHealth: 100
   movementSpeed: 8
   luckMultiplier: 1
-  fireRate: 10
+  freeRateMultiplier: 1
   damageMultiplier: 1
   projectileLifeMultiplier: 1
   projectileSpeedMultiplier: 1
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementScalar: 8
   dashSpeed: 28
-  dashDelay: 1.8
+  dashDelay: 0.5
 --- !u!95 &6086519574699306528
 Animator:
   serializedVersion: 4
