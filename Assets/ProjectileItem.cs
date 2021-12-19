@@ -12,7 +12,7 @@ public class ProjectileItem : MonoBehaviour
 
     public void CollectProjectile()
     {
-        Debug.Log($"Invoking with {projectileType}");
+        //Debug.Log($"Invoking with {projectileType}");
         OnProjectileCollected?.Invoke(projectileType);
     }
     // Start is called before the first frame update

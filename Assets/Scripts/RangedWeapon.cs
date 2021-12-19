@@ -49,7 +49,7 @@ public class RangedWeapon : MonoBehaviour
 
     private void OnProjectileCollectedCB(string newProjectileName)
     {
-        Debug.Log($"Received {newProjectileName}");
+        //Debug.Log($"Received {newProjectileName}");
         projectileTypeString = newProjectileName;
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
     }
