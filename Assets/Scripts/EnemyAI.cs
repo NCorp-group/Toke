@@ -82,7 +82,7 @@ public class EnemyAI : MonoBehaviour
             _ => () =>
             {
                 var speed = _ai_path.velocity.magnitude;
-                Debug.Log($"speed of rb2d is = {speed}");
+                //Debug.Log($"speed of rb2d is = {speed}");
                 _animator.SetFloat(Speed, speed);
             }
         };
@@ -94,13 +94,13 @@ public class EnemyAI : MonoBehaviour
             var player = GameObject.FindWithTag("Player");
             if (player != null)
             {
-                Debug.Log("finding child object called Target Point");
+                //Debug.Log("finding child object called Target Point");
                 target = player.GetComponentsInChildren<Transform>().FirstOrDefault(c => c.gameObject.name == "Target Point");
                 _target_rb2d = player.GetComponent<Rigidbody2D>();
                 Assert.IsNotNull(target);
             }
         }
-        Debug.Log($"The name of the target is {target.gameObject.name}");
+        //Debug.Log($"The name of the target is {target.gameObject.name}");
         _aiDestinationSetter.target = target.transform;
 
 
@@ -109,7 +109,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyType.Ranged:
                 _rangedAttack = GetComponent<RangedAttack>();
                 Assert.IsNotNull(_rangedAttack);
-                Debug.Log("ranged attack is NOT null");
+                //Debug.Log("ranged attack is NOT null");
                 _behaviour = RangedBehaviour;
                 break;
             case EnemyType.Melee:
@@ -136,14 +136,14 @@ public class EnemyAI : MonoBehaviour
     private bool _can_move = true;
     public void StopMovement()
     {
-        Debug.Log("call StopMovement()");
+        //Debug.Log("call StopMovement()");
         _can_move = false;
         DisableAI();
     }
 
     public void StartMovement()
     {
-        Debug.Log("call StartMovement()");
+        //Debug.Log("call StartMovement()");
         _can_move = true;
         EnableAI();
     }
@@ -167,7 +167,7 @@ public class EnemyAI : MonoBehaviour
         
         _inform_animator_about_speed.Invoke();
         
-        Debug.Log($"can move = {_can_move}");
+        //Debug.Log($"can move = {_can_move}");
 
         var distance_to_target = UnityEngine.Vector2.Distance(from.position, target.position);
         var target_within_aggression_range = distance_to_target <= aggressionRadius;

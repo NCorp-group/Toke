@@ -80,7 +80,7 @@ public class RoomManager : MonoBehaviour
 
     private IEnumerator _ChangeRoom(RoomType nextRoomType)
     {
-        Debug.Log("new room = " + nextRoomType);
+        //Debug.Log("new room = " + nextRoomType);
         yield return new WaitUntil(() => writtenToPlayerPrefs);
         switch (nextRoomType)
         {
@@ -103,7 +103,7 @@ public class RoomManager : MonoBehaviour
         (int?, string?) beforeShopScene = (null, null);
         
         int sceneCount = SceneManager.sceneCountInBuildSettings;
-        Debug.Log("sceneCount = " + sceneCount);
+        //Debug.Log("sceneCount = " + sceneCount);
         for (int i = 0; i < sceneCount; i++)
         {
             var scene = SceneUtility.GetScenePathByBuildIndex(i);
@@ -115,7 +115,7 @@ public class RoomManager : MonoBehaviour
                 if (PlayerPrefs.GetInt(sceneName, 0) == 0)
                 {
                     validRooms.Add((i, sceneName));
-                    Debug.Log("sceneName: " + sceneName);
+                    //Debug.Log("sceneName: " + sceneName);
                 }
             }
 
@@ -126,11 +126,11 @@ public class RoomManager : MonoBehaviour
         }
 
         var nextSceneIndex = beforeShopScene.Item1 ?? 0;
-        Debug.Log("Scenes found = " + validRooms.Count);
+        //Debug.Log("Scenes found = " + validRooms.Count);
         if (validRooms.Count > 0)
         {
             var randomIndex = Random.Range(0, validRooms.Count);
-            Debug.Log("randomIndex = " + randomIndex);
+            //Debug.Log("randomIndex = " + randomIndex);
             var randomScene = validRooms[randomIndex];
             PlayerPrefs.SetInt(randomScene.Item2, 1);
             nextSceneIndex = randomScene.Item1;

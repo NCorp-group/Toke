@@ -118,8 +118,8 @@ public class RangedAttack : MonoBehaviour
         var target_pos_prediction =
             target_pos + (target_velocity * time_for_projectile_to_reach_current_target_pos ); // magic number
         
-        Debug.Log($"current distance to target = {current_distance_to_target_from_firepoint} and speed = {speed} so time to reach = {time_for_projectile_to_reach_current_target_pos}");
-        Debug.Log($"distance between current pos and prediction = {Vector2.Distance(target_pos_prediction, target_pos)}");
+        //Debug.Log($"current distance to target = {current_distance_to_target_from_firepoint} and speed = {speed} so time to reach = {time_for_projectile_to_reach_current_target_pos}");
+        //Debug.Log($"distance between current pos and prediction = {Vector2.Distance(target_pos_prediction, target_pos)}");
 #if UNITY_EDITOR
         Debug.DrawLine(target_pos, target_pos_prediction, Color.yellow);
         //Debug.DrawLine(firepoint, target_pos_prediction, Color.cyan);
@@ -157,7 +157,7 @@ public class RangedAttack : MonoBehaviour
 
             if (!(hit.collider != null && hit.rigidbody.gameObject.CompareTag("Player")))
             {
-                Debug.Log("hit did NOT hit a collider");
+                //Debug.Log("hit did NOT hit a collider");
                 // return false;
             }
 
@@ -238,7 +238,7 @@ public class RangedAttack : MonoBehaviour
         var angle = Util.GetAngleFromVectorFloat(projectile_direction);
 
 #if UNITY_EDITOR
-        Debug.Log($"DRAW LINE {Vector2.Distance(firepoint, fire_towards)}");
+        //Debug.Log($"DRAW LINE {Vector2.Distance(firepoint, fire_towards)}");
         Debug.DrawLine(firepoint, fire_towards, Color.magenta);
 #endif
         var instance = Instantiate(projectile, firepoint, Quaternion.Euler(0, 0, angle));

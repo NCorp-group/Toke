@@ -24,6 +24,7 @@ public class InteractableArea : MonoBehaviour
             var interactable = Physics2D.OverlapCircle(transform.position, interactableRadius, interactableMask);
             if (interactable is not null)
             {
+                
                 ItemStats statsToAdd = interactable.GetComponent<ItemStats>();
                 var DPC = interactable.GetComponent<dpc>();
                 if (statsToAdd != null) // Check if the Collectable has a specific component
@@ -42,7 +43,7 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if (DPC is not null)
                 {
-                    Debug.Log("DPC FOUND POG");
+                    //Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
             }
