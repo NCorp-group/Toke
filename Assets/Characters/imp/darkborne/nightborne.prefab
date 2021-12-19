@@ -421,7 +421,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 9
+  m_SortingLayer: 8
   m_SortingOrder: 8
   m_Sprite: {fileID: -461917205, guid: fa09042f611dac795995f5856bdbd246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765b323d291f485e68a28d5b7a332291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   hp: 100
   dropCollectableOnDeath: 0
   likelihood: 0.844
@@ -486,6 +486,7 @@ MonoBehaviour:
   aggressionRadius: 16.2
   target: {fileID: 0}
   from: {fileID: 0}
+  recalculateAStarGridUsingBoundsOfEnemyDelay: 0
   enemyType: 0
 --- !u!114 &1050531591621498743
 MonoBehaviour:
