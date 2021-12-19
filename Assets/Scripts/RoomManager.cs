@@ -98,15 +98,8 @@ public class RoomManager : MonoBehaviour
 
     private int GetNextSceneIndex()
     {
-        // TODO: Don't hardcode this maybe, but also it is good enough on this small of a scale
-        // TODO: Ok constants are a little better, but holy shit making this dynamic requires some fuckery
-        var beenToRoom1 = PlayerPrefs.GetInt(ROOM_1, 0);
-        var beenToRoom2 = PlayerPrefs.GetInt(ROOM_2, 0);
-        var beenToRoom3 = PlayerPrefs.GetInt(ROOM_3, 0);
-        var beenToRoom4 = PlayerPrefs.GetInt(ROOM_4, 0);
-        var beenToRoom5 = PlayerPrefs.GetInt(ROOM_5, 0);
-
-        var list = new List<(int, string)>();
+        var validRooms = new List<(int, string)>();
+        var allRooms = new List<(int, string)>();
         (int?, string?) beforeShopScene = (null, null);
         
         int sceneCount = SceneManager.sceneCountInBuildSettings;
@@ -118,9 +111,10 @@ public class RoomManager : MonoBehaviour
             var match = Regex.Match(sceneName, ".*[0-9].*");
             if (match.Success)
             {
+                allRooms.Add((i, sceneName));
                 if (PlayerPrefs.GetInt(sceneName, 0) == 0)
                 {
-                    list.Add((i, sceneName));
+                    validRooms.Add((i, sceneName));
                     Debug.Log("sceneName: " + sceneName);
                 }
             }
@@ -132,45 +126,26 @@ public class RoomManager : MonoBehaviour
         }
 
         var nextSceneIndex = beforeShopScene.Item1 ?? 0;
-        Debug.Log("Scenes found = " + list.Count);
-        if (list.Count > 0)
+        Debug.Log("Scenes found = " + validRooms.Count);
+        if (validRooms.Count > 0)
         {
-            var randomIndex = Random.Range(0, list.Count);
+            var randomIndex = Random.Range(0, validRooms.Count);
             Debug.Log("randomIndex = " + randomIndex);
-            var randomScene = list[randomIndex];
+            var randomScene = validRooms[randomIndex];
             PlayerPrefs.SetInt(randomScene.Item2, 1);
             nextSceneIndex = randomScene.Item1;
         }
         else
         {
-            PlayerPrefs.SetInt(ROOM_1, 0);
-            PlayerPrefs.SetInt(ROOM_2, 0);
-            PlayerPrefs.SetInt(ROOM_3, 0);
-            PlayerPrefs.SetInt(ROOM_4, 0);
-            PlayerPrefs.SetInt(ROOM_5, 0);
+            foreach (var room in allRooms)
+            {
+                PlayerPrefs.SetInt(room.Item2, 0);
+            }
         }
         return nextSceneIndex;
     }
 
     private const string BEFORE_SHOP = "before-shop";
-
-    private const string ROOM_1 = "room-1";
-    private const string ROOM_2 = "room-2";
-    private const string ROOM_3 = "room-3";
-    private const string ROOM_4 = "room-4";
-    private const string ROOM_5 = "room-5";
-
-    /*private const string BEEN_TO_ROOM_5 = "been_to_room_5";
-    private const string BEEN_TO_ROOM_4 = "been_to_room_4";
-    private const string BEEN_TO_ROOM_3 = "been_to_room_3";
-    private const string BEEN_TO_ROOM_2 = "been_to_room_2";
-    private const string BEEN_TO_ROOM_1 = "been_to_room_1";*/
-
-    /*private const int SCENE_ROOM_END = 5;
-
-    private const int SCENE_ROOM_START = 2;
-
-    private const string LAST_SCENE = "last_scene";*/
 
     // dummy stub
     private IEnumerator Wait(int seconds)
