@@ -56,7 +56,7 @@ public class RoomManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Debug.Log("START");
+        //Debug.Log("START");
         waves.ForEach((wave) => { _n_waves += wave.repetitions; });
         spawningPoints = GetComponentsInChildren<Transform>()
             .Where(tf => tf.gameObject.CompareTag("EnemySpawningPoint"))
@@ -70,7 +70,7 @@ public class RoomManager : MonoBehaviour
 
         
         dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
-        Debug.Log("This room's reward is: " + dropType);
+        //Debug.Log("This room's reward is: " + dropType);
     }
 
     private void ChangeRoom(RoomType nextRoomType)
@@ -187,8 +187,8 @@ public class RoomManager : MonoBehaviour
                 OnWaveComplete?.Invoke();
             }
         }
-        Debug.Log($"enemies alive {_enemies_alive}");
-        Debug.Log($"waves remaining: {_n_waves}");
+        //Debug.Log($"enemies alive {_enemies_alive}");
+        //Debug.Log($"waves remaining: {_n_waves}");
 
     }
 
@@ -196,8 +196,8 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
-        Debug.Log($"_room_completed = {_room_completed}");
+        //Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
+        //Debug.Log($"_room_completed = {_room_completed}");
         if (_room_completed)
         {
             return;

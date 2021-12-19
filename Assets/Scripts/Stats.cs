@@ -195,7 +195,7 @@ public class Stats : MonoBehaviour
         setProjectileLifeMultiplier(PlayerPrefs.GetFloat(PROJECTILE_LIFE_MULTIPLIER));
         setDamageMultiplier(PlayerPrefs.GetFloat(DAMAGE_MULTIPLIER));
         setProjectilespeedMultiplier(PlayerPrefs.GetFloat(PROJECTILE_SPEED_MULTIPLIER));
-        Debug.Log("FROM PP: Projectile Speed: " + projectileSpeedMultiplier);
+        //Debug.Log("FROM PP: Projectile Speed: " + projectileSpeedMultiplier);
         setMaxHealth(PlayerPrefs.GetInt(MAX_HEALTH));
         setMovementSpeedMultiplier(PlayerPrefs.GetFloat(MOVEMENT_SPEED));
         setFireRateMultiplier(PlayerPrefs.GetFloat(FIRE_RATE));
@@ -206,7 +206,7 @@ public class Stats : MonoBehaviour
     {
         PlayerPrefs.SetFloat(PROJECTILE_LIFE_MULTIPLIER, projectileLifeMultiplier);
         PlayerPrefs.SetFloat(DAMAGE_MULTIPLIER, damageMultiplier);
-        Debug.Log("TO PP: Projectile Speed: " + projectileSpeedMultiplier);
+        //Debug.Log("TO PP: Projectile Speed: " + projectileSpeedMultiplier);
         PlayerPrefs.SetFloat(PROJECTILE_SPEED_MULTIPLIER, projectileSpeedMultiplier);
         PlayerPrefs.SetInt(MAX_HEALTH, maxHealth);
         PlayerPrefs.SetFloat(MOVEMENT_SPEED, movementSpeed);
