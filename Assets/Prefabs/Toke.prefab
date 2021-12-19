@@ -936,7 +936,7 @@ MonoBehaviour:
   interactableRadius: 0.65
   interactableMask:
     serializedVersion: 2
-    m_Bits: 655360
+    m_Bits: 131072
 --- !u!1 &3856093045668749039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,10 +1154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e32453e2861148a994c40fe636ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 8
+  fireRate: 25
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
-  projectile: {fileID: -4091051288106627155, guid: f10d9477b16450e7e99238f226de32d4, type: 3}
+  projectile: {fileID: 2548713349214428784, guid: c7dda45fc12f68ac0bce6ddbac95110b, type: 3}
 --- !u!50 &3856093045851589518
 Rigidbody2D:
   serializedVersion: 4
@@ -1902,7 +1902,6 @@ GameObject:
   - component: {fileID: 6086519574699306528}
   - component: {fileID: 6086519574699306531}
   - component: {fileID: 3856093044766577605}
-  - component: {fileID: 3856093044766577663}
   - component: {fileID: 1122700151}
   m_Layer: 7
   m_Name: Toke
@@ -2028,9 +2027,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2881198e2ec01cb48bbcab9f354d2d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 0
-  animator: {fileID: 6086519574699306528}
   movementScalar: 8
+  dashSpeed: 28
+  dashDelay: 0.5
 --- !u!95 &6086519574699306528
 Animator:
   serializedVersion: 4
@@ -2079,29 +2078,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000000
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3856093044766577663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6273141238842081658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32164980312264a44b89df6e60138606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!114 &1122700151
 MonoBehaviour:
   m_ObjectHideFlags: 0
