@@ -11,12 +11,12 @@ public class Hover : MonoBehaviour
     
     private readonly float _TAU = 2 * Mathf.PI;
     
-    private void Update()
+    private void FixedUpdate()
     {
         var t = Time.time;
         var arg = frequency * t * _TAU;
         transform.position +=
-            new Vector3(
+            new Vector3( 
                 horizontal ? (float) Math.Cos(arg) * amplitude + offset : 0f,
                 vertical ? (float) Math.Sin(arg) * amplitude + offset : 0f,
                 0f

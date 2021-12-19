@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/* This script gives an item the following three abilities:
+   1. stats to give the player
+   2. droppable functionality
+   3. give the player a new projectile and staff lume
+*/
 public class ItemStats : MonoBehaviour
 {
     // Stats:
@@ -21,6 +26,7 @@ public class ItemStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Sets the price text under the item
         GetComponentInChildren<TextMeshProUGUI>().text = $"{price} P";
     }
 
