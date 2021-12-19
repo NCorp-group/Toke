@@ -11,6 +11,8 @@ using Random = UnityEngine.Random;
 
 public class RoomManager : MonoBehaviour
 {
+    public Animator transitionAnimator;
+    public float transitionDuration = 1f;
     public static event Action<RoomType, RoomType> OnRoomComplete;
     public static event Action<RoomType> DropReward; 
     public static event Action OnWaveComplete;
@@ -51,6 +53,7 @@ public class RoomManager : MonoBehaviour
     }
 
     public List<EnemyWave> waves = new List<EnemyWave>();
+    private static readonly int EndScene = Animator.StringToHash("EndScene");
 
     //when to spawn next wave ??? periodic or on event ???
     // Start is called before the first frame update
@@ -82,6 +85,8 @@ public class RoomManager : MonoBehaviour
     {
         //Debug.Log("new room = " + nextRoomType);
         yield return new WaitUntil(() => writtenToPlayerPrefs);
+        transitionAnimator.SetTrigger(EndScene);
+        yield return new WaitForSeconds(transitionDuration * 3);
         switch (nextRoomType)
         {
             case RoomType.SHOP:
@@ -95,6 +100,7 @@ public class RoomManager : MonoBehaviour
                 break;
         }
     }
+    
 
     private int GetNextSceneIndex()
     {

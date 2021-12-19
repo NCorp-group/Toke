@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8789fc2a23ba69581bdbd5b9645dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnimator: {fileID: 0}
+  transitionDuration: 0.5
   waves:
   - startDelay: 0
     typeOfWave: 0
