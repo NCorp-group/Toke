@@ -42,10 +42,9 @@ public class EnemyAI : MonoBehaviour
     private bool RangedBehaviour()
     {
         var a = 2;
-        Assert.IsNotNull(target, "target != null");
-        Assert.IsNotNull(_rangedAttack, "_rangedAttack != null");
         var clear_line_of_sight = _rangedAttack.Fire(
             target,
+            _target_rb2d.velocity,
             only_if_clear_line_of_sight: true,
             distance: aggressionRadius
             );
@@ -68,6 +67,8 @@ public class EnemyAI : MonoBehaviour
     private Action _inform_animator_about_speed;
     private static readonly int Speed = Animator.StringToHash("speed");
 
+    private Rigidbody2D _target_rb2d;
+    
     void Start()
     {
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
@@ -98,6 +99,7 @@ public class EnemyAI : MonoBehaviour
             {
                 Debug.Log("finding child object called Target Point");
                 target = player.GetComponentsInChildren<Transform>().FirstOrDefault(c => c.gameObject.name == "Target Point");
+                _target_rb2d = player.GetComponent<Rigidbody2D>();
                 Assert.IsNotNull(target);
             }
         }
@@ -119,8 +121,7 @@ public class EnemyAI : MonoBehaviour
                 _behaviour = MeleeBehaviour;
                 break;
         }
-        Assert.IsNotNull(_behaviour);
-
+        
         from = transform;
         _ai_path = GetComponent<AIPath>();
         Assert.IsNotNull(_ai_path, "_ai_path != null");
@@ -161,11 +162,10 @@ public class EnemyAI : MonoBehaviour
             Debug.Log($"steering target.y = {aiPath.steeringTarget.y}");
             Debug.DrawLine(transform.position, aiPath.steeringTarget, Color.cyan);
         }*/
-        transform.localScale = new Vector3(
+        transform.localScale = new Vector2(
             ai_enabled
                 ? ((_ai_path.steeringTarget - from.position).x >= 0.01 ? 1 : -1)
                 : ((target.position - from.position).x >= 0.01 ? 1 : -1),
-            1,
             1
         );
         

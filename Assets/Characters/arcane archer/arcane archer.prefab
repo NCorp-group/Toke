@@ -296,10 +296,12 @@ MonoBehaviour:
   projectile: {fileID: 5527967281237040913, guid: b68317ac9aa90f0bca4e1eb5ad2f5c62, type: 3}
   speed: 10
   lifetime: 10
+  predictTargetMovement: 1
   useFirePoint: 1
   useAnimationEventToTriggerProjectileFire: 1
   projectileVariant: 1
   projectilePadding: 0.15
+  sampleRate: 0.1
 --- !u!1 &3677654759137219061
 GameObject:
   m_ObjectHideFlags: 0
