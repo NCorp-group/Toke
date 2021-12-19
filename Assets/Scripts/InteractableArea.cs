@@ -21,17 +21,15 @@ public class InteractableArea : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("E is pressed");
             var interactable = Physics2D.OverlapCircle(transform.position, interactableRadius, interactableMask);
             if (interactable is not null)
             {
-                Debug.Log($"There is an interactable name = {interactable.name}");
+                
                 ItemStats statsToAdd = interactable.GetComponent<ItemStats>();
                 var DPC = interactable.GetComponent<dpc>();
                 var projectileItem = interactable.GetComponent<ProjectileItem>();
                 if (statsToAdd is not null) // Check if the Collectable has a specific component
                 {
-                    Debug.Log("It's a rune! Collecting.");
                     Stats tokeStats = GetComponentInParent<Stats>();
 
                     // Adding the rune stats to Toke
@@ -46,17 +44,15 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if (DPC is not null)
                 {
-                    Debug.Log("DPC FOUND POG");
+                    //Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
                 else if(projectileItem is not null)
                 {
-                    Debug.Log("Found projectileItem");
                     projectileItem.CollectProjectile();
                     Destroy(interactable.gameObject);
                 }
             }
-
         }
     }
 
