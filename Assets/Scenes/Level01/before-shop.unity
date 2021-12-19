@@ -855,26 +855,6 @@ PrefabInstance:
       propertyPath: interactableMask.m_Bits
       value: 524288
       objectReference: {fileID: 0}
-    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: fireRate
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: movementSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: damageMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: projectileLifeMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 213696919809180922, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
-      propertyPath: projectileSpeedMultiplier
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2864248045788043866, guid: 47881452114d040a4ae7387ab4129d14, type: 3}
       propertyPath: m_RootOrder
       value: 13

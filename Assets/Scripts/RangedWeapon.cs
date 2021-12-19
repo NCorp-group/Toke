@@ -21,12 +21,12 @@ public class RangedWeapon : MonoBehaviour
     private float projectileLifeMultiplier = 1;
     private float projectileSpeedMultiplier = 1;
 
-    private void OnFireRateMultiplierChangedCB(float newFireRate)
+    private void OnFireRateMultiplierMultiplierChangedCb(float newFireRate)
     {
         fireRate = newFireRate;
     }
 
-    private void OnLifeTimeModifierChangedCB(float newLifeTime) // CB is CallBack
+    private void OnProjectileLifeMultiplierModifierChangedCb(float newLifeTime) // CB is CallBack
     {
         projectileLifeMultiplier = newLifeTime;
     }
@@ -65,9 +65,9 @@ public class RangedWeapon : MonoBehaviour
     private void OnEnable()
     {
         Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
-        Stats.OnLifeTimeModifierChanged += OnLifeTimeModifierChangedCB;
+        Stats.OnProjectileLifeMultiplierModifierChanged += OnProjectileLifeMultiplierModifierChangedCb;
         Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
-        Stats.OnFireRateChanged += OnFireRateMultiplierChangedCB;
+        Stats.OnFireRateMultiplierChanged += OnFireRateMultiplierMultiplierChangedCb;
 
         GlobalState.OnSceneStart += () =>
         {
@@ -82,10 +82,10 @@ public class RangedWeapon : MonoBehaviour
 
     private void OnDisable()
     {
-        Stats.OnLifeTimeModifierChanged -= OnLifeTimeModifierChangedCB;
+        Stats.OnProjectileLifeMultiplierModifierChanged -= OnProjectileLifeMultiplierModifierChangedCb;
         Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged -= OnProjectileSpeedMultiplierChangedCB;
-        Stats.OnFireRateChanged -= OnFireRateMultiplierChangedCB;
+        Stats.OnFireRateMultiplierChanged -= OnFireRateMultiplierMultiplierChangedCb;
     }
 
     // Update is called once per frame

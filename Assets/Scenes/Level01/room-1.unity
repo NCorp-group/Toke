@@ -14885,8 +14885,16 @@ PrefabInstance:
       value: Determination Rune
       objectReference: {fileID: 0}
     - target: {fileID: 4109202166832208318, guid: 68393dadd51fb497d9b6b0e325564042, type: 3}
-      propertyPath: fireRate
-      value: 20
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109202166832208318, guid: 68393dadd51fb497d9b6b0e325564042, type: 3}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109202166832208318, guid: 68393dadd51fb497d9b6b0e325564042, type: 3}
+      propertyPath: projectileSpeedMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68393dadd51fb497d9b6b0e325564042, type: 3}
