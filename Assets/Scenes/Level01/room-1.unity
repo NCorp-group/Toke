@@ -6937,7 +6937,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 753051699
-  m_SortingLayer: 10
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -14638,14 +14638,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9050639031354322545, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050639031354322545, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[7]
-      value: 2074284173
-      objectReference: {fileID: 0}
     - target: {fileID: 9050639031354322546, guid: f7e55a09fd62e4c46812f9ff67cd3d47, type: 3}
       propertyPath: m_Name
       value: Global Light
@@ -15211,7 +15203,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -204028063
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
