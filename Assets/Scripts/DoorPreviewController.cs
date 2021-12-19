@@ -60,22 +60,17 @@ public class DoorPreviewController : MonoBehaviour
         //Debug.Log("roomType: " + roomType + " " + (int) roomType);
         if (roomType == RoomType.UNASSIGNED)
         {
-            switch (roomId)
+            roomType = roomId switch
             {
-                case 1:
-                    roomType = room1;
-                    break;
-                case 2:
-                    roomType = room2;
-                    break;
-                default:
-                    roomType = RoomType.PENNINGAR_DROP;
-                    break;
-            }
+                1 => room1,
+                2 => room2,
+                _ => RoomType.PENNINGAR_DROP
+            };
         }
         //Debug.Log("roomType: " + roomType + " " + (int) roomType);
 
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = sprites[(int)roomType - 1];
+        var sr = GetComponent<SpriteRenderer>();
+        sr.enabled = true;
+        sr.sprite = sprites[(int) roomType - 1];
     }
 }
