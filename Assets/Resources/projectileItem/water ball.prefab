@@ -290,3 +290,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: water ball
   price: 0
+  fireRate: 0.5

@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3856093045559725379}
   - component: {fileID: 3856093045559725437}
   - component: {fileID: 888072898}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: InteractionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e32453e2861148a994c40fe636ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 8
+  fireRate: 10
   counter: 0
   shootingPoint: {fileID: 3856093044634611892}
   projectile: {fileID: -4091051288106627155, guid: f10d9477b16450e7e99238f226de32d4, type: 3}
@@ -1946,9 +1946,9 @@ MonoBehaviour:
   movementSpeed: 8
   luckMultiplier: 1
   fireRateMultiplier: 1
-  damageMultiplier: 2
-  projectileLifeMultiplier: 2
-  projectileSpeedMultiplier: 2
+  damageMultiplier: 1
+  projectileLifeMultiplier: 1
+  projectileSpeedMultiplier: 1
 --- !u!212 &6086519574699306543
 SpriteRenderer:
   m_ObjectHideFlags: 0

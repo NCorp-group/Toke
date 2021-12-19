@@ -271,3 +271,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: wind arc
   price: 0
+  fireRate: 50

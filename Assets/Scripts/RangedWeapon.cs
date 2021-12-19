@@ -26,6 +26,11 @@ public class RangedWeapon : MonoBehaviour
 
     private string projectileTypeString = "wind arc";
 
+    public void OnFireRateChangedCB(float newFireRate)
+    {
+        fireRate = newFireRate;
+    }
+
     private void OnFireRateMultiplierChangedCB(float newFireRateMultiplier)
     {
         fireRateMultiplier = newFireRateMultiplier;
@@ -88,6 +93,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
         Stats.OnFireRateMultiplierChanged += OnFireRateMultiplierChangedCB;
         ProjectileItem.OnProjectileCollected += OnProjectileCollectedCB;
+        ProjectileItem.OnFireRateChanged += OnFireRateChangedCB;
 
         GlobalState.OnSceneStart += () =>
         {
@@ -107,6 +113,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnProjectileSpeedMultiplierChanged -= OnProjectileSpeedMultiplierChangedCB;
         Stats.OnFireRateMultiplierChanged -= OnFireRateMultiplierChangedCB;
         ProjectileItem.OnProjectileCollected -= OnProjectileCollectedCB;
+        ProjectileItem.OnFireRateChanged -= OnFireRateChangedCB;
     }
 
     // Update is called once per frame

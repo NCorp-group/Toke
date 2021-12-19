@@ -17,10 +17,11 @@ public class InteractableArea : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
+            Debug.Log("E is pressed");
             var interactable = Physics2D.OverlapCircle(transform.position, interactableRadius, interactableMask);
             if (interactable is not null)
             {
@@ -49,8 +50,9 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if(projectileItem is not null)
                 {
+                    Debug.Log("Found projectileItem");
                     projectileItem.CollectProjectile();
-                    Destroy(interactable.gameObject);
+                    //Destroy(interactable.gameObject);
                 }
             }
 
