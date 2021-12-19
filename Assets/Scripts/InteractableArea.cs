@@ -27,7 +27,8 @@ public class InteractableArea : MonoBehaviour
                 
                 ItemStats statsToAdd = interactable.GetComponent<ItemStats>();
                 var DPC = interactable.GetComponent<dpc>();
-                if (statsToAdd != null) // Check if the Collectable has a specific component
+                var projectileItem = interactable.GetComponent<ProjectileItem>();
+                if (statsToAdd is not null) // Check if the Collectable has a specific component
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
 
@@ -35,7 +36,7 @@ public class InteractableArea : MonoBehaviour
                     tokeStats.addMaxHealth(statsToAdd.maxHealth);
                     tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
                     tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
-                    tokeStats.addFireRateScalar(statsToAdd.fireRate);
+                    tokeStats.addFireRateScalar(statsToAdd.fireRateMultiplier);
                     tokeStats.addDamageMultiplier(statsToAdd.damageMultiplier);
                     tokeStats.addProjectileLifeMultiplier(statsToAdd.projectileLifeMultiplier);
                     tokeStats.addProjectilespeedMultiplier(statsToAdd.projectileSpeedMultiplier);
@@ -45,6 +46,11 @@ public class InteractableArea : MonoBehaviour
                 {
                     //Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
+                }
+                else if(projectileItem is not null)
+                {
+                    projectileItem.CollectProjectile();
+                    Destroy(interactable.gameObject);
                 }
             }
 

@@ -605,8 +605,8 @@ GameObject:
   - component: {fileID: 3526267061260381756}
   - component: {fileID: 6649337648023388609}
   - component: {fileID: 740093904561978743}
-  - component: {fileID: -1313078988823674887}
   - component: {fileID: 6336861077644951564}
+  - component: {fileID: -6431948806339252111}
   m_Layer: 19
   m_Name: lightning bird
   m_TagString: Untagged
@@ -669,7 +669,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -399370117
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 4
   m_Sprite: {fileID: 5589968266077528540, guid: 53b2d2daf10f71694be61af2323aff02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -919,27 +919,6 @@ MonoBehaviour:
   - {x: 0.36047578, y: -0.87806547, z: 0}
   - {x: 0.31996894, y: 0.44599068, z: 0}
   - {x: -0.8780652, y: 0.32897043, z: 0}
---- !u!114 &-1313078988823674887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8741055624652324875}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240027be804101140ae21884dfdf30b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 0
-  damage: 10
-  speed: 1
-  lifetime: 10
-  color: {r: 0.990566, g: 0.7306054, b: 0.07008721, a: 1}
-  animatorProvidesOnHitEffect: 0
-  spawnObjectOnCollision: {fileID: 0}
-  projectileType: 0
-  hitEffect: {fileID: 0}
 --- !u!114 &6336861077644951564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +926,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8741055624652324875}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0bedc101085875c4a99140cfecb065c, type: 3}
   m_Name: 
@@ -957,3 +936,17 @@ MonoBehaviour:
   frequency: 0.2
   amplitude: 0.002
   offset: 0
+--- !u!114 &-6431948806339252111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8741055624652324875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a754cdee319e4e2ca929b8a55bd1286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: lightning bird
+  price: 0

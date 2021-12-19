@@ -24,6 +24,8 @@ public class RangedWeapon : MonoBehaviour
     private float damageMultiplier = 1;
     private float fireRateMultiplier = 1;
 
+    private string projectileTypeString = "wind arc";
+
     private void OnFireRateMultiplierChangedCB(float newFireRateMultiplier)
     {
         fireRateMultiplier = newFireRateMultiplier;
@@ -45,12 +47,19 @@ public class RangedWeapon : MonoBehaviour
         projectileSpeedMultiplier = newSpeedMultiplier;
     }
 
+    private void OnProjectileCollectedCB(string newProjectileName)
+    {
+        Debug.Log($"Received {newProjectileName}");
+        projectileTypeString = newProjectileName;
+        projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
+    }
+
     void Start()
     {
-/*#if UNITY_EDITOR
+#if UNITY_EDITOR
 #else
-        projectile = Resources.Load<Projectile>("projectiles/wind ");
-#endif*/
+        projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
+#endif
         // Same as fixedUpdate
         old_fireRate = fireRate;
         old_fireRateMultiplier = fireRateMultiplier;
@@ -78,6 +87,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnProjectileLifeMultiplierModifierChanged += OnProjectileLifeMultiplierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
         Stats.OnFireRateMultiplierChanged += OnFireRateMultiplierChangedCB;
+        ProjectileItem.OnProjectileCollected += OnProjectileCollectedCB;
 
         GlobalState.OnSceneStart += () =>
         {
@@ -96,6 +106,7 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnDamageMultiplierChanged -= OnDamageMultiplierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged -= OnProjectileSpeedMultiplierChangedCB;
         Stats.OnFireRateMultiplierChanged -= OnFireRateMultiplierChangedCB;
+        ProjectileItem.OnProjectileCollected -= OnProjectileCollectedCB;
     }
 
     // Update is called once per frame

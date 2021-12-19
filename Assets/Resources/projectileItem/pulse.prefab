@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2954007691833866793}
   - component: {fileID: 1777592761982527232}
-  - component: {fileID: 5527967281237040913}
   - component: {fileID: 2845497283637821957}
   - component: {fileID: 1154671890913484184}
   - component: {fileID: 90978863135284963}
   - component: {fileID: 7809182902416520800}
+  - component: {fileID: 1995042010870170252}
   m_Layer: 19
   m_Name: pulse
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 58fb160de302c69fdb63611f1f09d8a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,27 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5527967281237040913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206951449942985676}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240027be804101140ae21884dfdf30b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 1
-  damage: 15
-  speed: 1
-  lifetime: 5
-  color: {r: 0.34509805, g: 0.8039216, b: 0.99607843, a: 1}
-  animatorProvidesOnHitEffect: 1
-  spawnObjectOnCollision: {fileID: 0}
-  projectileType: 0
-  hitEffect: {fileID: 0}
 --- !u!95 &2845497283637821957
 Animator:
   serializedVersion: 4
@@ -175,7 +154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3206951449942985676}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0bedc101085875c4a99140cfecb065c, type: 3}
   m_Name: 
@@ -185,6 +164,20 @@ MonoBehaviour:
   frequency: 0.2
   amplitude: 0.002
   offset: 0
+--- !u!114 &1995042010870170252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206951449942985676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a754cdee319e4e2ca929b8a55bd1286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: pulse
+  price: 0
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

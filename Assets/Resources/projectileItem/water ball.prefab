@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 7285624377438770276}
   - component: {fileID: 6656568785861125249}
   - component: {fileID: 2265425260979433996}
-  - component: {fileID: 2548713349214428784}
   - component: {fileID: -6068923727453557493}
+  - component: {fileID: -8209954616714203989}
   m_Layer: 19
   m_Name: water ball
   m_TagString: Untagged
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 1449508775926928179, guid: 20efc05b26de0f6debbedcef17a24be8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -259,27 +259,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2548713349214428784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7285624377438770279}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240027be804101140ae21884dfdf30b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 0
-  damage: 15
-  speed: 3
-  lifetime: 1
-  color: {r: 0.32156864, g: 0.4, b: 0.5568628, a: 1}
-  animatorProvidesOnHitEffect: 1
-  spawnObjectOnCollision: {fileID: 0}
-  projectileType: 0
-  hitEffect: {fileID: 0}
 --- !u!114 &-6068923727453557493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +266,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7285624377438770279}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0bedc101085875c4a99140cfecb065c, type: 3}
   m_Name: 
@@ -297,3 +276,17 @@ MonoBehaviour:
   frequency: 0.2
   amplitude: 0.002
   offset: 0
+--- !u!114 &-8209954616714203989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285624377438770279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a754cdee319e4e2ca929b8a55bd1286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: water ball
+  price: 0

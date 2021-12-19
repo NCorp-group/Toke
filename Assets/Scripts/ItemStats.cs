@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
 
-/* This script gives an item the following three abilities:
+/* 
+   This script gives an item the following three abilities:
    1. stats to give the player
    2. droppable functionality
    3. give the player a new projectile and staff lume
@@ -15,7 +16,7 @@ public class ItemStats : MonoBehaviour
     public int maxHealth = 0;
     public float movementSpeed = 0;
     public float luckMultiplier = 0;
-    public float fireRate = 0;
+    public float fireRateMultiplier = 0;
     public float damageMultiplier = 0;
     public float projectileLifeMultiplier = 0;
     public float projectileSpeedMultiplier = 0;

@@ -178,4 +178,21 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public class Type
+    {
+        // Types of projectiles
+        public const string BOLT = "bolt";
+        public const string CHARGED = "charged";
+        public const string FIRE_BALL = "fire ball";
+        public const string CROSSED = "crossed";
+        public const string ICE_SHARD = "ice shard";
+        public const string LIGHTNING_BIRD = "lightning bird";
+        public const string PINK_SPARK = "pink spark";
+        public const string PULSE = "pulse";
+        public const string SPARK = "spark";
+        public const string WATER_BALL = "water ball";
+        public const string WIND_ARC = "wind arc";
+    }
+
 }
