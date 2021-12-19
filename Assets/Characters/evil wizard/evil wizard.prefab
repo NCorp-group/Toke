@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765b323d291f485e68a28d5b7a332291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 6
   hp: 100
   dropCollectableOnDeath: 0
   likelihood: 1
