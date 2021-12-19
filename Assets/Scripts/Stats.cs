@@ -171,6 +171,7 @@ public class Stats : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerPrefs.DeleteAll();
         StatsFromPlayerPrefs();
     }
 
@@ -192,14 +193,14 @@ public class Stats : MonoBehaviour
 
     private void StatsFromPlayerPrefs()
     {
-        setProjectileLifeMultiplier(PlayerPrefs.GetFloat(PROJECTILE_LIFE_MULTIPLIER));
-        setDamageMultiplier(PlayerPrefs.GetFloat(DAMAGE_MULTIPLIER));
-        setProjectilespeedMultiplier(PlayerPrefs.GetFloat(PROJECTILE_SPEED_MULTIPLIER));
+        setProjectileLifeMultiplier(PlayerPrefs.GetFloat(PROJECTILE_LIFE_MULTIPLIER, projectileLifeMultiplier));
+        setDamageMultiplier(PlayerPrefs.GetFloat(DAMAGE_MULTIPLIER, damageMultiplier));
+        setProjectilespeedMultiplier(PlayerPrefs.GetFloat(PROJECTILE_SPEED_MULTIPLIER, projectileSpeedMultiplier));
         //Debug.Log("FROM PP: Projectile Speed: " + projectileSpeedMultiplier);
-        setMaxHealth(PlayerPrefs.GetInt(MAX_HEALTH));
-        setMovementSpeedMultiplier(PlayerPrefs.GetFloat(MOVEMENT_SPEED));
-        setFireRateMultiplier(PlayerPrefs.GetFloat(FIRE_RATE));
-        setLuckMultiplier(PlayerPrefs.GetFloat(LUCK_MULTIPLIER));
+        setMaxHealth(PlayerPrefs.GetInt(MAX_HEALTH, maxHealth));
+        setMovementSpeedMultiplier(PlayerPrefs.GetFloat(MOVEMENT_SPEED, movementSpeed));
+        setFireRateMultiplier(PlayerPrefs.GetFloat(FIRE_RATE, fireRateMultiplier));
+        setLuckMultiplier(PlayerPrefs.GetFloat(LUCK_MULTIPLIER, luckMultiplier));
     }
 
     private void StatsToPlayerPrefs()

@@ -21,6 +21,7 @@ public class InteractableArea : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Pressed E");
             var interactable = Physics2D.OverlapCircle(transform.position, interactableRadius, interactableMask);
             if (interactable is not null)
             {
@@ -44,7 +45,7 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if (DPC is not null)
                 {
-                    //Debug.Log("DPC FOUND POG");
+                    Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
                 else if(projectileItem is not null)
@@ -53,7 +54,6 @@ public class InteractableArea : MonoBehaviour
                     Destroy(interactable.gameObject);
                 }
             }
-
         }
     }
 
