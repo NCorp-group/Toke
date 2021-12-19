@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a754cdee319e4e2ca929b8a55bd1286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: crossed
+  price: 0
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0
