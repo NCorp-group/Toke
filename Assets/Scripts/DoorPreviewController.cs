@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorPreviewController : MonoBehaviour
 {
+    public const string ROOM_TYPE = "room_type";
+    
     public const int DROP_START = 1;
     public const int DROP_END = 4;
     public enum RoomType
@@ -25,10 +24,29 @@ public class DoorPreviewController : MonoBehaviour
     [SerializeField]
     private Sprite[] sprites;
 
+    private void OnEnable()
+    {
+        InteractableArea.OnDoorInteraction += RoomTypeToPlayerPrefs;
+        RoomManager.OnRoomComplete += ActivatePreview;
+    }
+
+    private void OnDisable()
+    {
+        InteractableArea.OnDoorInteraction -= RoomTypeToPlayerPrefs;
+        RoomManager.OnRoomComplete -= ActivatePreview;
+    }
+
+    public static bool writtenToPlayerPrefs = false;
+    private void RoomTypeToPlayerPrefs(RoomType obj)
+    {
+        PlayerPrefs.SetInt(ROOM_TYPE, (int) roomType);
+        writtenToPlayerPrefs = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        RoomManager.OnRoomComplete += ActivatePreview;
+        writtenToPlayerPrefs = false;
         if (roomType == RoomType.UNASSIGNED)
         {
             GetComponent<SpriteRenderer>().enabled = false;
@@ -59,11 +77,5 @@ public class DoorPreviewController : MonoBehaviour
 
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<SpriteRenderer>().sprite = sprites[(int)roomType - 1];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

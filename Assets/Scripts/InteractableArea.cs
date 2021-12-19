@@ -31,17 +31,18 @@ public class InteractableArea : MonoBehaviour
                     Stats tokeStats = GetComponentInParent<Stats>();
 
                     // Adding the rune stats to Toke
-                    tokeStats.addMaxHealthChanged(statsToAdd.maxHealth);
-                    tokeStats.addMovementSpeedScalarChanged(statsToAdd.movementSpeed);
-                    tokeStats.addLuckMultiplierChanged(statsToAdd.luckMultiplier);
-                    tokeStats.addFireRateScalarChanged(statsToAdd.fireRate);
-                    tokeStats.addOnDamageMultiplierChanged(statsToAdd.damageMultiplier);
+                    tokeStats.addMaxHealth(statsToAdd.maxHealth);
+                    tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
+                    tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
+                    tokeStats.addFireRateScalar(statsToAdd.fireRate);
+                    tokeStats.addDamageMultiplier(statsToAdd.damageMultiplier);
                     tokeStats.addProjectileLifeMultiplier(statsToAdd.projectileLifeMultiplier);
-                    tokeStats.addOnProjectilespeedMultiplierChanged(statsToAdd.projectileSpeedMultiplier);
+                    tokeStats.addProjectilespeedMultiplier(statsToAdd.projectileSpeedMultiplier);
                     Destroy(interactable.gameObject);
                 }
                 else if (DPC is not null)
                 {
+                    Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
             }

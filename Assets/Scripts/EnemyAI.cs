@@ -87,10 +87,7 @@ public class EnemyAI : MonoBehaviour
             }
         };
         
-        
         Assert.IsTrue(aggressionRadius > 1f);
-        
-        
         
         if (target == null)
         {
@@ -150,7 +147,6 @@ public class EnemyAI : MonoBehaviour
         _can_move = true;
         EnableAI();
     }
-    
     
     // Update is called once per frame
     void Update()

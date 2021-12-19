@@ -12,6 +12,7 @@ TagManager:
   - OnHitFlashLight
   - FirePoint
   - Door
+  - Lighting Camera
   layers:
   - Default
   - TransparentFX
@@ -30,11 +31,9 @@ TagManager:
   - Enemy
   - Projectile Collider
   - Enemy Attack Area
-  - 
+  - Lighting
   - Collectable Area
   - Interactable
-  - 
-  - 
   - 
   - 
   - 
