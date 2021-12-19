@@ -440,7 +440,7 @@ MonoBehaviour:
   maxHealth: 0
   movementSpeed: 0
   luckMultiplier: 0
-  fireRateMultiplier: 2
+  fireRateMultiplier: 0.5
   damageMultiplier: 0
   projectileLifeMultiplier: 0
   projectileSpeedMultiplier: 0
