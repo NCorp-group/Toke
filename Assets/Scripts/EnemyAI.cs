@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Linq;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Pathfinding;
 using Quaternion = UnityEngine.Quaternion;
 
 
@@ -21,6 +23,10 @@ public class EnemyAI : MonoBehaviour
 
     private AIPath _ai_path;
     private AIDestinationSetter _aiDestinationSetter;
+
+    [Header("If != 0, then part of the a* graph will be recalculated\nusing the bounds of the enemy's collider, to avoid collision between enemies")]
+    [Range(0.0f, 5.0f)]
+    public float recalculateAStarGridUsingBoundsOfEnemyDelay = 0f;
     
     public enum EnemyType
     {
@@ -64,10 +70,12 @@ public class EnemyAI : MonoBehaviour
 
     private Animator _animator;
     private Rigidbody2D _rb2d;
+    private Collider2D _collider2d;
     private Action _inform_animator_about_speed;
     private static readonly int Speed = Animator.StringToHash("speed");
 
     private Rigidbody2D _target_rb2d;
+    
     
     void Start()
     {
@@ -75,6 +83,7 @@ public class EnemyAI : MonoBehaviour
 
         _animator = GetComponent<Animator>();
         _rb2d = GetComponentInChildren<Rigidbody2D>();
+        _collider2d = GetComponentInChildren<Collider2D>();
         
         _inform_animator_about_speed = _rb2d switch
         {
@@ -123,7 +132,31 @@ public class EnemyAI : MonoBehaviour
         _ai_path = GetComponent<AIPath>();
         Assert.IsNotNull(_ai_path, "_ai_path != null");
         // from = from ?? transform;
+
+        if (recalculateAStarGridUsingBoundsOfEnemyDelay != 0f)
+        {
+            StartCoroutine(UpdateAstarGraph(recalculateAStarGridUsingBoundsOfEnemyDelay));
+        }
     }
+
+    private IEnumerator UpdateAstarGraph(float updateFrequency)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(updateFrequency);
+            // As an example, use the bounding box from the attached collider
+            var bounds = _collider2d.bounds;
+            var guo = new GraphUpdateObject(bounds)
+            {
+                // Set some settings
+                updatePhysics = true
+            };
+
+            AstarPath.active.UpdateGraphs(guo);
+        }
+    }
+    
+    
 
     private void SetAiState(bool state) => _ai_path.canMove = state;
 

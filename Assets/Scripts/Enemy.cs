@@ -57,12 +57,13 @@ public class Enemy : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
-            if (!dead)
+            dead = true;
+            if (dead)
             {
                 OnEnemyDie?.Invoke(type);
                 _collider.gameObject.SetActive(false);
+                Debug.Log("setting trigger DEATH");
                 trigger = Death;
-                dead = true;
             }
         }
         anim.SetTrigger(trigger);
