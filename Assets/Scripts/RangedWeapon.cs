@@ -61,10 +61,8 @@ public class RangedWeapon : MonoBehaviour
 
     void Start()
     {
-#if UNITY_EDITOR
-#else
-        projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
-#endif
+        projectile = Resources.Load<Projectile>($"projectiles/wind arc");
+
         // Same as fixedUpdate
         old_fireRate = fireRate;
         old_fireRateMultiplier = fireRateMultiplier;
