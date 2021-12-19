@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 1
-  damage: 50
+  damage: 12.5
   speed: 25
   lifetime: 1
   color: {r: 0.34509805, g: 0.8039216, b: 0.99607843, a: 1}

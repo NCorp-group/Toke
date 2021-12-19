@@ -104,7 +104,7 @@ MonoBehaviour:
   acceleration: 1
   damage: 7.5
   speed: 30
-  lifetime: 5
+  lifetime: 1
   color: {r: 0.34509805, g: 0.8039216, b: 0.99607843, a: 1}
   animatorProvidesOnHitEffect: 1
   spawnObjectOnCollision: {fileID: 0}
