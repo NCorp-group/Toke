@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
 
 // This AudioManager is partly inspired by this youtube video
@@ -43,13 +44,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //Start subscribes to all events
+
     void Start()
     {
-        //Should be removed when subscribing to something that triggers GoToMainMenu
-        GoToMainMenu();
-
-
 
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
@@ -64,26 +61,32 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomComplete += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
 
-        InteractableArea.OnDoorInteraction += ChangeMusic;
+        //Music
+        RoomManager.OnRoomEnter += StartMusic;
+        RoomManager.OnRoomExit += FadeMusic;
+        //InteractableArea.OnDoorInteraction += FadeMusic;
 
-        //TODO FOR MUSIC TO WORK
-        //Going to main menu triggers GoToMainMenu
-        //Starting game plays default music (maybe just ChangeMusic with room type)
+        //MainMenu.OnMainMenu += GoToMainMenu;
+        //MainMenu.OnStartGame += StartGame;
 
         //TODO: Killing boss stops music and plays some other music indicating game is over
-        //TODO: Music pauses when esc is pressed
         //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
     }
 
-    private void OnEnable()
+
+    void OnEnable()
     {
-        
+        MainMenu.OnMainMenu += GoToMainMenu;
+        MainMenu.OnStartGame += StartGame;
     }
 
-    private void OnDisable()
+
+    void OnDisable()
     {
-        
+        MainMenu.OnMainMenu -= GoToMainMenu;
+        MainMenu.OnStartGame -= StartGame;
     }
+
 
     public void PlaySFX(string name)
     {
@@ -129,6 +132,10 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume * music * master;
             s.source.Play();
         }
+        else
+        {
+            Debug.Log("Song already playing");
+        }
     }
 
     public void StopAll()
@@ -155,44 +162,74 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     //FadeOut is inspired by https://forum.unity.com/threads/fade-out-audio-source.335031/
-    public void FadeOut(string name)
+    private IEnumerator _FadeOut(string name, float fadeTime)
     {
-        Debug.Log($"FadeOut called with: {currentMusic}");
         Sound s = Array.Find(sounds, sound => sound.name == name);
         float startVolume = s.source.volume;
 
-        float fadeTime = 0.50f;
-        
-        while (s.source.volume > 0)
+        while (s.source.volume > .1f)
         {
             s.source.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
         }
 
         s.source.Stop();
         s.source.volume = startVolume;
     }
-
+    
+    public void FadeOut(string name, float fadeTime)
+    {
+        StartCoroutine(_FadeOut(name, fadeTime));
+    }
 
 
     public void GoToMainMenu()
     {
         StopAll();
+        //StopAll();
         PlayMusic("menu-music");
         currentMusic = "menu-music";
     }
 
-    public void ChangeMusic(DoorPreviewController.RoomType roomType)
+    public void StartGame()
     {
+        FadeOut("menu-music", 1f);
+    }
+
+    public void FadeMusic(DoorPreviewController.RoomType roomType)
+    {
+        Debug.Log("FadeMusic");
+        float fadeTime = 5f;
+
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
-            FadeOut(currentMusic);
+            FadeOut(currentMusic, fadeTime);
+        }
+        else if (roomType == DoorPreviewController.RoomType.SHOP && currentMusic != "menu-music")
+        {
+            FadeOut(currentMusic, fadeTime);
+        }
+        else
+        {
+            if (currentMusic != "default-music")
+            {
+                FadeOut(currentMusic, fadeTime);
+            }
+        }
+    }
+
+    public void StartMusic(DoorPreviewController.RoomType roomType)
+    {
+        Debug.Log("StartMusic");
+        if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
+        {
             PlayMusic("boss-music");
             currentMusic = "boss-music";
         }
         else if (roomType == DoorPreviewController.RoomType.SHOP && currentMusic != "menu-music")
         {
-            FadeOut(currentMusic);
             PlayMusic("menu-music");
             currentMusic = "menu-music";
         }
@@ -200,7 +237,6 @@ public class AudioManager : MonoBehaviour
         {
             if (currentMusic != "default-music")
             {
-                FadeOut(currentMusic);
                 PlayMusic("default-music");
                 currentMusic = "default-music";
             }

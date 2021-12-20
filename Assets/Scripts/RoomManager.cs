@@ -16,8 +16,8 @@ public class RoomManager : MonoBehaviour
     public static event Action<RoomType, RoomType> OnRoomComplete;
     public static event Action<RoomType> DropReward; 
     public static event Action OnWaveComplete;
-    public static event Action OnRoomExit;
-    public static event Action OnRoomEnter;
+    public static event Action<RoomType> OnRoomExit;
+    public static event Action<RoomType> OnRoomEnter;
 
     private int _n_waves;
     private bool _room_completed;
@@ -74,10 +74,13 @@ public class RoomManager : MonoBehaviour
         
         dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
         //Debug.Log("This room's reward is: " + dropType);
+
+        OnRoomEnter?.Invoke(dropType);
     }
 
     private void ChangeRoom(RoomType nextRoomType)
     {
+        OnRoomExit?.Invoke(nextRoomType);
         StartCoroutine(_ChangeRoom(nextRoomType));
     }
 

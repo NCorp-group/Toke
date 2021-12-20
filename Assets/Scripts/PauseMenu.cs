@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     public void ToMainMenu()
     {
         // TODO: Save run progress here.
+        Resume();
         SceneManager.LoadScene(0);
     }
 
