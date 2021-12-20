@@ -267,24 +267,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: default-music
-    clip: {fileID: 8300000, guid: 1a3acbb29f0f9e440be2ebc2bd759b6b, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: boss-music
-    clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: menu-music
-    clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: blueslime-attack1
     clip: {fileID: 8300000, guid: 87ef4a78f3799fb4fb671a93d04d6e48, type: 3}
     volume: 1
@@ -410,4 +392,23 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  music:
+  - name: boss-music
+    clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: default-music
+    clip: {fileID: 8300000, guid: 1a3acbb29f0f9e440be2ebc2bd759b6b, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: menu-music
+    clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

@@ -8,11 +8,10 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
+    public Music[] music;
+
     public static AudioManager instance;
 
-    private float sfx = 1;
-    private float music = 1;
-    private float master = 1;
     private int playerFireCounter = 0;
     private int enemyFireCounter = 0;
     private int enemyAttackCounter = 0;
@@ -42,6 +41,16 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        foreach (Music m in music)
+        {
+            m.source = gameObject.AddComponent<AudioSource>();
+            m.source.clip = m.clip;
+
+            m.source.volume = m.volume;
+            m.source.pitch = m.pitch;
+            m.source.loop = m.loop;
+        }
     }
 
 
@@ -69,12 +78,12 @@ public class AudioManager : MonoBehaviour
         RoomManager.OnRoomExit += FadeMusic;
         //InteractableArea.OnDoorInteraction += FadeMusic;
 
-        //MainMenu.OnMainMenu += GoToMainMenu;
-        //MainMenu.OnStartGame += StartGame;
+        //Volume
+        OptionsMenu.OnVolumeChanged += ChangeVolume;
 
-        //TODO: Killing boss stops music and plays some other music indicating game is over
-        //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
-    }
+    //TODO: Killing boss stops music and plays some other music indicating game is over
+    //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
+}
 
 
     void OnEnable()
@@ -90,6 +99,37 @@ public class AudioManager : MonoBehaviour
         MainMenu.OnStartGame -= StartGame;
     }
 
+ 
+    public void ChangeVolume(float _master, float _music, float _sfx)
+    {
+        Debug.Log($"Master value (Audio): {_master}");
+        Debug.Log($"Music value (Audio): {_music}");
+        Debug.Log($"SFX value (Audio): {_sfx}");
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.volume * _master * _sfx;
+        }
+        foreach (Music m in music)
+        {
+            m.source.volume = m.volume * _master * _music;
+        }
+    }
+
+    public void PlayMusic(string name)
+    {
+        Music m = Array.Find(music, music => music.name == name);
+        if (m == null)
+        {
+            Debug.LogWarning("Music: " + name + "not found!");
+            return;
+        }
+        if (!m.source.isPlaying)
+        {
+            // Changing the volume of the sound depending on user settings
+            m.source.volume = m.volume;
+            m.source.Play();
+        }
+    }
 
     public void PlaySFX(string name)
     {
@@ -102,10 +142,9 @@ public class AudioManager : MonoBehaviour
         if (!s.source.isPlaying)
         {
             // Changing the volume of the sound depending on user settings
-            s.source.volume = s.volume * sfx * master;
+            s.source.volume = s.volume;
             s.source.Play();
-        }
-            
+        }     
     }
 
     public void PlaySFXWithOverlap(string name)
@@ -117,28 +156,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
         // Changing the volume of the sound depending on user settings
-        s.source.volume = s.volume * sfx * master;
+        s.source.volume = s.volume;
         s.source.Play();
-    }
-
-    public void PlayMusic(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + "not found!");
-            return;
-        }
-        if (!s.source.isPlaying)
-        {
-            // Changing the volume of the sound depending on user settings
-            s.source.volume = s.volume * music * master;
-            s.source.Play();
-        }
-        else
-        {
-            Debug.Log("Song already playing");
-        }
     }
 
     public void StopAll()
@@ -167,25 +186,26 @@ public class AudioManager : MonoBehaviour
 
 
     //FadeOut is inspired by https://forum.unity.com/threads/fade-out-audio-source.335031/
-    private IEnumerator _FadeOut(string name, float fadeTime)
+    private IEnumerator _FadeOutMusic(string name, float fadeTime)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        float startVolume = s.source.volume;
+        Music m = Array.Find(music, music => music.name == name);
+        float startVolume = m.source.volume;
 
-        while (s.source.volume > .1f)
+        while (m.source.volume > .1f)
         {
-            s.source.volume -= startVolume * Time.deltaTime / fadeTime;
+            m.source.volume -= startVolume * Time.deltaTime / fadeTime;
             yield return null;
         }
 
-        s.source.Stop();
-        s.source.volume = startVolume;
+        m.source.Stop();
+        m.source.volume = startVolume;
     }
     
-    public void FadeOut(string name, float fadeTime)
+    public void FadeOutMusic(string name, float fadeTime)
     {
-        StartCoroutine(_FadeOut(name, fadeTime));
+        StartCoroutine(_FadeOutMusic(name, fadeTime));
     }
+
 
 
     public void GoToMainMenu()
@@ -198,7 +218,7 @@ public class AudioManager : MonoBehaviour
 
     public void StartGame()
     {
-        FadeOut("menu-music", 1f);
+        FadeOutMusic("menu-music", 1f);
     }
 
     public void FadeMusic(DoorPreviewController.RoomType roomType)
@@ -208,17 +228,17 @@ public class AudioManager : MonoBehaviour
 
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
-            FadeOut(currentMusic, fadeTime);
+            FadeOutMusic(currentMusic, fadeTime);
         }
         else if (roomType == DoorPreviewController.RoomType.SHOP && currentMusic != "menu-music")
         {
-            FadeOut(currentMusic, fadeTime);
+            FadeOutMusic(currentMusic, fadeTime);
         }
         else
         {
             if (currentMusic != "default-music")
             {
-                FadeOut(currentMusic, fadeTime);
+                FadeOutMusic(currentMusic, fadeTime);
             }
         }
     }
@@ -318,7 +338,7 @@ public class AudioManager : MonoBehaviour
         //Adding variance to the step sound of the player
         //by randomizing volume and pitch for every step
         Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
-        s.source.volume = s.volume * UnityEngine.Random.Range(0.8f, 1) * sfx * master;
+        s.source.volume = s.volume * UnityEngine.Random.Range(0.8f, 1);
         s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
         if (!s.source.isPlaying)
             s.source.Play();
