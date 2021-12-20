@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         SLIME, 
         WORM,
         BLUESLIME,
-        DARKBORNIMP,
+        NIGHTBORNIMP,
         ARCANEARCHER,
         EVILWIZARD
     }
