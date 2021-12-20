@@ -1,3 +1,4 @@
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering.Universal;
@@ -55,7 +56,12 @@ public class Projectile : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        rb.velocity += (rb.velocity * acceleration * Time.deltaTime);
+        var velocity = rb.velocity;
+        velocity += (velocity * acceleration * Time.deltaTime);
+        rb.velocity = velocity;
+
+
+        transform.rotation = Quaternion.Euler(0f, 0f, Util.GetAngleFromVectorFloat(new Vector3(velocity.x, velocity.y, 0f)));
     }
 
     /// <summary>

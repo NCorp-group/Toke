@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class GravitySink : MonoBehaviour
@@ -9,7 +11,7 @@ public class GravitySink : MonoBehaviour
     [SerializeField] private float radius;
       
     private readonly float G = (float) 6.674e-11;
-    
+
     void Start()
     {
         GetComponent<CircleCollider2D>().radius = radius;
@@ -29,6 +31,23 @@ public class GravitySink : MonoBehaviour
         
         other.attachedRigidbody.AddForce((position - other_pos).normalized * magnitude ,ForceMode2D.Impulse);
     }
+
+    private int n_objects_in_range;
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        n_objects_in_range++;
+        Debug.Log($"in range = {n_objects_in_range}");
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        n_objects_in_range--;
+        Debug.Log($"in range = {n_objects_in_range}");
+    }
+
+    public int GetNumberOfBodiesAffected() => n_objects_in_range;
 
     private void OnDrawGizmosSelected()
     {
