@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -10,10 +13,15 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float value = 1f;
     [SerializeField] private Sprite[] sprites;
 
+    private TextMeshProUGUI currentHealth;
+    private TextMeshProUGUI maxHealth;
+        
     public int index;
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "CurrentHealthText");
+        maxHealth = GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "MaxHealthText");
         UpdateSprite();
     }
 
@@ -25,18 +33,26 @@ public class HealthBar : MonoBehaviour
     void OnEnable()
     {
         PlayerHealthController.OnPlayerHealthChange += UpdateValue;
+        PlayerHealthController.OnPlayerHealthChange += UpdateText;
     }
 
     void OnDisable()
     {
         PlayerHealthController.OnPlayerHealthChange -= UpdateValue;
+        PlayerHealthController.OnPlayerHealthChange += UpdateText;
+    }
+
+    private void UpdateText(float currentHealth, int maxHealth)
+    {
+        if (this.currentHealth is not null) this.currentHealth.text = $"{(int) currentHealth}";
+        if (this.maxHealth is not null) this.maxHealth.text = $"{maxHealth}";
     }
 
     private void UpdateValue(float currentHealth, int maxHealth)
     {
         //Debug.Log(currentHealth);
         //Debug.Log(maxHealth);
-        value = currentHealth / (float) maxHealth;
+        value = currentHealth / maxHealth;
         //Debug.Log(value);
         UpdateSprite();
     }

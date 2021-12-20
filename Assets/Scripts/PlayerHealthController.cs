@@ -19,14 +19,15 @@ public class PlayerHealthController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
+        Stats.OnMaxHealthChanged += HealthPickup;
     }
 
-    public void HealthPickup(int pickupAmount)
+    public void HealthPickup(int newMaxHealth)
     {
-        maxHealth += pickupAmount;
-        OnPlayerHealthChange?.Invoke(currentHealth, maxHealth);
+        maxHealth = newMaxHealth;
+        OnPlayerHealthChange?.Invoke(currentHealth, newMaxHealth);
     }
 
     public void TakeDamage(float damage)
@@ -45,13 +46,19 @@ public class PlayerHealthController : MonoBehaviour
 
         OnPlayerHealthChange?.Invoke(currentHealth, maxHealth);
 
-        if (currentHealth > 0)
-        {
-            OnPlayerTakeDamage?.Invoke();
+        if (currentHealth > 0)
+
+        {
+
+            OnPlayerTakeDamage?.Invoke();
+
         }
-        else
-        {
-            OnPlayerDie?.Invoke();
+        else
+
+        {
+
+            OnPlayerDie?.Invoke();
+
         }
 
        

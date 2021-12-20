@@ -23,7 +23,7 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnDamageMultiplierChanged;
     public static event Action<float> OnLuckMultiplierChanged;
     public static event Action<float> OnProjectileSpeedMultiplierChanged;
-    public static event Action<float> OnMaxHealthChanged;               // TODO: Needs a listener on the other end. Then check if it works when Jens' UI is ready and can show the max HP
+    public static event Action<int> OnMaxHealthChanged;               // TODO: Needs a listener on the other end. Then check if it works when Jens' UI is ready and can show the max HP
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
