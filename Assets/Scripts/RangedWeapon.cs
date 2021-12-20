@@ -23,6 +23,7 @@ public class RangedWeapon : MonoBehaviour
     private float projectileSpeedMultiplier = 1;
     private float damageMultiplier = 1;
     private float fireRateMultiplier = 1;
+    private int tickRate;
 
     private string projectileTypeString = "wind arc";
 
@@ -64,11 +65,14 @@ public class RangedWeapon : MonoBehaviour
     {
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
 
+
+        tickRate = (int)(1 / Time.fixedDeltaTime);
+
         // Same as fixedUpdate
         old_fireRate = fireRate;
         old_fireRateMultiplier = fireRateMultiplier;
         effectiveFireRate = fireRate * fireRateMultiplier;
-        shotDelay = 50 / effectiveFireRate;
+        shotDelay = tickRate / effectiveFireRate;
         counter = shotDelay;
         //Debug.Log(counter);
 
@@ -134,7 +138,7 @@ public class RangedWeapon : MonoBehaviour
             old_fireRate = fireRate;
             old_fireRateMultiplier = fireRateMultiplier;
             effectiveFireRate = fireRate * fireRateMultiplier;
-            shotDelay = 50 / effectiveFireRate;
+            shotDelay = tickRate / effectiveFireRate;
             counter = shotDelay;
             //Debug.Log(counter);
         }
@@ -152,6 +156,8 @@ public class RangedWeapon : MonoBehaviour
         {
             counter += 1;
         }
+
+        //Debug.Log($"Time.fixedDeltaTime: {Time.fixedDeltaTime}, 1/Time.fixedDeltaTime {1 / Time.fixedDeltaTime}");
     }
 
     void Shoot()
