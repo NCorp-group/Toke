@@ -19,20 +19,6 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
          //_interactableDelay = _btn.interactable;
      }
 
-     public void Update ()
-     {
-         /*
-         if (_btn.interactable != _interactableDelay) {
-             if (_btn.interactable) {
-                 _txt.color = _baseColor * _btn.colors.normalColor * _btn.colors.colorMultiplier;
-             } else {
-                 _txt.color = _baseColor * _btn.colors.disabledColor * _btn.colors.colorMultiplier;
-             }
-         }
-         _interactableDelay = _btn.interactable;
-         */
-     }
- 
      public void OnPointerEnter (PointerEventData eventData)
      {
          //_txt.color = Color.magenta;

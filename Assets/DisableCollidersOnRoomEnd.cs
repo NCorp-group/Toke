@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +8,15 @@ public class DisableCollidersOnRoomEnd : MonoBehaviour
 
     private void OnEnable()
     {
-        RoomManager.OnRoomComplete += (type, roomType) =>
+        RoomManager.OnRoomComplete += (_, _) =>
         {
             Debug.Log($"in callback colliders = {colliders.Count}");
-            
-            foreach (var collider in colliders)
+            if (colliders is not null)
             {
-                collider.enabled = false;
+                foreach (var collider in colliders)
+                {
+                    collider.enabled = false;
+                }
             }
         };
     }

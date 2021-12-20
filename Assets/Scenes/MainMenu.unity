@@ -707,6 +707,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71e6d9df77c69e48a4a03ba7efe58ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1567271674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5588143897553724826, guid: 655fe8b63929b64438fd97deb3f0cdd6, type: 3}
+  m_PrefabInstance: {fileID: 1628163902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1567271675
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567271674}
+  m_Enabled: 1
+--- !u!20 &1567271678 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5588143897553724829, guid: 655fe8b63929b64438fd97deb3f0cdd6, type: 3}
+  m_PrefabInstance: {fileID: 1628163902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1586264972
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1017,10 @@ PrefabInstance:
     - target: {fileID: 5588143897553724826, guid: 655fe8b63929b64438fd97deb3f0cdd6, type: 3}
       propertyPath: m_Name
       value: UICamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588143897553724827, guid: 655fe8b63929b64438fd97deb3f0cdd6, type: 3}
+      propertyPath: m_CameraType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5588143897553724830, guid: 655fe8b63929b64438fd97deb3f0cdd6, type: 3}
       propertyPath: m_RootOrder
@@ -1306,8 +1328,8 @@ Canvas:
   m_GameObject: {fileID: 1755724735}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1567271678}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

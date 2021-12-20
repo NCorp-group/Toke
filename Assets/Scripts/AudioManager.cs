@@ -44,10 +44,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [RuntimeInitializeOnLoadMethod]
+    static void OnRuntimeLoad()
+    {
+        Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
+        PlayerPrefs.DeleteKey(DoorPreviewController.ROOM_TYPE);
+        Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
+    }
 
     void Start()
     {
-
         Movement.OnPlayerMovement += PlayerMovementSound;
         RangedWeapon.OnFire += PlayerFireSound;
         Enemy.OnEnemyDie += EnemyDeathSound;
