@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
     public GameObject hitEffect = null;
     private Rigidbody2D rb;
     private Animator animator;
+    private static readonly int Collision1 = Animator.StringToHash("collision");
 
     private void Start()
     {
@@ -156,7 +157,7 @@ public class Projectile : MonoBehaviour
         else if (collision.collider.gameObject.CompareTag("Player"))
         {
             //Debug.Log("DO WE GET HERE??");
-            animator.SetTrigger("collision");
+            // animator.SetTrigger("collision");
             //Debug.Log("Hit Player with projectile");
             var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
             if (playerHealth != null)
@@ -168,7 +169,31 @@ public class Projectile : MonoBehaviour
                     if (animator is Animator a)
                     {
                         //Debug.Log("ANIMATOR IS HERE");
-                        a.SetTrigger("collision");
+                        a.SetTrigger(Collision1);
+                    }
+                    //animator?.SetTrigger("collision");
+                }
+                else
+                {
+                    DestroyProjectile();
+                }
+            }
+        }
+        else if (collision.collider.gameObject.CompareTag("Boss"))
+        {
+            
+            var bhc = collision.collider.gameObject.GetComponent<BossHealthController>();
+            if (bhc is not null)
+            {
+                Debug.Log("Hit a boss");
+                bhc.TakeDamage(damage);
+                if (animatorProvidesOnHitEffect)
+                {
+                    //Debug.Log("animate: COLLISION");
+                    if (animator is Animator a)
+                    {
+                        //Debug.Log("ANIMATOR IS HERE");
+                        a.SetTrigger(Collision1);
                     }
                     //animator?.SetTrigger("collision");
                 }

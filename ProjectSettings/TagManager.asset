@@ -13,6 +13,7 @@ TagManager:
   - FirePoint
   - Door
   - Lighting Camera
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Collectable Area
   - Interactable
   - Gravity Sink
-  - 
+  - Boss
   - 
   - 
   - 
@@ -65,6 +66,9 @@ TagManager:
   - name: SceptreCrystal
     uniqueID: 2983911483
     locked: 0
+  - name: Boss
+    uniqueID: 988020291
+    locked: 0
   - name: ElementalProjectile
     uniqueID: 2074284173
     locked: 0
@@ -77,9 +81,9 @@ TagManager:
   - name: Enemy
     uniqueID: 3756020129
     locked: 0
-  - name: Overlay
-    uniqueID: 753051699
-    locked: 0
   - name: Pillar
     uniqueID: 3472920041
+    locked: 0
+  - name: Overlay
+    uniqueID: 753051699
     locked: 0

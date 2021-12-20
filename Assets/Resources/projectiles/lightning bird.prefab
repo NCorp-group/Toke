@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 1.02
   m_LightVolumeIntensity: 0.2
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 69caf4df
+  m_ApplyToSortingLayers: 43fee33aa151e0df7f9064ca
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Intensity: 1.5
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 7b1832e87f9064caa151e0df
+  m_ApplyToSortingLayers: 7b1832e87f9064caa151e0df43fee33a
   m_LightCookieSprite: {fileID: 5589968266077528540, guid: 53b2d2daf10f71694be61af2323aff02, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -932,6 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   damage: 10
+  speed: 1
   lifetime: 10
   color: {r: 0.990566, g: 0.7306054, b: 0.07008721, a: 1}
   animatorProvidesOnHitEffect: 0
