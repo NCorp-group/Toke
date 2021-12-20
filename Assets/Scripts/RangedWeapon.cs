@@ -100,16 +100,6 @@ public class RangedWeapon : MonoBehaviour
         Stats.OnFireRateMultiplierChanged += OnFireRateMultiplierChangedCB;
         ProjectileItem.OnProjectileCollected += OnProjectileCollectedCB;
         ProjectileItem.OnFireRateChanged += OnFireRateChangedCB;
-
-        GlobalState.OnSceneStart += () =>
-        {
-            if (GlobalState.projectile != null) projectile = GlobalState.projectile;
-        };
-
-        GlobalState.OnSceneEnd += () =>
-        {
-            GlobalState.projectile = projectile;
-        };
     }
 
     private const string PROJECTILE_TYPE = "projectile_type";
