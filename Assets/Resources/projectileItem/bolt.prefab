@@ -258,6 +258,7 @@ MonoBehaviour:
   projectileType: bolt
   price: 0
   fireRate: 2
+  color: {r: 0.34901962, g: 0.90196085, b: 1, a: 1}
 --- !u!1 &8954596566619079217
 GameObject:
   m_ObjectHideFlags: 0

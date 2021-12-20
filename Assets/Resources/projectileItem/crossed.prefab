@@ -179,6 +179,7 @@ MonoBehaviour:
   projectileType: crossed
   price: 0
   fireRate: 6
+  color: {r: 0.13333334, g: 0.5882353, b: 0.14509805, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

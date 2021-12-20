@@ -272,3 +272,4 @@ MonoBehaviour:
   projectileType: wind arc
   price: 0
   fireRate: 8
+  color: {r: 0.5411765, g: 0.6117647, b: 0.43529415, a: 1}
