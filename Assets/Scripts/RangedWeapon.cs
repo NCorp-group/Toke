@@ -72,7 +72,6 @@ public class RangedWeapon : MonoBehaviour
         counter = shotDelay;
         //Debug.Log(counter);
 
-
         OnProjectileSetColor?.Invoke(projectile.color);
 
         CollectItem.OnItemCollected += collectable =>
