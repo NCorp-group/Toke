@@ -256,3 +256,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: fire ball
   price: 0
+  fireRate: 1
+  color: {r: 0.7803922, g: 0.16862746, b: 0.023529414, a: 1}

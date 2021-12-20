@@ -950,3 +950,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: lightning bird
   price: 0
+  fireRate: 1
+  color: {r: 0.83921576, g: 0.7960785, b: 0.38431376, a: 1}
