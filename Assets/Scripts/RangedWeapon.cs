@@ -54,6 +54,7 @@ public class RangedWeapon : MonoBehaviour
 
     private void OnProjectileCollectedCB(string newProjectileName)
     {
+        PlayerPrefs.SetString(PROJECTILE_TYPE, newProjectileName);
         //Debug.Log($"Received {newProjectileName}");
         projectileTypeString = newProjectileName;
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
@@ -61,7 +62,7 @@ public class RangedWeapon : MonoBehaviour
 
     void Start()
     {
-        projectile = Resources.Load<Projectile>($"projectiles/wind arc");
+        projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
 
         // Same as fixedUpdate
         old_fireRate = fireRate;
@@ -86,6 +87,8 @@ public class RangedWeapon : MonoBehaviour
 
     private void OnEnable()
     {
+        projectileTypeString = PlayerPrefs.GetString(PROJECTILE_TYPE, projectileTypeString);
+        
         Stats.OnDamageMultiplierChanged += OnDamageMultiplierChangedCB;
         Stats.OnProjectileLifeMultiplierModifierChanged += OnProjectileLifeMultiplierChangedCB;
         Stats.OnProjectileSpeedMultiplierChanged += OnProjectileSpeedMultiplierChangedCB;
@@ -103,6 +106,10 @@ public class RangedWeapon : MonoBehaviour
             GlobalState.projectile = projectile;
         };
     }
+
+    private const string PROJECTILE_TYPE = "projectile_type";
+    
+    
 
     private void OnDisable()
     {

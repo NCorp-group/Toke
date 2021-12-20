@@ -171,7 +171,7 @@ public class Stats : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         StatsFromPlayerPrefs();
     }
 
