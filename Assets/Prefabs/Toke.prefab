@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3856093045559725379}
   - component: {fileID: 3856093045559725437}
   - component: {fileID: 888072898}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: InteractionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
