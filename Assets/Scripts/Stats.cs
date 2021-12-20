@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
@@ -171,7 +172,10 @@ public class Stats : MonoBehaviour
 
     private void OnEnable()
     {
-        //PlayerPrefs.DeleteAll();
+        if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
+        {
+            PlayerPrefs.DeleteAll();
+        }
         StatsFromPlayerPrefs();
     }
 
