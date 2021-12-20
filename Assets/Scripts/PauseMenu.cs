@@ -8,10 +8,20 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     private GameObject optionsMenu;
+
+    private GameObject menuItems;
     // Start is called before the first frame update
     void Start()
     {
         optionsMenu = GetComponentsInChildren<OptionsMenu>(true).First().gameObject;
+        Debug.Log($"HELLO");
+        menuItems = GetComponentsInChildren<Transform>(true).First(o => o.name == "MenuItems").gameObject;
+        var allChildren = GetComponentsInChildren<GameObject>(true);
+        Debug.Log($"Amount of children {allChildren.Length}");
+        foreach (var child in allChildren.Select((value, i) => (i, value)))
+        {
+            Debug.Log($"Child {child.i} with name: {child.value.name}");
+        }
         Resume();
     }
 
@@ -51,9 +61,9 @@ public class PauseMenu : MonoBehaviour
 
     public void ToggleOptions()
     {
-        Debug.Log($"Toggling: {optionsMenu.activeSelf}");
+        //Debug.Log($"Toggling: {optionsMenu.activeSelf}");
         optionsMenu.SetActive(!optionsMenu.activeSelf);
-        
+        menuItems.SetActive(!menuItems.activeSelf);
     }
 
     public void ToMainMenu()
