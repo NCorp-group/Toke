@@ -11,6 +11,9 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(Animator))]
 public class MeleeAttack : MonoBehaviour
 {
+    public static event Action<Enemy.EnemyType> OnEnemyMeleeAttack;
+    private Enemy.EnemyType _enemyType;
+
     public int damage = 10;
     
     [Header("If true, then a child object with a Collider2D will be used.\nThe name MUST be \"Melee Attack Area\".\nOtherwise use the transform of this object")]
@@ -55,6 +58,8 @@ public class MeleeAttack : MonoBehaviour
     
     void Start()
     {
+        _enemyType = GetComponent<Enemy>().type;
+
         Assert.IsTrue(damage >= 0, "damage >= 0");
         Assert.IsTrue(attackRadius >= 0, "attackRadius >= 0");
 
@@ -114,6 +119,7 @@ public class MeleeAttack : MonoBehaviour
     {
         _apply_delay.Invoke();
         var hit_player =_get_attack_colliders.Invoke();
+        OnEnemyMeleeAttack?.Invoke(_enemyType);
         if (!hit_player)
         {
             Debug.Log("No colliders hit in melee attack");
@@ -121,7 +127,6 @@ public class MeleeAttack : MonoBehaviour
         }
         
         _phc.TakeDamage(damage);
-        
     }
 
     private void OnDrawGizmosSelected()
