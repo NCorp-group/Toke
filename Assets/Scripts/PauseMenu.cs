@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,9 +7,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
 
     public static bool isPaused = false;
+    private GameObject optionsMenu;
     // Start is called before the first frame update
     void Start()
     {
+        optionsMenu = GetComponentsInChildren<OptionsMenu>(true).First().gameObject;
         Resume();
     }
 
@@ -44,6 +47,13 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = true;
 
         isPaused = true;
+    }
+
+    public void ToggleOptions()
+    {
+        Debug.Log($"Toggling: {optionsMenu.activeSelf}");
+        optionsMenu.SetActive(!optionsMenu.activeSelf);
+        
     }
 
     public void ToMainMenu()

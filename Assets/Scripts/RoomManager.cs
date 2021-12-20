@@ -154,7 +154,8 @@ public class RoomManager : MonoBehaviour
         return nextSceneIndex;
     }
 
-    private const string BEFORE_SHOP = "before-shop";
+    public const string BEFORE_SHOP = "before-shop";
+    public const string ROOM_ENTRY = "room-entry";
 
     // dummy stub
     private IEnumerator Wait(int seconds)
