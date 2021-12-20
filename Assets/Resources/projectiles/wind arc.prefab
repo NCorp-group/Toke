@@ -260,4 +260,4 @@ MonoBehaviour:
   animatorProvidesOnHitEffect: 0
   spawnObjectOnCollision: {fileID: 0}
   projectileType: 0
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 1833966720775032086, guid: fbcd2a0da229fa2468976a6b333b4a5c, type: 3}

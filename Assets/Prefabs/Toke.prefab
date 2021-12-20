@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2341a18e7696df2a572251c0abe8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleIntensity: 1
+  idleIntensity: 2
   lightUpIntensity: 30
   timeToLightUpCompletely: 0.2
   timeToReachIdle: 1
