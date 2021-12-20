@@ -179,6 +179,7 @@ MonoBehaviour:
   projectileType: charged
   price: 0
   fireRate: 0.75
+  color: {r: 0.20000002, g: 0.42352945, b: 0.9058824, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

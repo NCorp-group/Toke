@@ -57,13 +57,12 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         }
     }
     
-    
     private void OnEnable()
     {
         // subscribe
         RangedWeapon.OnFire += IncreaseLightIntensity;
         RangedWeapon.OnProjectileChanged += ChangeColorOfCrystal;
-        RangedWeapon.OnProjectileSetColor += ChangeColorOfCrystal;
+        ProjectileItem.OnProjectileSetColor += ChangeColorOfCrystal;
     }
 
     private void OnDisable()
@@ -71,12 +70,8 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         // unsubscribe
         RangedWeapon.OnFire -= IncreaseLightIntensity;
         RangedWeapon.OnProjectileChanged -= ChangeColorOfCrystal;
-        RangedWeapon.OnProjectileSetColor -= ChangeColorOfCrystal;
+        ProjectileItem.OnProjectileSetColor -= ChangeColorOfCrystal;
     }
-
-    
-    
-   
 
     private void IncreaseLightIntensity()
     {
@@ -130,9 +125,6 @@ public class ControlLightIntensityOfCrystal : MonoBehaviour
         {
             lightUp = false;
         }
-        
-        
-
     }
 
     private IEnumerator _IncreaseLightIntensity()
