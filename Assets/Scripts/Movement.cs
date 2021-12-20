@@ -13,7 +13,8 @@ public class Movement : MonoBehaviour
     [Range(0.0f, 5.0f)]
     public float dashDelay = 0f;
     public static event Action OnPlayerMovement;
-    
+    public static event Action OnPlayerDash;
+
     private Rigidbody2D _rb2d;
     private Animator _animator;
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
@@ -104,6 +105,7 @@ public class Movement : MonoBehaviour
                         _dash_speed = dashSpeed;
                         _state = State.Dashing;
                         _can_dash = false;
+                        OnPlayerDash?.Invoke();
                         _apply_delay.Invoke();
                     }
                 }

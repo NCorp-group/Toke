@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     private float master = 1;
     private int playerFireCounter = 0;
     private int enemyFireCounter = 0;
+    private int enemyAttackCounter = 0;
 
     private string currentMusic;
 
@@ -48,16 +49,19 @@ public class AudioManager : MonoBehaviour
     {
 
         Movement.OnPlayerMovement += PlayerMovementSound;
+        Movement.OnPlayerDash += PlayerDashSound;
         RangedWeapon.OnFire += PlayerFireSound;
         Enemy.OnEnemyDie += EnemyDeathSound;
         Enemy.OnEnemySpawn += EnemySpawnSound;
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
         RangedAttack.OnEnemyRangedAttack += EnemyFireSound;
+        MeleeAttack.OnEnemyMeleeAttack += EnemyAttackSound;
         PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
         PlayerHealthController.OnPlayerDie += PlayerDeathSound;
 
         //Rooms/Waves
-        RoomManager.OnRoomComplete += RoomCompleteSound;
+        //RoomManager.OnRoomComplete += RoomCompleteSound;
+        RoomManager.DropReward += RoomCompleteSound;
         RoomManager.OnWaveComplete += WaveCompleteSound;
 
         //Music
@@ -242,9 +246,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void RoomCompleteSound(DoorPreviewController.RoomType x, DoorPreviewController.RoomType y)
+    public void RoomCompleteSound(DoorPreviewController.RoomType roomType)
     {
-        PlaySFX("gong1");
+        if (roomType != DoorPreviewController.RoomType.SHOP && roomType != DoorPreviewController.RoomType.UNASSIGNED)
+        {
+            PlaySFX("gong1");
+        }
     }
 
     public void WaveCompleteSound()
@@ -262,10 +269,10 @@ public class AudioManager : MonoBehaviour
         //-fire
         return type switch
         {
-            Enemy.EnemyType.SLIME => "slime", //Done
+            Enemy.EnemyType.SLIME => "slime", 
             Enemy.EnemyType.WORM => "worm",
             Enemy.EnemyType.BLUESLIME => "blueslime",
-            Enemy.EnemyType.DARKBORNIMP => "darkbornimp",
+            Enemy.EnemyType.NIGHTBORNIMP => "nightbornimp",
             Enemy.EnemyType.ARCANEARCHER => "arcanearcher",
             Enemy.EnemyType.EVILWIZARD => "evilwizard",
         };
@@ -273,7 +280,8 @@ public class AudioManager : MonoBehaviour
 
     void EnemyTakeDamageSound(Enemy.EnemyType type)
     {
-        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-hit{UnityEngine.Random.Range(1, 2)}");
+        //Currently same hit-sound for all
+        PlaySFXWithOverlap($"worm-hit{UnityEngine.Random.Range(1, 2)}");
     }
 
     void EnemyDeathSound(Enemy.EnemyType type)
@@ -293,7 +301,16 @@ public class AudioManager : MonoBehaviour
         if (enemyFireCounter == 8)
             enemyFireCounter = 0;
     }
-        
+
+    void EnemyAttackSound(Enemy.EnemyType type)
+    {
+        Debug.Log("AttackSound");
+        enemyAttackCounter++;
+        PlaySFXWithOverlap($"{EnemyTypeToString(type)}-attack{enemyAttackCounter}");
+        if (enemyAttackCounter == 4)
+            enemyAttackCounter = 0;
+    }
+
 
 
     void PlayerMovementSound()
@@ -313,6 +330,11 @@ public class AudioManager : MonoBehaviour
         PlaySFXWithOverlap($"toke-fire{playerFireCounter}");    
         if (playerFireCounter == 10)
             playerFireCounter = 0;
+    }
+
+    void PlayerDashSound()
+    {
+        PlaySFXWithOverlap($"toke-dash");
     }
 
     void PlayerTakeDamageSound()
