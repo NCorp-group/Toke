@@ -15,7 +15,7 @@ public class MakeVisibleOnRoomEnd : MonoBehaviour
 
     private void OnDisable()
     {
-        throw new NotImplementedException();
+        RoomManager.OnRoomComplete -= EnableTileMapRenderer;
     }
 
     private void EnableTileMapRenderer(DoorPreviewController.RoomType room1, DoorPreviewController.RoomType room2)
