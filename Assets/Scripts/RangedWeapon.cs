@@ -12,7 +12,7 @@ public class RangedWeapon : MonoBehaviour
     // Start is called before the first frame update
 
     public static event Action<Color> OnProjectileChanged;
-    public static event Action<Color> OnProjectileSetColor;
+    //public static event Action<Color> OnProjectileSetColor;
     public Transform shootingPoint;
     public Projectile projectile;
 
@@ -72,7 +72,8 @@ public class RangedWeapon : MonoBehaviour
         counter = shotDelay;
         //Debug.Log(counter);
 
-        OnProjectileSetColor?.Invoke(projectile.color);
+
+       /* OnProjectileSetColor?.Invoke(projectile.color);
 
         CollectItem.OnItemCollected += collectable =>
         {
@@ -81,8 +82,13 @@ public class RangedWeapon : MonoBehaviour
                 projectile = collectable.item.GetComponent<Projectile>();
                 OnProjectileSetColor?.Invoke(projectile.color);
             }
-        };
+        };*/
     }
+
+    /*public void OnProjectileSetColorCB(Color newColor)
+    {
+        OnProjectileSetColor?.Invoke(newColor);
+    }*/
 
     private void OnEnable()
     {

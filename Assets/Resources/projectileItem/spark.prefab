@@ -179,6 +179,7 @@ MonoBehaviour:
   projectileType: spark
   price: 0
   fireRate: 4
+  color: {r: 0.3803922, g: 0.8431373, b: 1, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

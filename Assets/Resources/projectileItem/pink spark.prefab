@@ -178,6 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: pink spark
   price: 0
+  fireRate: 1
+  color: {r: 0.27450982, g: 0.2901961, b: 0.32156864, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0

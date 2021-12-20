@@ -179,6 +179,7 @@ MonoBehaviour:
   projectileType: pulse
   price: 0
   fireRate: 2
+  color: {r: 0.3254902, g: 0.7607844, b: 1, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:
   m_ObjectHideFlags: 0
