@@ -4,8 +4,6 @@ using System.Linq;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Pathfinding;
-using Quaternion = UnityEngine.Quaternion;
 
 
 [RequireComponent(typeof(Animator))]

@@ -34,7 +34,7 @@ TagManager:
   - Lighting
   - Collectable Area
   - Interactable
-  - 
+  - Gravity Sink
   - 
   - 
   - 
@@ -79,4 +79,7 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 753051699
+    locked: 0
+  - name: Pillar
+    uniqueID: 3472920041
     locked: 0
