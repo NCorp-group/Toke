@@ -205,9 +205,13 @@ public class RoomManager : MonoBehaviour
     }
 
 
+    private int _blocker = 0;
+    
     // Update is called once per frame
     void Update()
     {
+        //_blocker++;
+        
         //Debug.Log($"waves left = {_n_waves} enemies left = {_enemies_alive}");
         //Debug.Log($"_room_completed = {_room_completed}");
         if (_room_completed)

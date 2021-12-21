@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 3922947334420469022, guid: 0a75eaaac8e95863d85766019c60d34a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -255,7 +255,7 @@ MonoBehaviour:
   acceleration: 1
   damage: 2.5
   speed: 20
-  lifetime: 0.35
+  lifetime: 0.5
   color: {r: 0.4, g: 0.5921569, b: 0.27058825, a: 1}
   animatorProvidesOnHitEffect: 0
   spawnObjectOnCollision: {fileID: 0}

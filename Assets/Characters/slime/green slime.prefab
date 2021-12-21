@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fa85025d181238fbc26518aae4f425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggressionRadius: 10
+  aggressionRadius: 30
   target: {fileID: 0}
   from: {fileID: 0}
   recalculateAStarGridUsingBoundsOfEnemyDelay: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a00980ab0ebc6995a35bcdb0c35a016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 25
   useChildColliderForAttackArea: 0
   attackRadius: 1.8
   attackLayers:

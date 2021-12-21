@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fa85025d181238fbc26518aae4f425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggressionRadius: 15
+  aggressionRadius: 25
   target: {fileID: 0}
   from: {fileID: 1288139917384931821}
   recalculateAStarGridUsingBoundsOfEnemyDelay: 0
