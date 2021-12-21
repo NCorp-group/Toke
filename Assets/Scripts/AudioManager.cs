@@ -102,9 +102,6 @@ public class AudioManager : MonoBehaviour
  
     public void ChangeVolume(float _master, float _music, float _sfx)
     {
-        Debug.Log($"Master value (Audio): {_master}");
-        Debug.Log($"Music value (Audio): {_music}");
-        Debug.Log($"SFX value (Audio): {_sfx}");
         foreach (Sound s in sounds)
         {
             s.source.volume = s.volume * _master * _sfx;
@@ -223,7 +220,6 @@ public class AudioManager : MonoBehaviour
 
     public void FadeMusic(DoorPreviewController.RoomType roomType)
     {
-        Debug.Log("FadeMusic");
         float fadeTime = 5f;
 
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
@@ -324,7 +320,6 @@ public class AudioManager : MonoBehaviour
 
     void EnemyAttackSound(Enemy.EnemyType type)
     {
-        Debug.Log("AttackSound");
         enemyAttackCounter++;
         PlaySFXWithOverlap($"{EnemyTypeToString(type)}-attack{enemyAttackCounter}");
         if (enemyAttackCounter == 4)
