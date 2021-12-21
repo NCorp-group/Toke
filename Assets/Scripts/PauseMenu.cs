@@ -17,14 +17,10 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         optionsMenu = GetComponentsInChildren<OptionsMenu>(true).First().gameObject;
-        Debug.Log($"HELLO");
+        //Debug.Log($"HELLO");
         menuItems = GetComponentsInChildren<Transform>(true).First(o => o.name == "MenuItems").gameObject;
         var allChildren = GetComponentsInChildren<GameObject>(true);
-        Debug.Log($"Amount of children {allChildren.Length}");
-        foreach (var child in allChildren.Select((value, i) => (i, value)))
-        {
-            Debug.Log($"Child {child.i} with name: {child.value.name}");
-        }
+        //Debug.Log($"Amount of children {allChildren.Length}");
         Resume();
     }
 

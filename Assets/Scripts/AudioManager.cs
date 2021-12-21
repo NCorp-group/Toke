@@ -47,9 +47,9 @@ public class AudioManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void OnRuntimeLoad()
     {
-        Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
+        //Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
         PlayerPrefs.DeleteKey(DoorPreviewController.ROOM_TYPE);
-        Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
+        //Debug.Log("PP: " + (DoorPreviewController.RoomType) PlayerPrefs.GetInt(DoorPreviewController.ROOM_TYPE));
     }
 
     void Start()
@@ -102,7 +102,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            //Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
         if (!s.source.isPlaying)
@@ -119,7 +119,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            //Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
         // Changing the volume of the sound depending on user settings
@@ -132,7 +132,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            //Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
         if (!s.source.isPlaying)
@@ -143,7 +143,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Song already playing");
+            //Debug.Log("Song already playing");
         }
     }
 
@@ -209,7 +209,7 @@ public class AudioManager : MonoBehaviour
 
     public void FadeMusic(DoorPreviewController.RoomType roomType)
     {
-        Debug.Log("FadeMusic");
+        //Debug.Log("FadeMusic");
         float fadeTime = 5f;
 
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
@@ -231,7 +231,7 @@ public class AudioManager : MonoBehaviour
 
     public void StartMusic(DoorPreviewController.RoomType roomType)
     {
-        Debug.Log("StartMusic");
+        //Debug.Log("StartMusic");
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
             PlayMusic("boss-music");
@@ -310,7 +310,7 @@ public class AudioManager : MonoBehaviour
 
     void EnemyAttackSound(Enemy.EnemyType type)
     {
-        Debug.Log("AttackSound");
+        //Debug.Log("AttackSound");
         enemyAttackCounter++;
         PlaySFXWithOverlap($"{EnemyTypeToString(type)}-attack{enemyAttackCounter}");
         if (enemyAttackCounter == 4)
