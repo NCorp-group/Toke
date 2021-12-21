@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: pulse
   price: 0
-  fireRate: 2
+  fireRate: 0.5
   color: {r: 0.3254902, g: 0.7607844, b: 1, a: 1}
 --- !u!1 &8607748974372387435
 GameObject:

@@ -143,61 +143,61 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: toke-fire1
     clip: {fileID: 8300000, guid: a3d87f93ac343c54b93d0d7e7cd69ae1, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire2
     clip: {fileID: 8300000, guid: 4fe4a1a992b3c7e41af1927472ee5b3f, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire3
     clip: {fileID: 8300000, guid: 8aed3e7df79facb41b60b6c7c2f22ccd, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire4
     clip: {fileID: 8300000, guid: ef5ebe27cba0da844bf723a9ad883b0b, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire5
     clip: {fileID: 8300000, guid: 16f395afe9ead1c48a0e22ddea6a130c, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire6
     clip: {fileID: 8300000, guid: acd4c3aae2ec6a74999c7d1b81eb31f0, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire7
     clip: {fileID: 8300000, guid: 298bf794b5ce97e49a92b82d109a0809, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire8
     clip: {fileID: 8300000, guid: ce8f0f86399791e47aab556319120bad, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire9
     clip: {fileID: 8300000, guid: 69404183e2437e24d8e1dd5926085964, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-fire10
     clip: {fileID: 8300000, guid: b1a88befd3afe894889f77f5facd7e62, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -282,6 +282,132 @@ MonoBehaviour:
   - name: menu-music
     clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
     volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-attack1
+    clip: {fileID: 8300000, guid: 87ef4a78f3799fb4fb671a93d04d6e48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-attack2
+    clip: {fileID: 8300000, guid: 87ef4a78f3799fb4fb671a93d04d6e48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-attack3
+    clip: {fileID: 8300000, guid: 87ef4a78f3799fb4fb671a93d04d6e48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-attack4
+    clip: {fileID: 8300000, guid: 87ef4a78f3799fb4fb671a93d04d6e48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-death1
+    clip: {fileID: 8300000, guid: 1b84857e2ef6add4cbec540dfc7919f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-death2
+    clip: {fileID: 8300000, guid: 1b84857e2ef6add4cbec540dfc7919f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-death3
+    clip: {fileID: 8300000, guid: 1b84857e2ef6add4cbec540dfc7919f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-death4
+    clip: {fileID: 8300000, guid: 1b84857e2ef6add4cbec540dfc7919f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-attack1
+    clip: {fileID: 8300000, guid: adea273d0db9dea499e78c1b6a03b668, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-attack2
+    clip: {fileID: 8300000, guid: 7ed2a47a63fe213489e8b82f4a1700b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-attack3
+    clip: {fileID: 8300000, guid: 54ebdf3bcf64530489333204f568786f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-attack4
+    clip: {fileID: 8300000, guid: 606f79d34bd269941aefaf1c2d665efd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-death1
+    clip: {fileID: 8300000, guid: 39862d3063315424a95ced09a64f3565, type: 3}
+    volume: 1
+    pitch: 1.05
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-death2
+    clip: {fileID: 8300000, guid: 39862d3063315424a95ced09a64f3565, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-death3
+    clip: {fileID: 8300000, guid: 39862d3063315424a95ced09a64f3565, type: 3}
+    volume: 1
+    pitch: 0.9
+    loop: 0
+    source: {fileID: 0}
+  - name: slime-death4
+    clip: {fileID: 8300000, guid: 39862d3063315424a95ced09a64f3565, type: 3}
+    volume: 1
+    pitch: 0.95
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-death1
+    clip: {fileID: 8300000, guid: a1342dca2f90f9148b3516db8dc397ad, type: 3}
+    volume: 1
+    pitch: 0.95
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-death1
+    clip: {fileID: 8300000, guid: a1342dca2f90f9148b3516db8dc397ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-death1
+    clip: {fileID: 8300000, guid: a1342dca2f90f9148b3516db8dc397ad, type: 3}
+    volume: 1
+    pitch: 0.95
+    loop: 0
+    source: {fileID: 0}
+  - name: blueslime-death1
+    clip: {fileID: 8300000, guid: a1342dca2f90f9148b3516db8dc397ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toke-dash
+    clip: {fileID: 8300000, guid: 0588288120c114547b3c24c73e9b1e1b, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

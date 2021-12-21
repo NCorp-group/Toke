@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Pathfinding;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
@@ -19,7 +18,7 @@ public class Enemy : MonoBehaviour
         SLIME, 
         WORM,
         BLUESLIME,
-        DARKBORNIMP,
+        NIGHTBORNIMP,
         ARCANEARCHER,
         EVILWIZARD
     }

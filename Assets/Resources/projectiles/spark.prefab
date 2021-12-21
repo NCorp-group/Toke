@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 1
   damage: 7.5
-  speed: 30
-  lifetime: 1
+  speed: 25
+  lifetime: 0.5
   color: {r: 0.34509805, g: 0.8039216, b: 0.99607843, a: 1}
   animatorProvidesOnHitEffect: 1
   spawnObjectOnCollision: {fileID: 0}
