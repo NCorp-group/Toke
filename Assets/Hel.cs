@@ -647,8 +647,8 @@ public class Hel : MonoBehaviour
         var right =((int) angle - 90) % 360;
         Debug.Log($"angle to target: {angle}, left: {left}, right: {right}");
 
-        StartCoroutine(FireVolleyOfProjectilesCoroutine(AngularDirection.Clockwise, left, angle - 45, n_projectiles, 0f));
-        StartCoroutine(FireVolleyOfProjectilesCoroutine(AngularDirection.CounterClockwise, right, angle + 45, n_projectiles, 0f));
+        StartCoroutine(FireVolleyOfProjectilesCoroutine(AngularDirection.Clockwise, left, angle - 45, n_projectiles, 0.1f));
+        StartCoroutine(FireVolleyOfProjectilesCoroutine(AngularDirection.CounterClockwise, right, angle + 45, n_projectiles, 0.1f));
     }
     
     private void OnDrawGizmosSelected()

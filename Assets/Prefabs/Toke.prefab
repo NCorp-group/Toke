@@ -654,7 +654,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1311055813
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: aefa7dd7896ea3629acc79d94a6a9625, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09d1ab7304a417b8f1de7ed8b64758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penningar: 0
   maxHealth: 100
   movementSpeed: 8
   luckMultiplier: 1
@@ -1274,7 +1275,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -899379073
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 1028573669, guid: cef53da1d05ed443782c65d9da9a9abb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1364,7 +1365,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
