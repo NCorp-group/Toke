@@ -49,12 +49,12 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
-    /*#if UNITY_EDITOR
+    #if UNITY_EDITOR
     private void OnValidate()
     {
         //Debug.Log("!! OnValidate");
         //StatsFromPlayerPrefs();
-        
+        setPeningarAmount(penningar);
         setMaxHealth(maxHealth);
         setCurrentHealth(currentHealth);
         setMovementSpeedMultiplier(movementSpeed);
@@ -64,7 +64,7 @@ public class Stats : MonoBehaviour
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
     }
-    #endif*/
+    #endif
     /////////////////////////////For consumables////////////////////////////////
     //
     public void addPenningarAmount(int addPeningar)
@@ -75,9 +75,9 @@ public class Stats : MonoBehaviour
     }
     public void addProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
-        //Debug.Log($"About to add {newLifeTimeMultiplier} to newLifeTimeMultiplier");
         if (newLifeTimeMultiplier != 0)
         {
+            //Debug.Log($"About to add {newLifeTimeMultiplier} to newLifeTimeMultiplier");
             projectileLifeMultiplier += newLifeTimeMultiplier;
             OnProjectileLifeMultiplierModifierChanged?.Invoke(projectileLifeMultiplier);
             ProjectileLifeMultiplierToPlayerPrefs();
@@ -85,9 +85,9 @@ public class Stats : MonoBehaviour
     }
     public void addDamageMultiplier(float newDmgMultiplier)
     {
-        //Debug.Log($"About to add damage multiplier by {newDmgMultiplier}");
         if (newDmgMultiplier != 0)
         {
+            //Debug.Log($"About to add damage multiplier by {newDmgMultiplier}");
             damageMultiplier += newDmgMultiplier;
             OnDamageMultiplierChanged?.Invoke(damageMultiplier);
             DamageMultiplierToPlayerPrefs();
@@ -95,9 +95,9 @@ public class Stats : MonoBehaviour
     }
     public void addProjectilespeedMultiplier(float newSpdMultiplier)
     {
-        //Debug.Log($"About to add {newSpdMultiplier} to the speed multiplier ");
         if (newSpdMultiplier != 0)
         {
+            //Debug.Log($"About to add {newSpdMultiplier} to the speed multiplier ");
             projectileSpeedMultiplier += newSpdMultiplier;
             OnProjectileSpeedMultiplierChanged?.Invoke(projectileSpeedMultiplier);
             ProjectileSpeedMultiplierToPlayerPrefs();
@@ -106,9 +106,9 @@ public class Stats : MonoBehaviour
     }
     public void addCurrentHealth(float addCurrentHealth)
     {
-        //Debug.Log($"About to add {addCurrentHealth} to currentHealth");
         if (addCurrentHealth != 0)
         {
+            //Debug.Log($"About to add {addCurrentHealth} to currentHealth");
             var newCurrentHealth = currentHealth + addCurrentHealth;
             currentHealth = newCurrentHealth > maxHealth ? maxHealth : newCurrentHealth < 0 ? 0 : newCurrentHealth;
             //Debug.Log($"New current health = {currentHealth}");
@@ -118,9 +118,9 @@ public class Stats : MonoBehaviour
     }
     public void addMaxHealth(int addMaxHealth)
     {
-        //Debug.Log($"About to add {addMaxHealth} to max HP");
         if (addMaxHealth != 0)
         {
+            //Debug.Log($"About to add {addMaxHealth} to max HP");
             maxHealth += addMaxHealth;
             addCurrentHealth(addMaxHealth);
             //Debug.Log($"New max health = {maxHealth}");
@@ -131,9 +131,9 @@ public class Stats : MonoBehaviour
     }
     public void addMovementSpeedScalar(float addMovementSpeed)
     {
-        //Debug.Log($"About to speed up movement by {addMovementSpeed}");
         if (addMovementSpeed != 0)
         {
+            //Debug.Log($"About to speed up movement by {addMovementSpeed}");
             movementSpeed += addMovementSpeed;
             OnMovementSpeedMultiplierChanged?.Invoke(movementSpeed);
             MovementSpeedToPlayerPrefs();
@@ -141,9 +141,10 @@ public class Stats : MonoBehaviour
     }
     public void addFireRateScalar(float addFireRate)
     {
-        //Debug.Log($"About to speed up fire rate by {addFireRate}");
         if (addFireRate != 0)
         {
+
+            Debug.Log($"About to add speed up fire rate by {addFireRate}");
             fireRateMultiplier += addFireRate;
             OnFireRateMultiplierChanged?.Invoke(fireRateMultiplier);
             FireRateMultiplierToPlayerPrefs();
@@ -214,7 +215,7 @@ public class Stats : MonoBehaviour
     }
     void setFireRateMultiplier(float newFireRate)
     {
-        //Debug.Log($"About to speed up fire rate by {newFireRate}");
+        Debug.Log($"About to set speed up fire rate by {newFireRate}");
         fireRateMultiplier = newFireRate;
         OnFireRateMultiplierChanged?.Invoke(fireRateMultiplier);
         FireRateMultiplierToPlayerPrefs();
@@ -241,7 +242,11 @@ public class Stats : MonoBehaviour
             Debug.Log($"PP AFTER maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
             ResetStats();
         }
+        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
         StatsFromPlayerPrefs();
+        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
     }
 
     private void ResetStats()
@@ -340,7 +345,11 @@ public class Stats : MonoBehaviour
 
     private void FireRateMultiplierToPlayerPrefs()
     {
+        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
         PlayerPrefs.SetFloat(FIRE_RATE, fireRateMultiplier);
+        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
     }
 
     private void LuckMultiplierToPlayerPrefs()

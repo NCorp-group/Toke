@@ -31,7 +31,7 @@ public class InteractableArea : MonoBehaviour
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
 
-                    if (!statsToAdd.dropped && tokeStats.penningar >= statsToAdd.price)
+                    if (!statsToAdd.dropped || tokeStats.penningar >= statsToAdd.price)
                     {
                         // Adding the rune stats to Toke
                         tokeStats.addPenningarAmount(statsToAdd.penningar);

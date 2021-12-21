@@ -25,12 +25,15 @@ public class RangedWeapon : MonoBehaviour
     private float damageMultiplier = 1;
     private float fireRateMultiplier = 1;
     private int tickRate;
+    private const string FIRE_RATE = "fire_rate";
 
     private string projectileTypeString = Projectile.Type.WIND_ARC;
 
     public void OnFireRateChangedCB(float newFireRate)
     {
+
         fireRate = newFireRate;
+        PlayerPrefs.SetFloat(FIRE_RATE, fireRate);
     }
 
     private void OnFireRateMultiplierChangedCB(float newFireRateMultiplier)
@@ -68,6 +71,7 @@ public class RangedWeapon : MonoBehaviour
         {
             OnProjectileCollectedCB(Projectile.Type.WIND_ARC);
         }
+        fireRate = PlayerPrefs.GetFloat(FIRE_RATE, 1);
 
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
 
