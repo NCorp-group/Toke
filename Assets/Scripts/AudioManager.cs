@@ -65,8 +65,8 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
         RangedAttack.OnEnemyRangedAttack += EnemyFireSound;
         MeleeAttack.OnEnemyMeleeAttack += EnemyAttackSound;
-        PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
-        PlayerHealthController.OnPlayerDie += PlayerDeathSound;
+        Stats.OnPlayerTakeDamage += PlayerTakeDamageSound;
+        Stats.OnPlayerDie += PlayerDeathSound;
 
         //Rooms/Waves
         //RoomManager.OnRoomComplete += RoomCompleteSound;

@@ -19,12 +19,12 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealthController.OnPlayerDie += ShowDeathMenu;
+        Stats.OnPlayerDie += ShowDeathMenu;
     }
 
     private void OnDisable()
     {
-        PlayerHealthController.OnPlayerDie -= ShowDeathMenu;
+        Stats.OnPlayerDie -= ShowDeathMenu;
     }
 
     private void ShowDeathMenu()

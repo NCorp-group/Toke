@@ -42,10 +42,10 @@ public class FlashColorOnTakeDamage : MonoBehaviour
             enemy.OnIndividualEnemyTakeDamage += OnOnIndividualEnemyTakeDamage;
         }
 
-        var phc = GetComponent<PlayerHealthController>();
-        if (phc != null)
+        var stats = GetComponent<Stats>();
+        if (stats != null)
         {
-            PlayerHealthController.OnPlayerTakeDamage += FlashCB;
+            Stats.OnPlayerTakeDamage += FlashCB;
         }
     }
 
@@ -57,10 +57,10 @@ public class FlashColorOnTakeDamage : MonoBehaviour
             enemy.OnIndividualEnemyTakeDamage -= OnOnIndividualEnemyTakeDamage;
         }
 
-        var phc = GetComponent<PlayerHealthController>();
-        if (phc != null)
+        var stats = GetComponent<Stats>();
+        if (stats != null)
         {
-            PlayerHealthController.OnPlayerTakeDamage -= FlashCB;
+            Stats.OnPlayerTakeDamage -= FlashCB;
         }
     }
 
