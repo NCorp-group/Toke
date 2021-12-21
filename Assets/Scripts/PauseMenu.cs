@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
         optionsMenu = GetComponentsInChildren<OptionsMenu>(true).First().gameObject;
         //Debug.Log($"HELLO");
         menuItems = GetComponentsInChildren<Transform>(true).First(o => o.name == "MenuItems").gameObject;
-        var allChildren = GetComponentsInChildren<GameObject>(true);
+        //var allChildren = GetComponentsInChildren<GameObject>(true);
         //Debug.Log($"Amount of children {allChildren.Length}");
         Resume();
     }

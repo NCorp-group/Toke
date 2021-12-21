@@ -232,6 +232,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6861268199225463901, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861268199595434600, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861268200241668938, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861268200469814945, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861268200490365162, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861268200863666138, guid: 73083496384c0bc488a997eb7da68396, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeChange
+      objectReference: {fileID: 0}
     - target: {fileID: 7940298932057291485, guid: 73083496384c0bc488a997eb7da68396, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -443,6 +467,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1555840644041499878}
     m_Modifications:
+    - target: {fileID: 113130348, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155370120, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155370121, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983183107, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983183108, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5177780835994247178, guid: 725faa79e9385194696948767a1e4143, type: 3}
       propertyPath: m_Name
       value: TokeHealthBar

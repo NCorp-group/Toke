@@ -102,6 +102,9 @@ public class AudioManager : MonoBehaviour
  
     public void ChangeVolume(float _master, float _music, float _sfx)
     {
+        Debug.Log($"Master Volume (Audio): {_master}");
+        Debug.Log($"Music Volume (Audio): {_music}");
+        Debug.Log($"SFX Volume (Audio): {_sfx}");
         foreach (Sound s in sounds)
         {
             s.source.volume = s.volume * _master * _sfx;
