@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     private int enemyFireCounter = 0;
     private int enemyAttackCounter = 0;
     private int darkSpikesSpawnCounter = 0;
+    private int helBasicAttackCounter = 0;
 
     private string currentMusic;
 
@@ -91,7 +92,10 @@ public class AudioManager : MonoBehaviour
         BlackSpike.OnSpikeSpawn += DarkSpikesSpawnSound;
         GravitySphere.OnGravitySphereSpawn += GravitySphereSpawnSound;
 
+        BossHealthController.OnBossTakeDamageStatic += HelTakeDamageSound;
         BossHealthController.OnBossDefeatedStatic += BossDeathSound;
+
+        BifrostLight.OnBifrost += BifrostSound;
 
 
         //TODO: Killing boss stops music and plays some other music indicating game is over
@@ -207,6 +211,14 @@ public class AudioManager : MonoBehaviour
 
 
 
+
+    public void BifrostSound()
+    {
+        PlaySFX("bifrost");
+    }
+
+
+
     public void GoToMainMenu()
     {
         StopAll();
@@ -307,6 +319,7 @@ public class AudioManager : MonoBehaviour
     void EnemyDeathSound(Enemy.EnemyType type)
     {
         PlaySFXWithOverlap($"{EnemyTypeToString(type)}-death{UnityEngine.Random.Range(1, 4)}");
+        Debug.Log($"Enemy Death: {type}");
     }
 
     void EnemySpawnSound(Enemy.EnemyType type)
@@ -345,7 +358,6 @@ public class AudioManager : MonoBehaviour
         };
     }
 
-
     void HelSpecialAttackSound(Hel.SpecialAttack a)
     {
         String attack = HelSpecialAttackTypeToString(a);
@@ -357,7 +369,10 @@ public class AudioManager : MonoBehaviour
 
     void HelBasicAttackSound()
     {
-        PlaySFX("hel-basicattack");
+        helBasicAttackCounter++;
+        PlaySFX($"hel-basicattack{helBasicAttackCounter}");
+        if (helBasicAttackCounter == 3)
+            helBasicAttackCounter = 0;
     }
 
     void GravitySphereSpawnSound()
@@ -381,6 +396,13 @@ public class AudioManager : MonoBehaviour
                 PlaySFX("hel-death");
                 break;
         }
+
+        FadeMusic(DoorPreviewController.RoomType.BOSS);
+    }
+
+    void HelTakeDamageSound()
+    {
+        PlaySFXWithOverlap($"worm-hit{UnityEngine.Random.Range(1, 2)}");
     }
 
 

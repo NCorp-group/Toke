@@ -6,6 +6,7 @@ using UnityEngine;
 public class BossHealthController : MonoBehaviour
 {
     public event Action<Boss, float, float> OnBossTakeDamage;
+    public static event Action OnBossTakeDamageStatic;
     public event Action<Boss> OnBossDefeated;
     public static event Action<Boss> OnBossDefeatedStatic;
     public event Action OnBossBecomeVulnerable;
@@ -74,6 +75,7 @@ public class BossHealthController : MonoBehaviour
         {
             _animator.SetTrigger(GetHit);
             OnBossTakeDamage?.Invoke(boss, current_hp, hp);
+            OnBossTakeDamageStatic?.Invoke();
         }
     }
 

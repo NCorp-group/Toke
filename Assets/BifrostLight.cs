@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using System;
 
 [RequireComponent(typeof(Light2D))]
 public class BifrostLight : MonoBehaviour
@@ -23,6 +24,8 @@ public class BifrostLight : MonoBehaviour
         // light to dark
         Out
     }
+
+    public static event Action OnBifrost;
 
     public Fade fade = Fade.Out;
 
@@ -80,11 +83,13 @@ public class BifrostLight : MonoBehaviour
                 ? (1f, 0f, 0f, _max_intensity)
                 : (0f, 1f, _max_intensity, 0f);
 
+        OnBifrost?.Invoke();
+
         while (_t < ttf)
         {
             _t += Time.deltaTime;
             var ratio = _t / ttf;
-            _light.color = Color.HSVToRGB(Random.Range(0f, 1f), 0.2f, 1f);
+            _light.color = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.2f, 1f);
             var color = _sr.color;
             color.a = Mathf.Lerp(start, end, ratio);
             _sr.color = color;
