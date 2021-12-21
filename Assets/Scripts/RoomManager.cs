@@ -93,10 +93,10 @@ public class RoomManager : MonoBehaviour
         switch (nextRoomType)
         {
             case RoomType.SHOP:
-                SceneManager.LoadScene(8);
+                SceneManager.LoadScene(9);
                 break;
             case RoomType.BOSS:
-                SceneManager.LoadScene(9);
+                SceneManager.LoadScene(10);
                 break;
             default:
                 SceneManager.LoadScene(GetNextSceneIndex(), LoadSceneMode.Single);
