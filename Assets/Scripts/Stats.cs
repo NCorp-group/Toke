@@ -49,7 +49,7 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
-    #if UNITY_EDITOR
+    /*#if UNITY_EDITOR
     private void OnValidate()
     {
         //Debug.Log("!! OnValidate");
@@ -64,7 +64,7 @@ public class Stats : MonoBehaviour
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
     }
-    #endif
+    #endif*/
     /////////////////////////////For consumables////////////////////////////////
     //
     public void addPenningarAmount(int addPeningar)
@@ -144,7 +144,7 @@ public class Stats : MonoBehaviour
         if (addFireRate != 0)
         {
 
-            Debug.Log($"About to add speed up fire rate by {addFireRate}");
+            //Debug.Log($"About to add speed up fire rate by {addFireRate}");
             fireRateMultiplier += addFireRate;
             OnFireRateMultiplierChanged?.Invoke(fireRateMultiplier);
             FireRateMultiplierToPlayerPrefs();
@@ -215,7 +215,7 @@ public class Stats : MonoBehaviour
     }
     void setFireRateMultiplier(float newFireRate)
     {
-        Debug.Log($"About to set speed up fire rate by {newFireRate}");
+        //Debug.Log($"About to set FireRateMultiplier to {newFireRate}");
         fireRateMultiplier = newFireRate;
         OnFireRateMultiplierChanged?.Invoke(fireRateMultiplier);
         FireRateMultiplierToPlayerPrefs();
@@ -235,18 +235,18 @@ public class Stats : MonoBehaviour
         Debug.Log($"current scene name: {SceneManager.GetActiveScene().name}");
         if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
         {
-            Debug.Log("Destroying PP");
-            PlayerPrefs.DeleteAll();
-            Debug.Log($"PP maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
+            //Debug.Log("Destroying PP");
+            //PlayerPrefs.DeleteAll();
+            //Debug.Log($"PP maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
             //StatsFromPlayerPrefs();
-            Debug.Log($"PP AFTER maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
+            //Debug.Log($"PP AFTER maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
             ResetStats();
         }
-        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
-        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
+        //Debug.Log($"PP BEFORE: firerate = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        //Debug.Log($"ACTUAL BEFORE: firerate = {fireRateMultiplier}");
         StatsFromPlayerPrefs();
-        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
-        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
+        //Debug.Log($"PP BEFORE: firerate = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        //Debug.Log($"ACTUAL BEFORE: firerate = {fireRateMultiplier}");
     }
 
     private void ResetStats()
@@ -345,11 +345,11 @@ public class Stats : MonoBehaviour
 
     private void FireRateMultiplierToPlayerPrefs()
     {
-        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
-        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
+        //Debug.Log($"FireRateMultiplierToPlayerPrefs = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        //Debug.Log($"ACTUAL fireRate now = {fireRateMultiplier}");
         PlayerPrefs.SetFloat(FIRE_RATE, fireRateMultiplier);
-        Debug.Log($"PP BEFORE: max health = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
-        Debug.Log($"ACTUAL BEFORE: max health = {fireRateMultiplier}");
+        //Debug.Log($"PP BEFORE: FireRateMultiplierToPlayerPrefs = {PlayerPrefs.GetFloat(FIRE_RATE, -1)}");
+        //Debug.Log($"ACTUAL BEFORE: now = {fireRateMultiplier}");
     }
 
     private void LuckMultiplierToPlayerPrefs()

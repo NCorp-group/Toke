@@ -71,8 +71,8 @@ public class RangedWeapon : MonoBehaviour
         {
             OnProjectileCollectedCB(Projectile.Type.WIND_ARC);
         }
-        fireRate = PlayerPrefs.GetFloat(FIRE_RATE, 1);
-
+        fireRate = PlayerPrefs.GetInt(FIRE_RATE, 8);
+        Debug.Log($"Start: FireRate from PlayerPrefs is {fireRate}");
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
 
 
