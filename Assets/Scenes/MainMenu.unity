@@ -580,7 +580,6 @@ GameObject:
   - component: {fileID: 808702718}
   - component: {fileID: 808702720}
   - component: {fileID: 808702719}
-  - component: {fileID: 808702721}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -646,14 +645,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808702717}
   m_CullTransparentMesh: 1
---- !u!81 &808702721
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808702717}
-  m_Enabled: 1
 --- !u!1 &1228918908
 GameObject:
   m_ObjectHideFlags: 0
