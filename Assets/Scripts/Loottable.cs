@@ -8,13 +8,15 @@ public class Loottable : MonoBehaviour
     {
         //Debug.Log("RuneDrop");
         // 1:Athletics 2:Determination 3:Focus 4:Healing 5:Luck 6:Strength
-        List<ItemStats> runes = new List<ItemStats>();
-        runes.Add(Resources.Load<ItemStats>($"runes/Athletics Rune"));
-        runes.Add(Resources.Load<ItemStats>($"runes/Determination Rune"));
-        runes.Add(Resources.Load<ItemStats>($"runes/Focus Rune"));
-        runes.Add(Resources.Load<ItemStats>($"runes/Athletics Rune"));
-        runes.Add(Resources.Load<ItemStats>($"runes/Healing Rune"));
-        runes.Add(Resources.Load<ItemStats>($"runes/Strength Rune"));
+        List<ItemStats> runes = new List<ItemStats>
+        {
+            Resources.Load<ItemStats>($"runes/Athletics Rune"),
+            Resources.Load<ItemStats>($"runes/Determination Rune"),
+            Resources.Load<ItemStats>($"runes/Focus Rune"),
+            Resources.Load<ItemStats>($"runes/Athletics Rune"),
+            Resources.Load<ItemStats>($"runes/Healing Rune"),
+            Resources.Load<ItemStats>($"runes/Strength Rune")
+        };
 
         int runeType = Random.Range(0, runes.Count);
 
@@ -41,21 +43,51 @@ public class Loottable : MonoBehaviour
         }
     }
 
-    public void DropLoot()
+    /*public void DropLoot()
     {
         // Generate random number between 0 and totalTickets
         randomNumber = Random.Range(0, totalTickets);
-        //Debug.Log($"Random number between 0 and {totalTickets} is: {randomNumber}");
+        Debug.Log($"Random number between 0 and {totalTickets} is: {randomNumber}");
 
         int n = 0;
         foreach (int tickets in lootTable)
         {
-            //Debug.Log($"Tickets: {tickets}, Totaltickets: {totalTickets}");
+            Debug.Log($"Tickets: {tickets}, Totaltickets: {totalTickets}");
             totalTickets -= tickets;
             //Debug.Log($"After subtraction, totaltickets left: {totalTickets}");
             if (randomNumber > totalTickets)
             {
-                //Debug.Log($"Luck hit in loop number {n}");
+                Debug.Log($"Luck hit in loop number {n}");
+                break;
+            }
+            n++;
+        }
+
+        if (n == 0)
+        {
+            RuneDrop();
+        }
+        else if (n == 1)
+        {
+            PeningarDrop();
+        }
+    }*/
+
+    public void OnDestroy()
+    {
+        // Generate random number between 0 and totalTickets
+        randomNumber = Random.Range(0, totalTickets);
+        Debug.Log($"Random number between 0 and {totalTickets} is: {randomNumber}");
+
+        int n = 0;
+        foreach (int tickets in lootTable)
+        {
+            Debug.Log($"Tickets: {tickets}, Totaltickets: {totalTickets}");
+            totalTickets -= tickets;
+            //Debug.Log($"After subtraction, totaltickets left: {totalTickets}");
+            if (randomNumber > totalTickets)
+            {
+                Debug.Log($"Luck hit in loop number {n}");
                 break;
             }
             n++;

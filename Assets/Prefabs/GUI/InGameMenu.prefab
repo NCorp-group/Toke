@@ -695,6 +695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1555840644041499878}
     m_Modifications:
+    - target: {fileID: 5824292545692643859, guid: 3471300377bbda74283bd8bfa5fc0118, type: 3}
+      propertyPath: penningar
+      value: 
+      objectReference: {fileID: 4990973431587642388}
     - target: {fileID: 5824292546748656274, guid: 3471300377bbda74283bd8bfa5fc0118, type: 3}
       propertyPath: m_Name
       value: PenningarConsumeable
@@ -788,5 +792,10 @@ PrefabInstance:
 --- !u!224 &4990973431559689859 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5824292546748656275, guid: 3471300377bbda74283bd8bfa5fc0118, type: 3}
+  m_PrefabInstance: {fileID: 1555840645790153744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4990973431587642388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5824292546571804676, guid: 3471300377bbda74283bd8bfa5fc0118, type: 3}
   m_PrefabInstance: {fileID: 1555840645790153744}
   m_PrefabAsset: {fileID: 0}

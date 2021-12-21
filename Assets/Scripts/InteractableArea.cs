@@ -32,7 +32,7 @@ public class InteractableArea : MonoBehaviour
                     Stats tokeStats = GetComponentInParent<Stats>();
 
                     // Adding the rune stats to Toke
-                    tokeStats.addPenningarAmount(statsToAdd.peningar);
+                    tokeStats.addPenningarAmount(statsToAdd.penningar);
                     tokeStats.addMaxHealth(statsToAdd.maxHealth);
                     tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
                     tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
@@ -55,7 +55,7 @@ public class InteractableArea : MonoBehaviour
                 else if(penningarBagDrop is not null)
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
-                    tokeStats.addPenningarAmount(penningarBagDrop.peningarsAvaliable);
+                    tokeStats.addPenningarAmount(penningarBagDrop.penningarsAvaliable);
                     Destroy(interactable.gameObject);
                 }
             }

@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public static readonly string GAMEOBJECT_NAME_FOR_HIT_BODY = "Hit Body";
 
 
-    [SerializeField] private bool dropCollectableOnDeath = false;
+    [SerializeField] private bool dropCollectableOnDeath = true;
     private Collider2D _collider;
     [Range(0.0f, 1.0f)] public float likelihood = 1.0f;
     public Collectable collectable;
@@ -78,13 +78,13 @@ public class Enemy : MonoBehaviour
         //collider.SetActive(false);
         /*if (dropCollectableOnDeath)
         {
-            var rand = Random.Range(0.0f, 1.0f);
+            GetComponent<Loottable>().DropLoot();
+            /*var rand = Random.Range(0.0f, 1.0f);
             if (rand <= likelihood)
             {
                 Instantiate(collectable, transform.position, Quaternion.identity);
             }
         }*/
-        GetComponent<Loottable>().DropLoot();
         Destroy(gameObject);
     }
 }

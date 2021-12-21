@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adecf28d6a8647bcb06f1ebf520a66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable: 3200000032000000
+  lootTable: 
   totalTickets: 0
   randomNumber: 0
 --- !u!1 &3677654759137219061

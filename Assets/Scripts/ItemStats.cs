@@ -13,7 +13,7 @@ public class ItemStats : MonoBehaviour
     [Space]
     [Header("Collectable stats")]
     // Stats:
-    public int peningar = 0;
+    public int penningar = 0;
     public int maxHealth = 0;
     public float movementSpeed = 0;
     public float luckMultiplier = 0;
