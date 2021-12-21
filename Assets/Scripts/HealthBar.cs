@@ -36,7 +36,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateText(float currentHealth, int maxHealth)
     {
-        Debug.Log($"HPTEXT: currentHealth = {currentHealth}, maxHealth = {maxHealth}");
+        //Debug.Log($"HPTEXT: currentHealth = {currentHealth}, maxHealth = {maxHealth}");
         this.currentHealth ??= GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "CurrentHealthText");
         this.currentHealth.text = $"{(int) currentHealth}";
 

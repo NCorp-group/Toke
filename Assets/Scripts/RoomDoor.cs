@@ -49,12 +49,12 @@ public class RoomDoor : MonoBehaviour
         {
             action = () =>
             {
-                Debug.Log("player can goto next room");
+                //Debug.Log("player can goto next room");
                 if (Input.GetKey(KeyCode.E))
                 {
                     // TODO: put logic for going to next scene
                     //      RoomManager.OnRoomExit?.Invoke();
-                    Debug.Log("goto next room");
+                    //Debug.Log("goto next room");
                     // TODO: store global state e.g. weapon projectile health etc.
                     
                     SceneManager.LoadScene(nextRoom.BuildIndex);
