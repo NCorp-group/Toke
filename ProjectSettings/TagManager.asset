@@ -90,9 +90,9 @@ TagManager:
   - name: Pillar
     uniqueID: 3472920041
     locked: 0
-  - name: UI
-    uniqueID: 827157755
-    locked: 0
   - name: Overlay
     uniqueID: 753051699
+    locked: 0
+  - name: UI
+    uniqueID: 827157755
     locked: 0

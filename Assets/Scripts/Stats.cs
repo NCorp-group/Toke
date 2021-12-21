@@ -49,6 +49,7 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
+    /*
     #if UNITY_EDITOR
     private void OnValidate()
     {
@@ -65,6 +66,7 @@ public class Stats : MonoBehaviour
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
     }
     #endif
+    */
     /////////////////////////////For consumables////////////////////////////////
     //
     public void addPenningarAmount(int addPeningar)
