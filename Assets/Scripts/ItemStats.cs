@@ -31,14 +31,14 @@ public class ItemStats : MonoBehaviour
     void Start()
     {
         // Sets the price text under the item
-        priceTag = GetComponentInChildren<TextMeshProUGUI>();
         if (!dropped)
         {
-            priceTag.text = $"{price} P";   
-        }
-        else
-        {
-            priceTag.text = "";
+            priceTag = GetComponentInChildren<TextMeshProUGUI>();
+            if (priceTag is not null)
+            {
+                priceTag.text = $"{price} P";
+                priceTag.gameObject.SetActive(true);
+            }
         }
     }
 }

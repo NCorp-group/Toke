@@ -21,8 +21,6 @@ public class FlashColorOnTakeDamage : MonoBehaviour
     private bool lightUp = false;
     private float _min_flash_intensity;
     
-    
-    
     void Start()
     {
         Assert.IsTrue(ttf > 0 && ttr > 0);
@@ -44,10 +42,10 @@ public class FlashColorOnTakeDamage : MonoBehaviour
             enemy.OnIndividualEnemyTakeDamage += OnOnIndividualEnemyTakeDamage;
         }
 
-        var phc = GetComponent<PlayerHealthController>();
-        if (phc != null)
+        var stats = GetComponent<Stats>();
+        if (stats != null)
         {
-            PlayerHealthController.OnPlayerTakeDamage += FlashCB;
+            Stats.OnPlayerTakeDamage += FlashCB;
         }
         bhc ??= GetComponent<BossHealthController>();
         if (bhc != null)
@@ -67,10 +65,10 @@ public class FlashColorOnTakeDamage : MonoBehaviour
             return;
         }
 
-        var phc = GetComponent<PlayerHealthController>();
-        if (phc != null)
+        var stats = GetComponent<Stats>();
+        if (stats != null)
         {
-            PlayerHealthController.OnPlayerTakeDamage -= FlashCB;
+            Stats.OnPlayerTakeDamage -= FlashCB;
             return;
         }
 
