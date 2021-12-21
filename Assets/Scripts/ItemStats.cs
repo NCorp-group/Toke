@@ -14,6 +14,7 @@ public class ItemStats : MonoBehaviour
     [Header("Collectable stats")]
     // Stats:
     public int penningar = 0;
+    public float currentHealth = 0;
     public int maxHealth = 0;
     public float movementSpeed = 0;
     public float luckMultiplier = 0;
