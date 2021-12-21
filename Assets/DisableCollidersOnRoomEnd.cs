@@ -10,7 +10,7 @@ public class DisableCollidersOnRoomEnd : MonoBehaviour
     {
         RoomManager.OnRoomComplete += (_, _) =>
         {
-            Debug.Log($"in callback colliders = {colliders.Count}");
+            //Debug.Log($"in callback colliders = {colliders.Count}");
             if (colliders is not null)
             {
                 foreach (var collider in colliders)

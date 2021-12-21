@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
             {
                 OnEnemyDie?.Invoke(type);
                 _collider.gameObject.SetActive(false);
-                Debug.Log("setting trigger DEATH");
+                //Debug.Log("setting trigger DEATH");
                 trigger = Death;
             }
         }
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("DIE");
+        //Debug.Log("DIE");
         //collider.SetActive(false);
         if (dropCollectableOnDeath)
         {
