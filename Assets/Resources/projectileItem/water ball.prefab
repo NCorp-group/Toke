@@ -426,7 +426,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 1449508775926928179, guid: 20efc05b26de0f6debbedcef17a24be8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -526,6 +526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: water ball
-  price: 0
+  price: 50
   fireRate: 0.5
   color: {r: 0.10196079, g: 0.44705886, b: 0.8705883, a: 1}

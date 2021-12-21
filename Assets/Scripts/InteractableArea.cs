@@ -40,6 +40,12 @@ public class InteractableArea : MonoBehaviour
                     tokeStats.addDamageMultiplier(statsToAdd.damageMultiplier);
                     tokeStats.addProjectileLifeMultiplier(statsToAdd.projectileLifeMultiplier);
                     tokeStats.addProjectilespeedMultiplier(statsToAdd.projectileSpeedMultiplier);
+
+                    if (!statsToAdd.dropped)
+                    {
+                        tokeStats.addPenningarAmount(-statsToAdd.price);
+                    }
+
                     Destroy(interactable.gameObject);
                 }
                 else if (DPC is not null)

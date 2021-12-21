@@ -12,6 +12,10 @@ public class ProjectileItem : MonoBehaviour
     public static event Action<float> OnFireRateChanged;
     public static event Action<Color> OnProjectileSetColor;
 
+    private void Start()
+    {
+    }
+
     public void CollectProjectile()
     {
         //Debug.Log($"Invoking with {projectileType}");
