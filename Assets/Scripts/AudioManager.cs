@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     private int playerFireCounter = 0;
     private int enemyFireCounter = 0;
     private int enemyAttackCounter = 0;
+    private int darkSpikesSpawnCounter = 0;
 
     private string currentMusic;
 
@@ -53,6 +54,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private BossHealthController bhc;
+    private Hel hel;
 
     void Start()
     {
@@ -81,9 +84,19 @@ public class AudioManager : MonoBehaviour
         //Volume
         OptionsMenu.OnVolumeChanged += ChangeVolume;
 
-    //TODO: Killing boss stops music and plays some other music indicating game is over
-    //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
-}
+        Hel.OnHelDoSpecialAttackStatic += HelSpecialAttackSound;
+        Hel.OnHelDoBasicAttackStatic += HelBasicAttackSound;
+ 
+
+        BlackSpike.OnSpikeSpawn += DarkSpikesSpawnSound;
+        GravitySphere.OnGravitySphereSpawn += GravitySphereSpawnSound;
+
+        BossHealthController.OnBossDefeatedStatic += BossDeathSound;
+
+
+        //TODO: Killing boss stops music and plays some other music indicating game is over
+        //TODO: Music volume can be changed mid game (when music is unpaused, volume is adjusted?)
+    }
 
 
     void OnEnable()
@@ -92,14 +105,12 @@ public class AudioManager : MonoBehaviour
         MainMenu.OnStartGame += StartGame;
     }
 
-
     void OnDisable()
     {
         MainMenu.OnMainMenu -= GoToMainMenu;
         MainMenu.OnStartGame -= StartGame;
     }
 
- 
     public void ChangeVolume(float _master, float _music, float _sfx)
     {
         //Debug.Log($"Master Volume (Audio): {_master}");
@@ -162,21 +173,9 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Stop();
         }
-    }
-
-    public void PauseAll()
-    {
-        foreach (Sound s in sounds)
+        foreach (Music m in music)
         {
-            s.source.Pause();
-        }
-    }
-
-    public void UnPauseAll()
-    {
-        foreach (Sound s in sounds)
-        {
-            s.source.UnPause();
+            m.source.Stop();
         }
     }
 
@@ -185,16 +184,20 @@ public class AudioManager : MonoBehaviour
     private IEnumerator _FadeOutMusic(string name, float fadeTime)
     {
         Music m = Array.Find(music, music => music.name == name);
-        float startVolume = m.source.volume;
 
-        while (m.source.volume > .1f)
+        if (m != null)
         {
-            m.source.volume -= startVolume * Time.deltaTime / fadeTime;
-            yield return null;
-        }
+            float startVolume = m.source.volume;
 
-        m.source.Stop();
-        m.source.volume = startVolume;
+            while (m.source.volume > .1f)
+            {
+                m.source.volume -= startVolume * Time.deltaTime / fadeTime;
+                yield return null;
+            }
+
+            m.source.Stop();
+            m.source.volume = startVolume;
+        }
     }
     
     public void FadeOutMusic(string name, float fadeTime)
@@ -244,6 +247,8 @@ public class AudioManager : MonoBehaviour
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
             PlayMusic("boss-music");
+            Music m = Array.Find(music, music => music.name == "boss-music");
+            Debug.Log($"Bos music volume: {m.source.volume}");
             currentMusic = "boss-music";
         }
         else if (roomType == DoorPreviewController.RoomType.SHOP && currentMusic != "menu-music")
@@ -324,6 +329,60 @@ public class AudioManager : MonoBehaviour
         if (enemyAttackCounter == 4)
             enemyAttackCounter = 0;
     }
+
+
+
+    private string HelSpecialAttackTypeToString(Hel.SpecialAttack type)
+    {
+        return type switch
+        {
+            //Hel.SpecialAttack.SpawnGravitationalCircles => "spawngravitationalcircles",
+            Hel.SpecialAttack.IciclePincer => "iciclepincer",
+            Hel.SpecialAttack.SwirlSpray => "swirlspray",
+            //Hel.SpecialAttack.SpawnMinions => "spawnminions", //Irrelevant
+            //Hel.SpecialAttack.SpawnDarkSpikes => "spawndarkspikes", 
+            _ => "",
+        };
+    }
+
+
+    void HelSpecialAttackSound(Hel.SpecialAttack a)
+    {
+        String attack = HelSpecialAttackTypeToString(a);
+        if(attack != "")
+        {
+            PlaySFX($"hel-{attack}");
+        }
+    }
+
+    void HelBasicAttackSound()
+    {
+        PlaySFX("hel-basicattack");
+    }
+
+    void GravitySphereSpawnSound()
+    {
+        PlaySFX("enemy-spawn");
+    }
+
+    void DarkSpikesSpawnSound()
+    {
+        darkSpikesSpawnCounter++;
+        PlaySFX($"darkspikes-spawn{darkSpikesSpawnCounter}");
+        if (darkSpikesSpawnCounter == 5)
+            darkSpikesSpawnCounter = 0;
+    }
+
+    void BossDeathSound(BossHealthController.Boss type)
+    {
+        switch (type)
+        {
+                case BossHealthController.Boss.Hel:
+                PlaySFX("hel-death");
+                break;
+        }
+    }
+
 
 
 

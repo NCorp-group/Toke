@@ -7,6 +7,7 @@ public class BossHealthController : MonoBehaviour
 {
     public event Action<Boss, float, float> OnBossTakeDamage;
     public event Action<Boss> OnBossDefeated;
+    public static event Action<Boss> OnBossDefeatedStatic;
     public event Action OnBossBecomeVulnerable;
     public event Action OnBossBecomeInVulnerable;
     
@@ -66,6 +67,7 @@ public class BossHealthController : MonoBehaviour
         
         if (current_hp <= 0f)
         {
+
             Die();
         }
         else
@@ -81,6 +83,7 @@ public class BossHealthController : MonoBehaviour
         Debug.Log("boss is dead");
         _animator.SetTrigger(Death);
         OnBossDefeated?.Invoke(boss);
+        OnBossDefeatedStatic?.Invoke(boss);
     }
     
     public void DestroySelf() => Destroy(gameObject);
