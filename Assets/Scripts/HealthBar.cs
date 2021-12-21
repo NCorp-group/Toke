@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -25,21 +24,16 @@ public class HealthBar : MonoBehaviour
         UpdateSprite();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void OnEnable()
     {
-        PlayerHealthController.OnPlayerHealthChange += UpdateValue;
-        PlayerHealthController.OnPlayerHealthChange += UpdateText;
+        Stats.OnPlayerHealthChange += UpdateValue;
+        Stats.OnPlayerHealthChange += UpdateText;
     }
 
     void OnDisable()
     {
-        PlayerHealthController.OnPlayerHealthChange -= UpdateValue;
-        PlayerHealthController.OnPlayerHealthChange += UpdateText;
+        Stats.OnPlayerHealthChange -= UpdateValue;
+        Stats.OnPlayerHealthChange += UpdateText;
     }
 
     private void UpdateText(float currentHealth, int maxHealth)
@@ -50,10 +44,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateValue(float currentHealth, int maxHealth)
     {
-        //Debug.Log(currentHealth);
-        //Debug.Log(maxHealth);
         value = currentHealth / maxHealth;
-        //Debug.Log(value);
         UpdateSprite();
     }
 

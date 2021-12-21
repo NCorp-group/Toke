@@ -42,7 +42,6 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if (DPC is not null)
                 {
-                    //Debug.Log("DPC FOUND POG");
                     OnDoorInteraction?.Invoke(DPC.roomType);
                 }
                 else if(projectileItem is not null)

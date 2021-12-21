@@ -427,7 +427,7 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 0.025
+  m_LightVolumeIntensity: 0.001
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 3be0dab1
   m_LightCookieSprite: {fileID: 0}
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 0.025
+  m_LightVolumeIntensity: 0.001
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 3be0dab1
   m_LightCookieSprite: {fileID: 0}
@@ -1183,7 +1183,6 @@ GameObject:
   - component: {fileID: 2864248045788043866}
   - component: {fileID: 213696919809180922}
   - component: {fileID: 6086519574699306543}
-  - component: {fileID: 8710078029889022555}
   - component: {fileID: 6086519574699306530}
   - component: {fileID: 6086519574699306528}
   - component: {fileID: 6086519574699306531}
@@ -1228,13 +1227,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09d1ab7304a417b8f1de7ed8b64758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  movementSpeed: 8
-  luckMultiplier: 1
-  fireRateMultiplier: 1
-  damageMultiplier: 1
-  projectileLifeMultiplier: 1
+  currentHealth: 135
+  maxHealth: 420
+  movementSpeed: 12
+  luckMultiplier: 3
+  fireRateMultiplier: 2
+  damageMultiplier: 1.5
+  projectileLifeMultiplier: 1.5999999
   projectileSpeedMultiplier: 1
+  alive: 1
 --- !u!212 &6086519574699306543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1287,20 +1288,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8710078029889022555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6273141238842081658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32164980312264a44b89df6e60138606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 400
-  currentHealth: 0
 --- !u!114 &6086519574699306530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,7 +1351,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

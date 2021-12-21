@@ -46,7 +46,8 @@ public class MeleeAttack : MonoBehaviour
     
     
     // TODO: cache reference
-    [CanBeNull] private PlayerHealthController _phc = null;
+    [CanBeNull] private Stats _stats = null;
+    //[CanBeNull] private PlayerHealthController _phc = null;
     private static readonly int AttackTrigger = Animator.StringToHash("attack");
 
     private IEnumerator WaitDelayForConsecutiveAttack(float delay)
@@ -62,7 +63,8 @@ public class MeleeAttack : MonoBehaviour
         Assert.IsTrue(damage >= 0, "damage >= 0");
         Assert.IsTrue(attackRadius >= 0, "attackRadius >= 0");
 
-        _phc = GameObject.FindWithTag("Player").GetComponent<PlayerHealthController>();
+        //_phc = GameObject.FindWithTag("Player").GetComponent<PlayerHealthController>();
+        _stats = GameObject.FindWithTag("Player").GetComponent<Stats>();
         
         _apply_delay = attackDelay switch
         {
@@ -125,7 +127,7 @@ public class MeleeAttack : MonoBehaviour
             return;
         }
         
-        _phc.TakeDamage(damage);
+        _stats.TakeDamage(damage);
     }
 
     private void OnDrawGizmosSelected()

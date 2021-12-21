@@ -2140,7 +2140,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 753051699
-  m_SortingLayer: 9
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2355,33 +2355,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 133695416}
-    - target: {fileID: 1555840644041499879, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 827157755
-      objectReference: {fileID: 0}
     - target: {fileID: 2767724943092214726, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 821496029}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
---- !u!1 &492754014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1555840644041499874, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+--- !u!225 &492754015 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 492754015, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
   m_PrefabInstance: {fileID: 492754013}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &492754015
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492754014}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!95 &821496029 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3677861573003414306, guid: c1faae388375f9d94b327388befeb829, type: 3}
