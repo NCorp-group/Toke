@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RangedWeapon : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class RangedWeapon : MonoBehaviour
     private float fireRateMultiplier = 1;
     private int tickRate;
 
-    private string projectileTypeString = "wind arc";
+    private string projectileTypeString = Projectile.Type.WIND_ARC;
 
     public void OnFireRateChangedCB(float newFireRate)
     {
@@ -63,6 +64,11 @@ public class RangedWeapon : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
+        {
+            OnProjectileCollectedCB(Projectile.Type.WIND_ARC);
+        }
+
         projectile = Resources.Load<Projectile>($"projectiles/{projectileTypeString}");
 
 
