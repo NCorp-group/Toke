@@ -70,7 +70,6 @@ public class BossHealthController : MonoBehaviour
         }
         else
         {
-            
             _animator.SetTrigger(GetHit);
             OnBossTakeDamage?.Invoke(boss, current_hp, hp);
         }
@@ -79,6 +78,7 @@ public class BossHealthController : MonoBehaviour
     private void Die()
     {
         // should call DestroySelf()
+        Debug.Log("boss is dead");
         _animator.SetTrigger(Death);
         OnBossDefeated?.Invoke(boss);
     }

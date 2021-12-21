@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     public static event Action OnPlayerDash;
 
     private Rigidbody2D _rb2d;
+    private Collider2D _collider2d;
     private Animator _animator;
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
     private static readonly int Vertical = Animator.StringToHash("Vertical");
@@ -49,6 +50,7 @@ public class Movement : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb2d = GetComponent<Rigidbody2D>();
+        _collider2d = GetComponent<Collider2D>();
         _can_dash = true;
 
         _apply_delay = dashDelay switch
@@ -106,6 +108,7 @@ public class Movement : MonoBehaviour
                         _dash_speed = dashSpeed;
                         _state = State.Dashing;
                         _can_dash = false;
+                        _collider2d.enabled = false;
               
                         _apply_delay.Invoke();
                     }
@@ -141,6 +144,7 @@ public class Movement : MonoBehaviour
                 if (_dash_speed < dash_speed_minimum)
                 {
                     _state = State.Normal;
+                    _collider2d.enabled = true;
                 }
                 
                 _rb2d.velocity = _dash_dir * _dash_speed; 

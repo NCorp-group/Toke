@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         GetComponentsInChildren<Image>(true).First(
             o => o.name == "DeathMenu"
         ).gameObject.SetActive(true);
-        StartCoroutine(FadeTime(10f));
+        StartCoroutine(FadeTime(3f));
     }
 
     private IEnumerator FadeTime(float fadeTime)

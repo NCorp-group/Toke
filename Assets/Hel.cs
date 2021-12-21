@@ -159,11 +159,11 @@ public class Hel : MonoBehaviour
 
             _available_special_attacks = _curr_phase switch
             {
-                AttackPhases.Phase1 => new List<SpecialAttack> {SpecialAttack.IciclePincer},
+                AttackPhases.Phase1 => new List<SpecialAttack> {SpecialAttack.SpawnGravitationalCircles},
                 AttackPhases.Phase2 => new List<SpecialAttack> {SpecialAttack.IciclePincer, SpecialAttack.SpawnMinions},
-                AttackPhases.Phase3 => new List<SpecialAttack> {SpecialAttack.SpawnGravitationalCircles},
+                AttackPhases.Phase3 => new List<SpecialAttack> {SpecialAttack.SpawnGravitationalCircles, SpecialAttack.IciclePincer},
                 AttackPhases.Phase4 => new List<SpecialAttack> {SpecialAttack.IciclePincer, SpecialAttack.SpawnMinions, SpecialAttack.SwirlSpray},
-                AttackPhases.Phase5 => new List<SpecialAttack> {SpecialAttack.IciclePincer, SpecialAttack.SpawnGravitationalCircles, SpecialAttack.SwirlSpray},
+                AttackPhases.Phase5 => new List<SpecialAttack> {SpecialAttack.IciclePincer, SpecialAttack.SwirlSpray},
                 _ => throw new ArgumentOutOfRangeException()
             };
             
@@ -193,11 +193,15 @@ public class Hel : MonoBehaviour
 
     private void DoSpecialAttack()
     {
-        var special_attack = _available_special_attacks[Random.Range(0, _available_special_attacks.Count - 1)];
-
+        var random_idx = Random.Range(0, _available_special_attacks.Count);
+        Debug.Log($"random idx for special attack = {random_idx}");
+        var special_attack = _available_special_attacks[random_idx];
+        Debug.Log($"special attacks available = {_available_special_attacks.Count}");
+        
         switch (special_attack)
         {
             case SpecialAttack.IciclePincer:
+                Debug.Log("icicle pincer!");
                 IciclePincer(25);
                 
                 break;
@@ -205,7 +209,8 @@ public class Hel : MonoBehaviour
                 break;
             
             case SpecialAttack.SwirlSpray:
-                
+                Debug.Log("circular attack");
+                CircularAttack(100, 3, Vector3.right, AngularDirection.Clockwise, 0.1f);
                 break;
             
             case SpecialAttack.SpawnDarkSpikes:
@@ -261,6 +266,11 @@ public class Hel : MonoBehaviour
     // -----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        if (target == null)
+        {
+            target = FindObjectOfType<Stats>().transform;
+        }
+        
         teleportationCenter = transform.position;
         blackSpike.damage = blackSpikeDamage;
         
@@ -273,6 +283,8 @@ public class Hel : MonoBehaviour
 
         InvokeRepeating(nameof(_BasicAttack), 3, basicAttackDelay);
         InvokeRepeating(nameof(DoSpecialAttack), 3, specialAttackDelay);
+        
+        CircularAttack(100, 3, Vector3.right, AngularDirection.Clockwise, 0.1f);
         // StartCoroutine(Test(5));
         // StartCoroutine(BasicAttackRoutine());
     }
