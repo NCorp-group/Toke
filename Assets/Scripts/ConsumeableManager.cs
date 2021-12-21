@@ -3,22 +3,28 @@ using UnityEngine;
 
 public class ConsumeableManager : MonoBehaviour
 {
-    [SerializeField] private int penningar_amount = 0;
-    private int old_penningar_amount;
+    [SerializeField] private int penningarAmount = 10;
 
     [SerializeField] private GameObject penningar;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        old_penningar_amount = penningar_amount;
+        penningar.GetComponent<TextMeshProUGUI>().text = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>().penningar.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnPenningarAmountChangedCB(int updatedPeningars)
     {
-        if (penningar_amount != old_penningar_amount)
-        {
-            penningar.GetComponent<TextMeshProUGUI>().text = penningar_amount.ToString();
-        }
+        //Debug.Log("In CB");
+        penningarAmount = updatedPeningars;
+        penningar.GetComponent<TextMeshProUGUI>().text = penningarAmount.ToString();
+    }
+
+    private void OnEnable()
+    {
+        Stats.OnPenningarAmountChanged += OnPenningarAmountChangedCB;
+    }
+    private void OnDisable()
+    {
+        Stats.OnPenningarAmountChanged -= OnPenningarAmountChangedCB;
     }
 }

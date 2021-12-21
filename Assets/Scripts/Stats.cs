@@ -12,7 +12,7 @@ public class Stats : MonoBehaviour
     private const string PROJECTILE_LIFE_MULTIPLIER = "projectile_life_multiplier";
     private const string PROJECTILE_SPEED_MULTIPLIER = "projectile_speed_multiplier";
 
-    public int peningar = 0;
+    public int penningar = 0;
     public int maxHealth = 100;
     public float movementSpeed = 5;
     public float luckMultiplier = 1;
@@ -21,12 +21,12 @@ public class Stats : MonoBehaviour
     public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
 
-    public static event Action<int> OnPaningarAmountChanged;
+    public static event Action<int> OnPenningarAmountChanged;
     public static event Action<float> OnProjectileLifeMultiplierModifierChanged;
     public static event Action<float> OnDamageMultiplierChanged;
     public static event Action<float> OnLuckMultiplierChanged;
     public static event Action<float> OnProjectileSpeedMultiplierChanged;
-    public static event Action<int> OnMaxHealthChanged;               // TODO: Needs a listener on the other end. Then check if it works when Jens' UI is ready and can show the max HP
+    public static event Action<int> OnMaxHealthChanged;
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
@@ -48,10 +48,10 @@ public class Stats : MonoBehaviour
     //#endif
     /////////////////////////////For consumables////////////////////////////////
     //
-    public void addPeningarAmount(int addPeningar)
+    public void addPenningarAmount(int addPeningar)
     {
-        peningar += addPeningar;
-        OnPaningarAmountChanged?.Invoke(peningar);
+        penningar += addPeningar;
+        OnPenningarAmountChanged?.Invoke(penningar);
         // TODO: add peningar to pp (Jens)
 
     }
@@ -130,8 +130,8 @@ public class Stats : MonoBehaviour
     ///////////////////////////////For debug UI/////////////////////////////////
     public void setPeningarAmount(int setPeningar)
     {
-        peningar = setPeningar;
-        OnPaningarAmountChanged?.Invoke(peningar);
+        penningar = setPeningar;
+        OnPenningarAmountChanged?.Invoke(penningar);
         // TODO: add peningar to pp (Jens)
 
     }

@@ -76,14 +76,15 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log("DIE");
         //collider.SetActive(false);
-        if (dropCollectableOnDeath)
+        /*if (dropCollectableOnDeath)
         {
             var rand = Random.Range(0.0f, 1.0f);
             if (rand <= likelihood)
             {
                 Instantiate(collectable, transform.position, Quaternion.identity);
             }
-        }
+        }*/
+        GetComponent<Loottable>().DropLoot();
         Destroy(gameObject);
     }
 }

@@ -23,7 +23,7 @@ public class Loottable : MonoBehaviour
 
     private void PeningarDrop()
     {
-        var peningarBag = Resources.Load<PeningarDrop>($"items/Peningar Bag");
+        var peningarBag = Resources.Load<PenningarDrop>($"items/Peningar Bag");
         Instantiate(peningarBag, transform.position, Quaternion.identity);
     }
 
@@ -41,7 +41,7 @@ public class Loottable : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void DropLoot()
     {
         // Generate random number between 0 and totalTickets
         randomNumber = Random.Range(0, totalTickets);
@@ -61,10 +61,11 @@ public class Loottable : MonoBehaviour
             n++;
         }
 
-        if(n == 0)
+        if (n == 0)
         {
             RuneDrop();
-        } else if (n == 1)
+        }
+        else if (n == 1)
         {
             PeningarDrop();
         }

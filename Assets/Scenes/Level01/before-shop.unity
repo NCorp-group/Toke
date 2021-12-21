@@ -21925,6 +21925,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1097946336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4990973431587642388, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+  m_PrefabInstance: {fileID: 1363728857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1130292127
 GameObject:
   m_ObjectHideFlags: 0
@@ -22165,24 +22170,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1227979838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7681012435900907471, guid: 4a04874d6511941c68992eddfd5b01f7, type: 3}
-  m_PrefabInstance: {fileID: 7681012434672960497}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1227979843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227979838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a042c46a96b4652b124828e60dbb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peningarsAvaliable: 0
 --- !u!1 &1230928316
 GameObject:
   m_ObjectHideFlags: 0
@@ -26361,6 +26348,10 @@ PrefabInstance:
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 659560214}
+    - target: {fileID: 4990973432617799171, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: penningar
+      value: 
+      objectReference: {fileID: 1097946336}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
 --- !u!1 &1366915628
@@ -139090,7 +139081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: transitionAnimator
@@ -139109,7 +139100,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[2].startDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].repetitions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[2].repetitions
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
@@ -139118,7 +139117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].enemies.Array.size
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[2].enemies.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[2]
@@ -139150,6 +139153,14 @@ PrefabInstance:
       objectReference: {fileID: 5499251914053963051, guid: c27c97d0d3b4b895d9f3abd130efccbf, type: 3}
     - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
       propertyPath: waves.Array.data[1].enemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 5499251914053963051, guid: c27c97d0d3b4b895d9f3abd130efccbf, type: 3}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[2].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 5499251914053963051, guid: c27c97d0d3b4b895d9f3abd130efccbf, type: 3}
+    - target: {fileID: 3870513914984843859, guid: d141113fbf00e46449b12a932e67499c, type: 3}
+      propertyPath: waves.Array.data[2].enemies.Array.data[1]
       value: 
       objectReference: {fileID: 5499251914053963051, guid: c27c97d0d3b4b895d9f3abd130efccbf, type: 3}
     - target: {fileID: 3870513914984843860, guid: d141113fbf00e46449b12a932e67499c, type: 3}
