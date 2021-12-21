@@ -49,6 +49,9 @@ public class Hel : MonoBehaviour
     public float specialAttackDelay;
     
     public event Action<SpecialAttack> OnHelDoSpecialAttack;
+    public static event Action<SpecialAttack> OnHelDoSpecialAttackStatic;
+    public event Action OnHelDoBasicAttack;
+    public static event Action OnHelDoBasicAttackStatic;
 
 
     [Min(0.3f)]
@@ -189,11 +192,16 @@ public class Hel : MonoBehaviour
         }
     }
 
-    private List<SpecialAttack> _available_special_attacks = new();
+    private List<SpecialAttack> _available_special_attacks = new List<SpecialAttack> { SpecialAttack.IciclePincer };
 
     private void DoSpecialAttack()
     {
-        var special_attack = _available_special_attacks[Random.Range(0, _available_special_attacks.Count - 1)];
+        Debug.Log($"attack count: {_available_special_attacks.Count}");
+        var special_attack = _available_special_attacks[Random.Range(0, _available_special_attacks.Count)];
+        
+
+        OnHelDoSpecialAttack?.Invoke(special_attack);
+        OnHelDoSpecialAttackStatic?.Invoke(special_attack);
 
         switch (special_attack)
         {
@@ -534,7 +542,9 @@ public class Hel : MonoBehaviour
         Debug.Log($"angular increment is {angular_increment}");
         var angle = start_angle;
 
-        
+        OnHelDoBasicAttack?.Invoke();
+        OnHelDoBasicAttackStatic?.Invoke();
+
         for (int i = 0; i < n_projectiles; i++)
         {
             var rot = Quaternion.Euler(0f, 0f, angle);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class BlackSpike : MonoBehaviour
 {
@@ -10,13 +11,20 @@ public class BlackSpike : MonoBehaviour
     public LayerMask layerMask;
 
     private ContactFilter2D _contactFilter2D;
-    
+
+    public static event Action OnSpikeSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
         _contactFilter2D = new ContactFilter2D();
         _contactFilter2D.layerMask = layerMask;
         _contactFilter2D.useLayerMask = true;
+    }
+
+    public void HasSpawned()
+    {
+        OnSpikeSpawn?.Invoke();
     }
     
     public void DealDamage()

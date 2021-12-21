@@ -489,6 +489,60 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: darkspikes-spawn1
+    clip: {fileID: 8300000, guid: d879ed31eaf35b04481e593c33f05f5b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: darkspikes-spawn2
+    clip: {fileID: 8300000, guid: d5fb66dab6be22d47bae816cf4aad6d5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: darkspikes-spawn3
+    clip: {fileID: 8300000, guid: 5ee9242d83b387948a19ddd61723fe1c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: darkspikes-spawn4
+    clip: {fileID: 8300000, guid: 276412bd74bc8b041b85647a0479806f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: darkspikes-spawn5
+    clip: {fileID: 8300000, guid: e9de7bac051a97147999bc928e2343d8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hel-basicattack
+    clip: {fileID: 8300000, guid: 61d09d64d4c86694d89ad47b5448dfd0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hel-iciclepincer
+    clip: {fileID: 8300000, guid: 1409e0d5c5015cc44b2516b923667cb4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hel-swirlspray
+    clip: {fileID: 8300000, guid: 90cfe50f51be020459ff677b0a3cebc7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hel-death
+    clip: {fileID: 8300000, guid: 4c0be40ed7a90c24fac641b9695c085d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   music:
   - name: boss-music
     clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}

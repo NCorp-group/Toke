@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Animator))]
 public class GravitySphere : MonoBehaviour
@@ -8,9 +9,12 @@ public class GravitySphere : MonoBehaviour
     private Animator _animator;
     private static readonly int Collapse = Animator.StringToHash("collapse");
 
+    public static event Action OnGravitySphereSpawn;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
+        OnGravitySphereSpawn?.Invoke();
     }
 
     public void Setup(float lifetime)
