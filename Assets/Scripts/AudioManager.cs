@@ -102,9 +102,6 @@ public class AudioManager : MonoBehaviour
  
     public void ChangeVolume(float _master, float _music, float _sfx)
     {
-        Debug.Log($"Master Volume (Audio): {_master}");
-        Debug.Log($"Music Volume (Audio): {_music}");
-        Debug.Log($"SFX Volume (Audio): {_sfx}");
         foreach (Sound s in sounds)
         {
             s.source.volume = s.volume * _master * _sfx;
@@ -125,8 +122,6 @@ public class AudioManager : MonoBehaviour
         }
         if (!m.source.isPlaying)
         {
-            // Changing the volume of the sound depending on user settings
-            m.source.volume = m.volume;
             m.source.Play();
         }
     }
@@ -141,8 +136,6 @@ public class AudioManager : MonoBehaviour
         }
         if (!s.source.isPlaying)
         {
-            // Changing the volume of the sound depending on user settings
-            s.source.volume = s.volume;
             s.source.Play();
         }     
     }
@@ -156,7 +149,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         // Changing the volume of the sound depending on user settings
-        s.source.volume = s.volume;
+        //s.source.volume = s.volume;
         s.source.Play();
     }
 
@@ -336,7 +329,6 @@ public class AudioManager : MonoBehaviour
         //Adding variance to the step sound of the player
         //by randomizing volume and pitch for every step
         Sound s = Array.Find(sounds, sound => sound.name == "toke-step");
-        s.source.volume = s.volume * UnityEngine.Random.Range(0.8f, 1);
         s.source.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
         if (!s.source.isPlaying)
             s.source.Play();

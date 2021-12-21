@@ -76,10 +76,6 @@ public class OptionsMenu : MonoBehaviour
             musicToggled ? musicSlider.value : 0, 
             sfxToggled ? sfxSlider.value : 0
         );
-
-        Debug.Log($"Master value: {masterSlider.value}");
-        Debug.Log($"Music value: {musicSlider.value}");
-        Debug.Log($"SFX value: {sfxSlider.value}");
     }
 
     /*
