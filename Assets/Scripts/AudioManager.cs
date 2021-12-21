@@ -102,13 +102,13 @@ public class AudioManager : MonoBehaviour
     void OnEnable()
     {
         MainMenu.OnMainMenu += GoToMainMenu;
-        MainMenu.OnStartGame += StartGame;
+        StoryController.OnStartGame += StartGame;
     }
 
     void OnDisable()
     {
         MainMenu.OnMainMenu -= GoToMainMenu;
-        MainMenu.OnStartGame -= StartGame;
+        StoryController.OnStartGame -= StartGame;
     }
 
     public void ChangeVolume(float _master, float _music, float _sfx)

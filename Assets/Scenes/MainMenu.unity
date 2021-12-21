@@ -1497,6 +1497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27178277d558abe459dfce582f0c7022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnimator: {fileID: 2036974258}
+  transitionDuration: 1
 --- !u!1 &1832315473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,6 +1643,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6861268200786904887, guid: fe5def66fc8047546a6fa803fc22ac86, type: 3}
   m_PrefabInstance: {fileID: 6861268198789137547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2036974258 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3677861573003414306, guid: c1faae388375f9d94b327388befeb829, type: 3}
+  m_PrefabInstance: {fileID: 533999992}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6861268198789137547
 PrefabInstance:

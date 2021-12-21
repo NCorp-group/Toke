@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Light2D))]
 public class BifrostLight : MonoBehaviour
@@ -26,7 +27,11 @@ public class BifrostLight : MonoBehaviour
     public Fade fade = Fade.Out;
 
     public bool startOnSceneStart = true;
-    
+
+    public bool isLastScene = false;
+    public Animator transitionAnimator;
+    public float transitionDuration = 1f;
+
     private float _max_intensity;
     private float _max_outer_radius;
 
@@ -90,7 +95,21 @@ public class BifrostLight : MonoBehaviour
         }
 
         _movement.enabled = fade != Fade.In;
+
+        if (isLastScene)
+        {
+            StartCoroutine(_ToEndStory());
+        }
         // Destroy(gameObject);
+    }
+
+    private IEnumerator _ToEndStory()
+    {
+        // TODO: Save run progress here.
+        Time.timeScale = 1f;
+        transitionAnimator.SetTrigger(RoomManager.EndScene);
+        yield return new WaitForSeconds(transitionDuration * 3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 
     // Update is called once per frame
