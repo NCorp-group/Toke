@@ -156,10 +156,10 @@ public class Projectile : MonoBehaviour
             //Debug.Log("DO WE GET HERE??");
             // animator.SetTrigger("collision");
             //Debug.Log("Hit Player with projectile");
-            var playerHealth = collision.collider.gameObject.GetComponent<PlayerHealthController>();
-            if (playerHealth != null)
+            var playerStats = collision.collider.gameObject.GetComponent<Stats>();
+            if (playerStats != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerStats.TakeDamage(damage);
                 if (animatorProvidesOnHitEffect)
                 {
                     //Debug.Log("animate: COLLISION");

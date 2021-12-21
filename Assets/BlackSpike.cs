@@ -24,7 +24,7 @@ public class BlackSpike : MonoBehaviour
         var collider = Physics2D.OverlapCircle(transform.position, radius, layerMask);
         if (collider is not null)
         {
-            collider.GetComponent<PlayerHealthController>().TakeDamage(damage);
+            collider.GetComponent<Stats>().TakeDamage(damage);
         }
     }
 

@@ -65,8 +65,8 @@ public class AudioManager : MonoBehaviour
         Enemy.OnEnemyTakeDamage += EnemyTakeDamageSound;
         RangedAttack.OnEnemyRangedAttack += EnemyFireSound;
         MeleeAttack.OnEnemyMeleeAttack += EnemyAttackSound;
-        PlayerHealthController.OnPlayerTakeDamage += PlayerTakeDamageSound;
-        PlayerHealthController.OnPlayerDie += PlayerDeathSound;
+        Stats.OnPlayerTakeDamage += PlayerTakeDamageSound;
+        Stats.OnPlayerDie += PlayerDeathSound;
 
         //Rooms/Waves
         //RoomManager.OnRoomComplete += RoomCompleteSound;
@@ -102,6 +102,9 @@ public class AudioManager : MonoBehaviour
  
     public void ChangeVolume(float _master, float _music, float _sfx)
     {
+        //Debug.Log($"Master Volume (Audio): {_master}");
+        //Debug.Log($"Music Volume (Audio): {_music}");
+        //Debug.Log($"SFX Volume (Audio): {_sfx}");
         foreach (Sound s in sounds)
         {
             s.source.volume = s.volume * _master * _sfx;
@@ -117,7 +120,7 @@ public class AudioManager : MonoBehaviour
         Music m = Array.Find(music, music => music.name == name);
         if (m == null)
         {
-            Debug.LogWarning("Music: " + name + "not found!");
+            //Debug.LogWarning("Music: " + name + "not found!");
             return;
         }
         if (!m.source.isPlaying)
@@ -131,7 +134,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            //Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
         if (!s.source.isPlaying)
@@ -145,7 +148,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            //Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
         // Changing the volume of the sound depending on user settings
@@ -237,7 +240,7 @@ public class AudioManager : MonoBehaviour
 
     public void StartMusic(DoorPreviewController.RoomType roomType)
     {
-        Debug.Log("StartMusic");
+        //Debug.Log("StartMusic");
         if (roomType == DoorPreviewController.RoomType.BOSS && currentMusic != "boss-music")
         {
             PlayMusic("boss-music");

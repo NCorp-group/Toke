@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -20,40 +19,34 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "CurrentHealthText");
-        maxHealth = GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "MaxHealthText");
         UpdateSprite();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void OnEnable()
     {
-        PlayerHealthController.OnPlayerHealthChange += UpdateValue;
-        PlayerHealthController.OnPlayerHealthChange += UpdateText;
+        Stats.OnPlayerHealthChange += UpdateValue;
+        Stats.OnPlayerHealthChange += UpdateText;
     }
 
     void OnDisable()
     {
-        PlayerHealthController.OnPlayerHealthChange -= UpdateValue;
-        PlayerHealthController.OnPlayerHealthChange += UpdateText;
+        Stats.OnPlayerHealthChange -= UpdateValue;
+        Stats.OnPlayerHealthChange += UpdateText;
     }
 
     private void UpdateText(float currentHealth, int maxHealth)
     {
-        if (this.currentHealth is not null) this.currentHealth.text = $"{(int) currentHealth}";
-        if (this.maxHealth is not null) this.maxHealth.text = $"{maxHealth}";
+        //Debug.Log($"HPTEXT: currentHealth = {currentHealth}, maxHealth = {maxHealth}");
+        this.currentHealth ??= GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "CurrentHealthText");
+        this.currentHealth.text = $"{(int) currentHealth}";
+
+        this.maxHealth ??= GetComponentsInChildren<TextMeshProUGUI>().First(tmp => tmp.name == "MaxHealthText");
+        this.maxHealth.text = $"{maxHealth}";
     }
 
     private void UpdateValue(float currentHealth, int maxHealth)
     {
-        //Debug.Log(currentHealth);
-        //Debug.Log(maxHealth);
         value = currentHealth / maxHealth;
-        //Debug.Log(value);
         UpdateSprite();
     }
 
