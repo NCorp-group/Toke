@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 6780261422929895978}
   - component: {fileID: 449591206051248017}
   - component: {fileID: 4743492834921557753}
+  - component: {fileID: -4882594498996320586}
   m_Layer: 14
   m_Name: nightborne
   m_TagString: Enemy
@@ -421,7 +422,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 8
+  m_SortingLayer: 11
   m_SortingOrder: 8
   m_Sprite: {fileID: -461917205, guid: fa09042f611dac795995f5856bdbd246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -609,3 +610,17 @@ MonoBehaviour:
   flashIntensity: 5
   ttr: 0.2
   ttf: 1
+--- !u!114 &-4882594498996320586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002101408142310533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58afd1430ab9eccd3bc4b0edf4c27e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTickets: 0
+  randomNumber: 0

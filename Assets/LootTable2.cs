@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootTable : MonoBehaviour
+public class LootTable2 : MonoBehaviour
 {
-    private void RuneDrop()
+    public static void RuneDrop(Vector3 pos)
     {
         //Debug.Log("RuneDrop");
         // 1:Athletics 2:Determination 3:Focus 4:Healing 5:Luck 6:Strength
@@ -20,7 +20,7 @@ public class LootTable : MonoBehaviour
 
         int runeType = Random.Range(0, runes.Count);
 
-        Instantiate(runes[runeType], transform.position, Quaternion.identity);
+        Instantiate(runes[runeType], pos, Quaternion.identity);
     }
 
     private void PeningarDrop()
@@ -29,7 +29,7 @@ public class LootTable : MonoBehaviour
         Instantiate(peningarBag, transform.position, Quaternion.identity);
     }
 
-    public List<int> lootTable;// = { 10, 90 }; // rune tickets, nothing
+    private List<int> lootTable;// = { 10, 90 }; // rune tickets, nothing
     public int totalTickets = 0;
     public int randomNumber;
     // Start is called before the first frame update
@@ -65,7 +65,7 @@ public class LootTable : MonoBehaviour
 
         if (n == 0)
         {
-            RuneDrop();
+            RuneDrop(transform.position);
         }
         else if (n == 1)
         {

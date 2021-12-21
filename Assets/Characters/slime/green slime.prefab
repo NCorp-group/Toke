@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 3559305605919324940}
   - component: {fileID: 102391589844829501}
   - component: {fileID: 6683691171586495994}
+  - component: {fileID: 8248642378914750357}
   m_Layer: 14
   m_Name: green slime
   m_TagString: Enemy
@@ -372,7 +373,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 9
+  m_SortingLayer: 11
   m_SortingOrder: 8
   m_Sprite: {fileID: -7061272880485627695, guid: 4cc6cb130e2f4c41fb6e5215102b252e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -538,6 +539,7 @@ MonoBehaviour:
   aggressionRadius: 10
   target: {fileID: 0}
   from: {fileID: 0}
+  recalculateAStarGridUsingBoundsOfEnemyDelay: 0
   enemyType: 0
 --- !u!114 &6683691171586495994
 MonoBehaviour:
@@ -559,3 +561,17 @@ MonoBehaviour:
     m_Bits: 128
   attackDelay: 1
   useAnimationEventToTriggerAttack: 1
+--- !u!114 &8248642378914750357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422234651246897166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58afd1430ab9eccd3bc4b0edf4c27e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTickets: 0
+  randomNumber: 0

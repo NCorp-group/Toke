@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1886399550248248807}
   - component: {fileID: -8543127337828862600}
   - component: {fileID: 8157821123262069807}
+  - component: {fileID: -3913061328004820215}
   m_Layer: 14
   m_Name: arcane archer
   m_TagString: Enemy
@@ -114,7 +115,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 8
+  m_SortingLayer: 11
   m_SortingOrder: 4
   m_Sprite: {fileID: -1466151508, guid: c36edf123061ddc71af599027ad8e6f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -303,6 +304,20 @@ MonoBehaviour:
   projectileVariant: 1
   projectilePadding: 0.15
   sampleRate: 0.1
+--- !u!114 &-3913061328004820215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2433757892867087539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58afd1430ab9eccd3bc4b0edf4c27e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTickets: 0
+  randomNumber: 0
 --- !u!1 &3677654759137219061
 GameObject:
   m_ObjectHideFlags: 0

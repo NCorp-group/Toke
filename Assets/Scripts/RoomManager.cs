@@ -59,6 +59,9 @@ public class RoomManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
+        Debug.Log("This room's reward is: " + dropType);
+        
         //Debug.Log("START");
         waves.ForEach((wave) => { _n_waves += wave.repetitions; });
         spawningPoints = GetComponentsInChildren<Transform>()
@@ -72,8 +75,7 @@ public class RoomManager : MonoBehaviour
         StartCoroutine(Spawn());
 
         
-        dropType = (RoomType) PlayerPrefs.GetInt(ROOM_TYPE);
-        //Debug.Log("This room's reward is: " + dropType);
+        
 
         OnRoomEnter?.Invoke(dropType);
     }
@@ -227,8 +229,39 @@ public class RoomManager : MonoBehaviour
             //Use this for implementing sound indicating all waves in a room is done
             OnRoomComplete?.Invoke(room1, room2);
             DropReward?.Invoke(dropType);
+            DropRewards();
         }
     }
+
+
+    public Transform[] loopdropPoints;
+
+    private void DropRewards()
+    {
+        foreach (var loopdropPoint in loopdropPoints)
+        {
+            switch (dropType)
+            {
+                case RoomType.ITEM_DROP:
+                    LootTable2.RuneDrop(loopdropPoint.position);
+                    break;
+                
+                case RoomType.HEALTH_DROP:
+                    var health_potion = Resources.Load<GameObject>("items/HealthPotion");
+                    Instantiate(health_potion, loopdropPoint.position, Quaternion.identity);
+                    break;
+                
+                case RoomType.PENNINGAR_DROP:
+                    var bag = Resources.Load<GameObject>("items/Big Penningar Bag");
+                    Instantiate(bag, loopdropPoint.position, Quaternion.identity);
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
 
     private IEnumerator Spawn()
     {

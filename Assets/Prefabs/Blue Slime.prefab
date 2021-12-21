@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 6780261422929895978}
   - component: {fileID: 449591206051248017}
   - component: {fileID: 4743492834921557753}
+  - component: {fileID: 6085823471664902158}
   m_Layer: 14
   m_Name: Blue Slime
   m_TagString: Enemy
@@ -422,7 +423,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 9
+  m_SortingLayer: 11
   m_SortingOrder: 8
   m_Sprite: {fileID: 615580124, guid: 27b5a67984474750c88d0eedecd3f9e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -487,6 +488,7 @@ MonoBehaviour:
   aggressionRadius: 16.2
   target: {fileID: 0}
   from: {fileID: 0}
+  recalculateAStarGridUsingBoundsOfEnemyDelay: 0
   enemyType: 0
 --- !u!114 &1050531591621498743
 MonoBehaviour:
@@ -609,6 +611,20 @@ MonoBehaviour:
   flashIntensity: 5
   ttr: 0.2
   ttf: 1
+--- !u!114 &6085823471664902158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002101408142310533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58afd1430ab9eccd3bc4b0edf4c27e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTickets: 0
+  randomNumber: 0
 --- !u!1 &9002101409271593353
 GameObject:
   m_ObjectHideFlags: 0

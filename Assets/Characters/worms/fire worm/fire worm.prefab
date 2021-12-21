@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 1886399550248248807}
   - component: {fileID: -8543127337828862600}
   - component: {fileID: 8157821123262069807}
-  - component: {fileID: 5363641291002931692}
+  - component: {fileID: 8796479778919286049}
   m_Layer: 14
   m_Name: fire worm
   m_TagString: Enemy
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -538947167
-  m_SortingLayer: 8
+  m_SortingLayer: 11
   m_SortingOrder: 4
   m_Sprite: {fileID: 4723107735738678597, guid: 5819ab063ed30358ab465e7b3273a530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -318,7 +318,7 @@ MonoBehaviour:
   projectileVariant: 1
   projectilePadding: 0.15
   sampleRate: 0.1
---- !u!114 &5363641291002931692
+--- !u!114 &8796479778919286049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,10 +327,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2433757892867087539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adecf28d6a8647bcb06f1ebf520a66a, type: 3}
+  m_Script: {fileID: 11500000, guid: 58afd1430ab9eccd3bc4b0edf4c27e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable: 
   totalTickets: 0
   randomNumber: 0
 --- !u!1 &3677654759137219061
