@@ -6801,6 +6801,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 806043904}
+    - target: {fileID: 2767724943092214726, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: transitionAnimator
+      value: 
+      objectReference: {fileID: 1698587911}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
 --- !u!4 &1628820638 stripped

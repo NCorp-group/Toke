@@ -15740,10 +15740,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 336993309}
-    - target: {fileID: 1555840644041499879, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 827157755
-      objectReference: {fileID: 0}
+    - target: {fileID: 2767724943092214726, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: transitionAnimator
+      value: 
+      objectReference: {fileID: 326943073}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
 --- !u!1 &1479542481

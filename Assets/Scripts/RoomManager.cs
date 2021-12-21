@@ -53,7 +53,7 @@ public class RoomManager : MonoBehaviour
     }
 
     public List<EnemyWave> waves = new List<EnemyWave>();
-    private static readonly int EndScene = Animator.StringToHash("EndScene");
+    public static readonly int EndScene = Animator.StringToHash("EndScene");
 
     //when to spawn next wave ??? periodic or on event ???
     // Start is called before the first frame update

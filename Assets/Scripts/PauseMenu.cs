@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +9,10 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     private GameObject optionsMenu;
-
     private GameObject menuItems;
+
+    public Animator transitionAnimator;
+    public float transitionDuration = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +71,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMainMenu()
     {
+        StartCoroutine(_ToMainMenu());
+    }
+
+    private IEnumerator _ToMainMenu()
+    {
         // TODO: Save run progress here.
+        Time.timeScale = 1f;
+        transitionAnimator.SetTrigger(RoomManager.EndScene);
+        yield return new WaitForSeconds(transitionDuration * 3);
         Resume();
         SceneManager.LoadScene(0);
     }
