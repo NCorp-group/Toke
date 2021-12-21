@@ -252,8 +252,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 988020291
-  m_SortingLayer: 10
-  m_SortingOrder: 10
+  m_SortingLayer: 5
+  m_SortingOrder: 5
   m_Sprite: {fileID: 325186612, guid: 610e4418ea3465d5a963a8c7142db298, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -293,7 +293,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085256681387715406}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -336,12 +336,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnGravityZones: 1
   teleportationRadius: 17.7
+  bhc: {fileID: 3262012083099721146}
   projectile: {fileID: 7422245520340908315, guid: de175844ee6f05a12bfabf7890acda4c, type: 3}
   projectileSpeed: 3
   target: {fileID: 0}
   gravitySphere: {fileID: 6206821165155874039, guid: 77b167862627f358fb54f180b29b738b, type: 3}
   destroyGravityZonesAfterDelay: 5
   blackSpike: {fileID: 2587098806850118226, guid: cc74c36520b30e8a79477e1b9d4390fa, type: 3}
+  blackSpikeDamage: 10
 --- !u!114 &3262012083099721146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac36df32c818ed2f8948890d3c36560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.9716981, g: 0.050418302, b: 0.050418302, a: 0}
+  color: {r: 0.9716981, g: 0.050418302, b: 0.050418302, a: 1}
   flashDuration: 0.5
   flashIntensity: 3
   ttr: 0.1

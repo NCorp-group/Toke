@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: orthographic size
-      value: 14.90625
+      value: 13.96875
       objectReference: {fileID: 0}
     - target: {fileID: 1826900498581366973, guid: 93f5cbdafa64742c8a8249902839a680, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -302,7 +302,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.90625
+  orthographic size: 13.96875
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -90481,18 +90481,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2527478612455669471, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: m_SortingLayer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527478612455669471, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527478612455669471, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 988020291
-      objectReference: {fileID: 0}
     - target: {fileID: 3315966585204015214, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -90537,14 +90525,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4691695611028632550, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5281749123427135388, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7085256681387715406, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
       propertyPath: m_Name
       value: Hel
@@ -90553,9 +90533,17 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1320997701}
-    - target: {fileID: 8145060807090106014, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
-      propertyPath: m_BodyType
+    - target: {fileID: 7443333335145780468, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
+      propertyPath: basicAttackDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443333335145780468, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
+      propertyPath: specialAttackDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443333335145780468, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
+      propertyPath: basicAttackConeWidth
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa4056a5619ea2b58b94a2e6b5730582, type: 3}
