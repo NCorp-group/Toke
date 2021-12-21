@@ -1229,7 +1229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penningar: 0
   maxHealth: 100
-  movementSpeed: 8
+  currentHealth: 120
+  movementSpeed: 5
   luckMultiplier: 1
   fireRateMultiplier: 1
   damageMultiplier: 1

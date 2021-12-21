@@ -17,9 +17,9 @@ public class Stats : MonoBehaviour
     public int penningar = 0;
     public int maxHealth = 100;
     public float currentHealth = 120;
-    public float movementSpeed = 5;
+    public float movementSpeed = 7;
     public float luckMultiplier = 1;
-    public float fireRateMultiplier = 5;
+    public float fireRateMultiplier = 4;
     public float damageMultiplier = 1;
     public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
@@ -27,7 +27,7 @@ public class Stats : MonoBehaviour
     private const int defaultPenningar = 0;
     private int defaultMaxHealth = 100;
     private float defaultCurrentHealth = 100;
-    private float defaultMovementSpeed = 5;
+    private float defaultMovementSpeed = 7;
     private float defaultLuckMultiplier = 1;
     private float defaultFireRateMultiplier = 1;
     private float defaultDamageMultiplier = 1;
@@ -49,11 +49,11 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnMovementSpeedMultiplierChanged;
     public static event Action<float> OnFireRateMultiplierChanged;
 
-    //#if UNITY_EDITOR
-    /*private void OnValidate()
+    /*#if UNITY_EDITOR
+    private void OnValidate()
     {
         //Debug.Log("!! OnValidate");
-        StatsFromPlayerPrefs();
+        //StatsFromPlayerPrefs();
         
         setMaxHealth(maxHealth);
         setCurrentHealth(currentHealth);
@@ -63,9 +63,8 @@ public class Stats : MonoBehaviour
         setDamageMultiplier(damageMultiplier);
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
-    }*/
-
-    //#endif
+    }
+    #endif*/
     /////////////////////////////For consumables////////////////////////////////
     //
     public void addPenningarAmount(int addPeningar)

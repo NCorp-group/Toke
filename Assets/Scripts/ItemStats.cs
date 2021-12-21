@@ -33,7 +33,7 @@ public class ItemStats : MonoBehaviour
         // Sets the price text under the item
         if (!dropped)
         {
-            priceTag = GetComponentInChildren<TextMeshProUGUI>();
+            priceTag = GetComponentInChildren<TextMeshProUGUI>(true);
             if (priceTag is not null)
             {
                 priceTag.text = $"{price} P";

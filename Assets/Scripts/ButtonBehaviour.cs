@@ -21,7 +21,7 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
      public void OnPointerEnter (PointerEventData eventData)
      {
-         Debug.Log("In OnPointerEnter");
+         //Debug.Log("In OnPointerEnter");
          //_txt.color = Color.magenta;
          _txt.CrossFadeColor(Color.magenta, .2f, true, false);
          /*if (_btn.interactable) {
@@ -33,7 +33,7 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
  
      public void OnPointerExit (PointerEventData eventData)
      {
-         Debug.Log("In OnPointerExit");
+         //Debug.Log("In OnPointerExit");
          //_txt.color = _baseColor;
          _txt.CrossFadeColor(_baseColor, .2f, true, false);
          /*if (_btn.interactable) {
