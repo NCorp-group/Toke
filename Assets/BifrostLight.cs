@@ -50,6 +50,11 @@ public class BifrostLight : MonoBehaviour
         _max_intensity = maxIntensity;
         //_max_falloff = _light.shapeLightFalloffSize;
         //_max_outer_radius = _light.pointLightOuterRadius;
+        if (startOnSceneStart)
+        {
+            CallBifrost(fade);
+        }
+        
     }
 
     public void CallBifrost(Fade f)
@@ -83,6 +88,8 @@ public class BifrostLight : MonoBehaviour
             
             yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        _movement.enabled = fade != Fade.In;
         // Destroy(gameObject);
     }
 
