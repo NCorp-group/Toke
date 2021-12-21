@@ -268,7 +268,7 @@ public class Hel : MonoBehaviour
     {
         if (target == null)
         {
-            target = FindObjectOfType<PlayerHealthController>().transform;
+            target = FindObjectOfType<Stats>().transform;
         }
         
         teleportationCenter = transform.position;
