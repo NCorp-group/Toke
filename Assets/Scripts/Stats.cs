@@ -58,6 +58,12 @@ public class Stats : MonoBehaviour
     //#endif
     /////////////////////////////For consumables////////////////////////////////
     //
+
+    [RuntimeInitializeOnLoadMethod]
+    private static void OnFirstRun()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     public void addPenningarAmount(int addPeningar)
     {
         penningar += addPeningar;
@@ -221,10 +227,12 @@ public class Stats : MonoBehaviour
 
     private void OnEnable()
     {
+        /*Debug.Log($"Scene Name = {SceneManager.GetActiveScene().name}");
         if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
         {
             PlayerPrefs.DeleteAll();
-        }
+            Debug.Log("Deleted PP");
+        }*/
     }
 
     // Start is called before the first frame update
