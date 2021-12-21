@@ -318,7 +318,7 @@ public class AudioManager : MonoBehaviour
     {
         enemyFireCounter++;
         PlaySFXWithOverlap($"{EnemyTypeToString(type)}-fire{enemyFireCounter}");
-        if (enemyFireCounter == 8)
+        if (enemyFireCounter == 4)
             enemyFireCounter = 0;
     }
 
