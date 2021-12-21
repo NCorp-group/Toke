@@ -23,6 +23,16 @@ public class Stats : MonoBehaviour
     public float damageMultiplier = 1;
     public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
+
+    private const int defaultPenningar = 0;
+    private int defaultMaxHealth = 100;
+    private float defaultCurrentHealth = 100;
+    private float defaultMovementSpeed = 5;
+    private float defaultLuckMultiplier = 1;
+    private float defaultFireRateMultiplier = 1;
+    private float defaultDamageMultiplier = 1;
+    private float defaultProjectileLifeMultiplier = 1;
+    private float defaultProjectileSpeedMultiplier = 1;
     
     public static event Action<float, int> OnPlayerHealthChange;
     public static event Action OnPlayerDie;
@@ -40,7 +50,7 @@ public class Stats : MonoBehaviour
     public static event Action<float> OnFireRateMultiplierChanged;
 
     //#if UNITY_EDITOR
-    private void OnValidate()
+    /*private void OnValidate()
     {
         //Debug.Log("!! OnValidate");
         StatsFromPlayerPrefs();
@@ -53,17 +63,11 @@ public class Stats : MonoBehaviour
         setDamageMultiplier(damageMultiplier);
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
-    }
+    }*/
 
     //#endif
     /////////////////////////////For consumables////////////////////////////////
     //
-
-    [RuntimeInitializeOnLoadMethod]
-    private static void OnFirstRun()
-    {
-        PlayerPrefs.DeleteAll();
-    }
     public void addPenningarAmount(int addPeningar)
     {
         penningar += addPeningar;
@@ -238,19 +242,38 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Debug.Log($"current scene name: {SceneManager.GetActiveScene().name}");
+        if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
+        {
+            Debug.Log("Destroying PP");
+            PlayerPrefs.DeleteAll();
+            Debug.Log($"PP maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
+            //StatsFromPlayerPrefs();
+            Debug.Log($"PP AFTER maxhealth: {PlayerPrefs.GetInt(MAX_HEALTH, -1)}");
+            ResetStats();
+        }
         StatsFromPlayerPrefs();
-        setProjectileLifeMultiplier(projectileLifeMultiplier);
+        /*setProjectileLifeMultiplier(projectileLifeMultiplier);
         setDamageMultiplier(damageMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
         setCurrentHealth(currentHealth);
         setMaxHealth(maxHealth);
         setMovementSpeedMultiplier(movementSpeed);
         setFireRateMultiplier(fireRateMultiplier);
-        setLuckMultiplier(luckMultiplier);
+        setLuckMultiplier(luckMultiplier);*/
     }
 
-    private void OnDisable()
+    private void ResetStats()
     {
+        setProjectileLifeMultiplier(defaultProjectileLifeMultiplier);
+        setDamageMultiplier(defaultDamageMultiplier);
+        setProjectilespeedMultiplier(defaultProjectileSpeedMultiplier);
+        setCurrentHealth(defaultCurrentHealth);
+        setMaxHealth(defaultMaxHealth);
+        setMovementSpeedMultiplier(defaultMovementSpeed);
+        setFireRateMultiplier(defaultFireRateMultiplier);
+        setLuckMultiplier(defaultLuckMultiplier);
+        //StatsToPlayerPrefs();
     }
 
     private void StatsFromPlayerPrefs()
