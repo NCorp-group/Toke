@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         AudioListener.pause = true;
 
