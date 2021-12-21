@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Loottable : MonoBehaviour
+public class LootTable : MonoBehaviour
 {
     private void RuneDrop()
     {
@@ -25,7 +25,7 @@ public class Loottable : MonoBehaviour
 
     private void PeningarDrop()
     {
-        var peningarBag = Resources.Load<PenningarDrop>($"items/Peningar Bag");
+        var peningarBag = Resources.Load<PenningarDrop>($"items/Penningar Bag");
         Instantiate(peningarBag, transform.position, Quaternion.identity);
     }
 
@@ -40,6 +40,36 @@ public class Loottable : MonoBehaviour
         foreach(int tickets in lootTable){
             //Debug.Log($"Ticket entry with {tickets} tickets");
             totalTickets += tickets;
+        }
+    }
+
+    public void OnDestroy()
+    {
+        // Generate random number between 0 and totalTickets
+        randomNumber = Random.Range(0, totalTickets);
+        //Debug.Log($"Random number between 0 and {totalTickets} is: {randomNumber}");
+
+        int n = 0;
+        foreach (int tickets in lootTable)
+        {
+            //Debug.Log($"Tickets: {tickets}, Totaltickets: {totalTickets}");
+            totalTickets -= tickets;
+            //Debug.Log($"After subtraction, totaltickets left: {totalTickets}");
+            if (randomNumber > totalTickets)
+            {
+                //Debug.Log($"Luck hit in loop number {n}");
+                break;
+            }
+            n++;
+        }
+
+        if (n == 0)
+        {
+            RuneDrop();
+        }
+        else if (n == 1)
+        {
+            PeningarDrop();
         }
     }
 
@@ -72,34 +102,4 @@ public class Loottable : MonoBehaviour
             PeningarDrop();
         }
     }*/
-
-    public void OnDestroy()
-    {
-        // Generate random number between 0 and totalTickets
-        randomNumber = Random.Range(0, totalTickets);
-        //Debug.Log($"Random number between 0 and {totalTickets} is: {randomNumber}");
-
-        int n = 0;
-        foreach (int tickets in lootTable)
-        {
-            //Debug.Log($"Tickets: {tickets}, Totaltickets: {totalTickets}");
-            totalTickets -= tickets;
-            //Debug.Log($"After subtraction, totaltickets left: {totalTickets}");
-            if (randomNumber > totalTickets)
-            {
-                //Debug.Log($"Luck hit in loop number {n}");
-                break;
-            }
-            n++;
-        }
-
-        if (n == 0)
-        {
-            RuneDrop();
-        }
-        else if (n == 1)
-        {
-            PeningarDrop();
-        }
-    }
 }

@@ -55,7 +55,7 @@ public class InteractableArea : MonoBehaviour
                 else if(penningarBagDrop is not null)
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
-                    tokeStats.addPenningarAmount(penningarBagDrop.penningarsAvaliable);
+                    tokeStats.addPenningarAmount(penningarBagDrop.penningarsToCollect);
                     Destroy(interactable.gameObject);
                 }
             }
