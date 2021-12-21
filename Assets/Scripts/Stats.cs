@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
+    private const string PENNINGARS = "penningars";
     private const string MAX_HEALTH = "max_health";
     private const string MOVEMENT_SPEED = "movement_speed";
     private const string LUCK_MULTIPLIER = "luck_multiplier";
@@ -52,8 +53,7 @@ public class Stats : MonoBehaviour
     {
         penningar += addPeningar;
         OnPenningarAmountChanged?.Invoke(penningar);
-        // TODO: add peningar to pp (Jens)
-
+        PenningarPlayerPrefs();
     }
     public void addProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
@@ -132,7 +132,7 @@ public class Stats : MonoBehaviour
     {
         penningar = setPeningar;
         OnPenningarAmountChanged?.Invoke(penningar);
-        // TODO: add peningar to pp (Jens)
+        PenningarPlayerPrefs();
 
     }
     void setProjectileLifeMultiplier(float newLifeTimeMultiplier)
@@ -214,6 +214,7 @@ public class Stats : MonoBehaviour
 
     private void StatsFromPlayerPrefs()
     {
+        setPeningarAmount(PlayerPrefs.GetInt(PENNINGARS, penningar));
         setProjectileLifeMultiplier(PlayerPrefs.GetFloat(PROJECTILE_LIFE_MULTIPLIER, projectileLifeMultiplier));
         setDamageMultiplier(PlayerPrefs.GetFloat(DAMAGE_MULTIPLIER, damageMultiplier));
         setProjectilespeedMultiplier(PlayerPrefs.GetFloat(PROJECTILE_SPEED_MULTIPLIER, projectileSpeedMultiplier));
@@ -236,6 +237,10 @@ public class Stats : MonoBehaviour
         PlayerPrefs.SetFloat(LUCK_MULTIPLIER, luckMultiplier);
     }
 
+    private void PenningarPlayerPrefs()
+    {
+        PlayerPrefs.SetInt(PENNINGARS, penningar);
+    }
     private void ProjectileLifeMultiplierToPlayerPrefs()
     {
         PlayerPrefs.SetFloat(PROJECTILE_LIFE_MULTIPLIER, projectileLifeMultiplier);
