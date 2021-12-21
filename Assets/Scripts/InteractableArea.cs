@@ -26,11 +26,13 @@ public class InteractableArea : MonoBehaviour
                 ItemStats statsToAdd = interactable.GetComponent<ItemStats>();
                 var DPC = interactable.GetComponent<dpc>();
                 var projectileItem = interactable.GetComponent<ProjectileItem>();
+                var peningarBagDrop = interactable.GetComponent<PeningarDrop>();
                 if (statsToAdd is not null) // Check if the Collectable has a specific component
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
 
                     // Adding the rune stats to Toke
+                    tokeStats.addPeningarAmount(statsToAdd.peningar);
                     tokeStats.addMaxHealth(statsToAdd.maxHealth);
                     tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
                     tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
@@ -48,6 +50,12 @@ public class InteractableArea : MonoBehaviour
                 else if(projectileItem is not null)
                 {
                     projectileItem.CollectProjectile();
+                    Destroy(interactable.gameObject);
+                }
+                else if(peningarBagDrop is not null)
+                {
+                    Stats tokeStats = GetComponentInParent<Stats>();
+                    tokeStats.peningar += peningarBagDrop.peningarsAvaliable;
                     Destroy(interactable.gameObject);
                 }
             }

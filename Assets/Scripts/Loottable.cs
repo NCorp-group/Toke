@@ -21,13 +21,19 @@ public class Loottable : MonoBehaviour
         Instantiate(runes[runeType], transform.position, Quaternion.identity);
     }
 
+    private void PeningarDrop()
+    {
+        var peningarBag = Resources.Load<PeningarDrop>($"items/Peningar Bag");
+        Instantiate(peningarBag, transform.position, Quaternion.identity);
+    }
+
     public List<int> lootTable;// = { 10, 90 }; // rune tickets, nothing
     public int totalTickets = 0;
     public int randomNumber;
     // Start is called before the first frame update
     void Start()
     {
-        lootTable = new List<int>() { 10, 90 }; // Rune, nothing
+        lootTable = new List<int>() { 10, 40, 50 }; // Rune, peningar, nothing
         // Sum up all tickets
         foreach(int tickets in lootTable){
             //Debug.Log($"Ticket entry with {tickets} tickets");
@@ -58,6 +64,9 @@ public class Loottable : MonoBehaviour
         if(n == 0)
         {
             RuneDrop();
+        } else if (n == 1)
+        {
+            PeningarDrop();
         }
     }
 }

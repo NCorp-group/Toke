@@ -11,8 +11,9 @@ public class ItemStats : MonoBehaviour
 {
     private TextMeshProUGUI priceTag;
     [Space]
-    [Header("Stats")]
+    [Header("Collectable stats")]
     // Stats:
+    public int peningar = 0;
     public int maxHealth = 0;
     public float movementSpeed = 0;
     public float luckMultiplier = 0;

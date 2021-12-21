@@ -11,7 +11,8 @@ public class Stats : MonoBehaviour
     private const string DAMAGE_MULTIPLIER = "damage_multipler";
     private const string PROJECTILE_LIFE_MULTIPLIER = "projectile_life_multiplier";
     private const string PROJECTILE_SPEED_MULTIPLIER = "projectile_speed_multiplier";
-    
+
+    public int peningar = 0;
     public int maxHealth = 100;
     public float movementSpeed = 5;
     public float luckMultiplier = 1;
@@ -20,6 +21,7 @@ public class Stats : MonoBehaviour
     public float projectileLifeMultiplier = 1;
     public float projectileSpeedMultiplier = 1;
 
+    public static event Action<int> OnPaningarAmountChanged;
     public static event Action<float> OnProjectileLifeMultiplierModifierChanged;
     public static event Action<float> OnDamageMultiplierChanged;
     public static event Action<float> OnLuckMultiplierChanged;
@@ -45,7 +47,14 @@ public class Stats : MonoBehaviour
 
     //#endif
     /////////////////////////////For consumables////////////////////////////////
-    // 
+    //
+    public void addPeningarAmount(int addPeningar)
+    {
+        peningar += addPeningar;
+        OnPaningarAmountChanged?.Invoke(peningar);
+        // TODO: add peningar to pp (Jens)
+
+    }
     public void addProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
         //Debug.Log($"About to add {newLifeTimeMultiplier} to newLifeTimeMultiplier");
@@ -119,6 +128,13 @@ public class Stats : MonoBehaviour
     }
 
     ///////////////////////////////For debug UI/////////////////////////////////
+    public void setPeningarAmount(int setPeningar)
+    {
+        peningar = setPeningar;
+        OnPaningarAmountChanged?.Invoke(peningar);
+        // TODO: add peningar to pp (Jens)
+
+    }
     void setProjectileLifeMultiplier(float newLifeTimeMultiplier)
     {
         //Debug.Log($"About to change newLifeTimeMultiplier to {newLifeTimeMultiplier}");
@@ -182,6 +198,7 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        
         setProjectileLifeMultiplier(projectileLifeMultiplier);
         setDamageMultiplier(damageMultiplier);
         setProjectilespeedMultiplier(projectileSpeedMultiplier);
