@@ -14,7 +14,12 @@ public class SpawnObjectsOnTargetEnter : MonoBehaviour
     public Transform spawnPoint;
     public Transform[] objectsToSpawn;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Awake()
+    {
+        gameObject.layer = targetLayerMask;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log($"Something entered area with name {other.gameObject.name}");
         
