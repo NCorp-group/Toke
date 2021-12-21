@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398728840148823396}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -95,25 +95,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: toke-hit1
     clip: {fileID: 8300000, guid: 89db39d4032024f42bde3f2ff6516657, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-hit2
     clip: {fileID: 8300000, guid: 0aa16eaa66da6014eb3d888492e55ddc, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-hit3
     clip: {fileID: 8300000, guid: 3cb3af5790d5c414e9e2b0e19e8752b8, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: toke-hit4
     clip: {fileID: 8300000, guid: e5cc02a2a9fff5b49a75411c442f459b, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -237,51 +237,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: worm-fire5
-    clip: {fileID: 8300000, guid: 8212b0794dbad5141aa6f5620bc6cd70, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: worm-fire6
-    clip: {fileID: 8300000, guid: 5f43b990366f8ab4988b4b54b1e93ecf, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: worm-fire7
-    clip: {fileID: 8300000, guid: ad4f70ef9dec8654599a332811e47c9a, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: worm-fire8
-    clip: {fileID: 8300000, guid: a657a236e7a98294fb42f0ef3b3409ef, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: test-sound
     clip: {fileID: 8300000, guid: 5b7e3be0e0e328f499c7a280dcc53b5a, type: 3}
     volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: default-music
-    clip: {fileID: 8300000, guid: 1a3acbb29f0f9e440be2ebc2bd759b6b, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: boss-music
-    clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: menu-music
-    clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
-    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -410,4 +368,143 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-attack1
+    clip: {fileID: 8300000, guid: 7f52330c2052b2147925e54eba8b7e11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-attack2
+    clip: {fileID: 8300000, guid: 7f52330c2052b2147925e54eba8b7e11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-attack3
+    clip: {fileID: 8300000, guid: 7f52330c2052b2147925e54eba8b7e11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: nightbornimp-attack4
+    clip: {fileID: 8300000, guid: 7f52330c2052b2147925e54eba8b7e11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-fire1
+    clip: {fileID: 8300000, guid: 8e8c95816964dfd40a4defced2b99d90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-fire2
+    clip: {fileID: 8300000, guid: 8e8c95816964dfd40a4defced2b99d90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-fire3
+    clip: {fileID: 8300000, guid: 8e8c95816964dfd40a4defced2b99d90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-fire4
+    clip: {fileID: 8300000, guid: 8e8c95816964dfd40a4defced2b99d90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-death1
+    clip: {fileID: 8300000, guid: 13e566259631ee44ebee1fd7f164c8bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-death2
+    clip: {fileID: 8300000, guid: 13e566259631ee44ebee1fd7f164c8bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-death3
+    clip: {fileID: 8300000, guid: 13e566259631ee44ebee1fd7f164c8bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-death4
+    clip: {fileID: 8300000, guid: 13e566259631ee44ebee1fd7f164c8bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-death1
+    clip: {fileID: 8300000, guid: 0f6e0c7474d92e5498002a553728f8de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-death2
+    clip: {fileID: 8300000, guid: 0f6e0c7474d92e5498002a553728f8de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-death3
+    clip: {fileID: 8300000, guid: 0f6e0c7474d92e5498002a553728f8de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arcanearcher-death4
+    clip: {fileID: 8300000, guid: 0f6e0c7474d92e5498002a553728f8de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-fire1
+    clip: {fileID: 8300000, guid: 4dc4d272ea5911541807a89edc08de4e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-fire2
+    clip: {fileID: 8300000, guid: 4dc4d272ea5911541807a89edc08de4e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-fire3
+    clip: {fileID: 8300000, guid: 4dc4d272ea5911541807a89edc08de4e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: evilwizard-fire4
+    clip: {fileID: 8300000, guid: 4dc4d272ea5911541807a89edc08de4e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  music:
+  - name: boss-music
+    clip: {fileID: 8300000, guid: a1e7b1c92efa3354aaabca12ed0649f9, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: default-music
+    clip: {fileID: 8300000, guid: 1a3acbb29f0f9e440be2ebc2bd759b6b, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: menu-music
+    clip: {fileID: 8300000, guid: 4b9d4b2040f0e224189f424902bdfd59, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

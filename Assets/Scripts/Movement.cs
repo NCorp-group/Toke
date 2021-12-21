@@ -100,12 +100,13 @@ public class Movement : MonoBehaviour
                 {
                     if (_can_dash)
                     {
+                        OnPlayerDash?.Invoke();
                         _dash_dir = new Vector2(_x, _y).normalized;;
                         _dash_button_down = true;
                         _dash_speed = dashSpeed;
                         _state = State.Dashing;
                         _can_dash = false;
-                        OnPlayerDash?.Invoke();
+              
                         _apply_delay.Invoke();
                     }
                 }

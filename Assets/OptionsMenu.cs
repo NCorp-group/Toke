@@ -15,9 +15,11 @@ public class OptionsMenu : MonoBehaviour
     private Toggle musicToggle;
     private Toggle sfxToggle;
 
-    public Action<float> OnMasterVolumeChanged;
-    public Action<float> OnMusicVolumeChanged;
-    public Action<float> OnSFXVolumeChanged;
+    public static event Action<float, float, float> OnVolumeChanged;
+
+    public static event Action<float> OnMasterVolumeChanged;
+    public static event Action<float> OnMusicVolumeChanged;
+    public static event Action<float> OnSFXVolumeChanged;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,19 @@ public class OptionsMenu : MonoBehaviour
         sfxToggle = GetComponentsInChildren<Toggle>().First(toggle => toggle.name == "SFXToggle");
     }
 
+    public void VolumeChange()
+    {
+        var valueMaster = masterSlider.value;
+        var valueMusic = musicSlider.value;
+        var valueSFX = sfxSlider.value;
+        OnVolumeChanged?.Invoke(
+            valueMaster, 
+            valueMusic, 
+            valueSFX
+        );
+    }
+
+    /*
     public void MasterVolumeChange()
     {
         var value = masterSlider.value;
@@ -48,7 +63,26 @@ public class OptionsMenu : MonoBehaviour
         var value = sfxSlider.value;
         OnSFXVolumeChanged?.Invoke(value);
     }
+    */
 
+    public void VolumeToggle()
+    {
+        var masterToggled = masterToggle.isOn;
+        var musicToggled = musicToggle.isOn;
+        var sfxToggled = sfxToggle.isOn;
+
+        OnVolumeChanged?.Invoke(
+            masterToggled ? masterSlider.value : 0, 
+            musicToggled ? musicSlider.value : 0, 
+            sfxToggled ? sfxSlider.value : 0
+        );
+
+        Debug.Log($"Master value: {masterSlider.value}");
+        Debug.Log($"Music value: {musicSlider.value}");
+        Debug.Log($"SFX value: {sfxSlider.value}");
+    }
+
+    /*
     public void MasterVolumeToggle()
     {
         var toggled = masterToggle.isOn;
@@ -66,4 +100,5 @@ public class OptionsMenu : MonoBehaviour
         var toggled = sfxToggle.isOn;
         OnSFXVolumeChanged?.Invoke(toggled ? 0 : sfxSlider.value);
     }
+    */
 }
