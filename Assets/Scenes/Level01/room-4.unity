@@ -21255,6 +21255,22 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 827157755
       objectReference: {fileID: 0}
+    - target: {fileID: 1555840645040173448, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555840645040173449, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555840645805016067, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555840645805016068, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2767724943092214726, guid: b08424a1ec368534684a7f89cc233e2b, type: 3}
       propertyPath: transitionAnimator
       value: 

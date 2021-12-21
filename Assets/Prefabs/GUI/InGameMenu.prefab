@@ -397,6 +397,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1555840644041499878}
     m_Modifications:
+    - target: {fileID: 1155370120, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155370121, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983183107, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983183108, guid: 725faa79e9385194696948767a1e4143, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5177780835994247178, guid: 725faa79e9385194696948767a1e4143, type: 3}
       propertyPath: m_Name
       value: TokeHealthBar
