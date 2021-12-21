@@ -14,6 +14,7 @@ public class ItemStats : MonoBehaviour
     [Header("Collectable stats")]
     // Stats:
     public int penningar = 0;
+    public float currentHealth = 0;
     public int maxHealth = 0;
     public float movementSpeed = 0;
     public float luckMultiplier = 0;
@@ -24,8 +25,8 @@ public class ItemStats : MonoBehaviour
 
     [Space]
     [Header("Shop Properties")]
-    [SerializeField] bool dropped = true;
-    [SerializeField] int price = 0;
+    [SerializeField] public bool dropped = true;
+    [SerializeField] public int price = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +35,11 @@ public class ItemStats : MonoBehaviour
         if (!dropped)
         {
             priceTag = GetComponentInChildren<TextMeshProUGUI>(true);
+            Debug.Log($"{priceTag.text}");
             if (priceTag is not null)
             {
                 priceTag.text = $"{price} P";
-                priceTag.gameObject.SetActive(true);
+                priceTag.enabled = true;
             }
         }
     }

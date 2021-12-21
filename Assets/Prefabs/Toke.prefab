@@ -427,7 +427,7 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 0.001
+  m_LightVolumeIntensity: 0.1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 3be0dab1
   m_LightCookieSprite: {fileID: 0}
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 0.001
+  m_LightVolumeIntensity: 0.01
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 3be0dab1
   m_LightCookieSprite: {fileID: 0}

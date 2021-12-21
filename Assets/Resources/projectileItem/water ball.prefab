@@ -284,7 +284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -60.388016, y: -22.222486}
+  m_AnchoredPosition: {x: -3, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3238764453615802549
@@ -305,7 +305,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 827157755
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1725191726875643404
@@ -426,7 +426,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 1449508775926928179, guid: 20efc05b26de0f6debbedcef17a24be8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -526,6 +526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: water ball
-  price: 0
+  price: 50
   fireRate: 0.5
   color: {r: 0.10196079, g: 0.44705886, b: 0.8705883, a: 1}

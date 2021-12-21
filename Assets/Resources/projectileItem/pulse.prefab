@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2074284173
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 58fb160de302c69fdb63611f1f09d8a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: pulse
-  price: 0
+  price: 50
   fireRate: 0.5
   color: {r: 0.3254902, g: 0.7607844, b: 1, a: 1}
 --- !u!1 &4445502287274427487
@@ -353,7 +353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -60.21601, y: -15.390485}
+  m_AnchoredPosition: {x: -3, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &321965414214607059
@@ -374,7 +374,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 827157755
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &96434610179797820

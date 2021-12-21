@@ -66,9 +66,6 @@ TagManager:
   - name: Runes
     uniqueID: 1551388441
     locked: 0
-  - name: SceptreCrystal
-    uniqueID: 2983911483
-    locked: 0
   - name: Boss
     uniqueID: 988020291
     locked: 0
@@ -83,6 +80,9 @@ TagManager:
     locked: 0
   - name: Scepter
     uniqueID: 2838600373
+    locked: 0
+  - name: SceptreCrystal
+    uniqueID: 2983911483
     locked: 0
   - name: Enemy
     uniqueID: 3756020129

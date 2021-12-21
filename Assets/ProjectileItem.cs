@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ProjectileItem : MonoBehaviour
@@ -11,6 +12,18 @@ public class ProjectileItem : MonoBehaviour
     public static event Action<string> OnProjectileCollected;
     public static event Action<float> OnFireRateChanged;
     public static event Action<Color> OnProjectileSetColor;
+    private TextMeshProUGUI priceTag;
+
+    private void Start()
+    {
+        priceTag = GetComponentInChildren<TextMeshProUGUI>(true);
+        Debug.Log($"{priceTag.text}");
+        if (priceTag is not null)
+        {
+            priceTag.text = $"{price} P";
+            priceTag.enabled = true;
+        }
+    }
 
     public void CollectProjectile()
     {

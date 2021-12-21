@@ -31,16 +31,25 @@ public class InteractableArea : MonoBehaviour
                 {
                     Stats tokeStats = GetComponentInParent<Stats>();
 
-                    // Adding the rune stats to Toke
-                    tokeStats.addPenningarAmount(statsToAdd.penningar);
-                    tokeStats.addMaxHealth(statsToAdd.maxHealth);
-                    tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
-                    tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
-                    tokeStats.addFireRateScalar(statsToAdd.fireRateMultiplier);
-                    tokeStats.addDamageMultiplier(statsToAdd.damageMultiplier);
-                    tokeStats.addProjectileLifeMultiplier(statsToAdd.projectileLifeMultiplier);
-                    tokeStats.addProjectilespeedMultiplier(statsToAdd.projectileSpeedMultiplier);
-                    Destroy(interactable.gameObject);
+                    if (!statsToAdd.dropped || tokeStats.penningar >= statsToAdd.price)
+                    {
+                        // Adding the rune stats to Toke
+                        tokeStats.addPenningarAmount(statsToAdd.penningar);
+                        tokeStats.addMaxHealth(statsToAdd.maxHealth);
+                        tokeStats.addMovementSpeedScalar(statsToAdd.movementSpeed);
+                        tokeStats.addCurrentHealth(statsToAdd.currentHealth);
+                        tokeStats.addLuckMultiplier(statsToAdd.luckMultiplier);
+                        tokeStats.addFireRateScalar(statsToAdd.fireRateMultiplier);
+                        tokeStats.addDamageMultiplier(statsToAdd.damageMultiplier);
+                        tokeStats.addProjectileLifeMultiplier(statsToAdd.projectileLifeMultiplier);
+                        tokeStats.addProjectilespeedMultiplier(statsToAdd.projectileSpeedMultiplier);
+                        tokeStats.addPenningarAmount(-statsToAdd.price);
+                        Destroy(interactable.gameObject);
+                    }
+                    else
+                    {
+                        Debug.Log("Toke does not have enough penningars");
+                    }
                 }
                 else if (DPC is not null)
                 {
@@ -48,8 +57,16 @@ public class InteractableArea : MonoBehaviour
                 }
                 else if(projectileItem is not null)
                 {
-                    projectileItem.CollectProjectile();
-                    Destroy(interactable.gameObject);
+                    Stats tokeStats = GetComponentInParent<Stats>();
+                    if(tokeStats.penningar >= projectileItem.price) {
+                        tokeStats.addPenningarAmount(-projectileItem.price);
+                        projectileItem.CollectProjectile();
+                        Destroy(interactable.gameObject);
+                    }
+                    else
+                    {
+                        Debug.Log("Toke does not have enough penningars");
+                    }
                 }
                 else if(penningarBagDrop is not null)
                 {
