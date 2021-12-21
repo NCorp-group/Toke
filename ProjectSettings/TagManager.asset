@@ -60,6 +60,9 @@ TagManager:
   - name: Decorations
     uniqueID: 2733370795
     locked: 0
+  - name: LootBag
+    uniqueID: 1918173281
+    locked: 0
   - name: Runes
     uniqueID: 1551388441
     locked: 0
@@ -89,7 +92,4 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 753051699
-    locked: 0
-  - name: LootBag
-    uniqueID: 1918173281
     locked: 0
