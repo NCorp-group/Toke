@@ -25,20 +25,20 @@ public class Stats : MonoBehaviour
     public float projectileSpeedMultiplier = 1;
 
     private const int defaultPenningar = 0;
-    private int defaultMaxHealth = 100;
-    private float defaultCurrentHealth = 100;
-    private float defaultMovementSpeed = 7;
-    private float defaultLuckMultiplier = 1;
-    private float defaultFireRateMultiplier = 1;
-    private float defaultDamageMultiplier = 1;
-    private float defaultProjectileLifeMultiplier = 1;
-    private float defaultProjectileSpeedMultiplier = 1;
+    private const int defaultMaxHealth = 100;
+    private const float defaultCurrentHealth = 100;
+    private const float defaultMovementSpeed = 7;
+    private const float defaultLuckMultiplier = 1;
+    private const float defaultFireRateMultiplier = 1;
+    private const float defaultDamageMultiplier = 1;
+    private const float defaultProjectileLifeMultiplier = 1;
+    private const float defaultProjectileSpeedMultiplier = 1;
     
     public static event Action<float, int> OnPlayerHealthChange;
     public static event Action OnPlayerDie;
     public static event Action OnPlayerTakeDamage;
     
-    public bool alive = true;
+    public static bool Alive = true;
 
     public static event Action<int> OnPenningarAmountChanged;
     public static event Action<float> OnProjectileLifeMultiplierModifierChanged;
@@ -228,16 +228,6 @@ public class Stats : MonoBehaviour
     }
     ////////////////////////////////////////////////////////////////////////////
 
-    private void OnEnable()
-    {
-        /*Debug.Log($"Scene Name = {SceneManager.GetActiveScene().name}");
-        if (SceneManager.GetActiveScene().name == RoomManager.ROOM_ENTRY)
-        {
-            PlayerPrefs.DeleteAll();
-            Debug.Log("Deleted PP");
-        }*/
-    }
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -252,18 +242,11 @@ public class Stats : MonoBehaviour
             ResetStats();
         }
         StatsFromPlayerPrefs();
-        /*setProjectileLifeMultiplier(projectileLifeMultiplier);
-        setDamageMultiplier(damageMultiplier);
-        setProjectilespeedMultiplier(projectileSpeedMultiplier);
-        setCurrentHealth(currentHealth);
-        setMaxHealth(maxHealth);
-        setMovementSpeedMultiplier(movementSpeed);
-        setFireRateMultiplier(fireRateMultiplier);
-        setLuckMultiplier(luckMultiplier);*/
     }
 
     private void ResetStats()
     {
+        setPeningarAmount(defaultPenningar);
         setProjectileLifeMultiplier(defaultProjectileLifeMultiplier);
         setDamageMultiplier(defaultDamageMultiplier);
         setProjectilespeedMultiplier(defaultProjectileSpeedMultiplier);
@@ -272,7 +255,6 @@ public class Stats : MonoBehaviour
         setMovementSpeedMultiplier(defaultMovementSpeed);
         setFireRateMultiplier(defaultFireRateMultiplier);
         setLuckMultiplier(defaultLuckMultiplier);
-        //StatsToPlayerPrefs();
     }
 
     private void StatsFromPlayerPrefs()
@@ -368,7 +350,7 @@ public class Stats : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
-        if (!alive) return;
+        if (!Alive) return;
         /*currentHealth -= damage;
         PlayerPrefs.SetFloat(CURRENT_HEALTH, currentHealth);*/
         addCurrentHealth(-damage);
@@ -392,7 +374,7 @@ public class Stats : MonoBehaviour
         else
         {
             OnPlayerDie?.Invoke();
-            alive = false;
+            Alive = false;
         }
     }
 }

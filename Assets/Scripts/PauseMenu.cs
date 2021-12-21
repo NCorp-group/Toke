@@ -29,21 +29,14 @@ public class PauseMenu : MonoBehaviour
 
     private void ShowDeathMenu()
     {
-        //Debug.Log($"deathMenu = {deathMenu.name}");
         GetComponentsInChildren<Image>(true).First(
             o => o.name == "DeathMenu"
         ).gameObject.SetActive(true);
-        StartCoroutine(FadeTime(3f));
+        StartCoroutine(FadeTime(1f));
     }
 
     private IEnumerator FadeTime(float fadeTime)
     {
-        /*for (int i = 0; i <= STEPS; i++)
-        {
-            var ratio = (float) i / STEPS;
-            Time.timeScale = Mathf.Lerp(1f, 0f, ratio);
-            yield return new WaitForSecondsRealtime(5f / STEPS);
-        }*/
 
         while (Time.timeScale > 0f)
         {
@@ -52,8 +45,6 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
     }
-
-    private const int STEPS = 20;
 
     // Start is called before the first frame update
     private void Start()
@@ -64,12 +55,6 @@ public class PauseMenu : MonoBehaviour
             o => o.name == "MenuItems"
         ).gameObject;
         
-        /*deathMenu = GetComponentsInChildren<Image>(true).First(
-            o => o.name == "DeathMenu"
-        ).gameObject;
-        Debug.Log($"deathMenu = {deathMenu.name}");*/
-        
-        //Resume();
     }
 
     // Update is called once per frame
@@ -78,6 +63,7 @@ public class PauseMenu : MonoBehaviour
         //Debug.Log($"deathMenu = {deathMenu.name}");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (!Stats.Alive) return;
             if (isPaused)
             {
                 Resume();
